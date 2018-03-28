@@ -6,6 +6,10 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// register globally used common components
+import AppHeader from './components/AppHeader.vue'
+Vue.component('app-header', AppHeader)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -13,3 +17,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
