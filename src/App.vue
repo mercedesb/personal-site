@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <app-header />
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -31,6 +32,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import 'assets/main.scss';
   @import 'assets/styles/app.scss';
 </style>
