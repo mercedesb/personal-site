@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <app-header />
+    <router-view></router-view>
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>

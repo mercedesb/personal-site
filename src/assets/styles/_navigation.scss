@@ -6,4 +6,6 @@
   align-items: center;
   justify-content: center;
   box-shadow: $base-drop-shadow;
+  position: relative;
+  z-index: 3;
 }

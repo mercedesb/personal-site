@@ -1,0 +1,21 @@
+.Hero {
+  box-shadow: $base-drop-shadow;
+  height: 805px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+//Each loop to create classes
+.Hero {
+  @each $type in $colors-array {
+    &--#{nth($type, 1)} {
+      background-color: #{nth($type, 2)};
+      color: #{nth($type, 3)};
+      /*&:hover {
+        background-color: darken(nth($type, 2), 5%);
+      }*/
+    }
+  }
+}

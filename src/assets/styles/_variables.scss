@@ -5,7 +5,16 @@ $green: #AAA16D;
 $purple: #624153;
 $dark-purple: #3F2A35;
 
-$base-drop-shadow: 0 0 10px 0 $dark-purple;
+//Create Array
+$colors-array:  (white $white $dark-purple,
+                  brown $brown $white,
+                  blue $blue $white,
+                  green $green $white,
+                  purple $purple $white,
+                  darkPurple $dark-purple $white
+                 );
+
+$base-drop-shadow: 0 2px 10px 0 $dark-purple;
 
 $font_path: 'assets/fonts/';
 $candela: 'candelabook';
