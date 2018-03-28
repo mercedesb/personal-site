@@ -11,6 +11,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader'
+      },
+      {
         test: /\.css$/,
         use: [
           'vue-style-loader',

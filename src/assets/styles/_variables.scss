@@ -6,3 +6,14 @@ $purple: #624153;
 $dark-purple: #3F2A35;
 
 $base-drop-shadow: 0 0 10px 0 $dark-purple;
+
+$font_path: 'assets/fonts/';
+$candela: 'candelabook';
+@font-face {
+    font-family: $candela;
+    src: url($font_path +'CandelaBook-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$base-font-family: $candela;
