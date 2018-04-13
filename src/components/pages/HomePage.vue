@@ -5,7 +5,7 @@
       <ContentColumn
         v-for="landingPage in landingPages"
         :key="landingPage.id"
-        :metadata="landingPage"
+        :data="landingPage"
       />
   </div>
 </div>
@@ -20,7 +20,7 @@ const config = require('../../../config.json');
 
 const client = contentful.createClient({
   space: config.spaceId,
-  accessToken: cdaToken
+  accessToken: config.cdaToken
 })
 
 // Load all entries for a given Content Type from Contentful
@@ -41,10 +41,7 @@ function getLandingPages () {
     const landingPages = []
     homePage.fields.children.forEach((child) => {
       landingPages.push({
-        id: child.sys.id,
-        title: child.fields.title,
-        description: child.fields.preamble,
-        icon: child.fields.icon
+        ...child.fields
       })
 
     })
