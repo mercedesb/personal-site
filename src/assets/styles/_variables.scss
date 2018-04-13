@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
 $white: #F7F5F1;
 $brown: #AA916D;
 $blue: #465969;
@@ -25,4 +27,7 @@ $candela: 'candelabook';
     font-style: normal;
 }
 
-$base-font-family: $candela;
+$header-font-family: $candela, Arial, sans-serif;
+
+$libre-baskerville: 'Libre Baskerville';
+$base-font-family: $libre-baskerville, serif;

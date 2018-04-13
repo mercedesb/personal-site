@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './navigation.scss';
 @import './hero.scss';
+@import './contentcolumn.scss';
 
 body {
   margin: 0;
@@ -9,7 +10,7 @@ body {
 }
 
 #app {
-  font-family: $base-font-family, Arial, sans-serif;
+  font-family: $base-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -18,6 +19,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-family: $header-font-family;
 }
 
 ul {
@@ -32,4 +34,8 @@ li {
 
 a {
   color: #42b983;
+}
+
+.FlexContainer {
+  display:flex;
 }

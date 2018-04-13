@@ -1,7 +1,7 @@
 <template>
   <div>
   <HeroHeader title='Home' color='brown'></HeroHeader>
-  <div v-if="landingPages.length">
+  <div class='FlexContainer' v-if="landingPages.length">
       <ContentColumn
         v-for="landingPage in landingPages"
         :key="landingPage.id"
