@@ -16,6 +16,45 @@ import HeroHeader from '../HeroHeader.vue'
 import ContentColumn from '../ContentColumn.vue'
 
 let nextPlaceholderId = 1
+const contentful = require('contentful')
+const config = require('../../../config.json');
+
+const spaceId = config.spaceId;
+const cdaToken = config.cdaToken;
+
+const client = contentful.createClient({
+  space: spaceId,
+  accessToken: cdaToken
+})
+
+// Load all entries for a given Content Type from Contentful
+function fetchHomePage () {
+  return client.getEntries({
+      content_type: 'home'
+    })
+  .then((response) => response.items[0])
+  .catch((error) => {
+    console.log(`\nError occurred while fetching Entries for home:`)
+    console.error(error)
+  })
+}
+
+function getLandingPages () {
+  return fetchHomePage()
+  .then((homePage) => {
+    const landingPages = []
+    homePage.fields.children.forEach((child) => {
+      landingPages.push({
+        id: child.sys.id,
+        title: child.fields.title,
+        description: child.fields.preamble,
+        icon: child.fields.icon
+      })
+
+    })
+    return landingPages
+  })
+}
 
 export default {
   name: 'HomePage',
@@ -24,33 +63,18 @@ export default {
   },
   data () {
     return {
-      landingPages: [
-        {
-          id: nextPlaceholderId++,
-          title: 'About',
-          description:'about desc',
-          icon:'compass'
-        },
-        {
-          id: nextPlaceholderId++,
-          title: 'Blog',
-          description:'blog desc',
-          icon:'message'
-        },
-        {
-          id: nextPlaceholderId++,
-          title: 'Connect',
-          description:'connect desc',
-          icon:'add-friend'
-        },
-        {
-          id: nextPlaceholderId++,
-          title: 'Shop',
-          description:'shop desc',
-          icon:'purse'
-        }
-      ]
+      landingPages: [],
+      errors: []
     }
+  },
+  created () {
+    return getLandingPages()
+    .then((landingPages) => {
+      this.landingPages = landingPages
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
   }
 }
 </script>
