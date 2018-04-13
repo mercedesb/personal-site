@@ -4,8 +4,8 @@ I started this project with the intent to make a personal website that actually 
 
 # Goals
 - Create a cohesive brand
-- Learn basic Sketch skills
 - Get exposure to and successfully implement basic design principles
+- Learn basic Sketch skills
 - Learn a new front-end framework
 
 # Considerations
@@ -13,6 +13,9 @@ I started this project with the intent to make a personal website that actually 
 I'll be documenting my decisions and how I came to them along the way.
 
 ## Brand
+
+#### Brand colors
+For the last 2 years
 - Coming soon: why kraft brown
 - Coming soon: color sheme
 - TBD: typography
@@ -25,6 +28,10 @@ I'll be documenting my decisions and how I came to them along the way.
 ## UX
 - link to wireframes
 - explain connection between brand and ux decisions
+- Feedback
+  - move nav to top and follow expected mental pattern (desktop)
+  - for inner pages, change the treatment to the content columns to clearly differentiate their purpose from the top level content columns
+  - shorten the lines of text on content pages, 75 characters max (50-60 optimal)
 
 ## UI
 

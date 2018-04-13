@@ -5,10 +5,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-}
 
-//Each loop to create classes
-.Hero {
+  //Each loop to create classes
   @each $type in $colors-array {
     &--#{nth($type, 1)} {
       background-color: #{nth($type, 2)};
