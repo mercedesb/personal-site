@@ -15,15 +15,11 @@
 import HeroHeader from '../HeroHeader.vue'
 import ContentColumn from '../ContentColumn.vue'
 
-let nextPlaceholderId = 1
 const contentful = require('contentful')
 const config = require('../../../config.json');
 
-const spaceId = config.spaceId;
-const cdaToken = config.cdaToken;
-
 const client = contentful.createClient({
-  space: spaceId,
+  space: config.spaceId,
   accessToken: cdaToken
 })
 
@@ -57,7 +53,6 @@ function getLandingPages () {
 }
 
 export default {
-  name: 'HomePage',
   components: {
     HeroHeader, ContentColumn
   },
