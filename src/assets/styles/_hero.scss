@@ -8,14 +8,5 @@ $hero-height: 500px;
   justify-content: center;
   position: relative;
 
-  //Each loop to create classes
-  @each $type in $colors-array {
-    &--#{nth($type, 1)} {
-      background-color: #{nth($type, 2)};
-      color: #{nth($type, 3)};
-      /*&:hover {
-        background-color: darken(nth($type, 2), 5%);
-      }*/
-    }
-  }
+  @include background-color;
 }

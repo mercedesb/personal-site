@@ -1,0 +1,18 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin background-color {
+  @each $type in $colors-array {
+    &--#{nth($type, 1)} {
+      background-color: #{nth($type, 2)};
+      color: #{nth($type, 3)};
+      /*&:hover {
+        background-color: darken(nth($type, 2), 5%);
+      }*/
+    }
+  }
+}

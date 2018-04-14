@@ -1,9 +1,14 @@
 @import '../node_modules/normalize.css/normalize.css';
 @import './variables.scss';
+@import './mixins.scss';
 @import './typography.scss';
 @import './navigation.scss';
 @import './hero.scss';
 @import './contentcolumn.scss';
+@import './pageheader.scss';
+
+
+$content-width: 800px;
 
 body {
   margin: 0;
@@ -24,4 +29,13 @@ li {
 
 .FlexContainer {
   display:flex;
+
+  &--center {
+    justify-content: center;
+  }
+}
+
+.PageContent {
+  max-width: $content-width;
+  margin-top: $large-spacing;
 }

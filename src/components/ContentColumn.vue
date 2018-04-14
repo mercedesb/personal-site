@@ -1,6 +1,6 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <router-link :to="data.urlSegment">
+    <router-link :to="{ name: 'landing', params: { urlSegment: data.urlSegment, color: color } }">
       <h2 class='ContentColumn-title'>{{ data.title }}</h2>
     </router-link>
     <img class='ContentColumn-icon' :src="iconUrl" />

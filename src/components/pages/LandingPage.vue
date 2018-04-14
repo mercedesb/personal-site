@@ -1,10 +1,21 @@
 <template>
   <div>
-    <h1>{{page.title}}</h1>
+    <PageHeader
+      :color="color"
+      :title="page.title"
+      :preamble="page.preamble"
+      :media="iconUrl"></PageHeader>
+    <div class='FlexContainer FlexContainer--center'>
+      <p class="PageContent">
+        {{ page.mainContent }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import PageHeader from '../PageHeader.vue'
+
 const contentful = require('contentful')
 const config = require('../../../config.json');
 
@@ -28,16 +39,31 @@ function fetchPage (urlSegment) {
 }
 
 export default {
+  components: {
+    PageHeader
+  },
   props: {
     urlSegment: {
       type: String,
       required: true
+    },
+    color: {
+      type: String,
+      default: 'brown'
     }
   },
   data () {
     return {
       page: {},
       errors: []
+    }
+  },
+  computed: {
+    iconUrl: function() {
+      if (this.page.icon && this.page.icon.fields && this.page.icon.fields.file) {
+        return this.page.icon.fields.file.url
+      }
+      return ''
     }
   },
   created () {

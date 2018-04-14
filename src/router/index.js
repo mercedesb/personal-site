@@ -13,6 +13,6 @@ export default new Router({
   routes: [
     { path: '/', component: HomePage },
     { path: '/blog', component: BlogPage },
-    { path: '/:urlSegment', component: LandingPage, props: true }
+    { path: '/:urlSegment', name: 'landing', component: LandingPage, props: true }
   ]
 })
