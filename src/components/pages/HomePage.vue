@@ -1,11 +1,12 @@
 <template>
   <div>
   <HeroHeader title='Home' color='brown'></HeroHeader>
-  <div class='FlexContainer' v-if="landingPages.length">
+  <div class='FlexContainer' v-if="columns.length">
       <ContentColumn
-        v-for="landingPage in landingPages"
-        :key="landingPage.id"
-        :data="landingPage"
+        v-for="column in columns"
+        :key="column.landingPage.id"
+        :data="column.landingPage"
+        :color="column.color"
       />
   </div>
 </div>
@@ -22,6 +23,8 @@ const client = contentful.createClient({
   space: config.spaceId,
   accessToken: config.cdaToken
 })
+
+const colors = ['blue', 'yellow', 'gray', 'red']
 
 // Load all entries for a given Content Type from Contentful
 function fetchHomePage () {
@@ -43,7 +46,6 @@ function getLandingPages () {
       landingPages.push({
         ...child.fields
       })
-
     })
     return landingPages
   })
@@ -55,14 +57,21 @@ export default {
   },
   data () {
     return {
-      landingPages: [],
+      columns: [],
       errors: []
     }
   },
   created () {
     return getLandingPages()
     .then((landingPages) => {
-      this.landingPages = landingPages
+      landingPages.forEach((child, index) => {
+        this.columns.push({
+          color: colors[index % colors.length],
+          landingPage: {
+            ...child
+          }
+        })
+      })
     })
     .catch(e => {
       this.errors.push(e)

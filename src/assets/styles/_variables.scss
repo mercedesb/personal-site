@@ -2,21 +2,22 @@
 
 $white: #F7F5F1;
 $brown: #AA916D;
-$blue: #465969;
-$green: #AAA16D;
-$purple: #624153;
-$dark-purple: #3F2A35;
+$blue: #2E4052;
+$yellow: #D19D36;
+$gray: #8E8682;
+$red: #904E55;
+$black: #252627;
 
 //Create Array
-$colors-array:  (white $white $dark-purple,
+$colors-array:  (white $white $black,
                   brown $brown $white,
                   blue $blue $white,
-                  green $green $white,
-                  purple $purple $white,
-                  darkPurple $dark-purple $white
+                  yellow $yellow $white,
+                  gray $gray $white,
+                  red $red $white
                  );
 
-$base-drop-shadow: 0 2px 10px 0 $dark-purple;
+$base-drop-shadow: 0 2px 10px 0 $black;
 
 $font_path: 'assets/fonts/';
 $candela: 'candelabook';
@@ -31,3 +32,16 @@ $header-font-family: $candela, Arial, sans-serif;
 
 $libre-baskerville: 'Libre Baskerville';
 $base-font-family: $libre-baskerville, serif;
+
+$base-font-size: 24px;
+$large-font-size: 28px;
+$larger-font-size: 36px;
+$largest-font-size: 48px;
+$giant-font-size: 64px;
+
+$base-font-weight: 400;
+$heavy-font-weight: 600;
+
+$small-spacing: 10px;
+$base-spacing: 20px;
+$large-spacing: 40px;

@@ -1,7 +1,9 @@
+$nav-height: 50px;
+
 .MainNav {
   background-color: $white;
-  color: $dark-purple;
-  height: 100px;
+  color: $black;
+  height: $nav-height;
   display: flex;
   align-items: center;
   justify-content: center;

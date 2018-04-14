@@ -1,6 +1,8 @@
+$hero-height: 500px;
+
 .Hero {
   box-shadow: $base-drop-shadow;
-  height: 805px;
+  height: $hero-height;
   display: flex;
   align-items: center;
   justify-content: center;

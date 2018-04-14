@@ -1,4 +1,35 @@
+$icon-width: 125px;
+
 .ContentColumn {
   width:25%;
   height: 805px;
+  text-align: center;
+
+  &-title {
+    padding-top: $large-spacing;
+    color: $white;
+  }
+
+  &-icon {
+    padding-top: $large-spacing;
+    color: $white;
+    width: $icon-width;
+  }
+
+  &-description {
+    padding-top: $small-spacing;
+    color: $white;
+    margin: 0 $small-spacing;
+  }
+
+  //Each loop to create classes
+  @each $type in $colors-array {
+    &--#{nth($type, 1)} {
+      background-color: #{nth($type, 2)};
+      color: #{nth($type, 3)};
+      /*&:hover {
+        background-color: darken(nth($type, 2), 5%);
+      }*/
+    }
+  }
 }

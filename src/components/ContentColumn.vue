@@ -1,11 +1,12 @@
 <template>
-  <div class='ContentColumn'>
-    <img class='ContentColumn-icon' src='' />
+  <div :class="'ContentColumn ContentColumn--' + color">
     <router-link :to="data.urlSegment">
       <h2 class='ContentColumn-title'>{{ data.title }}</h2>
     </router-link>
+    <img class='ContentColumn-icon' :src="iconUrl" />
+
     <div class='ContentColumn-description'>
-      <p>{{ data.description }}</p>
+      <p>{{ data.preamble }}</p>
     </div>
   </div>
 </template>
@@ -19,6 +20,15 @@ export default {
       validator: value => {
         return !!value.title
       }
+    },
+    color: String
+  },
+  computed: {
+    iconUrl: function() {
+      if (this.data.icon && this.data.icon.fields && this.data.icon.fields.file) {
+        return this.data.icon.fields.file.url
+      }
+      return ''
     }
   }
 }
