@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{data.title}}</h1>
+    <h1>{{page.title}}</h1>
   </div>
 </template>
 
@@ -28,9 +28,6 @@ function fetchPage (urlSegment) {
 }
 
 export default {
-  components: {
-
-  },
   props: {
     urlSegment: {
       type: String,
@@ -39,14 +36,14 @@ export default {
   },
   data () {
     return {
-      data: {},
+      page: {},
       errors: []
     }
   },
   created () {
     return fetchPage(this.urlSegment)
     .then((page) => {
-      this.data = page.fields
+      this.page = page.fields
     })
     .catch(e => {
       this.errors.push(e)

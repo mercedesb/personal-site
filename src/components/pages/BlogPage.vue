@@ -10,11 +10,10 @@ export default {
   components: {
     LandingPage
   },
-  data: {
-    urlSegment: ''
-  },
-  created() {
-    this.urlSegment = this.$route.path.replace(/^\//, '')
+  computed: {
+    urlSegment: function () {
+      return this.$route.path.replace(/^\//, '')
+    }
   }
 }
 </script>

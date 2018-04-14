@@ -6,9 +6,7 @@
 </template>
 
 <script>
-export default {
-  name: 'app-header'
-}
+export default {}
 </script>
 
 <style lang="scss">
