@@ -22,7 +22,7 @@ function fetchPage (urlSegment) {
   )
   .then((response) => response.items[0])
   .catch((error) => {
-    console.log(`\nError occurred while fetching Entries for home:`)
+    console.log(`\nError occurred while fetching entries for ${urlSegment}:`)
     console.error(error)
   })
 }
@@ -31,6 +31,12 @@ export default {
   components: {
 
   },
+  props: {
+    urlSegment: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       data: {},
@@ -38,7 +44,7 @@ export default {
     }
   },
   created () {
-    return fetchPage(this.$route.params.urlSegment)
+    return fetchPage(this.urlSegment)
     .then((page) => {
       this.data = page.fields
     })
