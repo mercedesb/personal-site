@@ -10,12 +10,14 @@
         <parse-markdown :source="page.mainContent" />
       </p>
     </div>
-    <div v-if="ctaLinks.length" class='FlexContainer FlexContainer--wrap'>
+    <div v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
+      <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
       <CTALink
         v-for="ctaLink in ctaLinks"
         v-bind="ctaLink.cta"
         :color="ctaLink.color"
       />
+    </div>
     </div>
   </div>
 </template>

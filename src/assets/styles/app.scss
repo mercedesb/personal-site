@@ -9,6 +9,7 @@
 @import './ctalink.scss';
 
 $content-width: 800px;
+$wide-content-width: 1000px;
 
 body {
   margin: 0;
@@ -45,4 +46,8 @@ li {
 .PageContent {
   max-width: $content-width;
   margin-top: $large-spacing;
+
+  &--wide {
+    max-width: $wide-content-width;
+  }
 }
