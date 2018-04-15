@@ -1,0 +1,29 @@
+.BlogItem {
+  display:flex;
+  align-items: center;
+  margin: $base-spacing;
+
+  &-date {
+    margin-right: $small-spacing;
+    padding: $small-spacing;
+    max-width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-publishDay {
+    font-size: 1.5em;
+  }
+
+  @each $type in $colors-array {
+    &--#{nth($type, 1)} {
+      border: 1px solid #{nth($type, 2)};
+
+      .BlogItem-date {
+        background-color: #{nth($type, 2)};
+      }
+    }
+  }
+}

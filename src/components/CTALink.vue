@@ -1,13 +1,12 @@
 <template>
   <div :class="'CTA CTA--' + color">
     <a :href="url" :target="external ? '_blank' : '_self'">
-  <div class='CTA-icon'>
-    <img :src="icon" />
+      <div class='CTA-icon'>
+        <img :src="icon" />
+      </div>
+      <h4 class='CTA-title'>{{ title }}</h4>
+    </a>
   </div>
-  <h4 class='CTA-title'>{{ title }}</h4>
-</a>
-  </div>
-
 </template>
 
 <script>

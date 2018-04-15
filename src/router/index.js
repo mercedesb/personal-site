@@ -5,6 +5,7 @@ Vue.use(Router)
 
 import HomePage from '../components/pages/HomePage.vue'
 import BlogPage from '../components/pages/BlogPage.vue'
+import BlogPostPage from '../components/pages/BlogPostPage.vue'
 import LandingPage from '../components/pages/LandingPage.vue'
 
 export default new Router({
@@ -13,6 +14,7 @@ export default new Router({
   routes: [
     { path: '/', component: HomePage },
     { path: '/blog', component: BlogPage },
+    { path: '/blog/:urlSegment', name: 'blogPost', component: BlogPostPage },
     { path: '/:urlSegment', name: 'landing', component: LandingPage, props: true }
   ]
 })
