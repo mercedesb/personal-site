@@ -1,7 +1,18 @@
 <template>
   <main :class="'Hero Hero--' + color">
-    <img class="Hero-image" :src="image" />
-    <h3 class="Hero-text">{{ title }}</h3>
+    <div class="Hero-background">
+      <img
+        v-for="image in backgroundImages"
+        :src="image"
+        class="Hero-backgroundImage"
+      />
+    </div>
+    <div class="Hero-contentContainer">
+      <div>
+        <img class="Hero-image" :src="mainImage" />
+        <p class="Hero-text">{{ title }}</p>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -10,7 +21,8 @@ export default {
   props: {
     title: String,
     color: String,
-    image: String
+    mainImage: String,
+    backgroundImages: Array
   }
 }
 </script>

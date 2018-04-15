@@ -1,6 +1,10 @@
 <template>
   <div>
-  <HeroHeader :title="page.preamble" color='brown' :image="mainImageUrl"></HeroHeader>
+  <HeroHeader
+    :title="page.preamble"
+    color='brown'
+    :mainImage="mainImageUrl"
+    :backgroundImages="backgroundImageUrls"></HeroHeader>
   <div class='FlexContainer' v-if="columns.length">
       <ContentColumn
         v-for="column in columns"
@@ -39,9 +43,9 @@ function fetchHomePage () {
   })
 }
 
-function getMainImageUrl (homePage) {
-  if (homePage.mainImage && homePage.mainImage.fields && homePage.mainImage.fields.file) {
-    return homePage.mainImage.fields.file.url
+function getImageUrl (image) {
+  if (image && image.fields && image.fields.file) {
+    return image.fields.file.url
   }
   return ''
 }
@@ -54,6 +58,7 @@ export default {
     return {
       page: {},
       mainImageUrl: '',
+      backgroundImageUrls: [],
       columns: [],
       errors: []
     }
@@ -62,7 +67,11 @@ export default {
     return fetchHomePage()
     .then((homePage) => {
       this.page = homePage.fields
-      this.mainImageUrl = getMainImageUrl(this.page)
+      this.mainImageUrl = getImageUrl(homePage.fields.mainImage)
+
+      homePage.fields.backgroundImages.forEach((bgdImage) => {
+        this.backgroundImageUrls.push(getImageUrl(bgdImage))
+      })
 
       homePage.fields.children.forEach((child, index) => {
         this.columns.push({
