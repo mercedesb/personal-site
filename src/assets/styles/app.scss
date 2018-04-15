@@ -6,7 +6,7 @@
 @import './hero.scss';
 @import './contentcolumn.scss';
 @import './pageheader.scss';
-
+@import './ctalink.scss';
 
 $content-width: 800px;
 
@@ -29,12 +29,16 @@ li {
 
 .FlexContainer {
   display:flex;
+  box-sizing: border-box;
 
   &--justifyCenter {
     justify-content: center;
   }
   &--alignCenter {
     align-items: center;
+  }
+  &--wrap {
+    flex-wrap: wrap;
   }
 }
 

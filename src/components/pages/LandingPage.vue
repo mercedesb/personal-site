@@ -10,11 +10,19 @@
         <parse-markdown :source="page.mainContent" />
       </p>
     </div>
+    <div v-if="ctaLinks.length" class='FlexContainer FlexContainer--wrap'>
+      <CTALink
+        v-for="ctaLink in ctaLinks"
+        v-bind="ctaLink.cta"
+        :color="ctaLink.color"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import PageHeader from '../PageHeader.vue'
+import CTALink from '../CTALink.vue'
 
 const contentful = require('contentful')
 const config = require('../../../config.json');
@@ -23,6 +31,8 @@ const client = contentful.createClient({
   space: config.spaceId,
   accessToken: config.cdaToken
 })
+
+const colors = ['yellow', 'blue', 'red', 'brown', 'gray']
 
 function fetchPage (urlSegment) {
   return client.getEntries(
@@ -38,9 +48,16 @@ function fetchPage (urlSegment) {
   })
 }
 
+function getImageUrl (image) {
+  if (image && image.fields && image.fields.file) {
+    return image.fields.file.url
+  }
+  return ''
+}
+
 export default {
   components: {
-    PageHeader
+    PageHeader, CTALink
   },
   props: {
     urlSegment: {
@@ -60,10 +77,27 @@ export default {
   },
   computed: {
     iconUrl: function() {
-      if (this.page.icon && this.page.icon.fields && this.page.icon.fields.file) {
-        return this.page.icon.fields.file.url
+      return getImageUrl(this.page.icon)
+    },
+    ctaLinks: function () {
+      const links = []
+      const colorToFilter = this.color
+      const colorSubset = colors.filter(current => current !== colorToFilter);
+      if (this.page.ctaLinks && this.page.ctaLinks.length) {
+        this.page.ctaLinks.forEach((cta, index) => {
+          links.push({
+            color: colorSubset[index % colorSubset.length],
+            cta: {
+              key: cta.sys.id,
+              title: cta.fields.title,
+              icon: getImageUrl(cta.fields.icon),
+              url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
+              external: !!cta.fields.externalLink
+            }
+          })
+        })
       }
-      return ''
+      return links
     }
   },
   created () {
