@@ -40,7 +40,8 @@ function fetchPage (urlSegment) {
   return client.getEntries(
     {
       'fields.urlSegment': urlSegment,
-      content_type: 'landingPage'
+      content_type: 'landingPage',
+      include: 2
     }
   )
   .then((response) => response.items[0])
