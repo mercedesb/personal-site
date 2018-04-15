@@ -5,9 +5,9 @@
       :title="page.title"
       :preamble="page.preamble"
       :media="iconUrl"></PageHeader>
-    <div class='FlexContainer FlexContainer--center'>
+    <div class='FlexContainer FlexContainer--justifyCenter'>
       <p class="PageContent">
-        {{ page.mainContent }}
+        <parse-markdown :source="page.mainContent" />
       </p>
     </div>
   </div>

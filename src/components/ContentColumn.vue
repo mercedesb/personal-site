@@ -1,8 +1,11 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <router-link :to="{ name: 'landing', params: { urlSegment: data.urlSegment, color: color } }">
+    <router-link v-if="!isExternal" :to="{ name: 'landing', params: { urlSegment: data.urlSegment, color: color } }">
       <h2 class='ContentColumn-title'>{{ data.title }}</h2>
     </router-link>
+    <a v-if="isExternal" :href="link" target="_blank">
+      <h2 class='ContentColumn-title'>{{ data.title }}</h2>
+    </a>
     <img class='ContentColumn-icon' :src="iconUrl" />
 
     <div class='ContentColumn-description'>
@@ -29,6 +32,17 @@ export default {
         return this.data.icon.fields.file.url
       }
       return ''
+    },
+    isExternal: function() {
+      return !!this.data.externalLink
+    },
+    link: function() {
+      if (this.isExternal) {
+        return this.data.externalLink
+      }
+      else {
+        return this.data.urlSegment
+      }
     }
   }
 }
