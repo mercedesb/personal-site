@@ -19,7 +19,7 @@ $icon-width: 125px;
   &-description {
     padding-top: $small-spacing;
     color: $white;
-    margin: 0 $small-spacing;
+    margin: 0 $base-spacing;
   }
 
   @include background-color;

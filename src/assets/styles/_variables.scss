@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Domine');
+@import url('https://fonts.googleapis.com/css?family=Cardo');
 
 $white: #F7F5F1;
 $brown: #AA916D;
@@ -31,7 +33,9 @@ $candela: 'candelabook';
 $header-font-family: $candela, Arial, sans-serif;
 
 $libre-baskerville: 'Libre Baskerville';
-$base-font-family: $libre-baskerville, serif;
+$domine: 'Domine';
+$cardo: 'Cardo';
+$base-font-family: $cardo, serif;
 
 $base-font-size: 24px;
 $large-font-size: 28px;
