@@ -10,7 +10,7 @@
     <div class="Hero-contentContainer">
       <div>
         <img class="Hero-image" :src="mainImage" />
-        <p class="Hero-text">{{ title }}</p>
+        <parse-markdown :source="title" />
       </div>
     </div>
   </main>
