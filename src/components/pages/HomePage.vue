@@ -1,6 +1,6 @@
 <template>
   <div>
-  <HeroHeader title='Home' color='brown'></HeroHeader>
+  <HeroHeader :title="page.preamble" color='brown' :image="mainImageUrl"></HeroHeader>
   <div class='FlexContainer' v-if="columns.length">
       <ContentColumn
         v-for="column in columns"
@@ -26,29 +26,24 @@ const client = contentful.createClient({
 
 const colors = ['blue', 'yellow', 'gray', 'red']
 
-// Load all entries for a given Content Type from Contentful
 function fetchHomePage () {
   return client.getEntries({
       content_type: 'home'
     })
-  .then((response) => response.items[0])
+  .then((response) => {
+    return response.items[0]
+  })
   .catch((error) => {
     console.log(`\nError occurred while fetching Entries for home:`)
     console.error(error)
   })
 }
 
-function getLandingPages () {
-  return fetchHomePage()
-  .then((homePage) => {
-    const landingPages = []
-    homePage.fields.children.forEach((child) => {
-      landingPages.push({
-        ...child.fields
-      })
-    })
-    return landingPages
-  })
+function getMainImageUrl (homePage) {
+  if (homePage.mainImage && homePage.mainImage.fields && homePage.mainImage.fields.file) {
+    return homePage.mainImage.fields.file.url
+  }
+  return ''
 }
 
 export default {
@@ -57,18 +52,23 @@ export default {
   },
   data () {
     return {
+      page: {},
+      mainImageUrl: '',
       columns: [],
       errors: []
     }
   },
   created () {
-    return getLandingPages()
-    .then((landingPages) => {
-      landingPages.forEach((child, index) => {
+    return fetchHomePage()
+    .then((homePage) => {
+      this.page = homePage.fields
+      this.mainImageUrl = getMainImageUrl(this.page)
+
+      homePage.fields.children.forEach((child, index) => {
         this.columns.push({
           color: colors[index % colors.length],
           landingPage: {
-            ...child
+            ...child.fields
           }
         })
       })

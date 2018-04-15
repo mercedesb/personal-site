@@ -1,12 +1,24 @@
 $hero-height: 500px;
+$image-width: 350px;
+$text-width: 800px;
 
 .Hero {
   box-shadow: $base-drop-shadow;
   height: $hero-height;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
+
+  &-image {
+    max-width: $image-width;
+  }
+
+  &-text {
+    max-width: $text-width;
+    text-align: center;
+  }
 
   @include background-color;
 }

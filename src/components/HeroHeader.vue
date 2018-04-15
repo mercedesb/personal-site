@@ -1,8 +1,7 @@
 <template>
-  <main>
-    <div :class="'Hero Hero--' + color">
-      <h2>{{ title }}</h2>
-    </div>
+  <main :class="'Hero Hero--' + color">
+    <img class="Hero-image" :src="image" />
+    <h3 class="Hero-text">{{ title }}</h3>
   </main>
 </template>
 
@@ -10,7 +9,8 @@
 export default {
   props: {
     title: String,
-    color: String
+    color: String,
+    image: String
   }
 }
 </script>
