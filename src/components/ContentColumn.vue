@@ -1,16 +1,13 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <router-link v-if="!isExternal" :to="link">
+    <router-link :to="link" :target="isExternal ? '_blank' : '_self'">
       <h2 class='ContentColumn-title'>{{ title }}</h2>
-    </router-link>
-    <a v-if="isExternal" :href="link" target="_blank">
-      <h2 class='ContentColumn-title'>{{ title }}</h2>
-    </a>
     <img class='ContentColumn-icon' :src="iconUrl" />
 
     <div class='ContentColumn-description'>
       <p>{{ preamble }}</p>
     </div>
+    </router-link>
   </div>
 </template>
 

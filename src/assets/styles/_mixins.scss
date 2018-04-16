@@ -16,3 +16,13 @@
     }
   }
 }
+
+@mixin hover-darken {
+  @each $type in $colors-array {
+    &--#{nth($type, 1)} {
+      &:hover {
+        background-color: darken(nth($type, 2), 5%);
+      }
+    }
+  }
+}
