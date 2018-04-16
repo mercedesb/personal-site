@@ -15,7 +15,10 @@ export default {
     title: String,
     icon: String,
     url: String,
-    color: String,
+    color: {
+      type: String,
+      default: 'brown'
+    },
     external: Boolean
   }
 }

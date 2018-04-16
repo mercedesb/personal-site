@@ -1,47 +1,55 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <router-link v-if="!isExternal" :to="{ name: 'landing', params: { urlSegment: data.urlSegment, color: color } }">
-      <h2 class='ContentColumn-title'>{{ data.title }}</h2>
+    <router-link v-if="!isExternal" :to="link">
+      <h2 class='ContentColumn-title'>{{ title }}</h2>
     </router-link>
     <a v-if="isExternal" :href="link" target="_blank">
-      <h2 class='ContentColumn-title'>{{ data.title }}</h2>
+      <h2 class='ContentColumn-title'>{{ title }}</h2>
     </a>
     <img class='ContentColumn-icon' :src="iconUrl" />
 
     <div class='ContentColumn-description'>
-      <p>{{ data.preamble }}</p>
+      <p>{{ preamble }}</p>
     </div>
   </div>
 </template>
 
 <script>
+function getImageUrl (image) {
+  if (image && image.fields && image.fields.file) {
+    return image.fields.file.url
+  }
+  return ''
+}
+
 export default {
   props: {
-    data: {
-      type: Object,
-      required: true,
-      validator: value => {
-        return !!value.title
-      }
+    title: {
+      type: String,
+      required: true
     },
-    color: String
+    color: {
+      type: String,
+      default: 'brown'
+    },
+    preamble: String,
+    icon: Object,
+    externalLink: String,
+    urlSegment: String
   },
   computed: {
     iconUrl: function() {
-      if (this.data.icon && this.data.icon.fields && this.data.icon.fields.file) {
-        return this.data.icon.fields.file.url
-      }
-      return ''
+      return getImageUrl(this.icon)
     },
     isExternal: function() {
-      return !!this.data.externalLink
+      return !!this.externalLink
     },
     link: function() {
       if (this.isExternal) {
-        return this.data.externalLink
+        return this.externalLink
       }
       else {
-        return this.data.urlSegment
+        return this.urlSegment
       }
     }
   }

@@ -5,14 +5,15 @@
     color='brown'
     :mainImage="mainImageUrl"
     :backgroundImages="backgroundImageUrls"></HeroHeader>
+  <div class='FlexContainer FlexContainer--column'>
   <div class='FlexContainer' v-if="columns.length">
       <ContentColumn
         v-for="column in columns"
-        :key="column.landingPage.id"
-        :data="column.landingPage"
-        :color="column.color"
+        :key="column.key"
+        v-bind="column"
       />
   </div>
+</div>
 </div>
 </template>
 
@@ -27,8 +28,6 @@ const client = contentful.createClient({
   space: config.spaceId,
   accessToken: config.cdaToken
 })
-
-const colors = ['blue', 'yellow', 'gray', 'red']
 
 function fetchHomePage () {
   return client.getEntries({
@@ -75,10 +74,13 @@ export default {
 
       homePage.fields.children.forEach((child, index) => {
         this.columns.push({
-          color: colors[index % colors.length],
-          landingPage: {
-            ...child.fields
-          }
+          key: child.sys.id,
+          title: child.fields.title,
+          color: child.fields.color,
+          preamble: child.fields.preamble,
+          icon: child.fields.icon,
+          externalLink: child.fields.externalLink,
+          urlSegment: child.fields.urlSegment
         })
       })
     })

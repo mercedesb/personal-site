@@ -1,4 +1,4 @@
-$nav-height: 50px;
+$nav-height: 75px;
 
 .MainNav {
   background-color: $white;
@@ -6,13 +6,32 @@ $nav-height: 50px;
   height: $nav-height;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   box-shadow: $base-drop-shadow;
   position: relative;
   z-index: 3;
 
+  a {
+    display: flex;
+    align-items: center;
+    padding-right: $base-spacing;
+  }
+
   &-logo {
-    max-height: $nav-height - $base-spacing;
+    max-height: 70px;
     padding: 0 $base-spacing;
+  }
+
+  &-hamburger {
+    margin-right: $base-spacing;
+    div {
+      width: $nav-height - $base-spacing;
+      border-top: 2px solid $black;
+      margin-top: $small-spacing;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }

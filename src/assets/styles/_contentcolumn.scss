@@ -1,8 +1,7 @@
 $icon-width: 125px;
 
 .ContentColumn {
-  width:25%;
-  height: 805px;
+  flex: 1 1 25%;
   text-align: center;
 
   &-title {
@@ -11,13 +10,12 @@ $icon-width: 125px;
   }
 
   &-icon {
-    padding-top: $large-spacing;
+    padding-top: $base-spacing;
     color: $white;
     width: $icon-width;
   }
 
   &-description {
-    padding-top: $small-spacing;
     color: $white;
     margin: 0 $base-spacing;
   }

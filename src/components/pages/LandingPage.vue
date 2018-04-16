@@ -1,11 +1,11 @@
 <template>
   <div>
     <PageHeader
-      :color="color"
+      :color="page.color"
       :title="page.title"
       :preamble="page.preamble"
       :media="iconUrl"></PageHeader>
-    <div class='FlexContainer FlexContainer--justifyCenter'>
+    <div v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
       <p class="PageContent">
         <parse-markdown :source="page.mainContent" />
       </p>
@@ -14,8 +14,7 @@
       <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
       <CTALink
         v-for="ctaLink in ctaLinks"
-        v-bind="ctaLink.cta"
-        :color="ctaLink.color"
+        v-bind="ctaLink"
       />
     </div>
     </div>
@@ -33,8 +32,6 @@ const client = contentful.createClient({
   space: config.spaceId,
   accessToken: config.cdaToken
 })
-
-const colors = ['yellow', 'blue', 'red', 'brown', 'gray']
 
 function fetchPage (urlSegment) {
   return client.getEntries(
@@ -66,10 +63,6 @@ export default {
     urlSegment: {
       type: String,
       required: true
-    },
-    color: {
-      type: String,
-      default: 'brown'
     }
   },
   data () {
@@ -84,19 +77,15 @@ export default {
     },
     ctaLinks: function () {
       const links = []
-      const colorToFilter = this.color
-      const colorSubset = colors.filter(current => current !== colorToFilter);
       if (this.page.ctaLinks && this.page.ctaLinks.length) {
         this.page.ctaLinks.forEach((cta, index) => {
           links.push({
-            color: colorSubset[index % colorSubset.length],
-            cta: {
-              key: cta.sys.id,
-              title: cta.fields.title,
-              icon: getImageUrl(cta.fields.icon),
-              url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
-              external: !!cta.fields.externalLink
-            }
+            key: cta.sys.id,
+            color: cta.fields.color,
+            title: cta.fields.title,
+            icon: getImageUrl(cta.fields.icon),
+            url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
+            external: !!cta.fields.externalLink
           })
         })
       }

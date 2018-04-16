@@ -15,6 +15,6 @@ export default new Router({
     { path: '/', component: HomePage },
     { path: '/blog', component: BlogPage },
     { path: '/blog/:urlSegment', name: 'blogPost', component: BlogPostPage },
-    { path: '/:urlSegment', name: 'landing', component: LandingPage, props: true }
+    { path: '/:urlSegment', component: LandingPage, props: true }
   ]
 })

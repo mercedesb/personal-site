@@ -12,11 +12,12 @@
 $content-width: 800px;
 $wide-content-width: 1000px;
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-weight: 400;
   background-color: $white;
+  height: 100%;
 }
 
 ul {
@@ -41,6 +42,9 @@ li {
   }
   &--wrap {
     flex-wrap: wrap;
+  }
+  &--column {
+    flex-direction: column
   }
 }
 

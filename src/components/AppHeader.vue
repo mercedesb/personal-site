@@ -1,7 +1,12 @@
 <template>
   <header class='MainNav'>
-    <router-link to="/"><img class='MainNav-logo' src='../assets/initials.svg' /></router-link>
+    <router-link to="/"><img class='MainNav-logo' src='../assets/SiteLogo.svg' /></router-link>
     <!-- <navigation-links></navigation-links> -->
+    <div class='MainNav-hamburger'>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
 </template>
 

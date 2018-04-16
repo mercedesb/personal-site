@@ -1,13 +1,12 @@
 <template>
   <div>
-  <LandingPage v-bind:urlSegment="urlSegment">
-  </LandingPage>
-  <div v-if="posts.length" class="FlexContainer">
-    <BlogListItem v-for="blogPost in posts"
-      v-bind="blogPost.post"
-      :color="blogPost.color"
-    />
-  </div>
+    <LandingPage :urlSegment="urlSegment"></LandingPage>
+    <div v-if="posts.length" class="FlexContainer">
+      <BlogListItem v-for="blogPost in posts"
+        v-bind="blogPost.post"
+        :color="blogPost.color"
+      ></BlogListItem>
+    </div>
 </div>
 </template>
 
@@ -22,8 +21,6 @@ const client = contentful.createClient({
   space: config.spaceId,
   accessToken: config.cdaToken
 })
-
-const colors = ['yellow', 'blue', 'red', 'brown', 'gray']
 
 function fetchPosts () {
   return client.getEntries(
@@ -55,16 +52,15 @@ export default {
     }
   },
   created() {
-    //const colorToFilter = this.color
-    const colorSubset = colors //.filter(current => current !== colorToFilter);
     return fetchPosts()
     .then((posts) => {
       posts.forEach((post, index) => {
+        const { publishDate, mainContent, ...fields } = post.fields
         this.posts.push(
         {
-          color: colorSubset[index % colorSubset.length],
+          color: 'yellow',
           post: {
-            ...post.fields,
+            ...fields,
             date: new Date(post.fields.publishDate)
           }
         })
