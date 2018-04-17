@@ -1,6 +1,6 @@
 <template>
   <main :class="'Hero Hero--' + color">
-    <div class="Hero-background">
+    <div class="Hero-background" v-if="backgroundImages && backgroundImages.length">
       <img
         v-for="image in backgroundImages"
         :src="image"
