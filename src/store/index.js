@@ -33,18 +33,17 @@ export default new Vuex.Store({
   actions:{
     getBlogPosts(context) {
       context.commit('clearBlogPosts')
-      this.getEntries({
+      context.dispatch('getEntries', {
         content_type: 'blogPost',
         order: `-fields.publishDate`
       })
       .then((entries) => {
-        context.commit('blogPosts', context.state.entries)
+        context.commit('blogPosts', entries)
       })
     },
     getLandingPage(context, urlSegment) {
       context.commit('clearLandingPage')
-      debugger
-      this.getEntries({
+      context.dispatch('getEntries', {
         'fields.urlSegment': urlSegment,
         content_type: 'landingPage',
         include: 2
@@ -55,12 +54,11 @@ export default new Vuex.Store({
     },
     getHomePage(context) {
       context.commit('clearHomePage')
-      this.getEntries({content_type: 'home'})
+      context.dispatch('getEntries', {content_type: 'home'})
       .then((entries) => {
         context.commit('homePage', entries.length ? entries[0] : {})
       })
     },
-    // TODO: return promise here.
     getEntries(context, query) {
       const contentful = require('contentful')
       const config = require('../../config.json')
