@@ -12,14 +12,17 @@ export default new Vuex.Store({
     entries: []
   },
   mutations:{
-    blogPosts(state,blogPosts) {
+    blogPosts(state, blogPosts) {
       state.blogPosts = blogPosts
     },
-    landingPage(state,landingPage) {
+    landingPage(state, landingPage) {
       state.landingPage = landingPage
     },
-    homePage(state,homePage){
+    homePage(state, homePage) {
        state.homePage = homePage
+    },
+    entries(state, entries) {
+      state.entries = entries
     },
     clearBlogPosts(state) {
       state.blogPosts = []
@@ -29,6 +32,9 @@ export default new Vuex.Store({
     },
     clearHomePage(state) {
       state.homePage = {}
+    },
+    clearEntries(state) {
+      state.entries = []
     }
   },
   actions:{
@@ -68,6 +74,8 @@ export default new Vuex.Store({
         space: config.spaceId,
         accessToken: config.cdaToken
       })
+
+      context.commit('clearEntries')
 
       return client.getEntries(query)
       .then((response) => response)
