@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     page() {
-      return this.$store.state.entry
+      return this.$store.state.homePage
     },
     mainImageUrl() {
       return this.getImageUrl(this.page.mainImage)
@@ -54,7 +54,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getEntries', {content_type: 'home'})
+    this.$store.dispatch('getHomePage')
   }
 }
 </script>

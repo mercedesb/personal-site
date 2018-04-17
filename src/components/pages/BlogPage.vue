@@ -4,7 +4,7 @@
     <div v-if="posts.length" class="FlexContainer">
       <BlogListItem v-for="blogPost in posts"
         v-bind="blogPost"
-        :key="blogPost.key"
+        :key="blogPost.id"
       ></BlogListItem>
     </div>
 </div>
@@ -14,60 +14,30 @@
 import LandingPage from './LandingPage.vue'
 import BlogListItem from '../BlogListItem.vue'
 
-const contentful = require('contentful')
-const config = require('../../../config.json');
-
-const client = contentful.createClient({
-  space: config.spaceId,
-  accessToken: config.cdaToken
-})
-
-function fetchPosts () {
-  return client.getEntries(
-    {
-      content_type: 'blogPost',
-      order: `-fields.publishDate`
-    }
-  )
-  .then((response) => response.items)
-  .catch((error) => {
-    console.log(`\nError occurred while fetching posts:`)
-    console.error(error)
-  })
-}
-
 export default {
   components: {
     LandingPage, BlogListItem
   },
-  data () {
-    return {
-      posts: [],
-      errors: []
-    }
-  },
   computed: {
+    posts() {
+      return this.$store.state.blogPosts.map((post) => {
+        let temp = {
+          id: post.id,
+          color: 'yellow',
+          title: post.title,
+          urlSegment: post.urlSegment,
+          date: new Date(post.publishDate)
+        }
+        console.log(temp)
+        return temp
+      })
+    },
     urlSegment: function () {
       return this.$route.path.replace(/^\//, '')
     }
   },
   created() {
-    return fetchPosts()
-    .then((posts) => {
-      posts.forEach((post, index) => {
-        const { publishDate, mainContent, ...fields } = post.fields
-        this.posts.push(
-        {
-          key: post.sys.id,
-          color: 'yellow',
-          ...fields,
-          date: new Date(post.fields.publishDate)
-        })
-      })
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+    this.$store.dispatch('getBlogPosts')
   }
 }
 </script>

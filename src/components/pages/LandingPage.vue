@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     page() {
-      return this.$store.state.entry
+      return this.$store.state.landingPage
     },
     iconUrl() {
       return this.getImageUrl(this.page.icon)
@@ -58,11 +58,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getEntries', {
-      'fields.urlSegment': this.urlSegment,
-      content_type: 'landingPage',
-      include: 2
-    })
+    this.$store.dispatch('getLandingPage', this.urlSegment)
   }
 }
 </script>
