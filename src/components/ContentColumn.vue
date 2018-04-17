@@ -12,13 +12,6 @@
 </template>
 
 <script>
-function getImageUrl (image) {
-  if (image && image.fields && image.fields.file) {
-    return image.fields.file.url
-  }
-  return ''
-}
-
 export default {
   props: {
     title: {
@@ -36,7 +29,7 @@ export default {
   },
   computed: {
     iconUrl: function() {
-      return getImageUrl(this.icon)
+      return this.getImageUrl(this.icon)
     },
     isExternal: function() {
       return !!this.externalLink

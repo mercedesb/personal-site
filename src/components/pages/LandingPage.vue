@@ -14,7 +14,7 @@
       <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
       <CTALink
         v-for="ctaLink in ctaLinks"
-        :key="ctaLink.key"
+        :key="ctaLink.id"
         v-bind="ctaLink"
       />
     </div>
@@ -55,14 +55,6 @@ export default {
           external: !!cta.fields.externalLink
         }
       })
-    }
-  },
-  methods:{
-    getImageUrl (image) {
-      if (image && image.fields && image.fields.file) {
-        return image.fields.file.url
-      }
-      return ''
     }
   },
   created () {

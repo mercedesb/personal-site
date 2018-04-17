@@ -8,7 +8,18 @@ import AppHeader from './components/AppHeader.vue'
 import ParseMarkdown from './components/ParseMarkdown.vue'
 Vue.component('app-header', AppHeader)
 Vue.component('parse-markdown', ParseMarkdown)
-console.log(store)
+
+Vue.mixin({
+  methods: {
+    getImageUrl (image) {
+      if (image && image.fields && image.fields.file) {
+        return image.fields.file.url
+      }
+      return ''
+    }
+  }
+})
+
 new Vue({
   router,
   store,
