@@ -3,8 +3,8 @@
     <LandingPage :urlSegment="urlSegment"></LandingPage>
     <div v-if="posts.length" class="FlexContainer">
       <BlogListItem v-for="blogPost in posts"
-        v-bind="blogPost.post"
-        :color="blogPost.color"
+        v-bind="blogPost"
+        :key="blogPost.key"
       ></BlogListItem>
     </div>
 </div>
@@ -58,11 +58,10 @@ export default {
         const { publishDate, mainContent, ...fields } = post.fields
         this.posts.push(
         {
+          key: post.sys.id,
           color: 'yellow',
-          post: {
-            ...fields,
-            date: new Date(post.fields.publishDate)
-          }
+          ...fields,
+          date: new Date(post.fields.publishDate)
         })
       })
     })

@@ -14,6 +14,7 @@
       <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
       <CTALink
         v-for="ctaLink in ctaLinks"
+        :key="ctaLink.key"
         v-bind="ctaLink"
       />
     </div>
