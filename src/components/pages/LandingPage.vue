@@ -1,5 +1,5 @@
 <template>
-  <div class="u-fillHeight">
+  <div>
     <PageHeader
       :color="page.color"
       :title="page.title"
