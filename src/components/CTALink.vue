@@ -24,5 +24,38 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .CTA {
+    flex: 1 1 50%;
+
+    a {
+      display:flex;
+      align-items: center;
+      margin: $base-spacing;
+    }
+
+    &-icon {
+      background-color: $blue;
+      margin-right: $small-spacing;
+      padding: $small-spacing;
+      max-width: 120px;
+
+      img {
+        width: 100px;
+      }
+    }
+
+    @each $type in $colors-array {
+      &--#{nth($type, 1)} {
+
+        .CTA-icon {
+          background-color: #{nth($type, 2)};
+        }
+
+        a {
+          border: 1px solid #{nth($type, 2)};
+        }
+      }
+    }
+  }
 </style>
