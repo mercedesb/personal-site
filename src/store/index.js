@@ -8,7 +8,8 @@ export default new Vuex.Store({
     errors: [],
     blogPosts:[],
     landingPage: {},
-    homePage: {}
+    homePage: {},
+    entries: []
   },
   mutations:{
     blogPosts(state,blogPosts) {
@@ -71,12 +72,14 @@ export default new Vuex.Store({
       return client.getEntries(query)
       .then((response) => response)
       .then(res => {
-        return res.items.map((item) => {
+        const entries = res.items.map((item) => {
           return {
             id: item.sys.id,
             ...item.fields
           }
         })
+        context.commit('entries', entries)
+        return entries
       })
       .catch(e => {
         this.errors.push(e)
