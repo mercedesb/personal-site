@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="u-fillHeight">
     <LandingPage :urlSegment="urlSegment"></LandingPage>
     <div v-if="posts.length" class="FlexContainer">
       <BlogListItem v-for="blogPost in posts"
