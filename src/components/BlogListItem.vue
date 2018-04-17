@@ -1,5 +1,5 @@
 <template>
-  <div :class="'BlogItem BlogItem--' + color">
+  <div :class="classes">
     <router-link :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
     <div class='BlogItem-date'>
       <span>{{ publishMonth }}</span>
@@ -17,6 +17,7 @@ const moment = require('moment')
 export default {
   props: {
     color: String,
+    featured: Boolean,
     title: String,
     date: Date,
     urlSegment: {
@@ -25,17 +26,27 @@ export default {
     }
   },
   computed: {
-    momentDate: function() {
+    momentDate() {
       return moment(this.date)
     },
-    publishMonth: function() {
+    publishMonth() {
       return this.momentDate.format('MMM')
     },
-    publishDay: function() {
+    publishDay() {
       return this.momentDate.format('DD')
     },
-    publishYear: function() {
+    publishYear() {
       return this.momentDate.format('YYYY')
+    },
+    classes() {
+      let classStr = 'BlogItem'
+      if (this.featured) {
+        classStr += ' BlogItem--featured'
+      }
+      else {
+        classStr += ` BlogItem--${this.color}`
+      }
+      return classStr
     }
   }
 }
@@ -79,6 +90,17 @@ export default {
           background-color: #{nth($type, 2)};
           color: #{nth($type, 3)};
         }
+      }
+    }
+
+    &--featured {
+      a {
+          border: 1px solid $yellow;
+        }
+
+      .BlogItem-date {
+        background-color: $yellow;
+        color: $white;
       }
     }
   }

@@ -1,11 +1,17 @@
 <template>
   <div>
     <LandingPage :urlSegment="urlSegment"></LandingPage>
-    <div v-if="posts.length" class="FlexContainer">
-      <BlogListItem v-for="blogPost in posts"
-        v-bind="blogPost"
-        :key="blogPost.id"
-      ></BlogListItem>
+    <div v-if="posts.length" class='FlexContainer FlexContainer--justifyCenter'>
+      <div class='PageContent PageContent--wide'>
+        <BlogListItem v-if="featuredPost"
+          v-bind="featuredPost"
+          :key="featuredPost.id"
+        ></BlogListItem>
+        <BlogListItem v-for="blogPost in remainingPosts"
+          v-bind="blogPost"
+          :key="blogPost.id"
+        ></BlogListItem>
+      </div>
     </div>
 </div>
 </template>
@@ -23,12 +29,21 @@ export default {
       return this.$store.state.blogPosts.map((post) => {
         return {
           id: post.id,
-          color: 'yellow',
+          color: 'blue',
           title: post.title,
           urlSegment: post.urlSegment,
           date: new Date(post.publishDate)
         }
       })
+    },
+    featuredPost() {
+       return {
+        featured: true,
+        ...this.posts[0]
+       }
+    },
+    remainingPosts() {
+      return this.posts.slice(1)
     },
     urlSegment: function () {
       return this.$route.path.replace(/^\//, '')

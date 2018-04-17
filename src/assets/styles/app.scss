@@ -46,11 +46,11 @@ li {
 }
 
 .PageContent {
-  max-width: $content-width;
+  width: $content-width;
   margin-top: $large-spacing;
 
   &--wide {
-    max-width: $wide-content-width;
+    min-width: $wide-content-width;
   }
 }
 
