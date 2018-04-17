@@ -26,36 +26,6 @@
 import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 
-const contentful = require('contentful')
-const config = require('../../../config.json');
-
-const client = contentful.createClient({
-  space: config.spaceId,
-  accessToken: config.cdaToken
-})
-
-function fetchPage (urlSegment) {
-  return client.getEntries(
-    {
-      'fields.urlSegment': urlSegment,
-      content_type: 'landingPage',
-      include: 2
-    }
-  )
-  .then((response) => response.items[0])
-  .catch((error) => {
-    console.log(`\nError occurred while fetching entries for ${urlSegment}:`)
-    console.error(error)
-  })
-}
-
-function getImageUrl (image) {
-  if (image && image.fields && image.fields.file) {
-    return image.fields.file.url
-  }
-  return ''
-}
-
 export default {
   components: {
     PageHeader, CTALink
@@ -66,40 +36,40 @@ export default {
       required: true
     }
   },
-  data () {
-    return {
-      page: {},
-      errors: []
+  computed: {
+    page() {
+      return this.$store.state.entry
+    },
+    iconUrl() {
+      return this.getImageUrl(this.page.icon)
+    },
+    ctaLinks() {
+      if (!this.page.ctaLinks) return []
+      return this.page.ctaLinks.map((cta) => {
+        return {
+          id: cta.sys.id,
+          color: cta.fields.color,
+          title: cta.fields.title,
+          icon: this.getImageUrl(cta.fields.icon),
+          url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
+          external: !!cta.fields.externalLink
+        }
+      })
     }
   },
-  computed: {
-    iconUrl: function() {
-      return getImageUrl(this.page.icon)
-    },
-    ctaLinks: function () {
-      const links = []
-      if (this.page.ctaLinks && this.page.ctaLinks.length) {
-        this.page.ctaLinks.forEach((cta, index) => {
-          links.push({
-            key: cta.sys.id,
-            color: cta.fields.color,
-            title: cta.fields.title,
-            icon: getImageUrl(cta.fields.icon),
-            url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
-            external: !!cta.fields.externalLink
-          })
-        })
+  methods:{
+    getImageUrl (image) {
+      if (image && image.fields && image.fields.file) {
+        return image.fields.file.url
       }
-      return links
+      return ''
     }
   },
   created () {
-    return fetchPage(this.urlSegment)
-    .then((page) => {
-      this.page = page.fields
-    })
-    .catch(e => {
-      this.errors.push(e)
+    this.$store.dispatch('getEntries', {
+      'fields.urlSegment': this.urlSegment,
+      content_type: 'landingPage',
+      include: 2
     })
   }
 }

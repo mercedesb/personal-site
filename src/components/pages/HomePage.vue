@@ -39,6 +39,7 @@ export default {
         })
     },
     columns() {
+      if (!this.page.children) return []
       return this.page.children.map((child) => {
         return {
           id: child.sys.id,
