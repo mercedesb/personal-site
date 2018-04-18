@@ -39,6 +39,7 @@ export default {
       padding: $small-spacing $base-spacing;
       font-family: $candela;
       font-size: $larger-font-size;
+      font-weight: $heavy-font-weight;
     }
 
     &-hamburger {

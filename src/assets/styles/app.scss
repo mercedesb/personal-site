@@ -63,3 +63,14 @@ li {
     min-width: $wide-content-width;
   }
 }
+
+.u-fillSpace {
+  flex: 1;
+  display: flex;
+}
+
+.u-fillHeight {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+}
