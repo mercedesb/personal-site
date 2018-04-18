@@ -48,7 +48,7 @@ export default {
       return this.page.ctaLinks.map((cta) => {
         return {
           id: cta.sys.id,
-          color: cta.fields.color,
+          color: this.page.color,
           title: cta.fields.title,
           icon: this.getImageUrl(cta.fields.icon),
           url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,

@@ -49,11 +49,11 @@ export default {
       &--#{nth($type, 1)} {
 
         .CTA-icon {
-          background-color: #{nth($type, 2)};
+          background-color: #{darken(saturate(nth($type, 2), 10%), 12%)};
         }
 
         a {
-          border: 1px solid #{nth($type, 2)};
+          border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
         }
       }
     }

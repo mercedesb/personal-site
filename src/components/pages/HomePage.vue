@@ -6,7 +6,7 @@
     :mainImage="mainImageUrl"
     :backgroundImages="backgroundImages"></HeroHeader>
   <div class='FlexContainer FlexContainer--column'>
-  <div class='FlexContainer u-fillHeight' v-if="columns && columns.length">
+  <div class='FlexContainer' v-if="columns && columns.length">
       <ContentColumn
         v-for="column in columns"
         :key="column.id"
