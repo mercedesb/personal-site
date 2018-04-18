@@ -5,7 +5,7 @@
     color='brown'
     :mainImage="mainImageUrl"
     :backgroundImages="backgroundImages"></HeroHeader>
-  <div class='FlexContainer FlexContainer--column u-fillHeight'>
+  <div class='FlexContainer FlexContainer--column'>
   <div class='FlexContainer u-fillHeight' v-if="columns && columns.length">
       <ContentColumn
         v-for="column in columns"

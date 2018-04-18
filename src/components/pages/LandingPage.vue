@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageHeader
-      :color="page.color"
+      :color="page.color || 'brown'"
       :title="page.title"
       :preamble="page.preamble"
       :media="iconUrl"></PageHeader>

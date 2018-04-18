@@ -1,6 +1,6 @@
 <template>
   <main :class="'PageHeader PageHeader--' + color">
-    <div class="PageHeader-media">
+    <div class="PageHeader-media" v-if="media">
       <img :src="media" />
     </div>
     <div class="PageHeader-text">

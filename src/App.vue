@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header />
+    <app-header :classModifier="$route.path === '/' ? 'justifyCenter' : 'spaceBetween'"/>
     <router-view>
     </router-view>
   </div>

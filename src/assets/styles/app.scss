@@ -17,6 +17,11 @@ html, body, #app {
   height: 100%;
 }
 
+#app {
+  display: flex;
+  flex-flow: column;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -34,6 +39,11 @@ li {
   &--justifyCenter {
     justify-content: center;
   }
+
+  &--spaceBetween {
+    justify-content: space-between;
+  }
+
   &--alignCenter {
     align-items: center;
   }
@@ -52,8 +62,4 @@ li {
   &--wide {
     min-width: $wide-content-width;
   }
-}
-
-.u-fillHeight {
-  height: 100%;
 }

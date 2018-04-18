@@ -1,17 +1,23 @@
 <template>
   <header class='MainNav'>
-    <router-link to="/"><img class='MainNav-logo' src='../assets/SiteLogo.svg' /></router-link>
-    <!-- <navigation-links></navigation-links> -->
-    <div class='MainNav-hamburger'>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
+      <router-link class="MainNav-link" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></router-link>
+      <!-- <navigation-links></navigation-links> -->
+      <div class='MainNav-hamburger'>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    classModifier: String
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -20,27 +26,24 @@ export default {}
   .MainNav {
     background-color: $white;
     color: $black;
-    height: $nav-height;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     box-shadow: $base-drop-shadow;
-    position: relative;
     z-index: 3;
 
-    a {
+    &-link {
       display: flex;
       align-items: center;
-      padding-right: $base-spacing;
     }
 
     &-logo {
       max-height: 70px;
-      padding: 0 $base-spacing;
+      padding: $small-spacing $base-spacing;
+      font-family: $candela;
+      font-size: $larger-font-size;
     }
 
     &-hamburger {
       margin-right: $base-spacing;
+      justify-self: flex-end;
       div {
         width: $nav-height - $base-spacing;
         border-top: 2px solid $black;
@@ -49,6 +52,18 @@ export default {}
         &:first-child {
           margin-top: 0;
         }
+      }
+    }
+
+    .FlexContainer--justifyCenter {
+      .MainNav-hamburger {
+        display:none;
+      }
+    }
+
+    .FlexContainer--spaceBetween {
+      .MainNav-link {
+        padding-right: $base-spacing;
       }
     }
   }
