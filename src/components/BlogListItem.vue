@@ -6,7 +6,7 @@
         <span class='BlogItem-publishDay'>{{ publishDay }}</span>
         <span>{{ publishYear }}</span>
       </div>
-      <h4 class='BlogItem-title'>{{ title }}</h4>
+      <h5 class='BlogItem-title'>{{ title }}</h5>
       <p class='BlogItem-preamble'>{{ preamble }}</p>
     </div>
   </smart-link>
@@ -98,6 +98,11 @@ export default {
         height: 150px;
         background-color: $yellow;
         color: $white;
+      }
+
+      .BlogItem-title {
+        font-size: $large-font-size;
+        font-weight: $base-font-weight;
       }
     }
   }

@@ -29,8 +29,17 @@ h3 {
   font-size: $larger-font-size;
 }
 
-a {
+h4 {
+  font-size: $large-font-size;
+}
+
+h5 {
+  font-size: $base-font-size;
   font-weight: $heavy-font-weight;
+}
+
+a {
+  /*font-weight: $heavy-font-weight;*/
   text-decoration: none;
   color: $black;
 }
