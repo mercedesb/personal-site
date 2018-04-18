@@ -6,8 +6,10 @@ import store from './store'
 // register globally used common components
 import AppHeader from './components/AppHeader.vue'
 import ParseMarkdown from './components/ParseMarkdown.vue'
+import SmartLink from './components/SmartLink.vue'
 Vue.component('app-header', AppHeader)
 Vue.component('parse-markdown', ParseMarkdown)
+Vue.component('smart-link', SmartLink)
 
 Vue.mixin({
   methods: {

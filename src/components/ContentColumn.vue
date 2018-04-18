@@ -1,13 +1,12 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <router-link :to="link" :target="isExternal ? '_blank' : '_self'">
+    <smart-link :to="link" :isExternal="isExternal">
       <h2 class='ContentColumn-title'>{{ title }}</h2>
-    <img class='ContentColumn-icon' :src="iconUrl" />
-
-    <div class='ContentColumn-description'>
-      <p>{{ preamble }}</p>
-    </div>
-    </router-link>
+      <img class='ContentColumn-icon' :src="iconUrl" />
+      <div class='ContentColumn-description'>
+        <p>{{ preamble }}</p>
+      </div>
+    </smart-link>
   </div>
 </template>
 
