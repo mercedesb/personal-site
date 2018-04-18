@@ -7,6 +7,7 @@
       <span>{{ publishYear }}</span>
     </div>
     <h4 class='BlogItem-title'>{{ title }}</h4>
+    <p class='BlogItem-preamble'>{{ preamble }}</p>
   </router-link>
   </div>
 </template>
@@ -19,6 +20,7 @@ export default {
     color: String,
     featured: Boolean,
     title: String,
+    preamble: String,
     date: Date,
     urlSegment: {
       type: String,
@@ -62,7 +64,7 @@ export default {
     }
 
     &-date {
-      margin-right: $small-spacing;
+      margin-right: $base-spacing;
       padding: $small-spacing;
       min-width: 100px;
       display: flex;
@@ -70,24 +72,25 @@ export default {
       justify-content: center;
       align-items: center;
       font-size: $small-font-size;
+      height: 100%
     }
 
     &-publishDay {
       font-size: $large-font-size;
     }
 
-    &-title {
-
+    &-title, &-preamble {
+      margin: 0 $base-spacing;
     }
 
     @each $type in $colors-array {
       &--#{nth($type, 1)} {
         a {
-          border: 1px solid #{nth($type, 2)};
+          border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
         }
 
         .BlogItem-date {
-          background-color: #{nth($type, 2)};
+          background-color: #{darken(saturate(nth($type, 2), 10%), 12%)};
           color: #{nth($type, 3)};
         }
       }
@@ -95,10 +98,11 @@ export default {
 
     &--featured {
       a {
-          border: 1px solid $yellow;
+        border: 1px solid $yellow;
         }
 
       .BlogItem-date {
+        height: 150px;
         background-color: $yellow;
         color: $white;
       }

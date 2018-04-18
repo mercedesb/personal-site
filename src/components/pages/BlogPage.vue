@@ -25,12 +25,16 @@ export default {
     LandingPage, BlogListItem
   },
   computed: {
+    page() {
+      return this.$store.state.landingPage
+    },
     posts() {
       return this.$store.state.blogPosts.map((post) => {
         return {
           id: post.id,
-          color: 'blue',
+          color: this.page.color,
           title: post.title,
+          preamble: post.preamble,
           urlSegment: post.urlSegment,
           date: new Date(post.publishDate)
         }
