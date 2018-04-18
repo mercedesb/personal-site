@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header v-if="$route.path !== '/'"/>
+    <app-header />
     <router-view>
     </router-view>
   </div>
