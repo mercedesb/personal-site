@@ -1,7 +1,7 @@
 <template>
   <header class='MainNav'>
     <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
-      <router-link class="MainNav-link" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></router-link>
+      <smart-link class="MainNav-link" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></smart-link>
       <!-- <navigation-links></navigation-links> -->
       <div class='MainNav-hamburger'>
         <div></div>

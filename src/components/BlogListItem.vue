@@ -1,15 +1,15 @@
 <template>
-  <div :class="classes">
-    <router-link :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
-    <div class='BlogItem-date'>
-      <span>{{ publishMonth }}</span>
-      <span class='BlogItem-publishDay'>{{ publishDay }}</span>
-      <span>{{ publishYear }}</span>
+  <smart-link :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
+    <div :class="classes">
+      <div class='BlogItem-date'>
+        <span>{{ publishMonth }}</span>
+        <span class='BlogItem-publishDay'>{{ publishDay }}</span>
+        <span>{{ publishYear }}</span>
+      </div>
+      <h4 class='BlogItem-title'>{{ title }}</h4>
+      <p class='BlogItem-preamble'>{{ preamble }}</p>
     </div>
-    <h4 class='BlogItem-title'>{{ title }}</h4>
-    <p class='BlogItem-preamble'>{{ preamble }}</p>
-  </router-link>
-  </div>
+  </smart-link>
 </template>
 
 <script>
@@ -56,12 +56,9 @@ export default {
 
 <style lang="scss" scoped>
   .BlogItem {
-    flex: 1 1 auto;
-    a {
-      display:flex;
-      align-items: center;
-      margin: $base-spacing $large-spacing;
-    }
+    display:flex;
+    align-items: center;
+    margin: $base-spacing $large-spacing;
 
     &-date {
       margin-right: $base-spacing;
@@ -85,9 +82,7 @@ export default {
 
     @each $type in $colors-array {
       &--#{nth($type, 1)} {
-        a {
-          border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
-        }
+        border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
 
         .BlogItem-date {
           background-color: #{darken(saturate(nth($type, 2), 10%), 12%)};
@@ -97,9 +92,7 @@ export default {
     }
 
     &--featured {
-      a {
-        border: 1px solid $yellow;
-        }
+      border: 1px solid $yellow;
 
       .BlogItem-date {
         height: 150px;
