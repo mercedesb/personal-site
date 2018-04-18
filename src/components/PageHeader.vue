@@ -45,7 +45,6 @@ export default {
     }
 
     &-description {
-      font-family: $header-font-family;
       font-size: $large-font-size;
     }
 

@@ -28,12 +28,10 @@ $candela: 'candelabook';
 }
 
 $poppins: 'Poppins';
-$header-font-family: $poppins, Arial, sans-serif;
-/*$header-font-family: 'Raleway', Arial, sans-serif;*/
-
 $libre-baskerville: 'Libre Baskerville';
-$open-sans: 'Open Sans';
-$base-font-family: $open-sans, sans-serif;
+
+$header-font-family: $libre-baskerville, serif;
+$base-font-family: $poppins, sans-serif;
 
 $small-font-size: 16px;
 $base-font-size: 20px;

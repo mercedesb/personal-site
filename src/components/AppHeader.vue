@@ -32,11 +32,11 @@ export default {
     &-link {
       display: flex;
       align-items: center;
+      padding: $small-spacing $base-spacing;
     }
 
     &-logo {
       max-height: 70px;
-      padding: $small-spacing $base-spacing;
       font-family: $candela;
       font-size: $larger-font-size;
       font-weight: $heavy-font-weight;
