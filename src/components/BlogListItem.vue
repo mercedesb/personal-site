@@ -1,6 +1,6 @@
 <template>
-  <smart-link :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
-    <div :class="classes">
+  <smart-link :class="classes" :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
+    <div class='BlogItem-container'>
       <div class='BlogItem-date'>
         <span>{{ publishMonth }}</span>
         <span class='BlogItem-publishDay'>{{ publishDay }}</span>
@@ -56,9 +56,12 @@ export default {
 
 <style lang="scss" scoped>
   .BlogItem {
-    display:flex;
-    align-items: center;
-    margin: $base-spacing $large-spacing;
+
+    &-container {
+      display:flex;
+      align-items: center;
+      margin: $base-spacing $large-spacing;
+    }
 
     &-date {
       margin-right: $base-spacing;
@@ -82,17 +85,35 @@ export default {
 
     @each $type in $colors-array {
       &--#{nth($type, 1)} {
-        border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
 
-        .BlogItem-date {
-          background-color: #{darken(saturate(nth($type, 2), 10%), 12%)};
-          color: #{nth($type, 3)};
+        &:nth-child(odd) {
+          .BlogItem-container {
+            border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
+          }
+
+          .BlogItem-date {
+            background-color: #{darken(saturate(nth($type, 2), 10%), 12%)};
+            color: #{nth($type, 3)};
+          }
+        }
+
+        &:nth-child(even) {
+          .BlogItem-container {
+            border: 1px solid #{nth($type, 2)};
+          }
+
+          .BlogItem-date {
+            background-color: #{nth($type, 2)};
+            color: #{nth($type, 3)};
+          }
         }
       }
     }
 
     &--featured {
-      border: 1px solid $yellow;
+      .BlogItem-container {
+        border: 1px solid $yellow;
+      }
 
       .BlogItem-date {
         height: 150px;
