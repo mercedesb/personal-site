@@ -5,11 +5,11 @@
       :title="page.title"
       :preamble="page.preamble"
       :media="iconUrl"></PageHeader>
-    <div v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
+    <main v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
       <p class="PageContent">
         <parse-markdown :source="page.mainContent" />
       </p>
-    </div>
+    </main>
     <div v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
       <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
       <CTALink

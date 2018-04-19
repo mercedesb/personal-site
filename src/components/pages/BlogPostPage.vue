@@ -1,28 +1,22 @@
 <template>
    <div>
-    <PageHeader
-      :color="page.color || 'brown'"
-      :title="page.title"
-      :preamble="page.preamble"
-      :media="iconUrl"></PageHeader>
-    <div v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
+     <header :class="'ContentHeader ContentHeader--' + color">
+      <div class="ContentHeader-text">
+        <h1>{{ page.title }}</h1>
+        <h5>{{ formattedPublishDate }}</h5>
+      </div>
+    </header>
+    <main v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
       <p class="PageContent">
         <parse-markdown :source="page.mainContent" />
       </p>
-    </div>
-    <div v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
-      <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
-      <CTALink
-        v-for="ctaLink in ctaLinks"
-        :key="ctaLink.id"
-        v-bind="ctaLink"
-      />
-    </div>
-    </div>
+    </main>
   </div>
 </template>
 
 <script>
+const moment = require('moment')
+
 import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 
@@ -34,27 +28,15 @@ export default {
     urlSegment: {
       type: String,
       required: true
-    }
+    },
+    color: String
   },
   computed: {
     page() {
-      return this.$store.state.landingPage
+      return this.$store.state.blogPost
     },
-    iconUrl() {
-      return this.getImageUrl(this.page.icon)
-    },
-    ctaLinks() {
-      if (!this.page.ctaLinks) return []
-      return this.page.ctaLinks.map((cta) => {
-        return {
-          id: cta.sys.id,
-          color: this.page.color,
-          title: cta.fields.title,
-          icon: this.getImageUrl(cta.fields.icon),
-          url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
-          external: !!cta.fields.externalLink
-        }
-      })
+    formattedPublishDate() {
+      return moment(this.date).format('MMM DD YYYY')
     }
   },
   created () {
@@ -64,4 +46,22 @@ export default {
 </script>
 
 <style lang="scss">
+$header-height: 200px;
+
+.ContentHeader {
+  box-shadow: $base-drop-shadow;
+  max-height: $header-height;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  &-text {
+    margin: $small-spacing $base-spacing;
+    overflow: hidden;
+    text-align:center;
+  }
+
+  @include background-color;
+}
 </style>

@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state:{
     errors: [],
     blogPosts:[],
+    blogPost: {},
     landingPage: {},
     homePage: {},
     entries: []
@@ -14,6 +15,9 @@ export default new Vuex.Store({
   mutations:{
     blogPosts(state, blogPosts) {
       state.blogPosts = blogPosts
+    },
+    blogPost(state, blogPost) {
+      state.blogPost = blogPost
     },
     landingPage(state, landingPage) {
       state.landingPage = landingPage
@@ -26,6 +30,9 @@ export default new Vuex.Store({
     },
     clearBlogPosts(state) {
       state.blogPosts = []
+    },
+    clearBlogPost(state) {
+      state.blogPost = {}
     },
     clearLandingPage(state) {
       state.landingPage = {}
@@ -47,6 +54,25 @@ export default new Vuex.Store({
       .then((entries) => {
         context.commit('blogPosts', entries)
       })
+    },
+    getBlogPost(context, urlSegment) {
+      context.commit('clearBlogPost')
+      const { blogPosts } = context.state
+      if (blogPosts && blogPosts.length) {
+        const matching = blogPosts.filter(blogPost => blogPost.urlSegment === urlSegment)
+        if (matching && matching.length) {
+          context.commit('blogPost', matching[0])
+        }
+      }
+      else {
+        context.dispatch('getEntries', {
+          content_type: 'blogPost',
+          'fields.urlSegment': urlSegment
+        })
+        .then((entries) => {
+          context.commit('blogPost', entries.length ? entries[0] : {})
+        })
+      }
     },
     getLandingPage(context, urlSegment) {
       context.commit('clearLandingPage')

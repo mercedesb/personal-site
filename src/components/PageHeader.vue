@@ -1,5 +1,5 @@
 <template>
-  <main :class="'PageHeader PageHeader--' + color">
+  <header :class="'PageHeader PageHeader--' + color">
     <div class="PageHeader-media" v-if="media">
       <img :src="media" />
     </div>
@@ -7,7 +7,7 @@
       <h1>{{ title }}</h1>
       <p class="PageHeader-description">{{ preamble }}</p>
     </div>
-  </main>
+  </header>
 </template>
 
 <script>

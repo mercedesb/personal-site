@@ -1,5 +1,5 @@
 <template>
-  <header class='MainNav'>
+  <nav class='MainNav'>
     <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
       <smart-link class="MainNav-link" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></smart-link>
       <!-- <navigation-links></navigation-links> -->
@@ -9,7 +9,7 @@
         <div></div>
       </div>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script>
