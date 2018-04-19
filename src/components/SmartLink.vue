@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link :to="to" v-if="!isExternal">
-      <span v-on:click="expanded = !expanded">
+      <span>
         <slot></slot>
       </span>
     </router-link>
