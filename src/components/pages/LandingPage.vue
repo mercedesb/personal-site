@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <PageHeader v-if="page"
+  <div v-if="page">
+    <PageHeader
       :color="page.color"
       :title="page.title"
       :preamble="page.preamble"
