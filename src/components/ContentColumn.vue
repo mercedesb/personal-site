@@ -34,6 +34,7 @@ export default {
       return !!this.externalLink
     },
     link: function() {
+      debugger
       if (this.isExternal) {
         return this.externalLink
       }

@@ -25,10 +25,6 @@ export default {
     PageHeader, CTALink
   },
   props: {
-    urlSegment: {
-      type: String,
-      required: true
-    },
     color: {
       type: String,
       default: 'gray'
@@ -43,7 +39,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getBlogPost', this.urlSegment)
+    this.$store.dispatch('getBlogPost', this.$route.params.urlSegment)
   }
 }
 </script>

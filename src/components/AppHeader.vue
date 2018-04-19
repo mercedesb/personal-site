@@ -13,7 +13,8 @@
             <li v-for="navLink in navLinks">
               <smart-link
                 :to="'/' + navLink.urlSegment || navLink.externalLink"
-                :isExternal="!!navLink.externalLink">
+                :isExternal="!!navLink.externalLink"
+                >
                 {{navLink.title}}
               </smart-link>
             </li>

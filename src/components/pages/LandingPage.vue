@@ -30,12 +30,6 @@ export default {
   components: {
     PageHeader, CTALink
   },
-  props: {
-    urlSegment: {
-      type: String,
-      required: true
-    }
-  },
   computed: {
     page() {
       return this.$store.state.landingPage
@@ -58,7 +52,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getLandingPage', this.urlSegment)
+    this.$store.dispatch('getLandingPage', this.$route.params.urlSegment)
   }
 }
 </script>
