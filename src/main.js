@@ -13,7 +13,7 @@ Vue.component('smart-link', SmartLink)
 
 Vue.mixin({
   methods: {
-    getImageUrl (image) {
+    getImageUrl(image) {
       if (image && image.fields && image.fields.file) {
         return image.fields.file.url
       }

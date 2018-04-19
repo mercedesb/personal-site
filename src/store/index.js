@@ -10,6 +10,7 @@ export default new Vuex.Store({
     blogPost: {},
     landingPage: {},
     homePage: {},
+    navLinks: [],
     entries: []
   },
   mutations:{
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     homePage(state, homePage) {
        state.homePage = homePage
     },
+    navLinks(state, navLinks) {
+      state.navLinks = navLinks
+    },
     entries(state, entries) {
       state.entries = entries
     },
@@ -39,6 +43,9 @@ export default new Vuex.Store({
     },
     clearHomePage(state) {
       state.homePage = {}
+    },
+    clearNavLinks(state) {
+      state.navLinks = []
     },
     clearEntries(state) {
       state.entries = []
@@ -58,7 +65,7 @@ export default new Vuex.Store({
     getBlogPost(context, urlSegment) {
       context.commit('clearBlogPost')
       const { blogPosts } = context.state
-      if (blogPosts && blogPosts.length) {
+      if (blogPosts.length) {
         const matching = blogPosts.filter(blogPost => blogPost.urlSegment === urlSegment)
         if (matching && matching.length) {
           context.commit('blogPost', matching[0])
@@ -87,10 +94,39 @@ export default new Vuex.Store({
     },
     getHomePage(context) {
       context.commit('clearHomePage')
-      context.dispatch('getEntries', {content_type: 'home'})
+
+      return context.dispatch('getEntries', {content_type: 'home'})
       .then((entries) => {
-        context.commit('homePage', entries.length ? entries[0] : {})
+        const homePage = entries.length ? entries[0] : {}
+        context.commit('homePage', homePage)
+        return homePage
       })
+    },
+    getNavLinks(context) {
+      context.commit('clearNavLinks')
+      const { homePage } = context.state
+      if (Object.keys(homePage).length > 0) {
+        const children = homePage.children.map((item) => {
+          return {
+            id: item.sys.id,
+            ...item.fields
+          }
+        })
+        context.commit('navLinks', children)
+      }
+      else {
+        context.dispatch('getHomePage')
+        .then((homePage) => {
+          // TODO: refactor this so we only do it once...
+          const children = homePage.children.map((item) => {
+            return {
+              id: item.sys.id,
+              ...item.fields
+            }
+          })
+          context.commit('navLinks', children)
+        })
+      }
     },
     getEntries(context, query) {
       const contentful = require('contentful')

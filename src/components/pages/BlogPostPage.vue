@@ -29,7 +29,10 @@ export default {
       type: String,
       required: true
     },
-    color: String
+    color: {
+      type: String,
+      default: 'gray'
+    }
   },
   computed: {
     page() {
