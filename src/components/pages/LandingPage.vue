@@ -1,10 +1,11 @@
 <template>
   <div>
-    <PageHeader
-      :color="page.color || 'brown'"
+    <PageHeader v-if="page"
+      :color="page.color"
       :title="page.title"
       :preamble="page.preamble"
-      :media="iconUrl"></PageHeader>
+      :media="iconUrl"
+    />
     <main v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
       <p class="PageContent">
         <parse-markdown :source="page.mainContent" />
@@ -30,6 +31,14 @@ export default {
   components: {
     PageHeader, CTALink
   },
+  props: {
+    urlSegment: String
+  },
+  data() {
+    return {
+      path: this.urlSegment
+    }
+  },
   computed: {
     page() {
       return this.$store.state.landingPage
@@ -51,8 +60,14 @@ export default {
       })
     }
   },
-  created () {
-    this.$store.dispatch('getLandingPage', this.$route.params.urlSegment)
+  created() {
+    this.$store.dispatch('getLandingPage', this.path)
+  },
+  watch: {
+    '$route' (to, from) {
+      this.path = this.$route.params.urlSegment
+      this.$store.dispatch('getLandingPage', this.path)
+    }
   }
 }
 </script>
