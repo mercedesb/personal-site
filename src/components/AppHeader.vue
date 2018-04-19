@@ -93,7 +93,7 @@ export default {
     }
 
     .FlexContainer--justifyCenter {
-      .MainNav-hamburger {
+      .MainNav-hamburger, .MainNav-navLinks {
         display:none;
       }
     }

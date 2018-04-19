@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <app-header :classModifier="$route.path === '/' ? 'justifyCenter' : 'spaceBetween'"/>
-    <router-view>
+    <router-view v-cloak>
     </router-view>
   </div>
 </template>
