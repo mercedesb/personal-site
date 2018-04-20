@@ -4,9 +4,7 @@
       <smart-link class="MainNav-home" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></smart-link>
       <div>
         <div class='MainNav-hamburger' v-on:click="expanded = !expanded">
-          <div></div>
-          <div></div>
-          <div></div>
+          <img src='../assets/menu.svg' alt='hamburger menu'/>
         </div>
         <div :class="'MainNav-navLinks MainNav-navLinks--' + navStateClass">
           <ul v-if="navLinks.length">
@@ -74,14 +72,8 @@ export default {
     &-hamburger {
       margin-right: $base-spacing;
       justify-self: flex-end;
-      div {
+      img {
         width: $nav-height - $base-spacing;
-        border-top: 2px solid $black;
-        margin-top: $small-spacing;
-
-        &:first-child {
-          margin-top: 0;
-        }
       }
     }
 
