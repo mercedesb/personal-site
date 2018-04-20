@@ -12,7 +12,7 @@
           <ul v-if="navLinks.length">
             <li v-for="navLink in navLinks">
               <smart-link
-                :to="'/' + navLink.urlSegment || navLink.externalLink"
+                :to="`${navLink.externalLink || navLink.urlSegment}`"
                 :isExternal="!!navLink.externalLink"
                 >
                 {{navLink.title}}
