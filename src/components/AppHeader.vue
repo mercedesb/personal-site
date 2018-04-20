@@ -85,7 +85,7 @@ export default {
       right: 0;
       display: flex;
       flex-direction: column;
-      box-shadow: 0px 10px 10px $black, -10px 8px 10px $black, 0px 10px 10px $black;
+      box-shadow: -2px 2px 5px 0px $black;
 
       &--collapsed {
         display:none;
