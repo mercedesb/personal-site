@@ -1,25 +1,30 @@
 <template>
-  <div v-if="page">
-    <PageHeader
-      :color="page.color"
-      :title="page.title"
-      :preamble="page.preamble"
-      :media="iconUrl"
-    />
-    <main v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
-      <p class="PageContent">
-        <parse-markdown :source="page.mainContent" />
-      </p>
-    </main>
-    <div v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
-      <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
-      <CTALink
-        v-for="ctaLink in ctaLinks"
-        :key="ctaLink.id"
-        v-bind="ctaLink"
-      />
-    </div>
-    </div>
+  <div>
+    <transition name="fade">
+      <div :key="page.id">
+        <PageHeader
+          :color="page.color"
+          :title="page.title"
+          :preamble="page.preamble"
+          :media="iconUrl"
+          :key="`${page.id}_header`"
+        />
+        <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
+          <p class="PageContent">
+            <parse-markdown :source="page.mainContent" />
+          </p>
+        </main>
+        <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
+          <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
+            <CTALink
+              v-for="ctaLink in ctaLinks"
+              :key="ctaLink.id"
+              v-bind="ctaLink"
+            />
+          </div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -62,15 +67,21 @@ export default {
   },
   created() {
     this.$store.dispatch('getLandingPage', this.path)
-  },
-  watch: {
-    '$route' (to, from) {
-      this.path = this.$route.params.urlSegment
-      this.$store.dispatch('getLandingPage', this.path)
-    }
   }
 }
 </script>
 
 <style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active in <2.1.8 */
+
+{
+  opacity: 0
+}
 </style>

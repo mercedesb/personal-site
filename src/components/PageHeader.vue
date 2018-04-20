@@ -1,5 +1,5 @@
 <template>
-  <header :class="'PageHeader PageHeader--' + color">
+  <header v-if="title" :class="'PageHeader PageHeader--' + color">
     <div class="PageHeader-media" v-if="media">
       <img :src="media" />
     </div>
@@ -14,7 +14,10 @@
 export default {
   props: {
     color: String,
-    title: String,
+    title: {
+      type: String,
+      required: true
+    },
     preamble: String,
     media: String
   }
