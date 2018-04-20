@@ -7,7 +7,7 @@
         <span>{{ publishYear }}</span>
       </div>
       <h5 class='BlogItem-title'>{{ title }}</h5>
-      <p class='BlogItem-preamble'>{{ preamble }}</p>
+     <!--  <p class='BlogItem-preamble'>{{ preamble }}</p> -->
     </div>
   </smart-link>
 </template>
@@ -86,26 +86,13 @@ export default {
     @each $type in $colors-array {
       &--#{nth($type, 1)} {
 
-        &:nth-child(odd) {
-          .BlogItem-container {
-            border: 1px solid #{darken(saturate(nth($type, 2), 10%), 12%)};
-          }
-
-          .BlogItem-date {
-            background-color: #{darken(saturate(nth($type, 2), 10%), 12%)};
-            color: #{nth($type, 3)};
-          }
+        .BlogItem-container {
+          border: 1px solid #{nth($type, 2)};
         }
 
-        &:nth-child(even) {
-          .BlogItem-container {
-            border: 1px solid #{nth($type, 2)};
-          }
-
-          .BlogItem-date {
-            background-color: #{nth($type, 2)};
-            color: #{nth($type, 3)};
-          }
+        .BlogItem-date {
+          background-color: #{nth($type, 2)};
+          color: #{nth($type, 3)};
         }
       }
     }

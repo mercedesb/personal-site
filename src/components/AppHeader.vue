@@ -6,9 +6,9 @@
         <div class='MainNav-hamburger' v-on:click="expanded = !expanded">
           <img src='../assets/menu.svg' alt='hamburger menu'/>
         </div>
-        <div :class="'MainNav-navLinks MainNav-navLinks--' + navStateClass">
-          <ul v-if="navLinks.length">
-            <li v-for="navLink in navLinks">
+        <div>
+          <ul :class="'MainNav-navLinks MainNav-navLinks--' + navStateClass" v-if="navLinks.length">
+            <li class="MainNav-navLink" v-for="navLink in navLinks">
               <smart-link
                 :to="`${navLink.externalLink || navLink.urlSegment}`"
                 :isExternal="!!navLink.externalLink"
@@ -49,6 +49,7 @@ export default {
 
 <style lang="scss" scoped>
   $nav-height: 75px;
+  $hamburger-width: 300px;
 
   .MainNav {
     background-color: $white;
@@ -78,10 +79,22 @@ export default {
     }
 
     &-navLinks {
+      position: absolute;
+      background-color: $white;
+      width: $hamburger-width;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0px 10px 10px $black, -10px 8px 10px $black, 0px 10px 10px $black;
 
       &--collapsed {
         display:none;
       }
+    }
+
+    &-navLink {
+      padding: $small-spacing $base-spacing;
+      text-align: right;
     }
 
     .FlexContainer--justifyCenter {
