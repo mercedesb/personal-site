@@ -6,8 +6,8 @@
         <div class='MainNav-hamburger' v-on:click="expanded = !expanded">
           <img src='../assets/menu.svg' alt='hamburger menu'/>
         </div>
-        <div>
-          <ul :class="'MainNav-navLinks MainNav-navLinks--' + navStateClass" v-if="navLinks.length">
+        <transition name='grow'>
+          <ul class='MainNav-navLinks' v-if="navLinks.length && expanded">
             <li class="MainNav-navLink" v-for="navLink in navLinks">
               <smart-link
                 :to="`${navLink.externalLink || navLink.urlSegment}`"
@@ -17,7 +17,7 @@
               </smart-link>
             </li>
           </ul>
-        </div>
+        </transition>
       </div>
     </div>
   </nav>
@@ -91,10 +91,11 @@ export default {
       display: flex;
       flex-direction: column;
       box-shadow: -2px 4px 5px -2px $black;
+      overflow: hidden;
 
-      &--collapsed {
+      /* &--collapsed {
         display:none;
-      }
+      } */
     }
 
     &-navLink {

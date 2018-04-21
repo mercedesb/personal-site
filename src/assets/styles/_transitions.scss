@@ -1,6 +1,6 @@
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s;
 }
 
 .fade-enter,
@@ -8,5 +8,21 @@
 /* .fade-leave-active in <2.1.8 */
 
 {
-  opacity: 0
+  opacity: 0;
+}
+
+.grow-enter-active,
+.grow-leave-active {
+  transition: all .5s;
+}
+
+.grow-enter-to,
+.grow-leave {
+  height: 172px;
+}
+
+.grow-enter,
+.grow-leave-to
+{
+  height: 0;
 }
