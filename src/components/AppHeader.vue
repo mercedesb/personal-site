@@ -43,7 +43,12 @@ export default {
   },
   created () {
     this.$store.dispatch('getNavLinks')
-  }
+  },
+   watch: {
+    '$route' (to, from) {
+      this.expanded = false
+    }
+   }
 }
 </script>
 
@@ -85,7 +90,7 @@ export default {
       right: 0;
       display: flex;
       flex-direction: column;
-      box-shadow: -2px 2px 5px 0px $black;
+      box-shadow: -2px 4px 5px -2px $black;
 
       &--collapsed {
         display:none;
