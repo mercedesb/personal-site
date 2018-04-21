@@ -6,8 +6,10 @@
         <span class='BlogItem-publishDay'>{{ publishDay }}</span>
         <span>{{ publishYear }}</span>
       </div>
+      <div class='BlogItem-text'>
       <h5 class='BlogItem-title'>{{ title }}</h5>
-     <!--  <p class='BlogItem-preamble'>{{ preamble }}</p> -->
+      <p class='BlogItem-preamble'>{{ preamble }}</p>
+   </div>
     </div>
   </smart-link>
 </template>
@@ -61,11 +63,11 @@ export default {
       display:flex;
       align-items: center;
       margin: $base-spacing $large-spacing;
+      height:130px;
     }
 
     &-date {
       margin-right: $base-spacing;
-      padding: $small-spacing;
       min-width: 100px;
       display: flex;
       flex-direction: column;
@@ -79,8 +81,20 @@ export default {
       font-size: $large-font-size;
     }
 
-    &-title, &-preamble {
-      margin: 0 $base-spacing;
+    &-title {
+      font-weight: $base-font-weight;
+      margin: $base-spacing;
+    }
+
+    &-preamble {
+      margin: 0 $base-spacing $base-spacing;
+      font-weight: $base-font-weight;
+      font-size: $small-font-size;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
     }
 
     @each $type in $colors-array {
@@ -98,19 +112,26 @@ export default {
     }
 
     &--featured {
-      .BlogItem-container {
-        border: 1px solid $yellow;
-      }
+      .BlogItem {
+        &-container {
+          border: 1px solid $yellow;
+          height: 200px;
+        }
 
-      .BlogItem-date {
-        height: 150px;
-        background-color: $yellow;
-        color: $white;
-      }
+        &-date {
+          background-color: $yellow;
+          color: $white;
+        }
 
-      .BlogItem-title {
-        font-size: $large-font-size;
-        font-weight: $base-font-weight;
+        &-title {
+          font-size: $large-font-size;
+          font-weight: 300;
+          font-style: italic;
+        }
+
+        &-preamble {
+          font-size: $base-font-size;
+        }
       }
     }
   }

@@ -1,19 +1,21 @@
 <template>
-  <div>
-    <LandingPage :urlSegment="urlSegment"></LandingPage>
-    <div v-if="posts.length" class='FlexContainer FlexContainer--justifyCenter'>
-      <div class='PageContent PageContent--wide'>
-        <BlogListItem v-if="featuredPost"
-          v-bind="featuredPost"
-          :key="featuredPost.id"
-        ></BlogListItem>
-        <BlogListItem v-for="blogPost in remainingPosts"
-          v-bind="blogPost"
-          :key="blogPost.id"
-        ></BlogListItem>
+  <transition name='fade'>
+    <div>
+      <LandingPage :urlSegment="urlSegment" />
+      <div v-if="posts.length" class='FlexContainer FlexContainer--justifyCenter'>
+        <div class='PageContent PageContent--wide'>
+          <BlogListItem v-if="featuredPost"
+            v-bind="featuredPost"
+            :key="featuredPost.id"
+          ></BlogListItem>
+          <BlogListItem v-for="blogPost in remainingPosts"
+            v-bind="blogPost"
+            :key="blogPost.id"
+          ></BlogListItem>
+        </div>
       </div>
     </div>
-</div>
+  </transition>
 </template>
 
 <script>
