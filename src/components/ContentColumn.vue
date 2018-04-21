@@ -1,6 +1,6 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <smart-link :to="link" :isExternal="isExternal">
+    <smart-link class='ContentColumn-link' :to="link" :isExternal="isExternal">
       <h2 class='ContentColumn-title'>{{ title }}</h2>
       <img class='ContentColumn-icon' :src="iconUrl" />
       <div class='ContentColumn-description'>
@@ -60,10 +60,9 @@ export default {
     flex-direction: column;
     align-items: center;
 
-  /* TODO: media query */;
-    a {
+    &-link {
       width: $fixed-width;
-      font-weight: $base-font-weight;
+      font-weight: 400;
     }
 
     &-title {
