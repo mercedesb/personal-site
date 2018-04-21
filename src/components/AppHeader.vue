@@ -36,9 +36,6 @@ export default {
   computed: {
     navLinks() {
       return this.$store.state.navLinks
-    },
-    navStateClass() {
-      return this.expanded ? 'expanded' : 'collapsed'
     }
   },
   created () {
@@ -92,10 +89,6 @@ export default {
       flex-direction: column;
       box-shadow: -2px 4px 5px -2px $black;
       overflow: hidden;
-
-      /* &--collapsed {
-        display:none;
-      } */
     }
 
     &-navLink {
