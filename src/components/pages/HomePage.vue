@@ -5,8 +5,10 @@
           :title="page.preamble"
           color='brown'
           :mainImage="mainImageUrl"
-          :backgroundImages="backgroundImages"></HeroHeader>
-        <div class='FlexContainer FlexContainer--column u-fillHeight'>
+          :backgroundImages="backgroundImages"
+          :key="`${page.id}_header`"
+        />
+        <div :key="`${page.id}_mainContent`" class='FlexContainer FlexContainer--column u-fillHeight'>
           <div class='FlexContainer u-fillSpace' v-if="columns && columns.length">
             <ContentColumn
               v-for="column in columns"

@@ -1,5 +1,5 @@
 <template>
-  <header :class="'Hero Hero--' + color">
+  <header v-if="title" :class="'Hero Hero--' + color">
     <div class="Hero-background" v-if="backgroundImages && backgroundImages.length">
       <img
         v-for="image in backgroundImages"
