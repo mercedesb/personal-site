@@ -58,7 +58,7 @@ li {
 
 .PageContent {
   width: $content-width;
-  margin-top: $large-spacing;
+  margin: $large-spacing 0 0;
 
   &--wide {
     min-width: $wide-content-width;

@@ -14,6 +14,9 @@
             <parse-markdown :source="page.mainContent" />
           </p>
         </main>
+        <div v-if="page.showContact" class='FlexContainer FlexContainer--justifyCenter'>
+          <ContactForm />
+        </div>
         <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
           <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
             <CTALink
@@ -31,10 +34,11 @@
 <script>
 import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
+import ContactForm from '../ContactForm.vue'
 
 export default {
   components: {
-    PageHeader, CTALink
+    PageHeader, CTALink, ContactForm
   },
   props: {
     urlSegment: String
