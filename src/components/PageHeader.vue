@@ -14,10 +14,7 @@
 export default {
   props: {
     color: String,
-    title: {
-      type: String,
-      required: true
-    },
+    title: String,
     preamble: String,
     media: String
   }

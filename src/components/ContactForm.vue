@@ -1,22 +1,25 @@
 <template>
-  <form class='Contact'>
-    <div class='Contact-fieldset'>
-      <label for='from' class='Contact-label'>
+  <form class='Form'>
+    <div class='Form-fieldset'>
+      <label for='from' class='Form-label'>
         Your Email Address
       </label>
-      <input type='text' name='from' class='Contact-input' />
+      <input type='text' name='from' class='Form-input' />
     </div>
-    <div class='Contact-fieldset'>
-      <label for='subject' class='Contact-label'>
+    <div class='Form-fieldset'>
+      <label for='subject' class='Form-label'>
         Subject
       </label>
-      <input type='text' name='subject' class='Contact-input' />
+      <input type='text' name='subject' class='Form-input' />
     </div>
-    <div class='Contact-fieldset'>
-      <label for='message' class='Contact-label'>
+    <div class='Form-fieldset'>
+      <label for='message' class='Form-label'>
         Message
       </label>
-      <textarea name='message' class='Contact-textarea' />
+      <textarea name='message' class='Form-textarea' />
+    </div>
+    <div class='Form-fieldset'>
+      <button class='Button' type='submit'>Send!</button>
     </div>
   </form>
 </template>
@@ -31,32 +34,36 @@ $input-width: 600px;
 $input-height: $large-spacing;
 $textarea-height: $large-spacing * 5;
 
-.Contact {
+.Form {
   display: flex;
   flex-direction: column;
-}
-.Contact-fieldset {
-  display: flex;
-  flex-direction: column;
-  margin: $base-spacing 0 0;
-  justify-content: space-between;
-}
 
-.Contact-label {
-  font-size: $small-font-size;
-  padding-bottom: $small-spacing;
-}
+  &-fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: $base-spacing 0 0;
+    justify-content: space-between;
+  }
 
-.Contact-input {
-  width: $input-width;
-  height: $input-height;
-  border: 1px solid lighten($gray, 40%);
-}
+  &-label {
+    font-size: $small-font-size;
+    padding-bottom: $small-spacing;
+  }
 
-.Contact-textarea {
-  width: $input-width;
-  height: $textarea-height;
-  border: 1px solid lighten($gray, 40%);
-  resize: none;
+  &-input, &-textarea {
+    width: $input-width;
+    height: $input-height;
+    border: 1px solid $light-gray;
+    border-radius: $base-radius
+  }
+
+  &-textarea {
+    height: $textarea-height;
+    resize: none;
+  }
+
+  .Button {
+    align-self: flex-end;
+  }
 }
 </style>

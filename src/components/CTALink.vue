@@ -33,6 +33,7 @@ export default {
       align-items: center;
       margin: $base-spacing;
       font-weight: $base-font-weight;
+      border-radius: $base-radius
     }
 
     &-icon {
@@ -50,11 +51,11 @@ export default {
       &--#{nth($type, 1)} {
 
         .CTA-icon {
-          background-color: #{darken(nth($type, 2), 15%)};
+          background-color: #{nth($type, 2)};
         }
 
         a {
-          border: 1px solid #{darken(nth($type, 2), 15%)};
+          border: 1px solid #{nth($type, 2)};
         }
       }
     }

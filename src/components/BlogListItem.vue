@@ -64,6 +64,7 @@ export default {
       align-items: center;
       margin: $base-spacing $large-spacing;
       height:130px;
+      border-radius: $base-radius
     }
 
     &-date {

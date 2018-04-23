@@ -6,9 +6,6 @@
 @import './typography.scss';
 @import './transitions.scss';
 
-$content-width: 800px;
-$wide-content-width: 1000px;
-
 html, body, #app {
   margin: 0;
   padding: 0;
@@ -64,6 +61,16 @@ li {
     min-width: $wide-content-width;
   }
 }
+
+.Button {
+  min-width: $button-width;
+  height: $button-height;
+  background-color: $light-gray;
+  border: 1px solid $light-gray;
+  border-radius: $base-radius
+}
+
+/* utilities */
 
 .u-fillSpace {
   flex: 1;

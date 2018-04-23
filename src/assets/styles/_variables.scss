@@ -4,6 +4,7 @@ $blue: #2E4052;
 $yellow: #D19D36;
 /*$gray: #8E8682;*/
 $gray: #6E6F79;
+$light-gray: lighten($gray, 40%);
 $red: #904E55;
 $black: #252627;
 
@@ -46,6 +47,13 @@ $heavy-font-weight: 600;
 $small-spacing: 10px;
 $base-spacing: 20px;
 $large-spacing: 40px;
+
+$base-radius: 2px;
+
+$content-width: 800px;
+$wide-content-width: 1000px;
+$button-width: 300px;
+$button-height: 50px;
 
 /* mixins */
 @mixin border-radius($radius) {

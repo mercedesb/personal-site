@@ -89,6 +89,7 @@ export default {
       flex-direction: column;
       box-shadow: -2px 4px 5px -2px $black;
       overflow: hidden;
+      border-radius: $base-radius
     }
 
     &-navLink {
