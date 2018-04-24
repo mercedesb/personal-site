@@ -78,6 +78,10 @@ export default {
       img {
         width: $nav-height - $base-spacing;
       }
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &-navLinks {

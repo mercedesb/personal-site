@@ -80,6 +80,7 @@ export default {
     &-description {
       color: $white;
       margin: 0 $base-spacing;
+      font-weight: $base-font-weight;
     }
 
     &:hover {

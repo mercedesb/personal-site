@@ -6,6 +6,8 @@
 @import './typography.scss';
 @import './transitions.scss';
 
+$icon-dimension: 35px;
+
 html, body, #app {
   margin: 0;
   padding: 0;
@@ -60,6 +62,44 @@ li {
   &--wide {
     min-width: $wide-content-width;
   }
+
+  &--collapsed {
+    display: none;
+  }
+
+  &-header {
+    margin: $base-spacing 0;
+    display: flex;
+    align-items: center;
+
+    &--collapsible {
+      cursor: pointer;
+    }
+
+    &:before {
+      content: "";
+      background-image: url(/src/assets/CollapseIcon.svg);
+      display: inline-block;
+      width: $icon-dimension;
+      height: $icon-dimension;
+      background-size: $icon-dimension $icon-dimension;
+      margin-right: $base-spacing;
+    }
+
+    &.PageContent--collapsed {
+      display: flex;
+
+      &:before {
+        content: "";
+        background-image: url(/src/assets/ExpandIcon.svg);
+        display: inline-block;
+        width: $icon-dimension;
+        height: $icon-dimension;
+        background-size: $icon-dimension $icon-dimension;
+        margin-right: $base-spacing;
+      }
+    }
+  }
 }
 
 .Button {
@@ -67,7 +107,11 @@ li {
   height: $button-height;
   background-color: $light-gray;
   border: 1px solid $light-gray;
-  border-radius: $base-radius
+  border-radius: $base-radius;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* utilities */
