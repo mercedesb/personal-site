@@ -129,13 +129,11 @@ export default new Vuex.Store({
       }
     },
     getEntries(context, query) {
-      const contentful = require('contentful')
-      const config = require('../../config.json')
-
-      const client = contentful.createClient({
-        space: config.spaceId,
-        accessToken: config.cdaToken
-      })
+      const client = require('contentful')
+                    .createClient({
+                      space: process.env.SPACE_ID,
+                      accessToken: process.env.CDA_TOKEN
+                    })
 
       context.commit('clearEntries')
 

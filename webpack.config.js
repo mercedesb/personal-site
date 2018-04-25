@@ -1,7 +1,16 @@
 var path = require('path')
 var webpack = require('webpack')
+require('dotenv').config();
 
 module.exports = {
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        SPACE_ID: JSON.stringify(process.env.SPACE_ID),
+        CDA_TOKEN: JSON.stringify(process.env.CDA_TOKEN)
+      }
+    })
+  ],
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
