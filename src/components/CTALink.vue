@@ -1,11 +1,11 @@
 <template>
   <div :class="'CTA CTA--' + color">
-    <a :href="url" :target="external ? '_blank' : '_self'">
+    <smart-link class='CTA-link' :to="url">
       <div class='CTA-icon'>
         <img :src="icon" />
       </div>
       <h4 class='CTA-title'>{{ title }}</h4>
-    </a>
+    </smart-link>
   </div>
 </template>
 
@@ -24,11 +24,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .CTA {
     flex: 1 1 50%;
 
-    a {
+    &-link a {
       display:flex;
       align-items: center;
       margin: $base-spacing;
