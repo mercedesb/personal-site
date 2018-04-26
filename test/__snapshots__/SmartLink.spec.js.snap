@@ -9,7 +9,7 @@ exports[`SmartLink with an external link matches snapshot 1`] = `
 
 exports[`SmartLink with an internal link matches snapshot 1`] = `
 <div>
-  <router-link to="test"><span></span></router-link>
+  <router-link to="test"></router-link>
   <!---->
 </div>
 `;

@@ -30,40 +30,40 @@ export default {
 </script>
 
 <style lang="scss">
-$input-width: 600px;
-$input-height: $large-spacing;
-$textarea-height: $large-spacing * 5;
+  $input-width: 600px;
+  $input-height: $large-spacing;
+  $textarea-height: $large-spacing * 5;
 
-.Form {
-  display: flex;
-  flex-direction: column;
-
-  &-fieldset {
+  .Form {
     display: flex;
     flex-direction: column;
-    margin: $base-spacing 0 0;
-    justify-content: space-between;
-  }
 
-  &-label {
-    font-size: $small-font-size;
-    padding-bottom: $small-spacing;
-  }
+    &-fieldset {
+      display: flex;
+      flex-direction: column;
+      margin: $base-spacing 0 0;
+      justify-content: space-between;
+    }
 
-  &-input, &-textarea {
-    width: $input-width;
-    height: $input-height;
-    border: 1px solid $light-gray;
-    border-radius: $base-radius
-  }
+    &-label {
+      font-size: $small-font-size;
+      padding-bottom: $small-spacing;
+    }
 
-  &-textarea {
-    height: $textarea-height;
-    resize: none;
-  }
+    &-input, &-textarea {
+      width: $input-width;
+      height: $input-height;
+      border: 1px solid $light-gray;
+      border-radius: $base-radius
+    }
 
-  .Button {
-    align-self: flex-end;
+    &-textarea {
+      height: $textarea-height;
+      resize: none;
+    }
+
+    .Button {
+      align-self: flex-end;
+    }
   }
-}
 </style>
