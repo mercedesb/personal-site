@@ -59,3 +59,14 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.PageContent {
+  ul {
+    list-style-type: disc;
+    margin-left: $base-spacing;
+  }
+  li {
+    display: list-item;
+  }
+}
+</style>

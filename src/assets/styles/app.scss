@@ -25,12 +25,12 @@ html, body, #app {
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 $base-spacing;
 }
 
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 $small-spacing $small-spacing;
 }
 
 .FlexContainer {
