@@ -14,7 +14,7 @@
             <parse-markdown :source="page.mainContent" />
           </p>
         </main>
-        <div v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
+        <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
           <ContactForm v-if="page.showContact" />
           <BlogList v-if="page.showBlogPosts" :color="page.color" />
         </div>

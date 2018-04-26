@@ -1,4 +1,5 @@
 <template>
+  <div>
     <transition name="fade">
       <div :key="page.id" class="u-fillHeight">
         <HeroHeader
@@ -19,6 +20,7 @@
         </div>
       </div>
     </transition>
+  </div>
 </template>
 
 <script>
