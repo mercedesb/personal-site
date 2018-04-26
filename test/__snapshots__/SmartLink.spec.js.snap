@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmartLink with an external link matches snapshot 1`] = `
+<div>
+  <!---->
+  <a href="http://google.com" target="_blank"></a>
+</div>
+`;
+
+exports[`SmartLink with an internal link matches snapshot 1`] = `
+<div>
+  <router-link to="test"><span></span></router-link>
+  <!---->
+</div>
+`;

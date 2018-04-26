@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroHeader with a title matches snapshot 1`] = `
+<header class="Hero Hero--brown">
+  <div class="Hero-background">
+    <img src="http://image1.com" class="Hero-backgroundImage">
+    <img src="http://image2.com" class="Hero-backgroundImage">
+    <img src="http://image3.com" class="Hero-backgroundImage">
+  </div>
+  <div class="Hero-contentContainer">
+    <div>
+      <img src="http://image.com" class="Hero-image">
+      <parse-markdown source="title"></parse-markdown>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`HeroHeader without a title matches snapshot 1`] = `undefined`;
