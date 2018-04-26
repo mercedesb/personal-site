@@ -3,7 +3,7 @@
     <div class="PageHeader-media" v-if="media">
       <img :src="media" />
     </div>
-    <div class="PageHeader-text">
+    <div :class="`PageHeader-text ${media ? '' : 'PageHeader-text--center'}`">
       <h1>{{ title }}</h1>
       <p class="PageHeader-description">{{ preamble }}</p>
     </div>
@@ -42,6 +42,10 @@ export default {
     &-text {
       width: $text-width;
       padding: 0 $base-spacing;
+
+      &--center {
+        text-align: center;
+      }
     }
 
     &-description {

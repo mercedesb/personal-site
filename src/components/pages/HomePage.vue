@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <div :key="page.id" class="u-fillHeight">
         <HeroHeader
           :title="page.preamble"
@@ -20,7 +19,6 @@
         </div>
       </div>
     </transition>
-  </div>
 </template>
 
 <script>
