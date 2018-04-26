@@ -1,6 +1,6 @@
 <template>
   <div :class="'CTA CTA--' + color">
-    <smart-link class='CTA-link' :to="url">
+    <smart-link class='CTA-link' :to="url" :isExternal="external">
       <div class='CTA-icon'>
         <img :src="icon" />
       </div>
