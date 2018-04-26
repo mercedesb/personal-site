@@ -5,7 +5,7 @@ exports[`PageHeader with a title matches snapshot 1`] = `
   <div class="PageHeader-media">
     <img src="http://image.com">
   </div>
-  <div class="PageHeader-text">
+  <div class="PageHeader-text ">
     <h1>title</h1>
     <p class="PageHeader-description">heres the preamble</p>
   </div>
