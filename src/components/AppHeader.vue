@@ -10,7 +10,7 @@
           <ul class='MainNav-navLinks' v-if="navLinks.length && expanded">
             <li class="MainNav-navLink" v-for="navLink in navLinks">
               <smart-link
-                :to="`${navLink.externalLink || navLink.urlSegment}`"
+                :to="navLink.parsedLink"
                 :isExternal="!!navLink.externalLink"
                 >
                 {{navLink.title}}
@@ -35,7 +35,12 @@ export default {
   },
   computed: {
     navLinks() {
-      return this.$store.state.navLinks
+      return this.$store.state.navLinks.map((link) => {
+        return {
+          parsedLink: link.externalLink ? link.externalLink : `/${link.urlSegment}`,
+          ...link
+        }
+      })
     }
   },
   created () {
