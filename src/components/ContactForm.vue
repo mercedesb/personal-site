@@ -1,7 +1,5 @@
 <template>
   <div>
-    <button class='Button' v-on:click="success = !success">Test</button>
-
     <transition name="fade" mode="out-in">
       <div v-if="success" class='PageContent Form-success'>
         Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
