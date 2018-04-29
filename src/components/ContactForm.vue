@@ -1,12 +1,12 @@
 <template>
   <div>
-    <transition name="fade">
+    <button class='Button' v-on:click="success = !success">Test</button>
+
+    <transition name="fade" mode="out-in">
       <div v-if="success" class='PageContent Form-success'>
         Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
       </div>
-    </transition>
-    <transition name="fade">
-      <form v-if="!success" class='Form' v-on:submit.prevent="onSubmit">
+      <form v-else class='Form' v-on:submit.prevent="onSubmit">
         <div class='Form-error'>
           {{error}}
         </div>
@@ -24,9 +24,9 @@
         </div>
         <div class='Form-fieldset'>
           <label for='text' class='Form-label'>
-            Message
+            Message Text
           </label>
-          <textarea v-model="text" name='text' class='Form-textarea' required />
+          <textarea v-model="text" name='text' class='Form-textarea' required/>
         </div>
         <div class='Form-fieldset'>
           <button class='Button' type='submit'>Send!</button>
@@ -61,7 +61,12 @@ export default {
         this.error = response.data.error
       })
       .catch(e => {
-        this.error = e
+        if (process.env.NODE_ENV === 'development') {
+          console.log(e)
+        }
+        if (e.response && e.response.data) {
+          this.error = e.response.data.error
+        }
       })
     }
   }
@@ -108,6 +113,12 @@ export default {
     &-success {
       font-style: italic;
       margin-top: $large-spacing;
+    }
+
+    &-error {
+      color: red;
+      font-style: italic;
+      font-size: 16px;
     }
   }
 </style>
