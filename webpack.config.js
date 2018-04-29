@@ -7,7 +7,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         SPACE_ID: JSON.stringify(process.env.SPACE_ID),
-        CDA_TOKEN: JSON.stringify(process.env.CDA_TOKEN)
+        CDA_TOKEN: JSON.stringify(process.env.CDA_TOKEN),
+        MAILER_API: JSON.stringify(process.env.MAILER_API)
       }
     })
   ],

@@ -1,31 +1,67 @@
 <template>
-  <form class='Form'>
-    <div class='Form-fieldset'>
-      <label for='from' class='Form-label'>
-        Your Email Address
-      </label>
-      <input type='text' name='from' class='Form-input' />
+  <div>
+    <div v-if="success">
+      Success!
     </div>
-    <div class='Form-fieldset'>
-      <label for='subject' class='Form-label'>
-        Subject
-      </label>
-      <input type='text' name='subject' class='Form-input' />
-    </div>
-    <div class='Form-fieldset'>
-      <label for='message' class='Form-label'>
-        Message
-      </label>
-      <textarea name='message' class='Form-textarea' />
-    </div>
-    <div class='Form-fieldset'>
-      <button class='Button' type='submit'>Send!</button>
-    </div>
-  </form>
+    <form v-if="!success" class='Form' v-on:submit.prevent="onSubmit">
+      <div class='Form-error'>
+        {{error}}
+      </div>
+      <div class='Form-fieldset'>
+        <label for='from' class='Form-label'>
+          Your Email Address
+        </label>
+        <input v-model="from" type='text' name='from' class='Form-input' />
+      </div>
+      <div class='Form-fieldset'>
+        <label for='subject' class='Form-label'>
+          Subject
+        </label>
+        <input v-model="subject" type='text' name='subject' class='Form-input' />
+      </div>
+      <div class='Form-fieldset'>
+        <label for='text' class='Form-label'>
+          Message
+        </label>
+        <textarea v-model="text" name='text' class='Form-textarea' />
+      </div>
+      <div class='Form-fieldset'>
+        <button class='Button' type='submit'>Send!</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+  data() {
+    return {
+      from: '',
+      subject: '',
+      text: '',
+      success: false,
+      error: ''
+    }
+  },
+  methods: {
+    onSubmit() {
+      axios.post(process.env.MAILER_API, {
+        from: this.from,
+        subject: this.subject,
+        text: this.text
+      })
+      .then((response) => {
+        debugger
+        this.success = response.data.success
+        this.error = response.data.error
+      })
+      .catch(e => {
+        this.error = e
+      })
+    }
+  }
 }
 </script>
 
