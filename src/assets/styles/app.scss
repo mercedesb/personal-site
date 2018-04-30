@@ -60,6 +60,12 @@ li {
   width: $content-width;
   margin: $large-spacing 0 0;
 
+  p img {
+    display: block;
+    margin: 0 auto;
+    max-width: 75%;
+  }
+
   &--wide {
     min-width: $wide-content-width;
   }
