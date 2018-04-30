@@ -74,8 +74,12 @@ li {
     display: none;
   }
 
+  &--expanded {
+    display: block;
+  }
+
   &-header {
-    margin: $base-spacing 0;
+    margin: $large-spacing 0;
     display: flex;
     align-items: center;
 
