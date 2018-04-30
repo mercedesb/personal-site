@@ -48,9 +48,10 @@ export default {
     },
     collapse(el) {
       const collapsed = 'PageContent--collapsed'
+      const expanded = 'PageContent'
 
       if (el.className.indexOf(collapsed) != -1) {
-        el.className = el.className.replace(collapsed, '')
+        el.className = el.className.replace(collapsed, expanded)
       }
       else {
         el.className = `${el.className} ${collapsed}`
