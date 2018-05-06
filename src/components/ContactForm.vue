@@ -1,37 +1,35 @@
 <template>
-  <div>
-    <transition name="fade" mode="out-in">
-      <div v-if="success" class='PageContent Form-success'>
-        Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
+  <transition name="fade" mode="out-in">
+    <div v-if="success" class='Form-success'>
+      Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
+    </div>
+    <form v-else class='Form' v-on:submit.prevent="onSubmit">
+      <div class='Form-error'>
+        {{error}}
       </div>
-      <form v-else class='Form' v-on:submit.prevent="onSubmit">
-        <div class='Form-error'>
-          {{error}}
-        </div>
-        <div class='Form-fieldset'>
-          <label for='from' class='Form-label'>
-            Your Email Address
-          </label>
-          <input v-model="from" type='text' name='from' class='Form-input' required />
-        </div>
-        <div class='Form-fieldset'>
-          <label for='subject' class='Form-label'>
-            Subject
-          </label>
-          <input v-model="subject" type='text' name='subject' class='Form-input' required />
-        </div>
-        <div class='Form-fieldset'>
-          <label for='text' class='Form-label'>
-            Message Text
-          </label>
-          <textarea v-model="text" name='text' class='Form-textarea' required/>
-        </div>
-        <div class='Form-fieldset'>
-          <button class='Button' type='submit'>Send!</button>
-        </div>
-      </form>
-    </transition>
-  </div>
+      <div class='Form-fieldset'>
+        <label for='from' class='Form-label'>
+          Your Email Address
+        </label>
+        <input v-model="from" type='text' name='from' class='Form-input' required />
+      </div>
+      <div class='Form-fieldset'>
+        <label for='subject' class='Form-label'>
+          Subject
+        </label>
+        <input v-model="subject" type='text' name='subject' class='Form-input' required />
+      </div>
+      <div class='Form-fieldset'>
+        <label for='text' class='Form-label'>
+          Message Text
+        </label>
+        <textarea v-model="text" name='text' class='Form-textarea' required/>
+      </div>
+      <div class='Form-fieldset'>
+        <button class='Button' type='submit'>Send!</button>
+      </div>
+    </form>
+  </transition>
 </template>
 
 <script>
@@ -72,13 +70,15 @@ export default {
 </script>
 
 <style lang="scss">
-  $input-width: 600px;
+  $form-width: 600px;
   $input-height: $large-spacing;
   $textarea-height: $large-spacing * 5;
 
   .Form {
     display: flex;
     flex-direction: column;
+    max-width: $form-width;
+    width: 100%;
 
     &-fieldset {
       display: flex;
@@ -93,7 +93,9 @@ export default {
     }
 
     &-input, &-textarea {
-      width: $input-width;
+      min-width: 300px;
+      max-width: $form-width;
+      width: 100%;
       height: $input-height;
       border: 1px solid $light-gray;
       border-radius: $base-radius

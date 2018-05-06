@@ -19,7 +19,7 @@
           <BlogList v-if="page.showBlogPosts" :color="page.color" />
         </div>
         <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
-          <div class='PageContent PageContent--wide FlexContainer FlexContainer--wrap'>
+          <div class='PageContent PageContent--wide FlexContainer'>
             <CTALink
               v-for="ctaLink in ctaLinks"
               :key="ctaLink.id"

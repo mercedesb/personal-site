@@ -49,9 +49,6 @@ li {
   &--alignCenter {
     align-items: center;
   }
-  &--wrap {
-    flex-wrap: wrap;
-  }
 
   &--column {
     flex-direction: column
@@ -59,8 +56,9 @@ li {
 }
 
 .PageContent {
-  width: $content-width;
-  margin: $large-spacing 0 0;
+  max-width: $content-width;
+  width: 100%;
+  margin: $large-spacing $base-spacing 0;
 
   p img {
     display: block;
@@ -69,7 +67,7 @@ li {
   }
 
   &--wide {
-    min-width: $wide-content-width;
+    max-width: $wide-content-width;
   }
 
   &--collapsed {
