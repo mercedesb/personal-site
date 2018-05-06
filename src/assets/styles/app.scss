@@ -35,6 +35,7 @@ li {
 
 .FlexContainer {
   display:flex;
+  flex-wrap: wrap;
   box-sizing: border-box;
 
   &--justifyCenter {
@@ -51,6 +52,7 @@ li {
   &--wrap {
     flex-wrap: wrap;
   }
+
   &--column {
     flex-direction: column
   }

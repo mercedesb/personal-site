@@ -56,6 +56,34 @@ $wide-content-width: 1000px;
 $button-width: 300px;
 $button-height: 50px;
 
+// Grid system
+//
+$max-feature: max-width;
+$min-feature: min-width;
+$default-feature: $max-feature;
+// phone and phone max width
+$phone-width: 320px;
+$phone-large-width: 480px;
+$min-phone: $min-feature $phone-width;
+$max-phone: $max-feature ($phone-width + 1);
+$min-phone-large: $min-feature $phone-large-width;
+$max-phone-large: $max-feature ($phone-large-width + 1);
+// tablet and phone max width
+$tablet-width: 768px;
+$tablet-large-width: 1024px;
+$min-tablet: $min-feature $tablet-width;
+$max-tablet: $max-feature ($tablet-width + 1);
+$min-tablet-large: $min-feature $tablet-large-width;
+$max-tablet-large: $max-feature ($tablet-large-width + 1);
+// desktop and phone max width
+$desktop-width: 1224px;
+$desktop-large-width: 1824px;
+$min-desktop: $min-feature $desktop-width;
+$max-desktop: $max-feature ($desktop-width + 1);
+$min-desktop-large: $min-feature $desktop-large-width;
+$max-desktop-large: $max-feature ($desktop-large-width + 1);
+
+
 /* mixins */
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -79,6 +107,38 @@ $button-height: 50px;
       &:hover {
         background-color: darken(nth($type, 2), 7%);
       }
+    }
+  }
+}
+
+@mixin media($query: $feature $value) {
+  @if length($query) == 1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      @content;
+    }
+  }
+
+  @else {
+    $loop-to: length($query);
+    $media-query: 'screen and ';
+
+    @if length($query) % 2 != 0 {
+      $loop-to: $loop-to - 1;
+    }
+
+    $i: 1;
+    @while $i <= $loop-to {
+      $media-query: $media-query + '(' + nth($query, $i) + ': ' + nth($query, $i + 1) + ') ';
+
+      @if ($i + 1) != $loop-to {
+        $media-query: $media-query + 'and ';
+      }
+
+      $i: $i + 2;
+    }
+
+    @media #{$media-query} {
+      @content;
     }
   }
 }

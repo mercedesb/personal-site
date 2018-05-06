@@ -47,22 +47,22 @@ export default {
 
 <style lang="scss" scoped>
   $icon-width: 125px;
-  $transition-time: .5s;
   $fixed-width: 340px;
+  $transition-time: .5s;
 
   .ContentColumn {
-    flex: 1 1 25%;
+    flex: 1 1 100%;
     text-align: center;
     padding-bottom: $large-spacing;
-    -webkit-transition: flex-basis $transition-time;
-    transition: flex-basis $transition-time;
+    -webkit-transition: flex-grow $transition-time;
+    transition: flex-grow $transition-time;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     &-link {
-      width: $fixed-width;
       font-weight: 400;
+      width: $fixed-width;
     }
 
     &-title {
@@ -83,15 +83,15 @@ export default {
       font-weight: $base-font-weight;
     }
 
-    &:hover {
-      flex: 1 1 30%;
+    @include media($min-tablet) {
+      flex: 1 1 50%;
+    }
 
-      /*.ContentColumn-icon {
-        border-radius: 50%;
-        box-shadow:
-          inset 0 0 50px 50px rgba($white, .08),
-          0 0 50px 50px rgba($white, .08)
-      }*/
+    @include media($min-desktop) {
+      flex: 1 1 $fixed-width;
+      &:hover {
+        flex-grow: 2;
+      }
     }
 
     @include background-color;
