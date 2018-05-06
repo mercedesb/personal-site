@@ -61,25 +61,52 @@ export default {
 
     &-container {
       display:flex;
+      flex-wrap: wrap;
       align-items: center;
       margin: $base-spacing $large-spacing;
-      min-height:130px;
-      border-radius: $base-radius
+      border-radius: $base-radius;
+
+      @include media($min-tablet) {
+        max-height:150px;
+        height:130px;
+      }
     }
 
     &-date {
-      margin-right: $base-spacing;
-      min-width: 100px;
+      flex: 1 1 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      align-self: flex-start;
+      justify-content: center;
       font-size: $small-font-size;
-      height: 100%
+      padding: $base-spacing 0;
+
+      span {
+        margin: 0 $small-spacing;
+      }
+
+      @include media($min-tablet) {
+        flex: 1 5;
+        height: 100%;
+        padding: 0;
+        flex-direction: column;
+      }
     }
 
     &-publishDay {
       font-size: $large-font-size;
+    }
+
+    &-text {
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+
+      @include media($min-tablet) {
+        flex: 5 1;
+        align-self: center;
+      }
     }
 
     &-title {
@@ -88,14 +115,14 @@ export default {
     }
 
     &-preamble {
+      display: none;
       margin: 0 $base-spacing $base-spacing;
       font-weight: $base-font-weight;
       font-size: $small-font-size;
-    }
 
-    &-text {
-      display: flex;
-      flex-direction: column;
+      @include media($min-tablet) {
+        display: block;
+      }
     }
 
     @each $type in $colors-array {
@@ -116,6 +143,7 @@ export default {
       .BlogItem {
         &-container {
           border: 1px solid $yellow;
+          max-height: 250px;
           height: 200px;
         }
 
