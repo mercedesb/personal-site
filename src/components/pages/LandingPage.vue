@@ -11,7 +11,7 @@
         />
         <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
           <p class="PageContent">
-            <parse-markdown :source="page.mainContent" />
+            <parse-markdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
           </p>
         </main>
         <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>

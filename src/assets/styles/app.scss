@@ -6,8 +6,6 @@
 @import './typography.scss';
 @import './transitions.scss';
 
-$icon-dimension: 35px;
-
 html, body, #app {
   margin: 0;
   padding: 0;
@@ -70,46 +68,10 @@ li {
     max-width: $wide-content-width;
   }
 
-  &--collapsed {
-    display: none;
-  }
-
-  &--expanded {
-    display: block;
-  }
-
   &-header {
     margin: $large-spacing 0;
     display: flex;
     align-items: center;
-
-    &--collapsible {
-      cursor: pointer;
-    }
-
-    &:before {
-      content: "";
-      background-image: url(/src/assets/CollapseIcon.svg);
-      display: inline-block;
-      width: $icon-dimension;
-      height: $icon-dimension;
-      background-size: $icon-dimension $icon-dimension;
-      margin-right: $base-spacing;
-    }
-
-    &.PageContent--collapsed {
-      display: flex;
-
-      &:before {
-        content: "";
-        background-image: url(/src/assets/ExpandIcon.svg);
-        display: inline-block;
-        width: $icon-dimension;
-        height: $icon-dimension;
-        background-size: $icon-dimension $icon-dimension;
-        margin-right: $base-spacing;
-      }
-    }
   }
 }
 

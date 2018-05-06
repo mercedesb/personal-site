@@ -1,19 +1,40 @@
 <template>
-  <div v-html="html">
+  <div class='Markdown' v-html="html">
   </div>
 </template>
 
 <script>
 import markdownIt from 'markdown-it'
 const md = require('markdown-it')()
-  .use(require('markdown-it-attrs'))
 
 export default {
   props: {
-    source: String,
-    required: true
+    source: {
+      type: String,
+      required: true
+    },
+    collapsible: {
+      type: Boolean,
+      default: false
+    },
+    collapsibleTag: String,
+    collapsedByDefault: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      parentSelector: 'Collapsible',
+      childSelector: 'CollapsibleChild',
+      modifierCollapsed: '--collapsed',
+      modifierExpanded: '--expanded'
+    }
   },
   computed: {
+    querySelector: function() {
+      return `.Markdown ${this.collapsibleTag}`
+    },
     html: function() {
       if (this.source) {
         const html = md.render(this.source)
@@ -23,47 +44,53 @@ export default {
     }
   },
   mounted() {
-    const collapsible = this.$el.querySelectorAll('.PageContent-header--collapsible')
+    if (this.collapsible) {
+      const collapsible = this.$el.querySelectorAll(this.querySelector)
 
-    collapsible.forEach((c) => {
-      c.addEventListener('click', this.handleCollapsible)
-    })
+      collapsible.forEach((c) => {
+        c.addEventListener('click', this.handleCollapsible)
+
+        if (this.collapsedByDefault) {
+          this.handleCollapsible({ target: c }, this.modifierCollapsed)
+        }
+        else {
+          this.handleCollapsible({ target: c }, this.modifierExpanded)
+        }
+      })
+    }
   },
   methods: {
-    handleCollapsible(event) {
-      const selector = '.PageContent-header'
+    handleCollapsible(event, modifier) {
       let el = event.target
 
-      this.collapse(el)
+      this.toggleClass(el, this.parentSelector, modifier)
 
       let sibling = el.nextElementSibling;
-
       while (sibling) {
-        if (sibling.matches(selector)) {
+        if (sibling.matches(this.querySelector)) {
           break
         }
-        this.collapse(sibling)
+        this.toggleClass(sibling, this.childSelector, modifier)
         sibling = sibling.nextElementSibling
       }
     },
-    collapse(el) {
-      const collapsed = 'PageContent--collapsed'
-      const expanded = 'PageContent--expanded'
-
-      if (el.className.indexOf(collapsed) != -1) {
-        el.className = el.className.replace(collapsed, expanded)
+    toggleClass(el, selector, modifier) {
+      if (!!selector && !! modifier) {
+        el.className = `${el.className} ${selector} ${selector}${modifier}`
       }
-      else if (el.className.indexOf(expanded) != -1) {
-        el.className = el.className.replace(expanded, collapsed)
+      else if (el.className.indexOf(this.modifierCollapsed) != -1) {
+        el.className = el.className.replace(this.modifierCollapsed, this.modifierExpanded)
       }
-      else {
-        el.className = `${el.className} ${collapsed}`
+      else if (el.className.indexOf(this.modifierExpanded) != -1) {
+        el.className = el.className.replace(this.modifierExpanded, this.modifierCollapsed)
       }
     }
   }
 }
 </script>
 <style lang="scss">
+$icon-dimension: 35px;
+
 .PageContent {
   ul {
     list-style-type: disc;
@@ -71,6 +98,39 @@ export default {
   }
   li {
     display: list-item;
+  }
+}
+
+.Collapsible {
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: $icon-dimension;
+    height: $icon-dimension;
+    background-size: $icon-dimension $icon-dimension;
+    margin-right: $base-spacing;
+  }
+
+  &--collapsed {
+    &:before {
+      background-image: url(/src/assets/ExpandIcon.svg);
+    }
+  }
+
+  &--expanded {
+    &:before {
+      background-image: url(/src/assets/CollapseIcon.svg);
+    }
+  }
+
+  &Child--collapsed {
+    display: none;
+  }
+
+  &Child--expanded {
+    display: block;
   }
 }
 </style>

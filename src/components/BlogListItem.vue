@@ -63,7 +63,7 @@ export default {
       display:flex;
       align-items: center;
       margin: $base-spacing $large-spacing;
-      height:130px;
+      min-height:130px;
       border-radius: $base-radius
     }
 
