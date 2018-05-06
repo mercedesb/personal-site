@@ -79,6 +79,7 @@ export default {
     flex-direction: column;
     max-width: $form-width;
     width: 100%;
+    margin: 0 $base-spacing;
 
     &-fieldset {
       display: flex;
