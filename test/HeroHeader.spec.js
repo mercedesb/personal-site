@@ -1,53 +1,66 @@
 import { shallowMount } from '@vue/test-utils'
-import Vue from 'vue'
 import HeroHeader from '@/components/HeroHeader.vue'
 import Setup from './Setup'
 
 describe('HeroHeader', () => {
+  let component
+
   Setup.configure()
+
+  const initialProps = {
+    title: 'hero title',
+    color: 'brown',
+    mainImage: 'http://google.com',
+    backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
+  }
+
+  const shallow = propsData => shallowMount(HeroHeader, { 
+    propsData: {
+      ...initialProps,
+      ...propsData
+    }
+   })
   
   describe('Snapshots', () => {
-    let component 
-
     it('renders img for each item in props.backgroundImages', () => {
-      const backgroundImages = ['http://image1.com', 'http://image2.com', 'http://image3.com']
-      component = shallowMount(HeroHeader, {
-         propsData: {
-          color: 'brown',
-          title: 'title',
-          mainImage: 'http://image.com',
-          backgroundImages: backgroundImages
-        }
-      })
-      expect(component.findAll('.Hero-background img')).toHaveLength(backgroundImages.length)
+      component = shallow()
+      expect(component.findAll('.Hero-background img')).toHaveLength(initialProps.backgroundImages.length)
     })
 
     describe('with a title', () => {
       it('matches snapshot', () => {
-        component = shallowMount(HeroHeader, {
-          propsData: {
-            color: 'brown',
-            title: 'title',
-            mainImage: 'http://image.com',
-            backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
-          }
-        })
+        component = shallow()
         expect(component.element).toMatchSnapshot()
       })
     })
 
     describe('without a title', () => {
       it('matches snapshot', () => {
-        component = shallowMount(HeroHeader, {
-          propsData: {
-            color: 'brown',
-            media: 'http://image.com',
-            backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
-          }
-        })
+        component = shallow({title: undefined})
         expect(component.element).toMatchSnapshot()
       })
     })
-    
+  })
+
+  describe('Properties', () => {
+    it('has a title property', () => {
+      component = shallow()
+      expect(component.props().title).toEqual('hero title')
+    })
+
+    it('has a color property', () => {
+      component = shallow()
+      expect(component.props().color).toEqual('brown')
+    })
+
+    it('has a mainImage property', () => {
+      component = shallow()
+      expect(component.props().mainImage).toEqual('http://google.com')
+    })
+
+    it('has a backgroundImages property', () => {
+      component = shallow()
+      expect(component.props().backgroundImages).toEqual(initialProps.backgroundImages)
+    })
   })
 })

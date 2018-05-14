@@ -27,7 +27,7 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
     <div>
       <img
         class="Hero-image"
-        src="http://image.com"
+        src="http://google.com"
       />
        
       <!---->
