@@ -39,7 +39,7 @@ describe('ContentColumn', () => {
 
     describe('without a color passed in', () => {
       it('matches snapshot', () => {
-        component = shallow({color: ''})
+        component = shallow({color: undefined})
         expect(component.element).toMatchSnapshot()
       })
     })
