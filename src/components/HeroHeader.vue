@@ -10,14 +10,19 @@
     <div class="Hero-contentContainer">
       <div>
         <img class="Hero-image" :src="mainImage" />
-        <parse-markdown :source="title" />
+        <ParseMarkdown :source="title" />
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ParseMarkdown from './ParseMarkdown.vue'
+
 export default {
+  components: {
+    ParseMarkdown
+  },
   props: {
     title: String,
     color: String,

@@ -24,11 +24,15 @@
 <script>
 import HeroHeader from '../HeroHeader.vue'
 import ContentColumn from '../ContentColumn.vue'
+import images from '../../mixins/images'
 
 export default {
   components: {
     HeroHeader, ContentColumn
   },
+  mixins: [
+    images
+  ],
   computed: {
     page() {
       return this.$store.state.homePage

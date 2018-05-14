@@ -54,7 +54,7 @@ describe('ContentColumn', () => {
     let component 
 
     beforeEach(() => {
-      component = deep()
+      component = shallow()
     })
 
     it('has a title property', () => {

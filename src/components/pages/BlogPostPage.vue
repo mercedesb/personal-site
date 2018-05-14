@@ -8,7 +8,7 @@
     </header>
     <main v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
       <p class="PageContent">
-        <parse-markdown :source="page.mainContent" />
+        <ParseMarkdown :source="page.mainContent" />
       </p>
     </main>
   </div>
@@ -18,11 +18,12 @@
 const moment = require('moment')
 
 import PageHeader from '../PageHeader.vue'
+import ParseMarkdown from '../ParseMarkdown.vue'
 import CTALink from '../CTALink.vue'
 
 export default {
   components: {
-    PageHeader, CTALink
+    PageHeader, ParseMarkdown, CTALink
   },
   props: {
     color: {

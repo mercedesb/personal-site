@@ -11,7 +11,7 @@
         />
         <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
           <p class="PageContent">
-            <parse-markdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
+            <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
           </p>
         </main>
         <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
@@ -37,11 +37,16 @@ import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
+import ParseMarkdown from '../ParseMarkdown.vue'
+import images from '../../mixins/images'
 
 export default {
   components: {
     PageHeader, CTALink, ContactForm, BlogList
   },
+  mixins: [
+    images
+  ],
   props: {
     urlSegment: String
   },

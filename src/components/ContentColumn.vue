@@ -1,17 +1,26 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
-    <smart-link class='ContentColumn-link' :to="link" :isExternal="isExternal">
+    <SmartLink class='ContentColumn-link' :to="link" :isExternal="isExternal">
       <h2 class='ContentColumn-title'>{{ title }}</h2>
       <img class='ContentColumn-icon' :src="iconUrl" />
       <div class='ContentColumn-description'>
         <p>{{ preamble }}</p>
       </div>
-    </smart-link>
+    </SmartLink>
   </div>
 </template>
 
 <script>
+import SmartLink from './SmartLink.vue'
+import images from '../mixins/images'
+
 export default {
+  components: {
+    SmartLink
+  },
+  mixins: [
+    images
+  ],
   props: {
     title: {
       type: String,
