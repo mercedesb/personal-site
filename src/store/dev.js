@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-
-landingPages
-
 Vue.use(Vuex)
 
 const DevStore = new Vuex.Store({

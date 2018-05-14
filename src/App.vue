@@ -1,14 +1,18 @@
 <template>
   <div id="app">
-    <app-header :classModifier="$route.path === '/' ? 'justifyCenter' : 'spaceBetween'"/>
+    <AppHeader :classModifier="$route.path === '/' ? 'justifyCenter' : 'spaceBetween'"/>
     <router-view v-cloak :key="$route.fullPath">
     </router-view>
   </div>
 </template>
 
 <script>
+import AppHeader from './components/AppHeader.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    AppHeader
+  }
 }
 </script>
 
