@@ -25,8 +25,6 @@ describe('CTALink', () => {
    })
 
   describe('Snapshots', () => {
-    let component 
-
     describe('with a color passed in', () => {
       it('matches snapshot', () => {
         component = shallow()
