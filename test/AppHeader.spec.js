@@ -1,9 +1,11 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
 import AppHeader from '@/components/AppHeader.vue'
 import Setup from './Setup'
 import Vuex from 'vuex'
 
 describe('AppHeader', () => {
+  let component
+
   Setup.configure()
 
   const initialProps = {
@@ -22,6 +24,7 @@ describe('AppHeader', () => {
     },
     actions
   })
+  store.dispatch = jest.fn()
 
   const shallow = propsData => shallowMount(AppHeader, { 
     store,
@@ -32,8 +35,6 @@ describe('AppHeader', () => {
    })
 
   describe('Snapshots', () => {
-    let component 
-
     describe('with a classModifier passed in', () => {
       it('matches snapshot', () => {
         component = shallow()
@@ -50,8 +51,6 @@ describe('AppHeader', () => {
   })
 
   describe('Properties', () => {
-    let component 
-
     it('has a classModifier property', () => {
       component = shallow()
       expect(component.props().classModifier).toBe('modifier')
@@ -59,34 +58,48 @@ describe('AppHeader', () => {
   })
 
   describe('Computed', () => {
-    let component
-
-    it('has navLinks populated', () => {
-      component = shallow()
-      expect(component.vm.navLinks).toBeDefined()
-    })
-
-    it('creates a parsedLink prop on the navLinks', () => {
-      component = shallow()
-      expect(component.vm.navLinks[0].parsedLink).toBeDefined()
-    })
-
-    it('uses the external link for parsedLink if its defined', () => {
-      component = shallow()
-      const shopPage = Setup.landingPages["shop"]
-      const shopLink = component.vm.navLinks.find((link) => {
-        return link.title === shopPage.title
+    describe('navLinks', () => {
+      beforeEach(() => {
+        component = shallow()
       })
-      expect(shopLink.parsedLink).toEqual(shopPage.externalLink)
-    })
 
-    it('uses the url segment for parsedLink if eternalLink is not defined', () => {
-      component = shallow()
-      const blogPage = Setup.landingPages["blog"]
-      const blogLink = component.vm.navLinks.find((link) => {
-        return link.title === blogPage.title
+      it('has navLinks populated', () => {
+        expect(component.vm.navLinks).toBeDefined()
       })
-      expect(blogLink.parsedLink).toEqual(`/${blogPage.urlSegment}`)
+
+      it('creates a parsedLink prop on the navLinks', () => {
+        expect(component.vm.navLinks[0].parsedLink).toBeDefined()
+      })
+
+      it('uses the external link for parsedLink if its defined', () => {
+        const shopPage = Setup.landingPages["shop"]
+        const shopLink = component.vm.navLinks.find((link) => {
+          return link.title === shopPage.title
+        })
+        expect(shopLink.parsedLink).toEqual(shopPage.externalLink)
+      })
+
+      it('uses the url segment for parsedLink if eternalLink is not defined', () => {
+        const blogPage = Setup.landingPages["blog"]
+        const blogLink = component.vm.navLinks.find((link) => {
+          return link.title === blogPage.title
+        })
+        expect(blogLink.parsedLink).toEqual(`/${blogPage.urlSegment}`)
+      })
+    })
+  })
+
+  describe('Lifecycle', () => {
+    describe('created', () => {
+      it('dispatches getNavLinks to the store', () => {
+        component = mount(AppHeader, { 
+          store,
+          propsData: {
+            ...initialProps
+          }
+         })
+        expect(store.dispatch).toHaveBeenCalledWith('getNavLinks')
+      })
     })
   })
 })
