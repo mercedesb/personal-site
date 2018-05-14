@@ -1,21 +1,17 @@
 <template>
   <div :class="'CTA CTA--' + color">
-    <SmartLink class='CTA-link' :to="url" :isExternal="external">
+    <smart-link class='CTA-link' :to="url" :isExternal="external">
       <div class='CTA-icon'>
         <img :src="icon" />
       </div>
       <h4 class='CTA-title'>{{ title }}</h4>
-    </SmartLink>
+    </smart-link>
   </div>
 </template>
 
 <script>
-import SmartLink from './SmartLink.vue'
 
 export default {
-  components: {
-    SmartLink
-  },
   props: {
     title: String,
     icon: String,

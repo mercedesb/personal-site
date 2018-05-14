@@ -1,5 +1,5 @@
 <template>
-  <SmartLink :class="classes" :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
+  <smart-link :class="classes" :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
     <div class='BlogItem-container'>
       <div class='BlogItem-date'>
         <span>{{ publishMonth }}</span>
@@ -11,17 +11,13 @@
       <p class='BlogItem-preamble'>{{ preamble }}</p>
    </div>
     </div>
-  </SmartLink>
+  </smart-link>
 </template>
 
 <script>
-import SmartLink from './SmartLink.vue'
 const moment = require('moment')
 
 export default {
-  components: {
-    SmartLink
-  },
   props: {
     color: String,
     featured: Boolean,

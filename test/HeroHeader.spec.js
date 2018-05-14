@@ -1,8 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
 import Vue from 'vue'
 import HeroHeader from '@/components/HeroHeader.vue'
+import Setup from './Setup'
 
 describe('HeroHeader', () => {
+  Setup.configure()
+  
   describe('Snapshots', () => {
     let component 
 

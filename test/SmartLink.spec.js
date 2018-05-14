@@ -1,7 +1,10 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import SmartLink from '@/components/SmartLink.vue'
+import Setup from './Setup'
 
 describe('SmartLink', () => {
+  Setup.configure()
+  
   describe('Snapshots', () => {
     let component
 

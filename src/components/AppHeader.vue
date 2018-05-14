@@ -1,7 +1,7 @@
 <template>
   <nav class='MainNav'>
     <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
-      <SmartLink class="MainNav-home" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></SmartLink>
+      <smart-link class="MainNav-home" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></smart-link>
       <div>
         <div class='MainNav-hamburger' v-on:click="expanded = !expanded">
           <img src='../assets/menu.svg' alt='hamburger menu'/>
@@ -9,12 +9,12 @@
         <transition name='grow'>
           <ul class='MainNav-navLinks' v-if="navLinks.length && expanded">
             <li class="MainNav-navLink" v-for="navLink in navLinks">
-              <SmartLink
+              <smart-link
                 :to="navLink.parsedLink"
                 :isExternal="!!navLink.externalLink"
                 >
                 {{navLink.title}}
-              </SmartLink>
+              </smart-link>
             </li>
           </ul>
         </transition>
@@ -24,11 +24,7 @@
 </template>
 
 <script>
-import SmartLink from './SmartLink.vue'
 export default {
-  components: {
-    SmartLink
-  },
   props: {
     classModifier: String
   },

@@ -1,8 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
 import CTALink from '@/components/CTALink.vue'
 import SmartLink from '@/components/SmartLink.vue'
+import Setup from './Setup'
+
 
 describe('CTALink', () => {
+  Setup.configure()
 
   describe('Snapshots', () => {
     let component 

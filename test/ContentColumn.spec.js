@@ -1,7 +1,10 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import ContentColumn from '@/components/ContentColumn.vue'
+import Setup from './Setup'
 
 describe('ContentColumn', () => {
+  Setup.configure()
+  
   const initialProps = {
     title: 'title',
     color: 'blue',
