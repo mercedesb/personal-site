@@ -3,37 +3,59 @@ import PageHeader from '@/components/PageHeader.vue'
 import Setup from './Setup'
 
 describe('PageHeader', () => {
+  let component
+
   Setup.configure()
+
+  const initialProps = {
+    color: 'brown',
+    title: 'title',
+    preamble: 'heres the preamble',
+    media: 'http://image.com'
+  }
+
+  const shallow = propsData => shallowMount(PageHeader, { 
+    propsData: {
+      ...initialProps,
+      ...propsData
+    }
+  })
   
   describe('Snapshots', () => {
-    let component
-
     describe('with a title', () => {
       it('matches snapshot', () => {
-        component = shallowMount(PageHeader, {
-          propsData: {
-            color: 'brown',
-            title: 'title',
-            preamble: 'heres the preamble',
-            media: 'http://image.com'
-          }
-        })
+        component = shallow()
         expect(component.element).toMatchSnapshot()
       })
     })
 
     describe('without a title', () => {
       it('matches snapshot', () => {
-        component = shallowMount(PageHeader, {
-          propsData: {
-            color: 'brown',
-            preamble: 'heres the preamble',
-            media: 'http://image.com'
-          }
-        })
+        component = shallow({title: undefined})
         expect(component.element).toMatchSnapshot()
       })
     })
-    
+  })
+
+   describe('Properties', () => {
+    it('has a title property', () => {
+      component = shallow()
+      expect(component.props().title).toEqual('title')
+    })
+
+    it('has a color property', () => {
+      component = shallow()
+      expect(component.props().color).toEqual('brown')
+    })
+
+    it('has a preamble property', () => {
+      component = shallow()
+      expect(component.props().preamble).toEqual('heres the preamble')
+    })
+
+    it('has a media property', () => {
+      component = shallow()
+      expect(component.props().media).toEqual('http://image.com')
+    })
   })
 })
