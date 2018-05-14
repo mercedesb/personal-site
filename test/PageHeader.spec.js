@@ -1,4 +1,4 @@
-import { shallow } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import PageHeader from '@/components/PageHeader.vue'
 
 describe('PageHeader', () => {
@@ -7,7 +7,7 @@ describe('PageHeader', () => {
 
     describe('with a title', () => {
       it('matches snapshot', () => {
-        component = shallow(PageHeader, {
+        component = shallowMount(PageHeader, {
           propsData: {
             color: 'brown',
             title: 'title',
@@ -21,7 +21,7 @@ describe('PageHeader', () => {
 
     describe('without a title', () => {
       it('matches snapshot', () => {
-        component = shallow(PageHeader, {
+        component = shallowMount(PageHeader, {
           propsData: {
             color: 'brown',
             preamble: 'heres the preamble',

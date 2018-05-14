@@ -28,6 +28,7 @@ export default {
   },
   computed: {
     iconUrl: function() {
+      // return ''
       return this.getImageUrl(this.icon)
     },
     isExternal: function() {

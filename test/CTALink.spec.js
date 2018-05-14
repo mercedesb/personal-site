@@ -1,13 +1,15 @@
-import { shallow } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import CTALink from '@/components/CTALink.vue'
+import SmartLink from '@/components/SmartLink.vue'
 
 describe('CTALink', () => {
+
   describe('Snapshots', () => {
     let component 
 
     describe('with a color passed in', () => {
       it('matches snapshot', () => {
-        component = shallow(CTALink, {
+        component = shallowMount(CTALink, {
           propsData: {
             title: 'title',
             icon: 'http://iconurl.com',
@@ -22,7 +24,7 @@ describe('CTALink', () => {
 
     describe('without a color passed in', () => {
       it('matches snapshot', () => {
-        component = shallow(CTALink, {
+        component = shallowMount(CTALink, {
            propsData: {
             title: 'title',
             icon: 'http://iconurl.com',
