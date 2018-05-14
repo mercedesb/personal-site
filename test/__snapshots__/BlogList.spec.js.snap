@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
+<div
+  class="PageContent PageContent--wide"
+  name="fade"
+>
+  <!---->
+   
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
+<div
+  class="PageContent PageContent--wide"
+  name="fade"
+>
+  <!---->
+   
+  <!---->
+  <!---->
+</div>
+`;

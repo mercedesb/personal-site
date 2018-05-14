@@ -56,5 +56,34 @@ export default {
       showContact: false,
       showBlogPosts: false
     }
-  }
+  },
+  blogPosts: [
+    {
+      id: 'blogPost1',
+      title: 'blog post 1 title',
+      preamble: 'blog post 1 preamble',
+      mainContent: '',
+      urlSegment: '',
+      tags: [],
+      publishDate: '2018-04-25T00:00-05:00'
+    },
+    {
+      id: 'blogPost2',
+      title: 'blog post 2 title',
+      preamble: 'blog post 2 preamble',
+      mainContent: '',
+      urlSegment: '',
+      tags: [],
+      publishDate: '2018-04-23T00:00-05:00'
+    },
+    {
+      id: 'blogPost3',
+      title: 'blog post 3 title',
+      preamble: 'blog post 3 preamble',
+      mainContent: '',
+      urlSegment: '',
+      tags: [],
+      publishDate: '2018-04-22T00:00-05:00'
+    }
+  ]
 }
