@@ -44,7 +44,7 @@ describe('AppHeader', () => {
 
     describe('without a classModifier passed in', () => {
       it('matches snapshot', () => {
-        component = shallow({classModifier: ''})
+        component = shallow({classModifier: undefined})
         expect(component.element).toMatchSnapshot()
       })
     })
