@@ -24,14 +24,6 @@ describe('ContentColumn', () => {
     }
    })
 
-  const deep = propsData => mount(ContentColumn, {
-    propsData: {
-      ...initialProps,
-      ...propsData
-    }
-  })
-
-
   describe('Snapshots', () => {
     let component 
 
