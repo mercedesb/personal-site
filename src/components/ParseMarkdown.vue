@@ -75,7 +75,7 @@ export default {
       }
     },
     toggleClass(el, selector, modifier) {
-      if (!!selector && !! modifier) {
+      if (!!selector && !!modifier) {
         el.className = `${el.className} ${selector} ${selector}${modifier}`
       }
       else if (el.className.indexOf(this.modifierCollapsed) != -1) {
