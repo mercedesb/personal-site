@@ -1,23 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CTALink with a color passed in matches snapshot 1`] = `
-<div class="CTA CTA--blue">
-  <smart-link to="testPath" class="CTA-link">
-    <div class="CTA-icon">
-      <img src="http://iconurl.com">
+exports[`CTALink Snapshots with a color passed in matches snapshot 1`] = `
+<div
+  class="CTA CTA--blue"
+>
+  <smart-link
+    class="CTA-link"
+    to="testPath"
+  >
+    <div
+      class="CTA-icon"
+    >
+      <img
+        src="http://iconurl.com"
+      />
     </div>
-    <h4 class="CTA-title">title</h4>
+     
+    <h4
+      class="CTA-title"
+    >
+      title
+    </h4>
   </smart-link>
 </div>
 `;
 
-exports[`CTALink without a color passed in matches snapshot 1`] = `
-<div class="CTA CTA--brown">
-  <smart-link to="testPath" class="CTA-link">
-    <div class="CTA-icon">
-      <img src="http://iconurl.com">
+exports[`CTALink Snapshots without a color passed in matches snapshot 1`] = `
+<div
+  class="CTA CTA--brown"
+>
+  <smart-link
+    class="CTA-link"
+    to="testPath"
+  >
+    <div
+      class="CTA-icon"
+    >
+      <img
+        src="http://iconurl.com"
+      />
     </div>
-    <h4 class="CTA-title">title</h4>
+     
+    <h4
+      class="CTA-title"
+    >
+      title
+    </h4>
   </smart-link>
 </div>
 `;

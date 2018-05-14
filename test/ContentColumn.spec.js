@@ -1,19 +1,20 @@
 import { shallow } from '@vue/test-utils'
-import CTALink from '@/components/CTALink.vue'
+import ContentColumn from '@/components/ContentColumn.vue'
 
-describe('CTALink', () => {
+describe('ContentColumn', () => {
   describe('Snapshots', () => {
     let component 
 
     describe('with a color passed in', () => {
       it('matches snapshot', () => {
-        component = shallow(CTALink, {
+        component = shallow(ContentColumn, {
           propsData: {
             title: 'title',
-            icon: 'http://iconurl.com',
-            url: 'testPath',
             color: 'blue',
-            external: false
+            preamble: 'test preamble',
+            icon: 'http://placeholder.pics/svg/300',
+            externalLink: '',
+            urlSegment: 'testPath'
           }
         })
         expect(component.element).toMatchSnapshot()
@@ -22,7 +23,7 @@ describe('CTALink', () => {
 
     describe('without a color passed in', () => {
       it('matches snapshot', () => {
-        component = shallow(CTALink, {
+        component = shallow(ContentColumn, {
            propsData: {
             title: 'title',
             icon: 'http://iconurl.com',
@@ -33,5 +34,9 @@ describe('CTALink', () => {
         expect(component.element).toMatchSnapshot()
       })
     })
+  })
+
+  describe('Properties', () => {
+
   })
 })

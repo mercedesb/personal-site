@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import { DevStore } from './store/dev'
 
 // register globally used common components
 import AppHeader from './components/AppHeader.vue'
@@ -22,6 +23,7 @@ Vue.mixin({
   }
 })
 
+// const contentStore = process.env.NODE_ENV === 'production' ? store : DevStore
 new Vue({
   router,
   store,
