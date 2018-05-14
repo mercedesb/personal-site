@@ -1,11 +1,30 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import SmartLink from '../src/components/SmartLink.vue'
 
 export default {
   configure() {
     Vue.component('smart-link', SmartLink)
     Vue.use(Vuex)
+  },
+  shallow(Component, config = {}) {
+    return shallowMount(Component, {
+      ...this.defaultConfiguration,
+      ...config
+    })
+  },
+  defaultConfiguration: {
+    stubs: {
+      RouterLink: RouterLinkStub
+    },
+    mocks: {
+      $route: {
+        params: {
+          urlSegment: 'somePath'
+        }
+      }
+    }
   },
   landingPages: {
     about: {
