@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader Snapshots with a classModifier passed in matches snapshot 1`] = `
+<nav
+  class="MainNav"
+>
+  <div
+    class="FlexContainer FlexContainer--alignCenter FlexContainer--modifier"
+  >
+    <div
+      class="MainNav-home"
+    >
+      <router-link
+        to="/"
+      >
+        <span
+          class="MainNav-logo"
+        >
+          Mercedes Bernard
+        </span>
+      </router-link>
+       
+      <!---->
+    </div>
+     
+    <div>
+      <div
+        class="MainNav-hamburger"
+      >
+        <img
+          alt="hamburger menu"
+          src="../assets/menu.svg"
+        />
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`AppHeader Snapshots without a classModifier passed in matches snapshot 1`] = `
+<nav
+  class="MainNav"
+>
+  <div
+    class="FlexContainer FlexContainer--alignCenter FlexContainer--"
+  >
+    <div
+      class="MainNav-home"
+    >
+      <router-link
+        to="/"
+      >
+        <span
+          class="MainNav-logo"
+        >
+          Mercedes Bernard
+        </span>
+      </router-link>
+       
+      <!---->
+    </div>
+     
+    <div>
+      <div
+        class="MainNav-hamburger"
+      >
+        <img
+          alt="hamburger menu"
+          src="../assets/menu.svg"
+        />
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</nav>
+`;
