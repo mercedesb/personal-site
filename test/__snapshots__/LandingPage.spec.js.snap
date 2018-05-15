@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage Snapshots matches snapshot 1`] = `
+<div>
+  <div
+    name="fade"
+  >
+    <!---->
+     
+    <!---->
+     
+    <!---->
+     
+    <div
+      class="FlexContainer FlexContainer--justifyCenter"
+    >
+      <div
+        class="PageContent PageContent--wide FlexContainer"
+      >
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;

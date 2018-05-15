@@ -38,7 +38,50 @@ export default {
         }
       },
       mainContent: '',
-      ctaLinks: '',
+      ctaLinks: [
+      {
+        sys: {
+          id: 'cta 1'
+        },
+        fields: {
+          title: 'Resume',
+          icon: {
+            fields: {
+              file: {
+                url: 'http://placeholder.pics/svg/300'
+              }
+            }
+          },
+          internalLink: {
+            fields: {
+              urlSegment: 'resume'
+            }
+          },
+          externalLink: ''
+        }
+      },
+      {
+        sys: {
+          id: 'cta 2'
+        },
+        fields: {
+          title: 'External CTA',
+          icon: {
+            fields: {
+              file: {
+                url: 'http://placeholder.pics/svg/300'
+              }
+            }
+          },
+          internalLink: {
+            fields: {
+              urlSegment: ''
+            }
+          },
+          externalLink: 'http://google.com'
+        }
+      }
+      ],
       urlSegment: 'about',
       externalLink: '',
       color: 'blue',
@@ -56,7 +99,7 @@ export default {
         }
       },
       mainContent: '',
-      ctaLinks: '',
+      ctaLinks: [],
       urlSegment: 'blog',
       externalLink: '',
       color: 'gray',
@@ -74,7 +117,7 @@ export default {
         }
       },
       mainContent: '',
-      ctaLinks: '',
+      ctaLinks: [],
       urlSegment: 'connect',
       externalLink: '',
       color: 'red',
@@ -92,7 +135,7 @@ export default {
         }
       },
       mainContent: '',
-      ctaLinks: '',
+      ctaLinks: [],
       urlSegment: '',
       externalLink: 'https://etsy.com/shop/blinddogyarns',
       color: 'yellow',
