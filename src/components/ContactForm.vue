@@ -47,12 +47,13 @@ export default {
   },
   methods: {
     onSubmit() {
-      axios.post(process.env.MAILER_API, {
+      const promise = axios.post(process.env.MAILER_API, {
         from: this.from,
         subject: this.subject,
         text: this.text
       })
-      .then((response) => {
+      
+      promise.then((response) => {
         this.success = response.data.success
         this.error = response.data.error
       })
@@ -64,6 +65,8 @@ export default {
           this.error = e.response.data.error
         }
       })
+
+      return promise
     }
   }
 }
