@@ -75,7 +75,5 @@ describe('BlogListItem', () => {
         })
       })
     })
-
-    // TODO: Moment props
   })
 })
