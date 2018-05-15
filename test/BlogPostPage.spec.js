@@ -1,4 +1,4 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import BlogPostPage from '@/components/pages/BlogPostPage.vue'
 import Setup from './Setup'
 import Vuex from 'vuex'
