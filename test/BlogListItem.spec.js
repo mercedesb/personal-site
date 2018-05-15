@@ -1,4 +1,3 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
 import BlogListItem from '@/components/BlogListItem.vue'
 import Setup from './Setup'
 
@@ -16,7 +15,7 @@ describe('BlogListItem', () => {
     urlSegment: 'blog-post'
   }
 
-  const shallow = propsData => shallowMount(BlogListItem, { 
+  const shallow = propsData => Setup.shallow(BlogListItem, { 
     propsData: {
       ...initialProps,
       ...propsData

@@ -1,8 +1,5 @@
-import { shallowMount } from '@vue/test-utils'
 import CTALink from '@/components/CTALink.vue'
-import SmartLink from '@/components/SmartLink.vue'
 import Setup from './Setup'
-
 
 describe('CTALink', () => {
   let component 
@@ -17,7 +14,7 @@ describe('CTALink', () => {
     external: false
   }
 
-   const shallow = propsData => shallowMount(CTALink, { 
+   const shallow = propsData => Setup.shallow(CTALink, { 
     propsData: {
       ...initialProps,
       ...propsData

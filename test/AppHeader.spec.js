@@ -1,4 +1,4 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import AppHeader from '@/components/AppHeader.vue'
 import Setup from './Setup'
 import Vuex from 'vuex'
@@ -26,7 +26,7 @@ describe('AppHeader', () => {
   })
   store.dispatch = jest.fn()
 
-  const shallow = propsData => shallowMount(AppHeader, { 
+  const shallow = propsData => Setup.shallow(AppHeader, { 
     store,
     propsData: {
       ...initialProps,

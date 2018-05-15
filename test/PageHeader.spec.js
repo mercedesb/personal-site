@@ -1,4 +1,3 @@
-import { shallowMount } from '@vue/test-utils'
 import PageHeader from '@/components/PageHeader.vue'
 import Setup from './Setup'
 
@@ -14,7 +13,7 @@ describe('PageHeader', () => {
     media: 'http://image.com'
   }
 
-  const shallow = propsData => shallowMount(PageHeader, { 
+  const shallow = propsData => Setup.shallow(PageHeader, { 
     propsData: {
       ...initialProps,
       ...propsData

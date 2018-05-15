@@ -1,4 +1,3 @@
-import { shallowMount } from '@vue/test-utils'
 import HeroHeader from '@/components/HeroHeader.vue'
 import Setup from './Setup'
 
@@ -14,7 +13,7 @@ describe('HeroHeader', () => {
     backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
   }
 
-  const shallow = propsData => shallowMount(HeroHeader, { 
+  const shallow = propsData => Setup.shallow(HeroHeader, { 
     propsData: {
       ...initialProps,
       ...propsData

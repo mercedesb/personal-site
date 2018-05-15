@@ -1,4 +1,4 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import ContentColumn from '@/components/ContentColumn.vue'
 import Setup from './Setup'
 
@@ -20,7 +20,7 @@ describe('ContentColumn', () => {
     urlSegment: 'testPath'
   }
 
-  const shallow = propsData => shallowMount(ContentColumn, { 
+  const shallow = propsData => Setup.shallow(ContentColumn, { 
     propsData: {
       ...initialProps,
       ...propsData

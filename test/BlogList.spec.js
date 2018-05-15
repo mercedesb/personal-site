@@ -1,4 +1,4 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import BlogList from '@/components/BlogList.vue'
 import Setup from './Setup'
 import Vuex from 'vuex'
@@ -19,7 +19,7 @@ describe('BlogList', () => {
   })
   store.dispatch = jest.fn()
 
-  const shallow = propsData => shallowMount(BlogList, { 
+  const shallow = propsData => Setup.shallow(BlogList, { 
     store,
     propsData: {
       ...initialProps,

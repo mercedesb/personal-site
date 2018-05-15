@@ -1,22 +1,22 @@
-import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import SmartLink from '@/components/SmartLink.vue'
 import Setup from './Setup'
 
 describe('SmartLink', () => {
+  let component 
+
   Setup.configure()
+
+  const shallow = propsData => Setup.shallow(SmartLink, {
+    propsData: {
+      ...propsData
+    }
+  }) 
   
   describe('Snapshots', () => {
-    let component
-
     describe('with an internal link', () => {
       it('matches snapshot', () => {
         const to = 'test'
-        component = shallowMount(SmartLink, {
-          propsData: { to },
-          stubs: {
-            RouterLink: RouterLinkStub
-          }
-        })
+        component = shallow({ to })
         expect(component.element).toMatchSnapshot()
       })
     })
@@ -25,12 +25,7 @@ describe('SmartLink', () => {
       it('matches snapshot', () => {
         const to = 'http://google.com'
         const isExternal = true
-        component = shallowMount(SmartLink, {
-          propsData: { to, isExternal },
-          stubs: {
-            RouterLink: RouterLinkStub
-          }
-        })
+        component = shallow({ to, isExternal })
         expect(component.element).toMatchSnapshot()
       })
     })

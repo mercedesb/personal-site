@@ -1,4 +1,3 @@
-import { shallowMount } from '@vue/test-utils'
 import ParseMarkdown from '@/components/ParseMarkdown.vue'
 import Setup from './Setup'
 
@@ -14,7 +13,7 @@ describe('ParseMarkdown', () => {
     collapsedByDefault: true
   }
 
-  const shallow = (propsData, mocks) => shallowMount(ParseMarkdown, { 
+  const shallow = (propsData, mocks) => Setup.shallow(ParseMarkdown, { 
     propsData: {
       ...initialProps,
       ...propsData
