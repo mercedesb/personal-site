@@ -30,7 +30,13 @@ export default {
     about: {
       title: 'About',
       preamble: '',
-      icon: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
       mainContent: '',
       ctaLinks: '',
       urlSegment: 'about',
@@ -42,7 +48,13 @@ export default {
     blog: {
       title: 'Blog',
       preamble: '',
-      icon: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
       mainContent: '',
       ctaLinks: '',
       urlSegment: 'blog',
@@ -54,7 +66,13 @@ export default {
     connect: {
       title: 'Connect',
       preamble: '',
-      icon: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
       mainContent: '',
       ctaLinks: '',
       urlSegment: 'connect',
@@ -66,7 +84,13 @@ export default {
     shop: {
       title: 'Shop',
       preamble: '',
-      icon: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
       mainContent: '',
       ctaLinks: '',
       urlSegment: '',
