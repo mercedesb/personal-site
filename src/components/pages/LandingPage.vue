@@ -42,7 +42,11 @@ import images from '../../mixins/images'
 
 export default {
   components: {
-    PageHeader, CTALink, ContactForm, BlogList
+    PageHeader, 
+    CTALink, 
+    ContactForm, 
+    BlogList, 
+    ParseMarkdown
   },
   mixins: [
     images
