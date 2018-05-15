@@ -4,8 +4,7 @@
 </template>
 
 <script>
-import markdownIt from 'markdown-it'
-const md = require('markdown-it')()
+const md = require('markdown-it')
 
 export default {
   props: {
@@ -37,7 +36,7 @@ export default {
     },
     html: function() {
       if (this.source) {
-        const html = md.render(this.source)
+        const html = md().render(this.source)
         return html
       }
       return ''
