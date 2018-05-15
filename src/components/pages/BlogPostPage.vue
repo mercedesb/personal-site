@@ -36,7 +36,7 @@ export default {
       return this.$store.state.blogPost
     },
     formattedPublishDate() {
-      return moment(this.date).format('MMM DD YYYY')
+      return moment(this.page.publishDate).format('MMM DD YYYY')
     }
   },
   created () {
