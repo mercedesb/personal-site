@@ -44,7 +44,7 @@ exports[`AppHeader Snapshots without a classModifier passed in matches snapshot 
   class="MainNav"
 >
   <div
-    class="FlexContainer FlexContainer--alignCenter FlexContainer--"
+    class="FlexContainer FlexContainer--alignCenter FlexContainer--undefined"
   >
     <div
       class="MainNav-home"

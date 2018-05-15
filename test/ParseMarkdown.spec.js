@@ -59,11 +59,12 @@ describe('ParseMarkdown', () => {
     })
 
     describe('html', () => {
-      xdescribe('with source', () => {
-        it('returns html markup', () => {
+      // TODO
+      // describe('with source', () => {
+      //   it('returns html markup', () => {
 
-        })
-      })
+      //   })
+      // })
 
       describe('without source', () => {
         it('returns the empty string', () => {
@@ -74,33 +75,34 @@ describe('ParseMarkdown', () => {
     })
   })
 
-  xdescribe('Lifecyle', () => {
-    describe('mounted', () => {
-      it('adds event listeners', () => {
+// TODO
+  // describe('Lifecyle', () => {
+  //   describe('mounted', () => {
+  //     it('adds event listeners', () => {
 
-      })
+  //     })
 
-      describe('when collapsed by default', () => {
-        it('calls handleCollapsible with collapsed modifier', () => {
-          component = shallow()
-        })
-      })
+  //     describe('when collapsed by default', () => {
+  //       it('calls handleCollapsible with collapsed modifier', () => {
+  //         component = shallow()
+  //       })
+  //     })
 
-      describe('when expanded by default', () => {
-        it('calls handleCollapsible with expanded modifier', () => {
-          component = shallow({collapsedByDefault: false})
-        })
-      })
-    })
-  })
+  //     describe('when expanded by default', () => {
+  //       it('calls handleCollapsible with expanded modifier', () => {
+  //         component = shallow({collapsedByDefault: false})
+  //       })
+  //     })
+  //   })
+  // })
 
-  xdescribe('Methods', () => {
-    describe('handleCollapsible', () => {
+  // describe('Methods', () => {
+  //   describe('handleCollapsible', () => {
 
-    })
+  //   })
 
-    describe('toggleClass', () => {
+  //   describe('toggleClass', () => {
 
-    })
-  })
+  //   })
+  // })
 })
