@@ -1,9 +1,8 @@
-import { mount } from '@vue/test-utils'
 import ContentColumn from '@/components/ContentColumn.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('ContentColumn', () => {
-  Setup.configure()
+  let component 
   
   const initialProps = {
     title: 'title',
@@ -28,8 +27,6 @@ describe('ContentColumn', () => {
    })
 
   describe('Snapshots', () => {
-    let component 
-
     describe('with a color passed in', () => {
       it('matches snapshot', () => {
         component = shallow()
@@ -46,8 +43,6 @@ describe('ContentColumn', () => {
   })
 
   describe('Properties', () => {
-    let component 
-
     beforeEach(() => {
       component = shallow()
     })
@@ -74,8 +69,6 @@ describe('ContentColumn', () => {
   })
 
   describe('Computed', () => {
-    let component
-
     describe('isExternal', () => {
       it('returns true if externalLink prop is defined', () => {
         component = shallow({externalLink: 'http://google.com'})
@@ -89,8 +82,6 @@ describe('ContentColumn', () => {
     })
 
     describe('link', () => {
-      let component
-
       it('returns externalLink from prop if defined', () => {
         component = shallow({externalLink: 'http://google.com'})
         expect(component.vm.link).toBe('http://google.com')

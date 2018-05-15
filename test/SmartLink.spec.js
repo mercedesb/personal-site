@@ -1,10 +1,8 @@
 import SmartLink from '@/components/SmartLink.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('SmartLink', () => {
   let component 
-
-  Setup.configure()
 
   const shallow = propsData => Setup.shallow(SmartLink, {
     propsData: {

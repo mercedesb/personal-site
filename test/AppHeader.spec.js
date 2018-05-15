@@ -1,30 +1,22 @@
-import { mount } from '@vue/test-utils'
 import AppHeader from '@/components/AppHeader.vue'
-import Setup from './Setup'
-import Vuex from 'vuex'
+import { Setup } from './Setup'
 
 describe('AppHeader', () => {
   let component
 
-  Setup.configure()
-
   const initialProps = {
     classModifier: 'modifier'
   }
-
-  const actions = {
-    getNavLinks: jest.fn()
-  }
-
-  const store = new Vuex.Store({
+  const store = {
     state: {
       navLinks: Object.keys(Setup.landingPages).map((key) => {
         return Setup.landingPages[key]
       })
     },
-    actions
-  })
-  store.dispatch = jest.fn()
+    actions: {
+      getNavLinks: jest.fn()
+    }
+  }
 
   const shallow = propsData => Setup.shallow(AppHeader, { 
     store,
@@ -92,13 +84,13 @@ describe('AppHeader', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getNavLinks to the store', () => {
-        component = mount(AppHeader, { 
+        component = Setup.mount(AppHeader, { 
           store,
           propsData: {
             ...initialProps
           }
          })
-        expect(store.dispatch).toHaveBeenCalledWith('getNavLinks')
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getNavLinks')
       })
     })
   })

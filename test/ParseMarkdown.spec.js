@@ -1,10 +1,8 @@
 import ParseMarkdown from '@/components/ParseMarkdown.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('ParseMarkdown', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     source: '### here is the source md\ntrying it out',

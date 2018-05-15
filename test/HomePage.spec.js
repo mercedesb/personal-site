@@ -1,12 +1,8 @@
-import { mount } from '@vue/test-utils'
 import HomePage from '@/components/pages/HomePage.vue'
-import Setup from './Setup'
-import Vuex from 'vuex'
+import { Setup } from './Setup'
 
 describe('HomePage', () => {
   let component
-
-  Setup.configure()
 
   const state = {
     homePage: {
@@ -59,11 +55,10 @@ describe('HomePage', () => {
     getHomePage: jest.fn()
   }
 
-  const store = new Vuex.Store({
+  const store = {
     state,
     actions
-  })
-  store.dispatch = jest.fn()
+  }
 
   const shallow = propsData => Setup.shallow(HomePage, {
     store,
@@ -114,12 +109,12 @@ describe('HomePage', () => {
             ...state.homePage,
             backgroundImages: undefined
           }
-          const localStore = new Vuex.Store({
+          const localStore = {
             state: {
               homePage: localHomePage,
             },
             actions
-          })
+          }
           component = Setup.shallow(HomePage, {
             store: localStore
           }) 
@@ -158,12 +153,12 @@ describe('HomePage', () => {
             ...state.homePage,
             children: undefined
           }
-          const localStore = new Vuex.Store({
+          const localStore = {
             state: {
               homePage: localHomePage,
             },
             actions
-          })
+          }
           component = Setup.shallow(HomePage, {
             store: localStore
           }) 
@@ -177,11 +172,10 @@ describe('HomePage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getHomePage to the store', () => {
-        component = mount(HomePage, { 
-          store,
-          ...Setup.defaultConfiguration,
+        component = Setup.mount(HomePage, { 
+          store
          })
-        expect(store.dispatch).toHaveBeenCalledWith('getHomePage')
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getHomePage')
       })
     })
   })

@@ -1,10 +1,8 @@
 import BlogListItem from '@/components/BlogListItem.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('BlogListItem', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     color: 'gray',

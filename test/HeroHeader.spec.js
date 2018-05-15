@@ -1,10 +1,8 @@
 import HeroHeader from '@/components/HeroHeader.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('HeroHeader', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     title: 'hero title',

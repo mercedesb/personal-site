@@ -1,23 +1,18 @@
-import { mount } from '@vue/test-utils'
 import BlogPostPage from '@/components/pages/BlogPostPage.vue'
-import Setup from './Setup'
-import Vuex from 'vuex'
+import { Setup } from './Setup'
 
 describe('BlogPostPage', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     color: 'blue'
   }
 
-  const store = new Vuex.Store({
+  const store = {
     state: {
       blogPost: Setup.blogPosts[0]
     }
-  })
-  store.dispatch = jest.fn()
+  }
 
   const shallow = propsData => Setup.shallow(BlogPostPage, {
     store,
@@ -67,15 +62,14 @@ describe('BlogPostPage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getBlogPost to the store', () => {
-        component = mount(BlogPostPage, { 
+        component = Setup.mount(BlogPostPage, { 
           store,
-          ...Setup.defaultConfiguration,
           propsData: {
             ...initialProps
           }
          })
-        const expectedPath = Setup.defaultConfiguration.mocks.$route.params.urlSegment
-        expect(store.dispatch).toHaveBeenCalledWith('getBlogPost', expectedPath)
+        const expectedPath = Setup.mockRoute
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPost', expectedPath)
       })
     })
   })

@@ -1,32 +1,23 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
 import LandingPage from '@/components/pages/LandingPage.vue'
-import Setup from './Setup'
-import Vuex from 'vuex'
+import { Setup } from './Setup'
 
 describe('LandingPage', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     urlSegment: 'about'
   }
 
-  const state = {
-    landingPage: {
-      ...Setup.landingPages[initialProps.urlSegment]
+  const store = {
+    state: {
+      landingPage: {
+        ...Setup.landingPages[initialProps.urlSegment]
+      }
+    },
+    actions: {
+      getLandingPage: jest.fn()
     }
   }
-
-  const actions = {
-    getLandingPage: jest.fn()
-  }
-
-  const store = new Vuex.Store({
-    state,
-    actions
-  })
-  store.dispatch = jest.fn()
 
   const shallow = propsData => Setup.shallow(LandingPage, {
     store,
@@ -96,17 +87,20 @@ describe('LandingPage', () => {
       describe('without ctaLinks in cms', () => {
         it('has ctaLinks populated', () => {
           const localPage = {
-            ...state.landingPage,
+            ...store.state.landingPage,
             ctaLinks: undefined
           }
-          const localStore = new Vuex.Store({
+          const localStore = {
             state: {
               landingPage: localPage,
             },
-            actions
-          })
+            actions: store.actions
+          }
           component = Setup.shallow(LandingPage, {
-            store: localStore
+            store: localStore,
+            propsData: {
+              ...initialProps,
+            }
           }) 
 
           expect(component.vm.ctaLinks).toBeDefined()
@@ -118,11 +112,13 @@ describe('LandingPage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getLandingPage to the store', () => {
-        component = mount(LandingPage, { 
+        component = Setup.mount(LandingPage, { 
           store,
-          ...Setup.defaultConfiguration,
+          propsData: {
+            ...initialProps,
+          }
          })
-        expect(store.dispatch).toHaveBeenCalledWith('getLandingPage', initialProps.urlSegment)
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getLandingPage', initialProps.urlSegment)
       })
     })
   })

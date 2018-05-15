@@ -1,10 +1,8 @@
 import CTALink from '@/components/CTALink.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('CTALink', () => {
   let component 
-
-  Setup.configure()
 
   const initialProps = {
     title: 'cta title',

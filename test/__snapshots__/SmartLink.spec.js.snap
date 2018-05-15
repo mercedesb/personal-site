@@ -13,7 +13,7 @@ exports[`SmartLink Snapshots with an external link matches snapshot 1`] = `
 
 exports[`SmartLink Snapshots with an internal link matches snapshot 1`] = `
 <div>
-  <a />
+  <!---->
    
   <!---->
 </div>

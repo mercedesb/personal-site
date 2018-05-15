@@ -1,23 +1,18 @@
-import { mount } from '@vue/test-utils'
 import BlogList from '@/components/BlogList.vue'
-import Setup from './Setup'
-import Vuex from 'vuex'
+import { Setup } from './Setup'
 
 describe('BlogList', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     color: 'gray'
   }
 
-  const store = new Vuex.Store({
+  const store = {
     state: {
       blogPosts: Setup.blogPosts
     }
-  })
-  store.dispatch = jest.fn()
+  }
 
   const shallow = propsData => Setup.shallow(BlogList, { 
     store,
@@ -98,13 +93,13 @@ describe('BlogList', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getBlogPosts to the store', () => {
-        component = mount(BlogList, { 
+        component = Setup.mount(BlogList, { 
           store,
           propsData: {
             ...initialProps
           }
          })
-        expect(store.dispatch).toHaveBeenCalledWith('getBlogPosts')
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPosts')
       })
     })
   })

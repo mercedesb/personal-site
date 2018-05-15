@@ -1,10 +1,8 @@
 import PageHeader from '@/components/PageHeader.vue'
-import Setup from './Setup'
+import { Setup } from './Setup'
 
 describe('PageHeader', () => {
   let component
-
-  Setup.configure()
 
   const initialProps = {
     color: 'brown',
