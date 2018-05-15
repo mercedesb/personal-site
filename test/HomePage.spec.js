@@ -1,4 +1,4 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import HomePage from '@/components/pages/HomePage.vue'
 import Setup from './Setup'
 import Vuex from 'vuex'
@@ -110,12 +110,14 @@ describe('HomePage', () => {
 
       describe('without background images in cms', () => {
         it('has backgroundImages populated', () => {
-          const localState = {
-            ...state,
+          const localHomePage = {
+            ...state.homePage,
             backgroundImages: undefined
           }
           const localStore = new Vuex.Store({
-            state: localState,
+            state: {
+              homePage: localHomePage,
+            },
             actions
           })
           component = Setup.shallow(HomePage, {
@@ -152,12 +154,14 @@ describe('HomePage', () => {
 
       describe('without children in cms', () => {
         it('has columns populated', () => {
-          const localState = {
-            ...state,
+          const localHomePage = {
+            ...state.homePage,
             children: undefined
           }
           const localStore = new Vuex.Store({
-            state: localState,
+            state: {
+              homePage: localHomePage,
+            },
             actions
           })
           component = Setup.shallow(HomePage, {
