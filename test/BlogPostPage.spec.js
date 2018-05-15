@@ -1,5 +1,12 @@
 import BlogPostPage from '@/components/pages/BlogPostPage.vue'
 import { Setup } from './Setup'
+import moment from 'moment'
+
+const mockFormat = jest.fn(() => 'Apr 18 2018')
+
+jest.mock('moment', () => () => ({
+  format: mockFormat
+}))
 
 describe('BlogPostPage', () => {
   let component
@@ -56,7 +63,12 @@ describe('BlogPostPage', () => {
       })
     })
 
-    // TODO: formattedPublishDate (mock moment)
+    describe('formattedPublishDate', () => {
+      it('calls moment().format', () => {
+        component = shallow()
+        expect(mockFormat).toHaveBeenCalled()
+      })
+    })
   })
 
   describe('Lifecycle', () => {
