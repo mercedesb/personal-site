@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .BlogItem {
+  /*.BlogItem {
 
     &-container {
       display:flex;
@@ -163,5 +163,5 @@ export default {
         }
       }
     }
-  }
+  }*/
 </style>

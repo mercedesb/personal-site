@@ -1,8 +1,7 @@
-$white: #FFFFFF;
+/*$white: #FFFFFF;
 $brown: #AA916D;
 $blue: #2E4052;
 $yellow: #D19D36;
-/*$gray: #8E8682;*/
 $gray: #6E6F79;
 $light-gray: lighten($gray, 30%);
 $red: #904E55;
@@ -84,7 +83,7 @@ $min-desktop-large: $min-feature $desktop-large-width;
 $max-desktop-large: $max-feature ($desktop-large-width + 1);
 
 
-/* mixins */
+// mixins 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -141,4 +140,4 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
       @content;
     }
   }
-}
+} */
