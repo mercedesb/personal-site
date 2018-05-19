@@ -88,7 +88,7 @@ export default {
 }
 </script>
 <style lang="scss">
-$icon-dimension: 35px;
+$icon-dimension: 24px;
 
 .PageContent {
   ul {
