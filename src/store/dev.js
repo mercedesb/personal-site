@@ -3,7 +3,125 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const DevStore = new Vuex.Store({
+const landingPages = {
+  about: {
+    title: 'About',
+    preamble: '',
+    icon: {
+      fields: {
+        file: {
+          url: 'http://placeholder.pics/svg/300'
+        }
+      }
+    },
+    mainContent: '',
+    ctaLinks: [
+    {
+      sys: {
+        id: 'cta 1'
+      },
+      fields: {
+        title: 'Resume',
+        icon: {
+          fields: {
+            file: {
+              url: 'http://placeholder.pics/svg/300'
+            }
+          }
+        },
+        internalLink: {
+          fields: {
+            urlSegment: 'resume'
+          }
+        },
+        externalLink: ''
+      }
+    },
+    {
+      sys: {
+        id: 'cta 2'
+      },
+      fields: {
+        title: 'External CTA',
+        icon: {
+          fields: {
+            file: {
+              url: 'http://placeholder.pics/svg/300'
+            }
+          }
+        },
+        internalLink: {
+          fields: {
+            urlSegment: ''
+          }
+        },
+        externalLink: 'http://google.com'
+      }
+    }
+    ],
+    urlSegment: 'about',
+    externalLink: '',
+    color: 'blue',
+    showContact: false,
+    showBlogPosts: false
+  },
+  blog: {
+    title: 'Blog',
+    preamble: '',
+    icon: {
+      fields: {
+        file: {
+          url: 'http://placeholder.pics/svg/300'
+        }
+      }
+    },
+    mainContent: '',
+    ctaLinks: [],
+    urlSegment: 'blog',
+    externalLink: '',
+    color: 'gray',
+    showContact: false,
+    showBlogPosts: true
+  },
+  connect: {
+    title: 'Connect',
+    preamble: '',
+    icon: {
+      fields: {
+        file: {
+          url: 'http://placeholder.pics/svg/300'
+        }
+      }
+    },
+    mainContent: '',
+    ctaLinks: [],
+    urlSegment: 'connect',
+    externalLink: '',
+    color: 'red',
+    showContact: true,
+    showBlogPosts: false
+  },
+  shop: {
+    title: 'Shop',
+    preamble: '',
+    icon: {
+      fields: {
+        file: {
+          url: 'http://placeholder.pics/svg/300'
+        }
+      }
+    },
+    mainContent: '',
+    ctaLinks: [],
+    urlSegment: '',
+    externalLink: 'https://etsy.com/shop/blinddogyarns',
+    color: 'yellow',
+    showContact: false,
+    showBlogPosts: false
+  }
+}
+
+export default new Vuex.Store({
   state:{
     errors: [],
     blogPosts:[],
@@ -56,48 +174,44 @@ const DevStore = new Vuex.Store({
       context.commit('clearBlogPosts')
       context.commit('blogPosts', [
         {
-          title: '',
-          preamble: '',
+          id: 'blogPost1',
+          title: 'blog post 1 title',
+          preamble: 'blog post 1 preamble',
           mainContent: '',
           urlSegment: '',
           tags: [],
-          publishDate: ''
+          publishDate: '2018-04-25T00:00-05:00'
         },
         {
-          title: '',
-          preamble: '',
+          id: 'blogPost2',
+          title: 'blog post 2 title',
+          preamble: 'blog post 2 preamble',
           mainContent: '',
           urlSegment: '',
           tags: [],
-          publishDate: ''
+          publishDate: '2018-04-23T00:00-05:00'
         },
         {
-          title: '',
-          preamble: '',
+          id: 'blogPost3',
+          title: 'blog post 3 title',
+          preamble: 'blog post 3 preamble',
           mainContent: '',
           urlSegment: '',
           tags: [],
-          publishDate: ''
-        },
-        {
-          title: '',
-          preamble: '',
-          mainContent: '',
-          urlSegment: '',
-          tags: [],
-          publishDate: ''
+          publishDate: '2018-04-22T00:00-05:00'
         }
       ])
     },
     getBlogPost(context, urlSegment) {
       context.commit('clearBlogPost')
       context.commit('blogPost', {
-        title: '',
-        preamble: '',
+        id: 'blogPost1',
+        title: 'blog post 1 title',
+        preamble: 'blog post 1 preamble',
         mainContent: '',
-        urlSegment: urlSegment,
+        urlSegment: '',
         tags: [],
-        publishDate: ''
+        publishDate: '2018-04-25T00:00-05:00'
       })
     },
     getLandingPage(context, urlSegment) {
@@ -105,16 +219,22 @@ const DevStore = new Vuex.Store({
       let lp = landingPages[urlSegment]
       if (!lp) {
         lp = {
-          title: '',
+          title: 'Test',
           preamble: '',
-          icon: '',
+          icon: {
+            fields: {
+              file: {
+                url: 'http://placeholder.pics/svg/300'
+              }
+            }
+          },
           mainContent: '',
-          ctaLinks: '',
-          urlSegment: '',
+          ctaLinks: [],
+          urlSegment: 'test',
           externalLink: '',
-          color: '',
-          showContact: '',
-          showBlogPosts: ''
+          color: 'red',
+          showContact: false,
+          showBlogPosts: false
         }
       }
       context.commit('landingPage', lp)
@@ -122,7 +242,8 @@ const DevStore = new Vuex.Store({
     getHomePage(context) {
       debugger
       context.commit('clearHomePage')
-      const homePage = {
+      const homePage = 
+      {
         id: 'homepage',
         preamble: 'here is the dev homepage preamble, it\'s a little long to be more realistic',
         mainImage: {
@@ -132,7 +253,16 @@ const DevStore = new Vuex.Store({
             }
           }
         },
-        children: '',
+        children: Object.keys(landingPages).map((key, index) => {
+          return {
+            sys: {
+              id: `child ${index}`
+            },
+            fields: {
+              ...landingPages[key]
+            }
+          }
+        }),
         backgroundImages: [
           {
             fields: {
@@ -161,22 +291,10 @@ const DevStore = new Vuex.Store({
     },
     getNavLinks(context) {
       context.commit('clearNavLinks')
-      context.commit('navLinks', [
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-          
-        }
-      ])
+      const navLinks = Object.keys(landingPages).map((key) => {
+        return landingPages[key]
+      })
+      context.commit('navLinks', navLinks)
     }
   }
 })
-
-export { DevStore }
