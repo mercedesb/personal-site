@@ -1,17 +1,17 @@
 <template>
   <header v-if="title" :class="'Hero Hero--' + color">
+    <div class="Hero-contentContainer">
+      <div>
+        <img class="Hero-image" :src="mainImage" />
+        <ParseMarkdown :source="title" />
+      </div>
+    </div>
     <div class="Hero-background" v-if="backgroundImages && backgroundImages.length">
       <img
         v-for="image in backgroundImages"
         :src="image"
         class="Hero-backgroundImage"
       />
-    </div>
-    <div class="Hero-contentContainer">
-      <div>
-        <img class="Hero-image" :src="mainImage" />
-        <ParseMarkdown :source="title" />
-      </div>
     </div>
   </header>
 </template>
@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $hero-height: 500px;
   $image-width: 250px;
   $text-width: 800px;
   $background-image-max-height: 460px;
@@ -42,33 +41,50 @@ export default {
 
   .Hero {
     box-shadow: $base-drop-shadow;
-    height: $hero-height;
     position: relative;
-    display: flex;
-    align-items: center;
+    padding: $base-spacing;
 
     &-background {
-      width: 100%;
       display: flex;
       justify-content: space-around;
     }
 
     &-backgroundImage {
-      max-height: $background-image-max-height;
-      max-width: $background-image-max-width;
-      min-width: $background-image-min-width;
+      max-height: 115px;
+      max-width: 100px;
+      min-width: 91px; 
+      
+      @include media($min-tablet) {
+        max-height: $background-image-max-height;
+        max-width: $background-image-max-width;
+        min-width: $background-image-min-width;
+      }
     }
 
     &-contentContainer {
-      z-index: 1;
-      position: absolute;
-      width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       text-align: center;
+
+      @include media($min-tablet) {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
     }
 
     &-image {
+      padding-top: $base-spacing;
+      @include media($min-tablet) {
+      }
+
       max-width: $image-width;
     }
 

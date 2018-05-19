@@ -76,7 +76,7 @@ export default {
     }
 
     &-icon {
-      padding: $base-spacing 0;
+      padding: 0 0 $base-spacing;
       color: $white;
       width: $icon-width;
       z-index: 1;
