@@ -72,24 +72,28 @@ export default new Vuex.Store({
         }
       }
       else {
-        context.dispatch('getEntries', {
+        return context.dispatch('getEntries', {
           content_type: 'blogPost',
           'fields.urlSegment': urlSegment
         })
         .then((entries) => {
-          context.commit('blogPost', entries.length ? entries[0] : {})
+          const blogPost = entries.length ? entries[0] : {}
+          context.commit('blogPost', blogPost)
+          return blogPost
         })
       }
     },
     getLandingPage(context, urlSegment) {
       context.commit('clearLandingPage')
-      context.dispatch('getEntries', {
+      return context.dispatch('getEntries', {
         'fields.urlSegment': urlSegment,
         content_type: 'landingPage',
         include: 2
       })
       .then((entries) => {
-        context.commit('landingPage', entries.length ? entries[0] : {})
+        const landingPage = entries.length ? entries[0] : {}
+        context.commit('landingPage', landingPage)
+        return landingPage
       })
     },
     getHomePage(context) {

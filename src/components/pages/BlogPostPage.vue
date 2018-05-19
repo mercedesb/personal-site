@@ -20,11 +20,15 @@ const moment = require('moment')
 import PageHeader from '../PageHeader.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import CTALink from '../CTALink.vue'
+import objects from '../../mixins/objects'
 
 export default {
   components: {
     PageHeader, ParseMarkdown, CTALink
   },
+  mixins: [
+    objects
+  ],
   props: {
     color: {
       type: String,
@@ -40,7 +44,9 @@ export default {
     }
   },
   created () {
+    const router = this.$router
     this.$store.dispatch('getBlogPost', this.$route.params.urlSegment)
+    .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
   }
 }
 </script>

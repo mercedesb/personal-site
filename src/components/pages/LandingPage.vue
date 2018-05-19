@@ -39,6 +39,7 @@ import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import images from '../../mixins/images'
+import objects from '../../mixins/objects'
 
 export default {
   components: {
@@ -49,7 +50,7 @@ export default {
     ParseMarkdown
   },
   mixins: [
-    images
+    images, objects
   ],
   props: {
     urlSegment: String
@@ -82,6 +83,7 @@ export default {
   },
   created() {
     this.$store.dispatch('getLandingPage', this.path)
+    .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
   }
 }
 </script>
