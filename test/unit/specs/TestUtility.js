@@ -5,7 +5,7 @@ import SmartLink from '../../../src/components/SmartLink.vue'
 
 export const TestUtility = (function() {
   const defaultConfiguration = {
-    stubs: ['router-link'],
+    stubs: ['router-link', 'router-view'],
     mocks: {
       $route: {
         params: {
