@@ -30,24 +30,23 @@ export default {
     }
   },
   computed: {
-    momentDate() {
+    momentDate () {
       return moment(this.date)
     },
-    publishMonth() {
+    publishMonth () {
       return this.momentDate.format('MMM')
     },
-    publishDay() {
+    publishDay () {
       return this.momentDate.format('DD')
     },
-    publishYear() {
+    publishYear () {
       return this.momentDate.format('YYYY')
     },
-    classes() {
+    classes () {
       let classStr = 'BlogItem'
       if (this.featured) {
         classStr += ' BlogItem--featured'
-      }
-      else {
+      } else {
         classStr += ` BlogItem--${this.color}`
       }
       return classStr
@@ -57,6 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/styles/variables.scss';
   .BlogItem {
 
     &-container {

@@ -34,19 +34,19 @@ export default {
     images
   ],
   computed: {
-    page() {
+    page () {
       return this.$store.state.homePage
     },
-    mainImageUrl() {
+    mainImageUrl () {
       return this.getImageUrl(this.page.mainImage)
     },
-    backgroundImages() {
+    backgroundImages () {
       if (!this.page.backgroundImages) return []
       return this.page.backgroundImages.map((bgdImage) => {
-          return this.getImageUrl(bgdImage)
-        })
+        return this.getImageUrl(bgdImage)
+      })
     },
-    columns() {
+    columns () {
       if (!this.page.children) return []
       return this.page.children.map((child) => {
         return {

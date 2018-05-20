@@ -1,14 +1,14 @@
 <template>
   <nav class='MainNav'>
     <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
-      <smart-link class="MainNav-home" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></smart-link>
+      <smart-link class="MainNav-home" to="/"><div class='MainNav-logo'><img src='../assets/SiteLogo.svg' /></div></smart-link>
       <div>
         <div class='MainNav-hamburger' v-on:click="expanded = !expanded">
           <img src='../assets/menu.svg' alt='hamburger menu'/>
         </div>
         <transition name='grow'>
           <ul class='MainNav-navLinks' v-if="navLinks.length && expanded">
-            <li class="MainNav-navLink" v-for="navLink in navLinks">
+            <li class="MainNav-navLink" v-for="navLink in navLinks" :key="navLink.title">
               <smart-link
                 :to="navLink.parsedLink"
                 :isExternal="!!navLink.externalLink"
@@ -28,13 +28,13 @@ export default {
   props: {
     classModifier: String
   },
-  data() {
+  data () {
     return {
       expanded: false
     }
   },
   computed: {
-    navLinks() {
+    navLinks () {
       return this.$store.state.navLinks.map((link) => {
         return {
           parsedLink: link.externalLink ? link.externalLink : `/${link.urlSegment}`,
@@ -46,16 +46,20 @@ export default {
   created () {
     this.$store.dispatch('getNavLinks')
   },
-   watch: {
+  watch: {
     '$route' (to, from) {
       this.expanded = false
     }
-   }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-  $nav-height: 75px;
+  @import '../assets/styles/variables.scss';
+
+  $logo-height: 70px;
+  $logo-vertical-padding: $small-spacing/2;
+  $nav-height: $logo-height + $logo-vertical-padding*2;
   $hamburger-width: 300px;
 
   .MainNav {
@@ -67,14 +71,16 @@ export default {
     &-home {
       display: flex;
       align-items: center;
-      padding: $small-spacing $base-spacing;
+      padding: $small-spacing/2 $base-spacing;
     }
 
     &-logo {
       max-height: 70px;
-      font-family: $candela;
       font-size: $larger-font-size;
       font-weight: $heavy-font-weight;
+      img {
+        max-height: 70px;
+      }
     }
 
     &-hamburger {
@@ -93,6 +99,7 @@ export default {
       position: absolute;
       background-color: $white;
       width: $hamburger-width;
+      top: $nav-height;
       right: 0;
       display: flex;
       flex-direction: column;

@@ -32,17 +32,16 @@ export default {
     urlSegment: String
   },
   computed: {
-    iconUrl: function() {
+    iconUrl: function () {
       return this.getImageUrl(this.icon)
     },
-    isExternal: function() {
+    isExternal: function () {
       return !!this.externalLink
     },
-    link: function() {
+    link: function () {
       if (this.isExternal) {
         return this.externalLink
-      }
-      else {
+      } else {
         return this.urlSegment
       }
     }
@@ -51,6 +50,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/styles/variables.scss';
+
   $icon-width: 125px;
   $fixed-width: 340px;
   $transition-time: .5s;

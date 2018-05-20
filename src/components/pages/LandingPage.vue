@@ -43,10 +43,10 @@ import objects from '../../mixins/objects'
 
 export default {
   components: {
-    PageHeader, 
-    CTALink, 
-    ContactForm, 
-    BlogList, 
+    PageHeader,
+    CTALink,
+    ContactForm,
+    BlogList,
     ParseMarkdown
   },
   mixins: [
@@ -55,19 +55,19 @@ export default {
   props: {
     urlSegment: String
   },
-  data() {
+  data () {
     return {
       path: this.urlSegment
     }
   },
   computed: {
-    page() {
+    page () {
       return this.$store.state.landingPage
     },
-    iconUrl() {
+    iconUrl () {
       return this.getImageUrl(this.page.icon)
     },
-    ctaLinks() {
+    ctaLinks () {
       if (!this.page.ctaLinks) return []
       return this.page.ctaLinks.map((cta) => {
         return {
@@ -81,9 +81,9 @@ export default {
       })
     }
   },
-  created() {
+  created () {
     this.$store.dispatch('getLandingPage', this.path)
-    .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
+      .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
   }
 }
 </script>

@@ -9,6 +9,7 @@
     <div class="Hero-background" v-if="backgroundImages && backgroundImages.length">
       <img
         v-for="image in backgroundImages"
+        :key="image.id"
         :src="image"
         class="Hero-backgroundImage"
       />
@@ -33,6 +34,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/styles/variables.scss';
+
   $image-width: 250px;
   $text-width: 800px;
   $background-image-max-height: 460px;
@@ -52,8 +55,8 @@ export default {
     &-backgroundImage {
       max-height: 115px;
       max-width: 100px;
-      min-width: 91px; 
-      
+      min-width: 91px;
+
       @include media($min-tablet) {
         max-height: $background-image-max-height;
         max-width: $background-image-max-width;
