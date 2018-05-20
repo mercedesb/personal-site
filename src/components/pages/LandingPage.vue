@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <div :key="page.id">
         <PageHeader
           :color="page.color"

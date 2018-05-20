@@ -1,4 +1,5 @@
 <template>
+  <transition name="fade">
   <nav class='MainNav'>
     <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
       <smart-link class="MainNav-home" to="/"><div class='MainNav-logo'><img src='../assets/SiteLogo.svg' /></div></smart-link>
@@ -21,6 +22,7 @@
       </div>
     </div>
   </nav>
+</transition>
 </template>
 
 <script>
