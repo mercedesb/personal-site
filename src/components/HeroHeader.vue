@@ -101,5 +101,8 @@ export default {
     }
 
     @include background-color;
+    &--brown {
+      background-color: $brown;
+    }
   }
 </style>
