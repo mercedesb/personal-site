@@ -5,6 +5,19 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
   class="Hero Hero--brown"
 >
   <div
+    class="Hero-contentContainer"
+  >
+    <div>
+      <img
+        class="Hero-image"
+        src="http://google.com"
+      />
+       
+      <!---->
+    </div>
+  </div>
+   
+  <div
     class="Hero-background"
   >
     <img
@@ -19,19 +32,6 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
       class="Hero-backgroundImage"
       src="http://image3.com"
     />
-  </div>
-   
-  <div
-    class="Hero-contentContainer"
-  >
-    <div>
-      <img
-        class="Hero-image"
-        src="http://google.com"
-      />
-       
-      <!---->
-    </div>
   </div>
 </header>
 `;

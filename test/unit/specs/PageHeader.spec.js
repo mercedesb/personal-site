@@ -1,5 +1,5 @@
 import PageHeader from '@/components/PageHeader.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('PageHeader', () => {
   let component
@@ -11,7 +11,7 @@ describe('PageHeader', () => {
     media: 'http://image.com'
   }
 
-  const shallow = propsData => Setup.shallow(PageHeader, { 
+  const shallow = propsData => TestUtility.shallow(PageHeader, { 
     propsData: {
       ...initialProps,
       ...propsData

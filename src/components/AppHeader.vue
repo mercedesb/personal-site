@@ -76,7 +76,6 @@ export default {
 
     &-logo {
       max-height: 70px;
-      font-family: $candela;
       font-size: $larger-font-size;
       font-weight: $heavy-font-weight;
       img {

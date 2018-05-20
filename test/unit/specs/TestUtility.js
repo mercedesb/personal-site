@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
-import SmartLink from '../src/components/SmartLink.vue'
+import SmartLink from '../../../src/components/SmartLink.vue'
 
-export const Setup = (function() {
+export const TestUtility = (function() {
   const defaultConfiguration = {
     stubs: ['router-link'],
     mocks: {
@@ -30,7 +30,7 @@ export const Setup = (function() {
 
     if (!!store) {
       localStore = new Vuex.Store(store)
-      localStore.dispatch = jest.fn()
+      localStore.dispatch = jest.fn(() => Promise.resolve({not: 'empty'}))
     }
 
     return {

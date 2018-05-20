@@ -1,5 +1,5 @@
 import AppHeader from '@/components/AppHeader.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('AppHeader', () => {
   let component
@@ -9,8 +9,8 @@ describe('AppHeader', () => {
   }
   const store = {
     state: {
-      navLinks: Object.keys(Setup.landingPages).map((key) => {
-        return Setup.landingPages[key]
+      navLinks: Object.keys(TestUtility.landingPages).map((key) => {
+        return TestUtility.landingPages[key]
       })
     },
     actions: {
@@ -18,7 +18,7 @@ describe('AppHeader', () => {
     }
   }
 
-  const shallow = propsData => Setup.shallow(AppHeader, { 
+  const shallow = propsData => TestUtility.shallow(AppHeader, { 
     store,
     propsData: {
       ...initialProps,
@@ -64,7 +64,7 @@ describe('AppHeader', () => {
       })
 
       it('uses the external link for parsedLink if its defined', () => {
-        const shopPage = Setup.landingPages["shop"]
+        const shopPage = TestUtility.landingPages["shop"]
         const shopLink = component.vm.navLinks.find((link) => {
           return link.title === shopPage.title
         })
@@ -72,7 +72,7 @@ describe('AppHeader', () => {
       })
 
       it('uses the url segment for parsedLink if eternalLink is not defined', () => {
-        const blogPage = Setup.landingPages["blog"]
+        const blogPage = TestUtility.landingPages["blog"]
         const blogLink = component.vm.navLinks.find((link) => {
           return link.title === blogPage.title
         })
@@ -84,7 +84,7 @@ describe('AppHeader', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getNavLinks to the store', () => {
-        component = Setup.mount(AppHeader, { 
+        component = TestUtility.mount(AppHeader, { 
           store,
           propsData: {
             ...initialProps

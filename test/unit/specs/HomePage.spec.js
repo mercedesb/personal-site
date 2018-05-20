@@ -1,5 +1,5 @@
 import HomePage from '@/components/pages/HomePage.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('HomePage', () => {
   let component
@@ -15,13 +15,13 @@ describe('HomePage', () => {
           }
         }
       },
-      children: Object.keys(Setup.landingPages).map((key, index) => {
+      children: Object.keys(TestUtility.landingPages).map((key, index) => {
         return {
           sys: {
             id: `child ${index}`,
           },
           fields: {
-            ...Setup.landingPages[key]
+            ...TestUtility.landingPages[key]
           }
         }
       }),
@@ -60,7 +60,7 @@ describe('HomePage', () => {
     actions
   }
 
-  const shallow = propsData => Setup.shallow(HomePage, {
+  const shallow = propsData => TestUtility.shallow(HomePage, {
     store,
     propsData: {
       ...propsData
@@ -115,7 +115,7 @@ describe('HomePage', () => {
             },
             actions
           }
-          component = Setup.shallow(HomePage, {
+          component = TestUtility.shallow(HomePage, {
             store: localStore
           }) 
 
@@ -159,7 +159,7 @@ describe('HomePage', () => {
             },
             actions
           }
-          component = Setup.shallow(HomePage, {
+          component = TestUtility.shallow(HomePage, {
             store: localStore
           }) 
 
@@ -172,7 +172,7 @@ describe('HomePage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getHomePage to the store', () => {
-        component = Setup.mount(HomePage, { 
+        component = TestUtility.mount(HomePage, { 
           store
          })
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getHomePage')

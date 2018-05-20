@@ -1,5 +1,5 @@
 import LandingPage from '@/components/pages/LandingPage.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('LandingPage', () => {
   let component
@@ -11,7 +11,7 @@ describe('LandingPage', () => {
   const store = {
     state: {
       landingPage: {
-        ...Setup.landingPages[initialProps.urlSegment]
+        ...TestUtility.landingPages[initialProps.urlSegment]
       }
     },
     actions: {
@@ -19,7 +19,7 @@ describe('LandingPage', () => {
     }
   }
 
-  const shallow = propsData => Setup.shallow(LandingPage, {
+  const shallow = propsData => TestUtility.shallow(LandingPage, {
     store,
     propsData: {
       ...initialProps,
@@ -96,7 +96,7 @@ describe('LandingPage', () => {
             },
             actions: store.actions
           }
-          component = Setup.shallow(LandingPage, {
+          component = TestUtility.shallow(LandingPage, {
             store: localStore,
             propsData: {
               ...initialProps,
@@ -112,7 +112,7 @@ describe('LandingPage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getLandingPage to the store', () => {
-        component = Setup.mount(LandingPage, { 
+        component = TestUtility.mount(LandingPage, { 
           store,
           propsData: {
             ...initialProps,

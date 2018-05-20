@@ -1,5 +1,5 @@
 import HeroHeader from '@/components/HeroHeader.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('HeroHeader', () => {
   let component
@@ -11,7 +11,7 @@ describe('HeroHeader', () => {
     backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
   }
 
-  const shallow = propsData => Setup.shallow(HeroHeader, { 
+  const shallow = propsData => TestUtility.shallow(HeroHeader, { 
     propsData: {
       ...initialProps,
       ...propsData

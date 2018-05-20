@@ -1,5 +1,5 @@
 import BlogListItem from '@/components/BlogListItem.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('BlogListItem', () => {
   let component
@@ -13,7 +13,7 @@ describe('BlogListItem', () => {
     urlSegment: 'blog-post'
   }
 
-  const shallow = propsData => Setup.shallow(BlogListItem, { 
+  const shallow = propsData => TestUtility.shallow(BlogListItem, { 
     propsData: {
       ...initialProps,
       ...propsData

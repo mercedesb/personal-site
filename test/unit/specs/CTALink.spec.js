@@ -1,5 +1,5 @@
 import CTALink from '@/components/CTALink.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('CTALink', () => {
   let component 
@@ -12,7 +12,7 @@ describe('CTALink', () => {
     external: false
   }
 
-   const shallow = propsData => Setup.shallow(CTALink, { 
+   const shallow = propsData => TestUtility.shallow(CTALink, { 
     propsData: {
       ...initialProps,
       ...propsData

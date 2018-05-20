@@ -1,5 +1,5 @@
 import BlogList from '@/components/BlogList.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('BlogList', () => {
   let component
@@ -10,11 +10,11 @@ describe('BlogList', () => {
 
   const store = {
     state: {
-      blogPosts: Setup.blogPosts
+      blogPosts: TestUtility.blogPosts
     }
   }
 
-  const shallow = propsData => Setup.shallow(BlogList, { 
+  const shallow = propsData => TestUtility.shallow(BlogList, { 
     store,
     propsData: {
       ...initialProps,
@@ -93,7 +93,7 @@ describe('BlogList', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getBlogPosts to the store', () => {
-        component = Setup.mount(BlogList, { 
+        component = TestUtility.mount(BlogList, { 
           store,
           propsData: {
             ...initialProps

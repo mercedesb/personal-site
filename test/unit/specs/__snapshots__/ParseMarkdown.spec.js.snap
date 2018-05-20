@@ -9,14 +9,10 @@ exports[`ParseMarkdown Snapshots matches snapshot 1`] = `
   >
     here is the source md
   </h3>
-  
-
   <p
     class=" CollapsibleChild CollapsibleChild--collapsed"
   >
     trying it out
   </p>
-  
-
 </div>
 `;

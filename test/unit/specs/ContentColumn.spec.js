@@ -1,5 +1,5 @@
 import ContentColumn from '@/components/ContentColumn.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 
 describe('ContentColumn', () => {
   let component 
@@ -19,7 +19,7 @@ describe('ContentColumn', () => {
     urlSegment: 'testPath'
   }
 
-  const shallow = propsData => Setup.shallow(ContentColumn, { 
+  const shallow = propsData => TestUtility.shallow(ContentColumn, { 
     propsData: {
       ...initialProps,
       ...propsData

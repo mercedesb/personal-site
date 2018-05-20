@@ -1,5 +1,5 @@
 import ParseMarkdown from '@/components/ParseMarkdown.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 import markdownIt from 'markdown-it'
 
 const mockRender = jest.fn(() => '<h3>here is the source md</h3><p>trying it out</p>')
@@ -19,7 +19,7 @@ describe('ParseMarkdown', () => {
     collapsedByDefault: true
   }
 
-  const shallow = (propsData) => Setup.shallow(ParseMarkdown, { 
+  const shallow = (propsData) => TestUtility.shallow(ParseMarkdown, { 
     propsData: {
       ...initialProps,
       ...propsData
@@ -85,7 +85,7 @@ describe('ParseMarkdown', () => {
       // TODO: setMethods isn't working...
 
       // it('adds event listeners', () => {
-      //   component = Setup.mount(ParseMarkdown, { 
+      //   component = TestUtility.mount(ParseMarkdown, { 
       //     propsData: {
       //       ...initialProps
       //     },

@@ -1,5 +1,5 @@
 import ContactForm from '@/components/ContactForm.vue'
-import { Setup } from './Setup'
+import { TestUtility } from './TestUtility'
 import axios from 'axios'
 
 jest.mock('axios', () => ({
@@ -9,7 +9,7 @@ jest.mock('axios', () => ({
 describe('ContactForm', () => {
   let component
 
-  const shallow = (propsData) => Setup.shallow(ContactForm, { 
+  const shallow = (propsData) => TestUtility.shallow(ContactForm, { 
     propsData: {
       ...propsData
     }
