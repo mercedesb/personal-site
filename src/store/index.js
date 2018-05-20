@@ -69,6 +69,7 @@ export default new Vuex.Store({
         const matching = blogPosts.filter(blogPost => blogPost.urlSegment === urlSegment)
         if (matching && matching.length) {
           context.commit('blogPost', matching[0])
+          return matching[0]
         }
       } else {
         return context.dispatch('getEntries', {
