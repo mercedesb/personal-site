@@ -13,12 +13,12 @@ describe('BlogListItem', () => {
     urlSegment: 'blog-post'
   }
 
-  const shallow = propsData => TestUtility.shallow(BlogListItem, { 
+  const shallow = propsData => TestUtility.shallow(BlogListItem, {
     propsData: {
       ...initialProps,
       ...propsData
     }
-   })
+  })
 
   describe('Snapshots', () => {
     it('matches snapshot', () => {

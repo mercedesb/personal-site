@@ -2,7 +2,7 @@ import CTALink from '@/components/CTALink.vue'
 import { TestUtility } from './TestUtility'
 
 describe('CTALink', () => {
-  let component 
+  let component
 
   const initialProps = {
     title: 'cta title',
@@ -12,12 +12,12 @@ describe('CTALink', () => {
     external: false
   }
 
-   const shallow = propsData => TestUtility.shallow(CTALink, { 
+  const shallow = propsData => TestUtility.shallow(CTALink, {
     propsData: {
       ...initialProps,
       ...propsData
     }
-   })
+  })
 
   describe('Snapshots', () => {
     describe('with a color passed in', () => {

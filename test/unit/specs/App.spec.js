@@ -4,11 +4,11 @@ import { TestUtility } from './TestUtility'
 describe('App', () => {
   let component
 
-  const shallow = propsData => TestUtility.shallow(App, { 
+  const shallow = propsData => TestUtility.shallow(App, {
     propsData: {
       ...propsData
     }
-   })
+  })
 
   describe('Snapshots', () => {
     it('matches snapshot', () => {

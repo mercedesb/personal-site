@@ -1,5 +1,4 @@
 import images from '@/mixins/images.js'
-import { TestUtility } from './TestUtility'
 
 describe('images', () => {
   describe('getImageUrl', () => {

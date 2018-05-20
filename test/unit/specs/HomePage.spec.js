@@ -18,7 +18,7 @@ describe('HomePage', () => {
       children: Object.keys(TestUtility.landingPages).map((key, index) => {
         return {
           sys: {
-            id: `child ${index}`,
+            id: `child ${index}`
           },
           fields: {
             ...TestUtility.landingPages[key]
@@ -65,7 +65,7 @@ describe('HomePage', () => {
     propsData: {
       ...propsData
     }
-  }) 
+  })
 
   describe('Snapshots', () => {
     it('matches snapshot', () => {
@@ -111,13 +111,13 @@ describe('HomePage', () => {
           }
           const localStore = {
             state: {
-              homePage: localHomePage,
+              homePage: localHomePage
             },
             actions
           }
           component = TestUtility.shallow(HomePage, {
             store: localStore
-          }) 
+          })
 
           expect(component.vm.backgroundImages).toBeDefined()
         })
@@ -155,13 +155,13 @@ describe('HomePage', () => {
           }
           const localStore = {
             state: {
-              homePage: localHomePage,
+              homePage: localHomePage
             },
             actions
           }
           component = TestUtility.shallow(HomePage, {
             store: localStore
-          }) 
+          })
 
           expect(component.vm.columns).toBeDefined()
         })
@@ -172,9 +172,9 @@ describe('HomePage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getHomePage to the store', () => {
-        component = TestUtility.mount(HomePage, { 
+        component = TestUtility.mount(HomePage, {
           store
-         })
+        })
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getHomePage')
       })
     })

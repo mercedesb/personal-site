@@ -25,7 +25,7 @@ describe('LandingPage', () => {
       ...initialProps,
       ...propsData
     }
-  }) 
+  })
 
   describe('Snapshots', () => {
     it('matches snapshot', () => {
@@ -92,16 +92,16 @@ describe('LandingPage', () => {
           }
           const localStore = {
             state: {
-              landingPage: localPage,
+              landingPage: localPage
             },
             actions: store.actions
           }
           component = TestUtility.shallow(LandingPage, {
             store: localStore,
             propsData: {
-              ...initialProps,
+              ...initialProps
             }
-          }) 
+          })
 
           expect(component.vm.ctaLinks).toBeDefined()
         })
@@ -112,12 +112,12 @@ describe('LandingPage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getLandingPage to the store', () => {
-        component = TestUtility.mount(LandingPage, { 
+        component = TestUtility.mount(LandingPage, {
           store,
           propsData: {
-            ...initialProps,
+            ...initialProps
           }
-         })
+        })
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getLandingPage', initialProps.urlSegment)
       })
     })

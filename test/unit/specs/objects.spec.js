@@ -1,5 +1,4 @@
 import objects from '@/mixins/objects.js'
-import { TestUtility } from './TestUtility'
 
 describe('objects', () => {
   describe('isEmpty', () => {

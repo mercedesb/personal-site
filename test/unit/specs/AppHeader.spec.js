@@ -18,13 +18,13 @@ describe('AppHeader', () => {
     }
   }
 
-  const shallow = propsData => TestUtility.shallow(AppHeader, { 
+  const shallow = propsData => TestUtility.shallow(AppHeader, {
     store,
     propsData: {
       ...initialProps,
       ...propsData
     }
-   })
+  })
 
   describe('Snapshots', () => {
     describe('with a classModifier passed in', () => {
@@ -64,7 +64,7 @@ describe('AppHeader', () => {
       })
 
       it('uses the external link for parsedLink if its defined', () => {
-        const shopPage = TestUtility.landingPages["shop"]
+        const shopPage = TestUtility.landingPages['shop']
         const shopLink = component.vm.navLinks.find((link) => {
           return link.title === shopPage.title
         })
@@ -72,7 +72,7 @@ describe('AppHeader', () => {
       })
 
       it('uses the url segment for parsedLink if eternalLink is not defined', () => {
-        const blogPage = TestUtility.landingPages["blog"]
+        const blogPage = TestUtility.landingPages['blog']
         const blogLink = component.vm.navLinks.find((link) => {
           return link.title === blogPage.title
         })
@@ -84,12 +84,12 @@ describe('AppHeader', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getNavLinks to the store', () => {
-        component = TestUtility.mount(AppHeader, { 
+        component = TestUtility.mount(AppHeader, {
           store,
           propsData: {
             ...initialProps
           }
-         })
+        })
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getNavLinks')
       })
     })

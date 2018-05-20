@@ -1,6 +1,5 @@
 import BlogPostPage from '@/components/pages/BlogPostPage.vue'
 import { TestUtility } from './TestUtility'
-import moment from 'moment'
 
 const mockFormat = jest.fn(() => 'Apr 18 2018')
 
@@ -27,7 +26,7 @@ describe('BlogPostPage', () => {
       ...initialProps,
       ...propsData
     }
-  }) 
+  })
 
   describe('Snapshots', () => {
     describe('with a color passed in', () => {
@@ -74,12 +73,12 @@ describe('BlogPostPage', () => {
   describe('Lifecycle', () => {
     describe('created', () => {
       it('dispatches getBlogPost to the store', () => {
-        component = TestUtility.mount(BlogPostPage, { 
+        component = TestUtility.mount(BlogPostPage, {
           store,
           propsData: {
             ...initialProps
           }
-         })
+        })
         const expectedPath = TestUtility.mockRoute
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPost', expectedPath)
       })

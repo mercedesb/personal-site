@@ -3,18 +3,18 @@ import { TestUtility } from './TestUtility'
 import axios from 'axios'
 
 jest.mock('axios', () => ({
-    post: jest.fn(() => Promise.resolve({ data: { success: true, error: ''} }))
+  post: jest.fn(() => Promise.resolve({ data: { success: true, error: ''} }))
 }))
 
 describe('ContactForm', () => {
   let component
 
-  const shallow = (propsData) => TestUtility.shallow(ContactForm, { 
+  const shallow = (propsData) => TestUtility.shallow(ContactForm, {
     propsData: {
       ...propsData
     }
   })
-  
+
   describe('Snapshots', () => {
     it('matches snapshot', () => {
       component = shallow()

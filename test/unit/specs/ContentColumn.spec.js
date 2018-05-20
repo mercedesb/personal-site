@@ -2,8 +2,8 @@ import ContentColumn from '@/components/ContentColumn.vue'
 import { TestUtility } from './TestUtility'
 
 describe('ContentColumn', () => {
-  let component 
-  
+  let component
+
   const initialProps = {
     title: 'title',
     color: 'blue',
@@ -19,12 +19,12 @@ describe('ContentColumn', () => {
     urlSegment: 'testPath'
   }
 
-  const shallow = propsData => TestUtility.shallow(ContentColumn, { 
+  const shallow = propsData => TestUtility.shallow(ContentColumn, {
     propsData: {
       ...initialProps,
       ...propsData
     }
-   })
+  })
 
   describe('Snapshots', () => {
     describe('with a color passed in', () => {

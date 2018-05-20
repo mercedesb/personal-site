@@ -11,13 +11,13 @@ describe('PageHeader', () => {
     media: 'http://image.com'
   }
 
-  const shallow = propsData => TestUtility.shallow(PageHeader, { 
+  const shallow = propsData => TestUtility.shallow(PageHeader, {
     propsData: {
       ...initialProps,
       ...propsData
     }
   })
-  
+
   describe('Snapshots', () => {
     describe('with a title', () => {
       it('matches snapshot', () => {
@@ -34,7 +34,7 @@ describe('PageHeader', () => {
     })
   })
 
-   describe('Properties', () => {
+  describe('Properties', () => {
     it('has a title property', () => {
       component = shallow()
       expect(component.props().title).toEqual('title')

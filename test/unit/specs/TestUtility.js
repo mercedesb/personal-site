@@ -1,9 +1,8 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
 import SmartLink from '../../../src/components/SmartLink.vue'
 
-export const TestUtility = (function() {
+export const TestUtility = (function () {
   const defaultConfiguration = {
     stubs: ['router-link', 'router-view'],
     mocks: {
@@ -15,20 +14,20 @@ export const TestUtility = (function() {
     }
   }
 
-  function configure() {
+  function configure () {
     const localVue = createLocalVue()
     localVue.component('smart-link', SmartLink)
     localVue.use(Vuex)
     return localVue
   }
 
-  function getOptions(config = {}) {
+  function getOptions (config = {}) {
     const { store, ...localConfig } = config
     let localStore
-    
+
     const localVue = configure()
 
-    if (!!store) {
+    if (store) {
       localStore = new Vuex.Store(store)
       localStore.dispatch = jest.fn(() => Promise.resolve({not: 'empty'}))
     }
@@ -42,12 +41,12 @@ export const TestUtility = (function() {
   }
 
   return {
-    shallow: function(Component, config = {}) {
+    shallow: function (Component, config = {}) {
       return shallowMount(Component, {
         ...getOptions(config)
       })
     },
-    mount: function(Component, config = {}) {
+    mount: function (Component, config = {}) {
       return mount(Component, {
         ...getOptions(config)
       })
@@ -66,48 +65,48 @@ export const TestUtility = (function() {
         },
         mainContent: '',
         ctaLinks: [
-        {
-          sys: {
-            id: 'cta 1'
-          },
-          fields: {
-            title: 'Resume',
-            icon: {
-              fields: {
-                file: {
-                  url: 'http://placeholder.pics/svg/300'
+          {
+            sys: {
+              id: 'cta 1'
+            },
+            fields: {
+              title: 'Resume',
+              icon: {
+                fields: {
+                  file: {
+                    url: 'http://placeholder.pics/svg/300'
+                  }
                 }
-              }
-            },
-            internalLink: {
-              fields: {
-                urlSegment: 'resume'
-              }
-            },
-            externalLink: ''
-          }
-        },
-        {
-          sys: {
-            id: 'cta 2'
-          },
-          fields: {
-            title: 'External CTA',
-            icon: {
-              fields: {
-                file: {
-                  url: 'http://placeholder.pics/svg/300'
+              },
+              internalLink: {
+                fields: {
+                  urlSegment: 'resume'
                 }
-              }
+              },
+              externalLink: ''
+            }
+          },
+          {
+            sys: {
+              id: 'cta 2'
             },
-            internalLink: {
-              fields: {
-                urlSegment: ''
-              }
-            },
-            externalLink: 'http://google.com'
+            fields: {
+              title: 'External CTA',
+              icon: {
+                fields: {
+                  file: {
+                    url: 'http://placeholder.pics/svg/300'
+                  }
+                }
+              },
+              internalLink: {
+                fields: {
+                  urlSegment: ''
+                }
+              },
+              externalLink: 'http://google.com'
+            }
           }
-        }
         ],
         urlSegment: 'about',
         externalLink: '',

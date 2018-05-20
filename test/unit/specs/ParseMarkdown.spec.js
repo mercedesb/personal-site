@@ -1,6 +1,5 @@
 import ParseMarkdown from '@/components/ParseMarkdown.vue'
 import { TestUtility } from './TestUtility'
-import markdownIt from 'markdown-it'
 
 const mockRender = jest.fn(() => '<h3>here is the source md</h3><p>trying it out</p>')
 
@@ -10,7 +9,6 @@ jest.mock('markdown-it', () => () => ({
 
 describe('ParseMarkdown', () => {
   let component
-  const parsedSource = "<h3>here is the source md</h3><p>trying it out</p>"
 
   const initialProps = {
     source: '### here is the source md\ntrying it out',
@@ -19,13 +17,13 @@ describe('ParseMarkdown', () => {
     collapsedByDefault: true
   }
 
-  const shallow = (propsData) => TestUtility.shallow(ParseMarkdown, { 
+  const shallow = (propsData) => TestUtility.shallow(ParseMarkdown, {
     propsData: {
       ...initialProps,
       ...propsData
     }
   })
-  
+
   describe('Snapshots', () => {
     it('matches snapshot', () => {
       component = shallow()
@@ -85,7 +83,7 @@ describe('ParseMarkdown', () => {
       // TODO: setMethods isn't working...
 
       // it('adds event listeners', () => {
-      //   component = TestUtility.mount(ParseMarkdown, { 
+      //   component = TestUtility.mount(ParseMarkdown, {
       //     propsData: {
       //       ...initialProps
       //     },
@@ -121,7 +119,6 @@ describe('ParseMarkdown', () => {
           component = shallow()
           component.vm.toggleClass(el, selector)
           expect(el.className).toEqual(' Collapsible Collapsible--expanded')
-
         })
 
         describe('currently collapsed', () => {
@@ -131,7 +128,7 @@ describe('ParseMarkdown', () => {
 
             component = shallow()
             component.vm.toggleClass(el, selector)
-          expect(el.className).toEqual(' Collapsible Collapsible--expanded')
+            expect(el.className).toEqual(' Collapsible Collapsible--expanded')
           })
         })
 

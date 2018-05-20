@@ -11,13 +11,13 @@ describe('HeroHeader', () => {
     backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
   }
 
-  const shallow = propsData => TestUtility.shallow(HeroHeader, { 
+  const shallow = propsData => TestUtility.shallow(HeroHeader, {
     propsData: {
       ...initialProps,
       ...propsData
     }
-   })
-  
+  })
+
   describe('Snapshots', () => {
     it('renders img for each item in props.backgroundImages', () => {
       component = shallow()
