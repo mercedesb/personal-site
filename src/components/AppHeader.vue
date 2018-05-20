@@ -1,7 +1,7 @@
 <template>
   <nav class='MainNav'>
     <div :class="'FlexContainer FlexContainer--alignCenter FlexContainer--' + classModifier">
-      <smart-link class="MainNav-home" to="/"><span class='MainNav-logo'>Mercedes Bernard</span></smart-link>
+      <smart-link class="MainNav-home" to="/"><div class='MainNav-logo'><img src='../assets/SiteLogo.svg' /></div></smart-link>
       <div>
         <div class='MainNav-hamburger' v-on:click="expanded = !expanded">
           <img src='../assets/menu.svg' alt='hamburger menu'/>
@@ -57,7 +57,9 @@ export default {
 <style lang="scss" scoped>
   @import '../assets/styles/variables.scss';
 
-  $nav-height: 75px;
+  $logo-height: 70px;
+  $logo-vertical-padding: $small-spacing/2;
+  $nav-height: $logo-height + $logo-vertical-padding*2;
   $hamburger-width: 300px;
 
   .MainNav {
@@ -69,7 +71,7 @@ export default {
     &-home {
       display: flex;
       align-items: center;
-      padding: $small-spacing $base-spacing;
+      padding: $small-spacing/2 $base-spacing;
     }
 
     &-logo {
@@ -77,6 +79,9 @@ export default {
       font-family: $candela;
       font-size: $larger-font-size;
       font-weight: $heavy-font-weight;
+      img {
+        max-height: 70px;
+      }
     }
 
     &-hamburger {
@@ -95,6 +100,7 @@ export default {
       position: absolute;
       background-color: $white;
       width: $hamburger-width;
+      top: $nav-height;
       right: 0;
       display: flex;
       flex-direction: column;

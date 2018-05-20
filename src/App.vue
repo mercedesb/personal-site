@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppHeader :classModifier="$route.path === '/' ? 'justifyCenter' : 'spaceBetween'"/>
+    <AppHeader v-if="$route.path !== '/'" :classModifier="'spaceBetween'"/>
     <router-view v-cloak :key="$route.fullPath">
     </router-view>
   </div>

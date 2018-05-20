@@ -113,13 +113,13 @@ $icon-dimension: 24px;
 
   &--collapsed {
     &:before {
-      background-image: url(/src/assets/ExpandIcon.svg);
+      background-image: url(../assets/ExpandIcon.svg);
     }
   }
 
   &--expanded {
     &:before {
-      background-image: url(/src/assets/CollapseIcon.svg);
+      background-image: url(../assets/CollapseIcon.svg);
     }
   }
 
