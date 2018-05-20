@@ -48,8 +48,12 @@ export default {
     padding: $base-spacing;
 
     &-background {
-      display: flex;
-      justify-content: space-around;
+      display: none;
+
+      @include media($min-tablet) {
+        display: flex;
+        justify-content: space-around;
+      }
     }
 
     &-backgroundImage {
