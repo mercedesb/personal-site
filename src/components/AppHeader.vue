@@ -8,7 +8,7 @@
         </div>
         <transition name='grow'>
           <ul class='MainNav-navLinks' v-if="navLinks.length && expanded">
-            <li class="MainNav-navLink" v-for="navLink in navLinks">
+            <li class="MainNav-navLink" v-for="navLink in navLinks" :key="navLink.title">
               <smart-link
                 :to="navLink.parsedLink"
                 :isExternal="!!navLink.externalLink"
@@ -28,13 +28,13 @@ export default {
   props: {
     classModifier: String
   },
-  data() {
+  data () {
     return {
       expanded: false
     }
   },
   computed: {
-    navLinks() {
+    navLinks () {
       return this.$store.state.navLinks.map((link) => {
         return {
           parsedLink: link.externalLink ? link.externalLink : `/${link.urlSegment}`,
@@ -46,15 +46,17 @@ export default {
   created () {
     this.$store.dispatch('getNavLinks')
   },
-   watch: {
+  watch: {
     '$route' (to, from) {
       this.expanded = false
     }
-   }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/styles/variables.scss';
+
   $nav-height: 75px;
   $hamburger-width: 300px;
 

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
 @import url('https://fonts.googleapis.com/css?family=Poppins:300i,400,400i,600,600i');
 
-@import '~normalize.css/normalize.css';
+@import '../node_modules/normalize.css/normalize.css';
 @import './variables.scss';
 @import './typography.scss';
 @import './transitions.scss';

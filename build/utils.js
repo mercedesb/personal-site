@@ -59,8 +59,10 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass-resources', { indentedSyntax: true, resources: path.resolve(__dirname, '../src/assets/styles/_variables.scss') }),
-    scss: generateLoaders('sass-resources', { resources: path.resolve(__dirname, '../src/assets/styles/_variables.scss') }),
+    sass: generateLoaders('sass', { indentedSyntax: true }),
+    scss: generateLoaders('sass'),
+    // sass: generateLoaders('sass-resources', { indentedSyntax: true, resources: path.resolve(__dirname, '../src/assets/styles/_variables.scss') }),
+    // scss: generateLoaders('sass-resources', { resources: path.resolve(__dirname, '../src/assets/styles/_variables.scss') }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }

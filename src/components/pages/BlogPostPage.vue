@@ -15,12 +15,12 @@
 </template>
 
 <script>
-const moment = require('moment')
-
 import PageHeader from '../PageHeader.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import CTALink from '../CTALink.vue'
 import objects from '../../mixins/objects'
+
+const moment = require('moment')
 
 export default {
   components: {
@@ -36,22 +36,23 @@ export default {
     }
   },
   computed: {
-    page() {
+    page () {
       return this.$store.state.blogPost
     },
-    formattedPublishDate() {
+    formattedPublishDate () {
       return moment(this.page.publishDate).format('MMM DD YYYY')
     }
   },
   created () {
-    const router = this.$router
     this.$store.dispatch('getBlogPost', this.$route.params.urlSegment)
-    .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
+      .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
   }
 }
 </script>
 
 <style lang="scss">
+  @import '../../assets/styles/variables.scss';
+
 $header-height: 200px;
 
 .ContentHeader {

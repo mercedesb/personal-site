@@ -36,7 +36,7 @@
 import axios from 'axios'
 
 export default {
-  data() {
+  data () {
     return {
       from: '',
       subject: '',
@@ -46,25 +46,25 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
+    onSubmit () {
       const promise = axios.post(process.env.MAILER_API, {
         from: this.from,
         subject: this.subject,
         text: this.text
       })
-      
+
       promise.then((response) => {
         this.success = response.data.success
         this.error = response.data.error
       })
-      .catch(e => {
-        if (process.env.NODE_ENV === 'development') {
-          console.log(e)
-        }
-        if (e.response && e.response.data) {
-          this.error = e.response.data.error
-        }
-      })
+        .catch(e => {
+          if (process.env.NODE_ENV === 'development') {
+            console.log(e)
+          }
+          if (e.response && e.response.data) {
+            this.error = e.response.data.error
+          }
+        })
 
       return promise
     }
@@ -73,6 +73,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../assets/styles/variables.scss';
+
   $form-width: 600px;
   $input-height: $large-spacing;
   $textarea-height: $large-spacing * 5;

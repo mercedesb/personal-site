@@ -3,13 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
-
 // register globally used common components
 import SmartLink from './components/SmartLink.vue'
+
+Vue.config.productionTip = false
 Vue.component('smart-link', SmartLink)
 
-new Vue({
+new Vue({ // eslint-disable-line no-new
   router,
   store,
   el: '#app',

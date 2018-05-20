@@ -22,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/styles/variables.scss';
+
   $header-height: 300px;
   $media-width: 240px;
   $text-width: 500px;
