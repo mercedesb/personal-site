@@ -2,11 +2,7 @@
   <div>
     <transition name="fade" mode="out-in">
       <div :key="page.id">
-        <PageHeader
-          :color="page.color"
-          :title="page.title"
-          :preamble="page.preamble"
-          :media="iconUrl"
+        <SideNavigation
           :key="`${page.id}_header`"
         />
         <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
@@ -33,7 +29,7 @@
 </template>
 
 <script>
-import PageHeader from '../PageHeader.vue'
+import SideNavigation from '../SideNavigation.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
@@ -43,7 +39,7 @@ import objects from '../../mixins/objects'
 
 export default {
   components: {
-    PageHeader,
+    SideNavigation,
     CTALink,
     ContactForm,
     BlogList,
