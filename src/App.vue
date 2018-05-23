@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <router-view v-cloak :key="$route.fullPath">
-    </router-view>
-  </div>
+  <SideNavigation v-if="$route.path !== '/'" />
+  <router-view class="FlexContainer" v-cloak :key="$route.fullPath">
+  </router-view>
+</div>
 </template>
 
 <script>
+import SideNavigation from './components/SideNavigation.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    SideNavigation
+  }
 }
 </script>
 

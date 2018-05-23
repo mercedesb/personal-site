@@ -1,31 +1,25 @@
 <template>
-  <div>
     <transition name="fade" mode="out-in">
       <div :key="page.id">
-        <SideNavigation
-          :key="`${page.id}_header`"
-        />
-        <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
+        <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--alignCenter FlexContainer--column'>
+          <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
           <p class="PageContent">
             <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
           </p>
-        </main>
-        <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
+          <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
           <ContactForm v-if="page.showContact" />
           <BlogList v-if="page.showBlogPosts" :color="page.color" />
         </div>
-        <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
-          <div class='PageContent PageContent--wide FlexContainer'>
+        <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='PageContent PageContent--wide FlexContainer'>
             <CTALink
               v-for="ctaLink in ctaLinks"
               :key="ctaLink.id"
               v-bind="ctaLink"
             />
-          </div>
         </div>
+        </main>
       </div>
     </transition>
-  </div>
 </template>
 
 <script>
@@ -85,5 +79,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/styles/variables.scss';
+
+.SplashHeader {
+  font-size: 150px;
+  color: $blue;
+  align-self: flex-start;
+  padding-left: $base-spacing;
+  margin-top: $base-spacing;
+
+  @include color;
+}
 
 </style>

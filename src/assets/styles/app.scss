@@ -17,7 +17,7 @@ html, body, #app {
 
 #app {
   display: flex;
-  flex-flow: column;
+  /*flex-flow: column;*/
 }
 
 ul {
@@ -35,6 +35,7 @@ li {
   display:flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  flex: 1;
 
   &--justifyCenter {
     justify-content: center;
@@ -56,7 +57,7 @@ li {
 .PageContent {
   max-width: $content-width;
   width: 100%;
-  margin: $large-spacing $base-spacing 0;
+  /*margin: $large-spacing $base-spacing 0;*/
 
   p img {
     display: block;

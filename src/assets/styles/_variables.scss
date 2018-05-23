@@ -100,6 +100,14 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
   }
 }
 
+@mixin color {
+  @each $type in $colors-array {
+    &--#{nth($type, 1)} {
+      color: #{nth($type, 2)};
+    }
+  }
+}
+
 @mixin hover-darken {
   @each $type in $colors-array {
     &--#{nth($type, 1)} {

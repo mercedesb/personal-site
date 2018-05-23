@@ -75,7 +75,7 @@ export default {
 <style lang="scss">
   @import '../assets/styles/variables.scss';
 
-  $form-width: 600px;
+  $form-width: 900px;
   $input-height: $large-spacing;
   $textarea-height: $large-spacing * 5;
 
