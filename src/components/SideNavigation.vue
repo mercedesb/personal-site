@@ -1,4 +1,5 @@
 <template>
+  <transition name="fade" mode="out-in">
   <nav class="SideNav">
     <ul class='SideNav-navLinks' v-if="navLinks.length">
       <li class="SideNav-navLink">
@@ -15,11 +16,25 @@
         </smart-link>
       </li>
     </ul>
+    <div class="SideNav-background" v-if="backgroundImages && backgroundImages.length">
+      <img
+        v-for="image in backgroundImages"
+        :key="image.id"
+        :src="image"
+        class="SideNav-backgroundImage"
+      />
+    </div>
   </nav>
+</transition>
 </template>
 
 <script>
+import images from '../mixins/images'
+
 export default {
+  mixins: [
+    images
+  ],
   computed: {
     navLinks () {
       return this.$store.state.navLinks.map((link) => {
@@ -28,10 +43,17 @@ export default {
           ...link
         }
       })
+    },
+    backgroundImages () {
+      if (!this.$store.state.backgroundImages.length) return []
+      return this.$store.state.backgroundImages.map((bgdImage) => {
+        return this.getImageUrl(bgdImage)
+      })
     }
   },
   created () {
     this.$store.dispatch('getNavLinks')
+    this.$store.dispatch('getBackgroundImages')
   }
 }
 </script>
@@ -44,6 +66,7 @@ export default {
   background-color: $brown;
   display: flex;
   flex-flow: column;
+  position: relative;
 
   &-navLinks {
     display: flex;
@@ -51,6 +74,18 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include media($min-tablet) {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
   }
 
   &-navLink {
@@ -60,5 +95,28 @@ export default {
       font-size: $larger-font-size;
     }
   }
+
+  &-background {
+      /*display: none;*/
+      flex: 1;
+      align-items: center;
+      flex-direction: column;
+
+      @include media($min-tablet) {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+
+    &-backgroundImage {
+      max-width: 270px;
+      min-width: 91px;
+
+      /*@include media($min-tablet) {
+        max-height: $background-image-max-height;
+        max-width: $background-image-max-width;
+        min-width: $background-image-min-width;
+      }*/
+    }
 }
 </style>

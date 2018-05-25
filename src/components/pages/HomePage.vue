@@ -41,8 +41,8 @@ export default {
       return this.getImageUrl(this.page.mainImage)
     },
     backgroundImages () {
-      if (!this.page.backgroundImages) return []
-      return this.page.backgroundImages.map((bgdImage) => {
+      if (!this.$store.state.backgroundImages.length) return []
+      return this.$store.state.backgroundImages.map((bgdImage) => {
         return this.getImageUrl(bgdImage)
       })
     },
@@ -63,6 +63,7 @@ export default {
   },
   created () {
     this.$store.dispatch('getHomePage')
+    this.$store.dispatch('getBackgroundImages')
   }
 }
 </script>
