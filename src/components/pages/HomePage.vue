@@ -1,6 +1,6 @@
 <template>
     <transition name="fade" mode="out-in">
-      <div :key="page.id" class="u-fillHeight">
+      <div :key="page.id" class="Home">
         <HeroHeader
           :title="page.preamble"
           color='brown'
@@ -68,4 +68,9 @@ export default {
 </script>
 
 <style lang="scss">
+  .Home {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+  }
 </style>

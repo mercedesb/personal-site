@@ -3,7 +3,7 @@
     <div v-if="success" class='Form-success'>
       Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
     </div>
-    <form v-else class='Form' v-on:submit.prevent="onSubmit">
+    <form v-else class='Form PageContent' v-on:submit.prevent="onSubmit">
       <div class='Form-error'>
         {{error}}
       </div>
@@ -80,14 +80,11 @@ export default {
   $textarea-height: $large-spacing * 5;
 
   .Form {
-    display: flex;
-    flex-direction: column;
-    max-width: $form-width;
+    /*max-width: $form-width;*/
     width: 100%;
     margin: 0 $base-spacing;
 
     &-fieldset {
-      display: flex;
       flex-direction: column;
       margin: $base-spacing 0 0;
       justify-content: space-between;
@@ -113,7 +110,7 @@ export default {
     }
 
     .Button {
-      align-self: flex-end;
+      float: right;
     }
 
     &-success {

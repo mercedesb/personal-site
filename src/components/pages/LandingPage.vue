@@ -1,24 +1,20 @@
 <template>
     <transition name="fade" mode="out-in">
-      <div :key="page.id">
         <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--alignCenter FlexContainer--column'>
           <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
           <p class="PageContent">
             <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
           </p>
-          <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
           <ContactForm v-if="page.showContact" />
           <BlogList v-if="page.showBlogPosts" :color="page.color" />
-        </div>
-        <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='PageContent PageContent--wide FlexContainer'>
+          <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
             <CTALink
               v-for="ctaLink in ctaLinks"
               :key="ctaLink.id"
               v-bind="ctaLink"
             />
-        </div>
+          </div>
         </main>
-      </div>
     </transition>
 </template>
 
