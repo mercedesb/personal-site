@@ -13,7 +13,7 @@ html, body, #app {
   background-color: $white;
 }
 
-html {
+/*html {
   height: 100%;
 }
 
@@ -25,6 +25,12 @@ body {
 #app {
   display: flex;
   flex: 1;
+}*/
+
+#app{
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
 ul {
@@ -39,26 +45,8 @@ li {
 }
 
 .FlexContainer {
-  display:flex;
+  @include flex-container;
   flex-wrap: wrap;
-  box-sizing: border-box;
-  flex: 1;
-
-  &--justifyCenter {
-    justify-content: center;
-  }
-
-  &--spaceBetween {
-    justify-content: space-between;
-  }
-
-  &--alignCenter {
-    align-items: center;
-  }
-
-  &--column {
-    flex-direction: column
-  }
 }
 
 .PageContent {

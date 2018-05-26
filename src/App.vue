@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-  <SideNavigation v-if="$route.path !== '/'" />
-  <router-view class="FlexContainer" v-cloak :key="$route.fullPath">
-  </router-view>
+    <SideNavigation v-if="$route.path !== '/'" />
+    <router-view v-cloak :key="$route.fullPath">
+    </router-view>
 </div>
 </template>
 

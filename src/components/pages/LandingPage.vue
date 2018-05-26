@@ -1,6 +1,6 @@
 <template>
     <transition name="fade" mode="out-in">
-        <main :key="`${page.id}_mainContent`" v-if="page.title" class='FlexContainer FlexContainer--alignCenter FlexContainer--column'>
+        <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage LandingPage--alignCenter LandingPage--column'>
           <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
           <p class="PageContent">
             <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
@@ -76,6 +76,10 @@ export default {
 
 <style lang="scss">
 @import '../../assets/styles/variables.scss';
+
+.LandingPage {
+  @include flex-container;
+}
 
 .SplashHeader {
   font-size: 150px;

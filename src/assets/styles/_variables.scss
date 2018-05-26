@@ -150,3 +150,29 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
     }
   }
 }
+
+@mixin flex-container {
+  display:flex;
+  box-sizing: border-box;
+  flex: 1;
+
+  &--justifyCenter {
+    justify-content: center;
+  }
+
+  &--spaceBetween {
+    justify-content: space-between;
+  }
+
+  &--alignCenter {
+    align-items: center;
+  }
+
+  &--column {
+    flex-direction: column
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+}
