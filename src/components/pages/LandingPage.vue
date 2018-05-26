@@ -79,6 +79,7 @@ export default {
 
 .LandingPage {
   @include flex-container;
+  overflow: auto;
 }
 
 .SplashHeader {

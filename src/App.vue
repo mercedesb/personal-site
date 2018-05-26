@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <SideNavigation v-if="$route.path !== '/'" />
-    <router-view v-cloak :key="$route.fullPath">
-    </router-view>
-</div>
+    <HomeLayout v-if="$route.path === '/'" />
+    <ContentLayout v-if="$route.path !== '/'" />
+  </div>
 </template>
 
 <script>
-import SideNavigation from './components/SideNavigation.vue'
+import HomeLayout from './components/HomeLayout.vue'
+import ContentLayout from './components/ContentLayout.vue'
 export default {
   name: 'app',
   components: {
-    SideNavigation
+    HomeLayout, ContentLayout
   }
 }
 </script>
