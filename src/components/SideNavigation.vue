@@ -45,7 +45,8 @@ export default {
       })
     },
     backgroundImages () {
-      if (!this.$store.state.backgroundImages.length) return []
+      const bgdImgs = this.$store.state.backgroundImages
+      if (!bgdImgs || !bgdImgs.length) return []
       return this.$store.state.backgroundImages.map((bgdImage) => {
         return this.getImageUrl(bgdImage)
       })
