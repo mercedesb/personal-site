@@ -1,7 +1,11 @@
 <template>
   <transition name="fade" mode="out-in">
   <nav class="SideNav">
-    <ul class='SideNav-navLinks' v-if="navLinks.length">
+    <div class='SideNav-hamburger' v-on:click="expanded = !expanded">
+      <img src='../assets/menu.svg' alt='hamburger menu'/>
+    </div>
+    <transition name='grow'>
+    <ul class='SideNav-navLinks' v-if="navLinks.length && expanded">
       <li class="SideNav-navLink">
         <smart-link to="/">
           Home
@@ -16,6 +20,7 @@
         </smart-link>
       </li>
     </ul>
+  </transition>
     <div class="SideNav-background" v-if="backgroundImages && backgroundImages.length">
       <img
         v-for="image in backgroundImages"
@@ -35,6 +40,11 @@ export default {
   mixins: [
     images
   ],
+  data () {
+    return {
+      expanded: false
+    }
+  },
   computed: {
     navLinks () {
       return this.$store.state.navLinks.map((link) => {
@@ -55,6 +65,11 @@ export default {
   created () {
     this.$store.dispatch('getNavLinks')
     this.$store.dispatch('getBackgroundImages')
+  },
+  watch: {
+    '$route' (to, from) {
+      this.expanded = false
+    }
   }
 }
 </script>
@@ -63,11 +78,11 @@ export default {
 @import '../assets/styles/variables.scss';
 
 .SideNav {
-  width: 300px;
   background-color: $brown;
   display: flex;
-  flex-flow: column;
+  flex-direction: row-reverse;
   position: relative;
+  width: 100%;
 
   &-navLinks {
     display: flex;
@@ -98,7 +113,7 @@ export default {
   }
 
   &-background {
-      /*display: none;*/
+      display: none;
       flex: 1;
       align-items: center;
       flex-direction: column;
@@ -118,6 +133,24 @@ export default {
         max-width: $background-image-max-width;
         min-width: $background-image-min-width;
       }*/
+    }
+
+    &-hamburger {
+      height: 50px;
+      margin-right: 50px;
+      width: 50px;
+      display: flex;
+      img {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    @include media($min-desktop) {
+      height: auto;
+      width: 300px;
+      flex-direction: column;
     }
 }
 </style>
