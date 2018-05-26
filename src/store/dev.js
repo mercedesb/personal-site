@@ -84,7 +84,7 @@ const landingPages = {
           }
         }
       },
-      mainContent: '',
+      mainContent: 'connect content here',
       ctaLinks: [],
       urlSegment: 'blog',
       externalLink: '',
@@ -107,7 +107,7 @@ const landingPages = {
           }
         }
       },
-      mainContent: '',
+      mainContent: 'connect content here',
       ctaLinks: [],
       urlSegment: 'connect',
       externalLink: '',
