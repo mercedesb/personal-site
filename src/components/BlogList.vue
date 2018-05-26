@@ -1,16 +1,14 @@
 <template>
-  <transition name='fade'>
-    <div v-if="posts.length" class='PageContent PageContent--wide'>
-      <BlogListItem v-if="featuredPost"
-        v-bind="featuredPost"
-        :key="featuredPost.id"
-      ></BlogListItem>
-      <BlogListItem v-for="blogPost in remainingPosts"
-        v-bind="blogPost"
-        :key="blogPost.id"
-      ></BlogListItem>
-    </div>
-  </transition>
+  <div v-if="posts.length" class='PageContent PageContent--wide'>
+    <BlogListItem v-if="featuredPost"
+      v-bind="featuredPost"
+      :key="featuredPost.id"
+    ></BlogListItem>
+    <BlogListItem v-for="blogPost in remainingPosts"
+      v-bind="blogPost"
+      :key="blogPost.id"
+    ></BlogListItem>
+  </div>
 </template>
 
 <script>

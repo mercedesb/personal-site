@@ -1,12 +1,14 @@
 <template>
-  <transition name="fade" mode="out-in">
+  <div>
     <div v-if="success" class='Form-success'>
       Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
     </div>
     <form v-else class='Form PageContent' v-on:submit.prevent="onSubmit">
-      <div class='Form-error'>
-        {{error}}
-      </div>
+      <transition name="fade" mode="out-in">
+        <div class='Form-error'>
+          {{error}}
+        </div>
+      </transition>
       <div class='Form-fieldset'>
         <label for='from' class='Form-label'>
           Your Email Address
@@ -29,7 +31,7 @@
         <button class='Button' type='submit'>Send!</button>
       </div>
     </form>
-  </transition>
+  </div>
 </template>
 
 <script>

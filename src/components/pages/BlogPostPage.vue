@@ -1,5 +1,4 @@
 <template>
-    <transition name="fade" mode="out-in">
    <div>
      <header :class="'ContentHeader ContentHeader--' + color">
       <div class="ContentHeader-text">
@@ -13,7 +12,6 @@
       </p>
     </main>
   </div>
-  </transition>
 </template>
 
 <script>

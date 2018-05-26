@@ -1,7 +1,9 @@
 <template>
   <div class="ContentLayout">
     <SideNavigation />
-    <router-view v-cloak :key="$route.fullPath" />
+    <transition name="fade" mode="out-in">
+      <router-view v-cloak :key="$route.fullPath" />
+    </transition>
   </div>
 </template>
 
