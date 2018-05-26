@@ -141,7 +141,7 @@ export default new Vuex.Store({
     getBackgroundImages (context) {
       context.commit('clearBackgroundImages')
 
-      let bgdImgPromise;
+      let bgdImgPromise
       if (Object.keys(context.state.homePage).length > 0) {
         bgdImgPromise = new Promise((resolve) => {
           resolve(context.state.homePage)
@@ -151,15 +151,15 @@ export default new Vuex.Store({
       }
 
       bgdImgPromise
-      .then((homePage) => {
-        const backgroundImages = homePage.backgroundImages.map((item) => {
-          return {
-            id: item.sys.id,
-            ...item.fields
-          }
+        .then((homePage) => {
+          const backgroundImages = homePage.backgroundImages.map((item) => {
+            return {
+              id: item.sys.id,
+              ...item.fields
+            }
+          })
+          context.commit('backgroundImages', backgroundImages)
         })
-        context.commit('backgroundImages', backgroundImages)
-      })
     },
     getEntries (context, query) {
       const client = require('contentful')
