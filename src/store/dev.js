@@ -3,6 +3,144 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const landingPages = {
+  about: {
+    sys: {
+      id: 'about',
+    },
+    fields: {
+      title: 'About',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: 'about content here',
+      ctaLinks: [
+        {
+          sys: {
+            id: 'cta 1'
+          },
+          fields: {
+            title: 'Resume',
+            icon: {
+              fields: {
+                file: {
+                  url: 'http://placeholder.pics/svg/300'
+                }
+              }
+            },
+            internalLink: {
+              fields: {
+                urlSegment: 'resume'
+              }
+            },
+            externalLink: ''
+          }
+        },
+        {
+          sys: {
+            id: 'cta 2'
+          },
+          fields: {
+            title: 'External CTA',
+            icon: {
+              fields: {
+                file: {
+                  url: 'http://placeholder.pics/svg/300'
+                }
+              }
+            },
+            internalLink: {
+              fields: {
+                urlSegment: ''
+              }
+            },
+            externalLink: 'http://google.com'
+          }
+        }
+      ],
+      urlSegment: 'about',
+      externalLink: '',
+      color: 'blue',
+      showContact: false,
+      showBlogPosts: false
+    }
+  },
+  blog: {
+    sys: {
+      id: 'blog',
+    },
+    fields: {
+      title: 'Blog',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: '',
+      ctaLinks: [],
+      urlSegment: 'blog',
+      externalLink: '',
+      color: 'gray',
+      showContact: false,
+      showBlogPosts: true
+    }
+  },
+  connect: {
+    sys: {
+      id: 'connect',
+    },
+    fields: {
+      title: 'Connect',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: '',
+      ctaLinks: [],
+      urlSegment: 'connect',
+      externalLink: '',
+      color: 'red',
+      showContact: true,
+      showBlogPosts: false
+    }
+  },
+  shop: {
+    sys: {
+      id: 'shop',
+    },
+    fields: {
+      title: 'Shop',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: '',
+      ctaLinks: [],
+      urlSegment: '',
+      externalLink: 'https://etsy.com/shop/blinddogyarns',
+      color: 'yellow',
+      showContact: false,
+      showBlogPosts: false
+    }
+  }
+}
+
 const DevStore = new Vuex.Store({
   state: {
     errors: [],
@@ -11,6 +149,7 @@ const DevStore = new Vuex.Store({
     landingPage: {},
     homePage: {},
     navLinks: [],
+    backgroundImages: [],
     entries: []
   },
   mutations: {
@@ -29,6 +168,9 @@ const DevStore = new Vuex.Store({
     navLinks (state, navLinks) {
       state.navLinks = navLinks
     },
+    backgroundImages (state, backgroundImages) {
+      state.backgroundImages = backgroundImages
+    },
     entries (state, entries) {
       state.entries = entries
     },
@@ -46,6 +188,9 @@ const DevStore = new Vuex.Store({
     },
     clearNavLinks (state) {
       state.navLinks = []
+    },
+    clearBackgroundImages (state) {
+      state.backgroundImages = []
     },
     clearEntries (state) {
       state.entries = []
@@ -91,19 +236,27 @@ const DevStore = new Vuex.Store({
     },
     getBlogPost (context, urlSegment) {
       context.commit('clearBlogPost')
-      context.commit('blogPost', {
+      const bp = {
         title: '',
         preamble: '',
         mainContent: '',
         urlSegment: urlSegment,
         tags: [],
         publishDate: ''
-      })
+      }
+      context.commit('blogPost', bp)
+      return bp
     },
     getLandingPage (context, urlSegment) {
       context.commit('clearLandingPage')
-      let lp = {}// landingPages[urlSegment]
-      if (!lp) {
+      let lp
+      if (landingPages[urlSegment]) {
+        lp = {
+          id: landingPages[urlSegment].sys.id,
+          ...landingPages[urlSegment].fields
+        }
+      }
+      else {
         lp = {
           title: '',
           preamble: '',
@@ -118,9 +271,9 @@ const DevStore = new Vuex.Store({
         }
       }
       context.commit('landingPage', lp)
+      return lp
     },
     getHomePage (context) {
-      debugger
       context.commit('clearHomePage')
       const homePage = {
         id: 'homepage',
@@ -132,7 +285,9 @@ const DevStore = new Vuex.Store({
             }
           }
         },
-        children: '',
+        children: Object.keys(landingPages).map((key) => {
+          return landingPages[key]
+        }),
         backgroundImages: [
           {
             fields: {
@@ -161,20 +316,32 @@ const DevStore = new Vuex.Store({
     },
     getNavLinks (context) {
       context.commit('clearNavLinks')
-      context.commit('navLinks', [
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
+      context.commit('navLinks', Object.keys(landingPages).map((key) => {
+        return {
+          id: landingPages[key].sys.id,
+          ...landingPages[key].fields
         }
-      ])
+      }))
+    },
+    getBackgroundImages (context) {
+      context.commit('clearBackgroundImages')
+      context.commit('backgroundImages', [
+          {
+            file: {
+              url: 'http://placeholder.pics/svg/300'
+            }
+          },
+          {
+            file: {
+              url: 'http://placeholder.pics/svg/300'
+            }
+          },
+          {
+            file: {
+              url: 'http://placeholder.pics/svg/300'
+            }
+          }
+        ])
     }
   }
 })
