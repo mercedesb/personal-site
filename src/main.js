@@ -11,7 +11,7 @@ Vue.component('smart-link', SmartLink)
 
 new Vue({ // eslint-disable-line no-new
   router,
-  store,
+  store: store,
   el: '#app',
   render: h => h(App)
 })
