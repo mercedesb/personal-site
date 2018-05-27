@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../assets/styles/variables.scss';
+
   .CTA {
     flex: 1 1 50%;
 

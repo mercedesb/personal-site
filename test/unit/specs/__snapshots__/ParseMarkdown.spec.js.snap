@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ParseMarkdown Snapshots matches snapshot 1`] = `
+<div
+  class="Markdown"
+>
+  <h3
+    class=" Collapsible Collapsible--collapsed"
+  >
+    here is the source md
+  </h3>
+  <p
+    class=" CollapsibleChild CollapsibleChild--collapsed"
+  >
+    trying it out
+  </p>
+</div>
+`;

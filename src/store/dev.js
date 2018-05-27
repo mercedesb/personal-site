@@ -121,56 +121,56 @@ const landingPages = {
   }
 }
 
-export default new Vuex.Store({
-  state:{
+const DevStore = new Vuex.Store({
+  state: {
     errors: [],
-    blogPosts:[],
+    blogPosts: [],
     blogPost: {},
     landingPage: {},
     homePage: {},
     navLinks: [],
     entries: []
   },
-  mutations:{
-    blogPosts(state, blogPosts) {
+  mutations: {
+    blogPosts (state, blogPosts) {
       state.blogPosts = blogPosts
     },
-    blogPost(state, blogPost) {
+    blogPost (state, blogPost) {
       state.blogPost = blogPost
     },
-    landingPage(state, landingPage) {
+    landingPage (state, landingPage) {
       state.landingPage = landingPage
     },
-    homePage(state, homePage) {
-       state.homePage = homePage
+    homePage (state, homePage) {
+      state.homePage = homePage
     },
-    navLinks(state, navLinks) {
+    navLinks (state, navLinks) {
       state.navLinks = navLinks
     },
-    entries(state, entries) {
+    entries (state, entries) {
       state.entries = entries
     },
-    clearBlogPosts(state) {
+    clearBlogPosts (state) {
       state.blogPosts = []
     },
-    clearBlogPost(state) {
+    clearBlogPost (state) {
       state.blogPost = {}
     },
-    clearLandingPage(state) {
+    clearLandingPage (state) {
       state.landingPage = {}
     },
-    clearHomePage(state) {
+    clearHomePage (state) {
       state.homePage = {}
     },
-    clearNavLinks(state) {
+    clearNavLinks (state) {
       state.navLinks = []
     },
-    clearEntries(state) {
+    clearEntries (state) {
       state.entries = []
     }
   },
-  actions:{
-    getBlogPosts(context) {
+  actions: {
+    getBlogPosts (context) {
       context.commit('clearBlogPosts')
       context.commit('blogPosts', [
         {
@@ -202,7 +202,7 @@ export default new Vuex.Store({
         }
       ])
     },
-    getBlogPost(context, urlSegment) {
+    getBlogPost (context, urlSegment) {
       context.commit('clearBlogPost')
       context.commit('blogPost', {
         id: 'blogPost1',
@@ -214,9 +214,9 @@ export default new Vuex.Store({
         publishDate: '2018-04-25T00:00-05:00'
       })
     },
-    getLandingPage(context, urlSegment) {
+    getLandingPage (context, urlSegment) {
       context.commit('clearLandingPage')
-      let lp = landingPages[urlSegment]
+      let lp = {}// landingPages[urlSegment]
       if (!lp) {
         lp = {
           title: 'Test',
@@ -239,7 +239,7 @@ export default new Vuex.Store({
       }
       context.commit('landingPage', lp)
     },
-    getHomePage(context) {
+    getHomePage (context) {
       debugger
       context.commit('clearHomePage')
       const homePage = 
@@ -289,7 +289,7 @@ export default new Vuex.Store({
       }
       context.commit('homePage', homePage)
     },
-    getNavLinks(context) {
+    getNavLinks (context) {
       context.commit('clearNavLinks')
       const navLinks = Object.keys(landingPages).map((key) => {
         return landingPages[key]
@@ -298,3 +298,5 @@ export default new Vuex.Store({
     }
   }
 })
+
+export { DevStore }

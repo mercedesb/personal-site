@@ -24,7 +24,7 @@ export default {
     color: String
   },
   computed: {
-    posts() {
+    posts () {
       return this.$store.state.blogPosts.map((post) => {
         return {
           id: post.id,
@@ -36,17 +36,17 @@ export default {
         }
       })
     },
-    featuredPost() {
-       return {
+    featuredPost () {
+      return {
         featured: true,
         ...this.posts[0]
-       }
+      }
     },
-    remainingPosts() {
+    remainingPosts () {
       return this.posts.slice(1)
     }
   },
-  created() {
+  created () {
     this.$store.dispatch('getBlogPosts')
   }
 }

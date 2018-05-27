@@ -22,7 +22,7 @@ export default {
       default: false
     }
   },
-  data() {
+  data () {
     return {
       parentSelector: 'Collapsible',
       childSelector: 'CollapsibleChild',
@@ -31,10 +31,10 @@ export default {
     }
   },
   computed: {
-    querySelector: function() {
+    querySelector: function () {
       return `.Markdown ${this.collapsibleTag}`
     },
-    html: function() {
+    html: function () {
       if (this.source) {
         const html = md().render(this.source)
         return html
@@ -42,7 +42,7 @@ export default {
       return ''
     }
   },
-  mounted() {
+  mounted () {
     if (this.collapsible) {
       const collapsible = this.$el.querySelectorAll(this.querySelector)
 
@@ -51,20 +51,19 @@ export default {
 
         if (this.collapsedByDefault) {
           this.handleCollapsible({ target: c }, this.modifierCollapsed)
-        }
-        else {
+        } else {
           this.handleCollapsible({ target: c }, this.modifierExpanded)
         }
       })
     }
   },
   methods: {
-    handleCollapsible(event, modifier) {
+    handleCollapsible (event, modifier) {
       let el = event.target
 
       this.toggleClass(el, this.parentSelector, modifier)
 
-      let sibling = el.nextElementSibling;
+      let sibling = el.nextElementSibling
       while (sibling) {
         if (sibling.matches(this.querySelector)) {
           break
@@ -73,14 +72,12 @@ export default {
         sibling = sibling.nextElementSibling
       }
     },
-    toggleClass(el, selector, modifier) {
+    toggleClass (el, selector, modifier) {
       if (!!selector && !!modifier) {
         el.className = `${el.className} ${selector} ${selector}${modifier}`
-      }
-      else if (el.className.indexOf(this.modifierCollapsed) != -1) {
+      } else if (el.className.indexOf(this.modifierCollapsed) !== -1) {
         el.className = el.className.replace(this.modifierCollapsed, this.modifierExpanded)
-      }
-      else if (el.className.indexOf(this.modifierExpanded) != -1) {
+      } else if (el.className.indexOf(this.modifierExpanded) !== -1) {
         el.className = el.className.replace(this.modifierExpanded, this.modifierCollapsed)
       }
     }
@@ -88,6 +85,8 @@ export default {
 }
 </script>
 <style lang="scss">
+  @import '../assets/styles/variables.scss';
+
 $icon-dimension: 24px;
 
 .PageContent {
@@ -114,13 +113,13 @@ $icon-dimension: 24px;
 
   &--collapsed {
     &:before {
-      background-image: url(/src/assets/ExpandIcon.svg);
+      background-image: url(../assets/ExpandIcon.svg);
     }
   }
 
   &--expanded {
     &:before {
-      background-image: url(/src/assets/CollapseIcon.svg);
+      background-image: url(../assets/CollapseIcon.svg);
     }
   }
 

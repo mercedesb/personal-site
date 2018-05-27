@@ -2,17 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import dev from './store/dev'
 
 // register globally used common components
 import SmartLink from './components/SmartLink.vue'
+
+Vue.config.productionTip = false
 Vue.component('smart-link', SmartLink)
 
-const contentStore = process.env.NODE_ENV === 'production' ? store : dev
-debugger
-new Vue({
+new Vue({ // eslint-disable-line no-new
   router,
-  store: contentStore,
+  store: store,
   el: '#app',
   render: h => h(App)
 })
