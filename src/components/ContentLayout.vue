@@ -1,6 +1,6 @@
 <template>
   <div class="ContentLayout">
-    <SideNavigation />
+    <Navigation />
     <transition name="fade" mode="out-in">
       <router-view v-cloak :key="$route.fullPath" />
     </transition>
@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import SideNavigation from './SideNavigation.vue'
+import Navigation from './Navigation.vue'
 export default {
   components: {
-    SideNavigation
+    Navigation
   }
 }
 </script>
