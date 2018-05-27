@@ -1,15 +1,13 @@
 <template>
-  <transition name="fade" mode="out-in">
-    <nav class="Navigation">
-      <SideNavigation
-        :navLinks="navLinks"
-        :backgroundImages="backgroundImages"
-      />
-      <MobileNavigation
-        :navLinks="navLinks"
-      />
-    </nav>
-  </transition>
+  <nav class="Navigation">
+    <SideNavigation
+      :navLinks="navLinks"
+      :backgroundImages="backgroundImages"
+    />
+    <MobileNavigation
+      :navLinks="navLinks"
+    />
+  </nav>
 </template>
 
 <script>

@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation Snapshots matches snapshot 1`] = `<!---->`;
+exports[`Navigation Snapshots matches snapshot 1`] = `
+<nav
+  class="Navigation"
+>
+  <!---->
+   
+  <!---->
+</nav>
+`;

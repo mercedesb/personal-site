@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <HomeLayout v-if="$route.path === '/'" />
-    <ContentLayout v-if="$route.path !== '/'" />
+    <transition name="fade" mode="out-in">
+      <component v-bind:is="currentComponent"></component>
+    </transition>
   </div>
 </template>
 
@@ -12,6 +13,16 @@ export default {
   name: 'app',
   components: {
     HomeLayout, ContentLayout
+  },
+  computed: {
+    currentComponent () {
+      if (this.$route.path === '/') {
+        return HomeLayout
+      }
+      else {
+        return ContentLayout
+      }
+    }
   }
 }
 </script>

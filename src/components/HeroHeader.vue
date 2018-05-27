@@ -6,7 +6,7 @@
         <ParseMarkdown :source="title" />
       </div>
     </div>
-    <div class="Hero-background" v-if="backgroundImages && backgroundImages.length">
+    <div class="Hero-background">
       <img
         v-for="image in backgroundImages"
         :key="image.id"
