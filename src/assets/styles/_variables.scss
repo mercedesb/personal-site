@@ -169,10 +169,19 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
   }
 
   &--column {
-    flex-direction: column
+    flex-direction: column;
   }
 
   &--wrap {
     flex-wrap: wrap;
   }
+}
+
+@mixin inner-page-content {
+  display:flex;
+  box-sizing: border-box;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
 }

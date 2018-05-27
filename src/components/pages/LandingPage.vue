@@ -1,5 +1,5 @@
 <template>
-  <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage LandingPage--alignCenter LandingPage--column'>
+  <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage'>
     <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
     <p class="PageContent">
       <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
@@ -76,8 +76,7 @@ export default {
 @import '../../assets/styles/variables.scss';
 
 .LandingPage {
-  @include flex-container;
-  overflow: auto;
+  @include inner-page-content;
 }
 
 .SplashHeader {

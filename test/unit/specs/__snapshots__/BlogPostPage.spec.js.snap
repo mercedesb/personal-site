@@ -1,45 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BlogPostPage Snapshots with a color passed in matches snapshot 1`] = `
-<div>
+<main
+  class="BlogPost"
+>
   <header
-    class="ContentHeader ContentHeader--blue"
+    class="BlogPost-header BlogPost-header--blue"
   >
-    <div
-      class="ContentHeader-text"
+    <h1
+      class="BlogPost-title"
     >
-      <h1>
-        blog post 1 title
-      </h1>
-       
-      <h5>
-        Apr 18 2018
-      </h5>
-    </div>
+      blog post 1 title
+    </h1>
+     
+    <h5
+      class="BlogPost-date"
+    >
+      Apr 18 2018
+    </h5>
   </header>
    
   <!---->
-</div>
+</main>
 `;
 
 exports[`BlogPostPage Snapshots without a color passed in matches snapshot 1`] = `
-<div>
+<main
+  class="BlogPost"
+>
   <header
-    class="ContentHeader ContentHeader--gray"
+    class="BlogPost-header BlogPost-header--gray"
   >
-    <div
-      class="ContentHeader-text"
+    <h1
+      class="BlogPost-title"
     >
-      <h1>
-        blog post 1 title
-      </h1>
-       
-      <h5>
-        Apr 18 2018
-      </h5>
-    </div>
+      blog post 1 title
+    </h1>
+     
+    <h5
+      class="BlogPost-date"
+    >
+      Apr 18 2018
+    </h5>
   </header>
    
   <!---->
-</div>
+</main>
 `;

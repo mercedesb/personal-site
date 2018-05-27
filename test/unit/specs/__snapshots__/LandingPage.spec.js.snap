@@ -2,7 +2,7 @@
 
 exports[`LandingPage Snapshots matches snapshot 1`] = `
 <main
-  class="LandingPage LandingPage--alignCenter LandingPage--column"
+  class="LandingPage"
 >
   <h1
     class="SplashHeader SplashHeader--blue"
