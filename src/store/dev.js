@@ -201,48 +201,44 @@ const DevStore = new Vuex.Store({
       context.commit('clearBlogPosts')
       context.commit('blogPosts', [
         {
-          title: '',
-          preamble: '',
+          id: 'blogPost1',
+          title: 'blog post 1 title',
+          preamble: 'blog post 1 preamble',
           mainContent: '',
           urlSegment: '',
           tags: [],
-          publishDate: ''
+          publishDate: '2018-04-25T00:00-05:00'
         },
         {
-          title: '',
-          preamble: '',
+          id: 'blogPost2',
+          title: 'blog post 2 title',
+          preamble: 'blog post 2 preamble',
           mainContent: '',
           urlSegment: '',
           tags: [],
-          publishDate: ''
+          publishDate: '2018-04-23T00:00-05:00'
         },
         {
-          title: '',
-          preamble: '',
+          id: 'blogPost3',
+          title: 'blog post 3 title',
+          preamble: 'blog post 3 preamble',
           mainContent: '',
           urlSegment: '',
           tags: [],
-          publishDate: ''
-        },
-        {
-          title: '',
-          preamble: '',
-          mainContent: '',
-          urlSegment: '',
-          tags: [],
-          publishDate: ''
+          publishDate: '2018-04-22T00:00-05:00'
         }
       ])
     },
     getBlogPost (context, urlSegment) {
       context.commit('clearBlogPost')
       const bp = {
-        title: '',
-        preamble: '',
+        id: 'blogPost1',
+        title: 'blog post 1 title',
+        preamble: 'blog post 1 preamble',
         mainContent: '',
         urlSegment: urlSegment,
         tags: [],
-        publishDate: ''
+        publishDate: '2018-04-25T00:00-05:00'
       }
       context.commit('blogPost', bp)
       return bp
@@ -258,16 +254,22 @@ const DevStore = new Vuex.Store({
       }
       else {
         lp = {
-          title: '',
+          title: 'Test',
           preamble: '',
-          icon: '',
+          icon: {
+            fields: {
+              file: {
+                url: 'http://placeholder.pics/svg/300'
+              }
+            }
+          },
           mainContent: '',
-          ctaLinks: '',
-          urlSegment: '',
+          ctaLinks: [],
+          urlSegment: 'test',
           externalLink: '',
-          color: '',
-          showContact: '',
-          showBlogPosts: ''
+          color: 'red',
+          showContact: false,
+          showBlogPosts: false
         }
       }
       context.commit('landingPage', lp)
@@ -275,7 +277,8 @@ const DevStore = new Vuex.Store({
     },
     getHomePage (context) {
       context.commit('clearHomePage')
-      const homePage = {
+      const homePage = 
+      {
         id: 'homepage',
         preamble: 'here is the dev homepage preamble, it\'s a little long to be more realistic',
         mainImage: {
@@ -326,22 +329,22 @@ const DevStore = new Vuex.Store({
     getBackgroundImages (context) {
       context.commit('clearBackgroundImages')
       context.commit('backgroundImages', [
-          {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          },
-          {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          },
-          {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
+        {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
           }
-        ])
+        },
+        {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        },
+        {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      ])
     }
   }
 })
