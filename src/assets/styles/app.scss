@@ -11,13 +11,21 @@ html, body, #app {
   padding: 0;
   font-weight: 400;
   background-color: $white;
-  min-height: 1000px;
+}
+
+html {
   height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #app {
   display: flex;
-  flex-flow: column;
+  flex: 1;
 }
 
 ul {
@@ -32,31 +40,13 @@ li {
 }
 
 .FlexContainer {
-  display:flex;
+  @include flex-container;
   flex-wrap: wrap;
-  box-sizing: border-box;
-
-  &--justifyCenter {
-    justify-content: center;
-  }
-
-  &--spaceBetween {
-    justify-content: space-between;
-  }
-
-  &--alignCenter {
-    align-items: center;
-  }
-
-  &--column {
-    flex-direction: column
-  }
 }
 
 .PageContent {
   max-width: $content-width;
   width: 100%;
-  margin: $large-spacing $base-spacing 0;
 
   p img {
     display: block;
@@ -88,16 +78,5 @@ li {
 }
 
 /* utilities */
-
-.u-fillSpace {
-  flex: 1;
-  display: flex;
-}
-
-.u-fillHeight {
-  flex: 1;
-  display: flex;
-  flex-flow: column;
-}
 
 [v-cloak] {display: none}

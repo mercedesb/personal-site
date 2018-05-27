@@ -1,12 +1,14 @@
 <template>
-  <transition name="fade" mode="out-in">
+  <div class='PageContent'>
     <div v-if="success" class='Form-success'>
       Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
     </div>
     <form v-else class='Form' v-on:submit.prevent="onSubmit">
-      <div class='Form-error'>
-        {{error}}
-      </div>
+      <transition name="fade" mode="out-in">
+        <div class='Form-error'>
+          {{error}}
+        </div>
+      </transition>
       <div class='Form-fieldset'>
         <label for='from' class='Form-label'>
           Your Email Address
@@ -29,7 +31,7 @@
         <button class='Button' type='submit'>Send!</button>
       </div>
     </form>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -75,19 +77,15 @@ export default {
 <style lang="scss">
   @import '../assets/styles/variables.scss';
 
-  $form-width: 600px;
+  $form-width: 900px;
   $input-height: $large-spacing;
   $textarea-height: $large-spacing * 5;
 
   .Form {
-    display: flex;
-    flex-direction: column;
-    max-width: $form-width;
-    width: 100%;
+    /*max-width: $form-width;*/
     margin: 0 $base-spacing;
 
     &-fieldset {
-      display: flex;
       flex-direction: column;
       margin: $base-spacing 0 0;
       justify-content: space-between;
@@ -113,7 +111,7 @@ export default {
     }
 
     .Button {
-      align-self: flex-end;
+      float: right;
     }
 
     &-success {

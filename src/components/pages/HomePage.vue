@@ -1,24 +1,22 @@
 <template>
-    <transition name="fade" mode="out-in">
-      <div :key="page.id" class="u-fillHeight">
-        <HeroHeader
-          :title="page.preamble"
-          color='brown'
-          :mainImage="mainImageUrl"
-          :backgroundImages="backgroundImages"
-          :key="`${page.id}_header`"
+  <div :key="page.id" class="Home">
+    <HeroHeader
+      :title="page.preamble"
+      color='brown'
+      :mainImage="mainImageUrl"
+      :backgroundImages="backgroundImages"
+      :key="`${page.id}_header`"
+    />
+    <div :key="`${page.id}_mainContent`" class='FlexContainer FlexContainer--column u-fillHeight'>
+      <div class='FlexContainer u-fillSpace' v-if="columns && columns.length">
+        <ContentColumn
+          v-for="column in columns"
+          :key="column.id"
+          v-bind="column"
         />
-        <div :key="`${page.id}_mainContent`" class='FlexContainer FlexContainer--column u-fillHeight'>
-          <div class='FlexContainer u-fillSpace' v-if="columns && columns.length">
-            <ContentColumn
-              v-for="column in columns"
-              :key="column.id"
-              v-bind="column"
-            />
-          </div>
-        </div>
       </div>
-    </transition>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -41,8 +39,9 @@ export default {
       return this.getImageUrl(this.page.mainImage)
     },
     backgroundImages () {
-      if (!this.page.backgroundImages) return []
-      return this.page.backgroundImages.map((bgdImage) => {
+      const bgdImgs = this.$store.state.backgroundImages
+      if (!bgdImgs || !bgdImgs.length) return []
+      return this.$store.state.backgroundImages.map((bgdImage) => {
         return this.getImageUrl(bgdImage)
       })
     },
@@ -63,9 +62,17 @@ export default {
   },
   created () {
     this.$store.dispatch('getHomePage')
+    this.$store.dispatch('getBackgroundImages')
   }
 }
 </script>
 
 <style lang="scss">
+  @import '../../assets/styles/variables.scss';
+
+  .Home {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+  }
 </style>

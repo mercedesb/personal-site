@@ -5,119 +5,139 @@ Vue.use(Vuex)
 
 const landingPages = {
   about: {
-    title: 'About',
-    preamble: '',
-    icon: {
-      fields: {
-        file: {
-          url: 'http://placeholder.pics/svg/300'
+    sys: {
+      id: 'about',
+    },
+    fields: {
+      title: 'About',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
         }
-      }
-    },
-    mainContent: '',
-    ctaLinks: [
-    {
-      sys: {
-        id: 'cta 1'
       },
-      fields: {
-        title: 'Resume',
-        icon: {
+      mainContent: 'about content here',
+      ctaLinks: [
+        {
+          sys: {
+            id: 'cta 1'
+          },
           fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
+            title: 'Resume',
+            icon: {
+              fields: {
+                file: {
+                  url: 'http://placeholder.pics/svg/300'
+                }
+              }
+            },
+            internalLink: {
+              fields: {
+                urlSegment: 'resume'
+              }
+            },
+            externalLink: ''
           }
         },
-        internalLink: {
+        {
+          sys: {
+            id: 'cta 2'
+          },
           fields: {
-            urlSegment: 'resume'
+            title: 'External CTA',
+            icon: {
+              fields: {
+                file: {
+                  url: 'http://placeholder.pics/svg/300'
+                }
+              }
+            },
+            internalLink: {
+              fields: {
+                urlSegment: ''
+              }
+            },
+            externalLink: 'http://google.com'
           }
-        },
-        externalLink: ''
-      }
-    },
-    {
-      sys: {
-        id: 'cta 2'
-      },
-      fields: {
-        title: 'External CTA',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
-        internalLink: {
-          fields: {
-            urlSegment: ''
-          }
-        },
-        externalLink: 'http://google.com'
-      }
+        }
+      ],
+      urlSegment: 'about',
+      externalLink: '',
+      color: 'blue',
+      showContact: false,
+      showBlogPosts: false
     }
-    ],
-    urlSegment: 'about',
-    externalLink: '',
-    color: 'blue',
-    showContact: false,
-    showBlogPosts: false
   },
   blog: {
-    title: 'Blog',
-    preamble: '',
-    icon: {
-      fields: {
-        file: {
-          url: 'http://placeholder.pics/svg/300'
-        }
-      }
+    sys: {
+      id: 'blog',
     },
-    mainContent: '',
-    ctaLinks: [],
-    urlSegment: 'blog',
-    externalLink: '',
-    color: 'gray',
-    showContact: false,
-    showBlogPosts: true
+    fields: {
+      title: 'Blog',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: 'connect content here',
+      ctaLinks: [],
+      urlSegment: 'blog',
+      externalLink: '',
+      color: 'gray',
+      showContact: false,
+      showBlogPosts: true
+    }
   },
   connect: {
-    title: 'Connect',
-    preamble: '',
-    icon: {
-      fields: {
-        file: {
-          url: 'http://placeholder.pics/svg/300'
-        }
-      }
+    sys: {
+      id: 'connect',
     },
-    mainContent: '',
-    ctaLinks: [],
-    urlSegment: 'connect',
-    externalLink: '',
-    color: 'red',
-    showContact: true,
-    showBlogPosts: false
+    fields: {
+      title: 'Connect',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: 'connect content here',
+      ctaLinks: [],
+      urlSegment: 'connect',
+      externalLink: '',
+      color: 'red',
+      showContact: true,
+      showBlogPosts: false
+    }
   },
   shop: {
-    title: 'Shop',
-    preamble: '',
-    icon: {
-      fields: {
-        file: {
-          url: 'http://placeholder.pics/svg/300'
-        }
-      }
+    sys: {
+      id: 'shop',
     },
-    mainContent: '',
-    ctaLinks: [],
-    urlSegment: '',
-    externalLink: 'https://etsy.com/shop/blinddogyarns',
-    color: 'yellow',
-    showContact: false,
-    showBlogPosts: false
+    fields: {
+      title: 'Shop',
+      preamble: '',
+      icon: {
+        fields: {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      },
+      mainContent: '',
+      ctaLinks: [],
+      urlSegment: '',
+      externalLink: 'https://etsy.com/shop/blinddogyarns',
+      color: 'yellow',
+      showContact: false,
+      showBlogPosts: false
+    }
   }
 }
 
@@ -129,6 +149,7 @@ const DevStore = new Vuex.Store({
     landingPage: {},
     homePage: {},
     navLinks: [],
+    backgroundImages: [],
     entries: []
   },
   mutations: {
@@ -147,6 +168,9 @@ const DevStore = new Vuex.Store({
     navLinks (state, navLinks) {
       state.navLinks = navLinks
     },
+    backgroundImages (state, backgroundImages) {
+      state.backgroundImages = backgroundImages
+    },
     entries (state, entries) {
       state.entries = entries
     },
@@ -164,6 +188,9 @@ const DevStore = new Vuex.Store({
     },
     clearNavLinks (state) {
       state.navLinks = []
+    },
+    clearBackgroundImages (state) {
+      state.backgroundImages = []
     },
     clearEntries (state) {
       state.entries = []
@@ -204,20 +231,28 @@ const DevStore = new Vuex.Store({
     },
     getBlogPost (context, urlSegment) {
       context.commit('clearBlogPost')
-      context.commit('blogPost', {
+      const bp = {
         id: 'blogPost1',
         title: 'blog post 1 title',
         preamble: 'blog post 1 preamble',
         mainContent: '',
-        urlSegment: '',
+        urlSegment: urlSegment,
         tags: [],
         publishDate: '2018-04-25T00:00-05:00'
-      })
+      }
+      context.commit('blogPost', bp)
+      return bp
     },
     getLandingPage (context, urlSegment) {
       context.commit('clearLandingPage')
-      let lp = {}// landingPages[urlSegment]
-      if (!lp) {
+      let lp
+      if (landingPages[urlSegment]) {
+        lp = {
+          id: landingPages[urlSegment].sys.id,
+          ...landingPages[urlSegment].fields
+        }
+      }
+      else {
         lp = {
           title: 'Test',
           preamble: '',
@@ -238,9 +273,9 @@ const DevStore = new Vuex.Store({
         }
       }
       context.commit('landingPage', lp)
+      return lp
     },
     getHomePage (context) {
-      debugger
       context.commit('clearHomePage')
       const homePage = 
       {
@@ -253,15 +288,8 @@ const DevStore = new Vuex.Store({
             }
           }
         },
-        children: Object.keys(landingPages).map((key, index) => {
-          return {
-            sys: {
-              id: `child ${index}`
-            },
-            fields: {
-              ...landingPages[key]
-            }
-          }
+        children: Object.keys(landingPages).map((key) => {
+          return landingPages[key]
         }),
         backgroundImages: [
           {
@@ -291,10 +319,32 @@ const DevStore = new Vuex.Store({
     },
     getNavLinks (context) {
       context.commit('clearNavLinks')
-      const navLinks = Object.keys(landingPages).map((key) => {
-        return landingPages[key]
-      })
-      context.commit('navLinks', navLinks)
+      context.commit('navLinks', Object.keys(landingPages).map((key) => {
+        return {
+          id: landingPages[key].sys.id,
+          ...landingPages[key].fields
+        }
+      }))
+    },
+    getBackgroundImages (context) {
+      context.commit('clearBackgroundImages')
+      context.commit('backgroundImages', [
+        {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        },
+        {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        },
+        {
+          file: {
+            url: 'http://placeholder.pics/svg/300'
+          }
+        }
+      ])
     }
   }
 })

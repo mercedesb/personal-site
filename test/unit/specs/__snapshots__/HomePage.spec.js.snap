@@ -1,3 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePage Snapshots matches snapshot 1`] = `<!---->`;
+exports[`HomePage Snapshots matches snapshot 1`] = `
+<div
+  class="Home"
+>
+  <!---->
+   
+  <div
+    class="FlexContainer FlexContainer--column u-fillHeight"
+  >
+    <div
+      class="FlexContainer u-fillSpace"
+    >
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+</div>
+`;

@@ -1,19 +1,15 @@
 <template>
-    <transition name="fade" mode="out-in">
-   <div>
-     <header :class="'ContentHeader ContentHeader--' + color">
-      <div class="ContentHeader-text">
-        <h1>{{ page.title }}</h1>
-        <h5>{{ formattedPublishDate }}</h5>
-      </div>
+   <main class='BlogPost'>
+    <header :class="'BlogPost-header BlogPost-header--' + color">
+      <h1 class='BlogPost-title'>{{page.title}}</h1>
+      <h5 class='BlogPost-date'>{{ formattedPublishDate }}</h5>
     </header>
-    <main v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
+    <div v-if="page.mainContent" class='BlogPost-content'>
       <p class="PageContent">
         <ParseMarkdown :source="page.mainContent" />
       </p>
-    </main>
-  </div>
-  </transition>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -56,6 +52,26 @@ export default {
   @import '../../assets/styles/variables.scss';
 
 $header-height: 200px;
+
+.BlogPost {
+  @include inner-page-content;
+
+  &-header {
+    align-self: flex-start;
+    padding-left: $base-spacing;
+    margin: 0 0 $base-spacing;
+
+    @include color;
+  }
+
+  &-title {
+    margin-bottom: 0;
+  }
+
+  &-content {
+    @include flex-container;
+  }
+}
 
 .ContentHeader {
   box-shadow: $base-drop-shadow;

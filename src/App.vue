@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <AppHeader v-if="$route.path !== '/'" :classModifier="'spaceBetween'"/>
-    <router-view v-cloak :key="$route.fullPath">
-    </router-view>
+    <transition name="fade" mode="out-in">
+      <component v-bind:is="currentComponent"></component>
+    </transition>
   </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue'
+import HomeLayout from './components/HomeLayout.vue'
+import ContentLayout from './components/ContentLayout.vue'
 export default {
   name: 'app',
   components: {
-    AppHeader
+    HomeLayout, ContentLayout
+  },
+  computed: {
+    currentComponent () {
+      if (this.$route.path === '/') {
+        return HomeLayout
+      }
+      else {
+        return ContentLayout
+      }
+    }
   }
 }
 </script>

@@ -5,7 +5,5 @@ exports[`App Snapshots matches snapshot 1`] = `
   id="app"
 >
   <!---->
-   
-  <!---->
 </div>
 `;

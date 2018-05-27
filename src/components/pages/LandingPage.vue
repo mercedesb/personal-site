@@ -1,39 +1,23 @@
 <template>
-  <div>
-    <transition name="fade" mode="out-in">
-      <div :key="page.id">
-        <PageHeader
-          :color="page.color"
-          :title="page.title"
-          :preamble="page.preamble"
-          :media="iconUrl"
-          :key="`${page.id}_header`"
-        />
-        <main :key="`${page.id}_mainContent`" v-if="page.mainContent" class='FlexContainer FlexContainer--justifyCenter'>
-          <p class="PageContent">
-            <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
-          </p>
-        </main>
-        <div :key="`${page.id}_subContent`" v-if="page.showContact || page.showBlogPosts" class='FlexContainer FlexContainer--justifyCenter'>
-          <ContactForm v-if="page.showContact" />
-          <BlogList v-if="page.showBlogPosts" :color="page.color" />
-        </div>
-        <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer FlexContainer--justifyCenter'>
-          <div class='PageContent PageContent--wide FlexContainer'>
-            <CTALink
-              v-for="ctaLink in ctaLinks"
-              :key="ctaLink.id"
-              v-bind="ctaLink"
-            />
-          </div>
-        </div>
-      </div>
-    </transition>
-  </div>
+  <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage'>
+    <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
+    <p class="PageContent">
+      <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
+    </p>
+    <ContactForm v-if="page.showContact" />
+    <BlogList v-if="page.showBlogPosts" :color="page.color" />
+    <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
+      <CTALink
+        v-for="ctaLink in ctaLinks"
+        :key="ctaLink.id"
+        v-bind="ctaLink"
+      />
+    </div>
+  </main>
 </template>
 
 <script>
-import PageHeader from '../PageHeader.vue'
+import SideNavigation from '../SideNavigation.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
@@ -43,7 +27,7 @@ import objects from '../../mixins/objects'
 
 export default {
   components: {
-    PageHeader,
+    SideNavigation,
     CTALink,
     ContactForm,
     BlogList,
@@ -89,5 +73,24 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/styles/variables.scss';
+
+.LandingPage {
+  @include inner-page-content;
+}
+
+.SplashHeader {
+  font-size: 80x;
+  color: $blue;
+  align-self: flex-start;
+  padding-left: $base-spacing;
+  margin-top: $base-spacing;
+
+  @include media($min-tablet) {
+    font-size: 150px;
+  }
+
+  @include color;
+}
 
 </style>

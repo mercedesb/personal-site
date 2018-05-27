@@ -11,6 +11,7 @@ export default new Vuex.Store({
     landingPage: {},
     homePage: {},
     navLinks: [],
+    backgroundImages: [],
     entries: []
   },
   mutations: {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     navLinks (state, navLinks) {
       state.navLinks = navLinks
     },
+    backgroundImages (state, backgroundImages) {
+      state.backgroundImages = backgroundImages
+    },
     entries (state, entries) {
       state.entries = entries
     },
@@ -46,6 +50,9 @@ export default new Vuex.Store({
     },
     clearNavLinks (state) {
       state.navLinks = []
+    },
+    clearBackgroundImages (state) {
+      state.backgroundImages = []
     },
     clearEntries (state) {
       state.entries = []
@@ -130,6 +137,29 @@ export default new Vuex.Store({
             context.commit('navLinks', children)
           })
       }
+    },
+    getBackgroundImages (context) {
+      context.commit('clearBackgroundImages')
+
+      let bgdImgPromise
+      if (Object.keys(context.state.homePage).length > 0) {
+        bgdImgPromise = new Promise((resolve) => {
+          resolve(context.state.homePage)
+        })
+      } else {
+        bgdImgPromise = context.dispatch('getHomePage')
+      }
+
+      bgdImgPromise
+        .then((homePage) => {
+          const backgroundImages = homePage.backgroundImages.map((item) => {
+            return {
+              id: item.sys.id,
+              ...item.fields
+            }
+          })
+          context.commit('backgroundImages', backgroundImages)
+        })
     },
     getEntries (context, query) {
       const client = require('contentful')
