@@ -1,7 +1,7 @@
-import SideNavigation from '@/components/SideNavigation.vue'
+import MobileNavigation from '@/components/MobileNavigation.vue'
 import { TestUtility } from './TestUtility'
 
-describe('SideNavigation', () => {
+describe('MobileNavigation', () => {
   let component
 
   const initialProps = {
@@ -27,7 +27,7 @@ describe('SideNavigation', () => {
     })
   }
   
-  const shallow = propsData => TestUtility.shallow(SideNavigation, {
+  const shallow = propsData => TestUtility.shallow(MobileNavigation, {
     propsData: {
       ...initialProps,
       ...propsData
@@ -48,10 +48,6 @@ describe('SideNavigation', () => {
 
     it('has a navLinks property', () => {
       expect(component.props().navLinks).toBe(initialProps.navLinks)
-    })
-
-    it('has a backgroundImages property', () => {
-      expect(component.props().backgroundImages).toBe(initialProps.backgroundImages)
     })
   })
 })

@@ -1,3 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LandingPage Snapshots matches snapshot 1`] = `<!---->`;
+exports[`LandingPage Snapshots matches snapshot 1`] = `
+<main
+  class="LandingPage LandingPage--alignCenter LandingPage--column"
+>
+  <h1
+    class="SplashHeader SplashHeader--blue"
+  >
+    About
+  </h1>
+   
+  <p
+    class="PageContent"
+  >
+    <!---->
+  </p>
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="FlexContainer PageContent PageContent--wide"
+  >
+    <!---->
+    <!---->
+  </div>
+</main>
+`;

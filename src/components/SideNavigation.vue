@@ -35,11 +35,11 @@ export default {
   ],
   props: {
     navLinks: {
-      type: Object,
+      type: Array,
       required: true
     },
     backgroundImages: {
-      type: Object
+      type: Array
     }
   }
 }

@@ -1,3 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SideNavigation Snapshots matches snapshot 1`] = `<!---->`;
+exports[`SideNavigation Snapshots matches snapshot 1`] = `
+<div
+  class="SideNav"
+>
+  <ul
+    class="SideNav-navLinks"
+  >
+    <li
+      class="SideNav-navLink"
+    >
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+    </li>
+     
+    <li
+      class="SideNav-navLink"
+    >
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+    </li>
+    <li
+      class="SideNav-navLink"
+    >
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+    </li>
+    <li
+      class="SideNav-navLink"
+    >
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+    </li>
+    <li
+      class="SideNav-navLink"
+    >
+      <div>
+        <!---->
+         
+        <a
+          target="_blank"
+        >
+          
+        Shop
+      
+        </a>
+      </div>
+    </li>
+  </ul>
+   
+  <div
+    class="SideNav-background"
+  >
+    <img
+      class="SideNav-backgroundImage"
+      src="[object Object]"
+    />
+    <img
+      class="SideNav-backgroundImage"
+      src="[object Object]"
+    />
+    <img
+      class="SideNav-backgroundImage"
+      src="[object Object]"
+    />
+  </div>
+</div>
+`;

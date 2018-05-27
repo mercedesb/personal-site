@@ -27,7 +27,7 @@
 export default {
   props: {
     navLinks: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
