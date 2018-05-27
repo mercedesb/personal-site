@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class='PageContent'>
     <div v-if="success" class='Form-success'>
       Thank you for your message! I'll respond as soon as I can. Until then, feel free to connect with me on any of the social media platforms below.
     </div>
-    <form v-else class='Form PageContent' v-on:submit.prevent="onSubmit">
+    <form v-else class='Form' v-on:submit.prevent="onSubmit">
       <transition name="fade" mode="out-in">
         <div class='Form-error'>
           {{error}}
@@ -83,7 +83,6 @@ export default {
 
   .Form {
     /*max-width: $form-width;*/
-    width: 100%;
     margin: 0 $base-spacing;
 
     &-fieldset {

@@ -81,11 +81,15 @@ export default {
 }
 
 .SplashHeader {
-  font-size: 150px;
+  font-size: 80x;
   color: $blue;
   align-self: flex-start;
   padding-left: $base-spacing;
   margin-top: $base-spacing;
+
+  @include media($min-tablet) {
+    font-size: 150px;
+  }
 
   @include color;
 }
