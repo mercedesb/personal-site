@@ -3,8 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+const state = {
     errors: [],
     blogPosts: [],
     blogPost: {},
@@ -13,8 +12,9 @@ export default new Vuex.Store({
     navLinks: [],
     backgroundImages: [],
     entries: []
-  },
-  mutations: {
+  }
+
+export const mutations = {
     blogPosts (state, blogPosts) {
       state.blogPosts = blogPosts
     },
@@ -57,7 +57,11 @@ export default new Vuex.Store({
     clearEntries (state) {
       state.entries = []
     }
-  },
+  }
+
+export default new Vuex.Store({
+  state,
+  mutations,
   actions: {
     getBlogPosts (context) {
       context.commit('clearBlogPosts')
