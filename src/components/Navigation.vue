@@ -73,7 +73,8 @@ $icon-hover-width: 75px;
       align-items: center;
 
       @include media($min-tablet) {
-        padding: 0 $small-spacing 0;
+        margin: 0 $small-spacing 0;
+        padding-bottom: $small-spacing / 2;
 
         &:hover {
           cursor: pointer;
@@ -89,6 +90,10 @@ $icon-hover-width: 75px;
               transition: max-width $transition-time;
             }
           }
+        }
+
+        &.router-link-exact-active {
+          border-bottom: 1px solid $white;
         }
       }
     }

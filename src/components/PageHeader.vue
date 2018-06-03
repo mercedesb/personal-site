@@ -60,7 +60,7 @@ export default {
     }
 
     @include background-color;
-   
+
     &-background {
       display: none;
       position: absolute;

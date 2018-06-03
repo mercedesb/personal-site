@@ -118,6 +118,7 @@ export default {
 
     &-viewMore {
       font-size: $small-font-size;
+      margin: 0 $base-spacing $base-spacing;
     }
 
     @each $type in $colors-array {

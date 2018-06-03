@@ -125,13 +125,18 @@ export default {
       }
     }
 
+    &-textContainer {
+      * {
+        padding-left: $base-spacing;
+      }
+    }
+
     &-text {
       max-width: $text-width;
       text-align: center;
     }
 
     &-title {
-      padding-left: $base-spacing;
       font-size: $giant-font-size;
     }
 
