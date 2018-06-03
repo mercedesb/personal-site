@@ -44,7 +44,7 @@ export default {
 
   $image-width: 450px;
   $text-width: 800px;
-  
+
   $image-width-mobile: 250px;
 
   .Hero {
@@ -145,7 +145,7 @@ export default {
 
     &-title {
       font-size: $largest-font-size;
-      
+
        @include media($min-tablet) {
         font-size: $giant-font-size;
       }
