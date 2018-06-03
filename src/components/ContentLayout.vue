@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
   @import '../assets/styles/variables.scss';
-  
+
   .ContentLayout {
     width: 100%;
   }

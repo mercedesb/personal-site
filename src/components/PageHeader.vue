@@ -3,7 +3,6 @@
     <div class="PageHeader-background">
       <img class='PageHeader-media' :src="media" />
     </div>
-    </div>
     <div class='PageHeader-text'>
       <h1 class='PageHeader-title'>{{ title }}</h1>
       <p class="PageHeader-description">{{ preamble }}</p>
@@ -51,7 +50,7 @@ export default {
     }
 
     &-background {
-      display: none; 
+      display: none;
       position: absolute;
       top: 0;
       bottom: 0;

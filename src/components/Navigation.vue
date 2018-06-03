@@ -53,7 +53,7 @@ $icon-initial-width: 50px;
 $icon-hover-width: 75px;
 
 .Navigation {
-  display: flex; 
+  display: flex;
 
   &-navLinks {
     margin-bottom: 0;
@@ -74,7 +74,7 @@ $icon-hover-width: 75px;
 
       @include media($min-tablet) {
         padding: 0 $small-spacing 0;
-        
+
         &:hover {
           cursor: pointer;
 

@@ -26,7 +26,7 @@ describe('SideNavigation', () => {
       return TestUtility.landingPages[key]
     })
   }
-  
+
   const shallow = propsData => TestUtility.shallow(SideNavigation, {
     propsData: {
       ...initialProps,

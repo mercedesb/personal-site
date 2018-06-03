@@ -135,7 +135,6 @@ export default {
       font-size: $giant-font-size;
     }
 
-
     @include background-color;
     &--brown {
       background-color: $brown;

@@ -116,8 +116,7 @@ const DevStore = new Vuex.Store({
           id: landingPages[urlSegment].sys.id,
           ...landingPages[urlSegment].fields
         }
-      }
-      else {
+      } else {
         lp = {
           title: 'Test',
           preamble: '',

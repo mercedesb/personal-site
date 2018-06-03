@@ -4,60 +4,60 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-    errors: [],
-    blogPosts: [],
-    blogPost: {},
-    landingPage: {},
-    homePage: {},
-    navLinks: [],
-    backgroundImages: [],
-    entries: []
-  }
+  errors: [],
+  blogPosts: [],
+  blogPost: {},
+  landingPage: {},
+  homePage: {},
+  navLinks: [],
+  backgroundImages: [],
+  entries: []
+}
 
 export const mutations = {
-    blogPosts (state, blogPosts) {
-      state.blogPosts = blogPosts
-    },
-    blogPost (state, blogPost) {
-      state.blogPost = blogPost
-    },
-    landingPage (state, landingPage) {
-      state.landingPage = landingPage
-    },
-    homePage (state, homePage) {
-      state.homePage = homePage
-    },
-    navLinks (state, navLinks) {
-      state.navLinks = navLinks
-    },
-    backgroundImages (state, backgroundImages) {
-      state.backgroundImages = backgroundImages
-    },
-    entries (state, entries) {
-      state.entries = entries
-    },
-    clearBlogPosts (state) {
-      state.blogPosts = []
-    },
-    clearBlogPost (state) {
-      state.blogPost = {}
-    },
-    clearLandingPage (state) {
-      state.landingPage = {}
-    },
-    clearHomePage (state) {
-      state.homePage = {}
-    },
-    clearNavLinks (state) {
-      state.navLinks = []
-    },
-    clearBackgroundImages (state) {
-      state.backgroundImages = []
-    },
-    clearEntries (state) {
-      state.entries = []
-    }
+  blogPosts (state, blogPosts) {
+    state.blogPosts = blogPosts
+  },
+  blogPost (state, blogPost) {
+    state.blogPost = blogPost
+  },
+  landingPage (state, landingPage) {
+    state.landingPage = landingPage
+  },
+  homePage (state, homePage) {
+    state.homePage = homePage
+  },
+  navLinks (state, navLinks) {
+    state.navLinks = navLinks
+  },
+  backgroundImages (state, backgroundImages) {
+    state.backgroundImages = backgroundImages
+  },
+  entries (state, entries) {
+    state.entries = entries
+  },
+  clearBlogPosts (state) {
+    state.blogPosts = []
+  },
+  clearBlogPost (state) {
+    state.blogPost = {}
+  },
+  clearLandingPage (state) {
+    state.landingPage = {}
+  },
+  clearHomePage (state) {
+    state.homePage = {}
+  },
+  clearNavLinks (state) {
+    state.navLinks = []
+  },
+  clearBackgroundImages (state) {
+    state.backgroundImages = []
+  },
+  clearEntries (state) {
+    state.entries = []
   }
+}
 
 export default new Vuex.Store({
   state,

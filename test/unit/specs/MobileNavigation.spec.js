@@ -26,7 +26,7 @@ describe('MobileNavigation', () => {
       return TestUtility.landingPages[key]
     })
   }
-  
+
   const shallow = propsData => TestUtility.shallow(MobileNavigation, {
     propsData: {
       ...initialProps,
