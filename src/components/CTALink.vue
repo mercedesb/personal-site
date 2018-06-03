@@ -40,7 +40,7 @@ export default {
     }
 
     &-icon {
-      background-color: $blue;
+      background-color: $gray;
       margin-right: $small-spacing;
       padding: $small-spacing;
       max-width: 120px;

@@ -1,18 +1,34 @@
 <template>
   <header v-if="title" :class="'Hero Hero--' + color">
     <div class="Hero-contentContainer">
-      <div>
-        <img class="Hero-image" :src="mainImage" />
-        <ParseMarkdown :source="title" />
+      <div class='Hero-content'>
+        <img class="Hero-image" src='../assets/images/MerBer-circle.png' />
+        <div class='Hero-textContainer'>
+          <!-- <img class="Hero-image" :src="mainImage" /> -->
+          <h1 class='Hero-title'>{{title}}</h1>
+          <ParseMarkdown :source="preamble" />
+        </div>
       </div>
     </div>
     <div class="Hero-background">
       <img
+        class="Hero-backgroundImage"
+        src='../assets/images/MacbookPro.svg'
+      />
+      <img
+        class="Hero-backgroundImage"
+        src='../assets/images/CrochetHook.svg'
+      />
+      <img
+        class="Hero-backgroundImage"
+        src='../assets/images/SpinningWheel.svg'
+      />
+      <!-- <img
         v-for="image in backgroundImages"
         :key="image.id"
         :src="image"
         class="Hero-backgroundImage"
-      />
+      /> -->
     </div>
   </header>
 </template>
@@ -26,6 +42,7 @@ export default {
   },
   props: {
     title: String,
+    preamble: String,
     color: String,
     mainImage: String,
     backgroundImages: Array
@@ -36,43 +53,56 @@ export default {
 <style lang="scss" scoped>
   @import '../assets/styles/variables.scss';
 
-  $image-width: 250px;
+  $hero-height: 750px;
+
+  $image-width: 450px;
   $text-width: 800px;
-  $background-image-max-height: 460px;
-  $background-image-max-width: 400px;
-  $background-image-min-width: 365px;
 
   .Hero {
     box-shadow: $base-drop-shadow;
     position: relative;
     padding: $base-spacing;
+    min-height: $hero-height;
+    overflow: hidden;
 
     &-background {
       display: none;
 
       @include media($min-tablet) {
-        display: flex;
-        justify-content: space-around;
+        display: block;
       }
     }
 
     &-backgroundImage {
-      max-height: 115px;
-      max-width: 100px;
-      min-width: 91px;
+      opacity: .3;
 
       @include media($min-tablet) {
-        max-height: $background-image-max-height;
-        max-width: $background-image-max-width;
-        min-width: $background-image-min-width;
+        position: absolute;
+
+        &:first-child {
+          width: 50%;
+          top: $small-spacing;
+        }
+
+        &:nth-child(2) {
+          height: 90%;
+          bottom: -400px;
+          right: 35%;
+        }
+
+        &:nth-child(3) {
+          height: 110%;
+          top: 0;
+          right: -$large-spacing;
+        }
       }
     }
 
     &-contentContainer {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       text-align: center;
+      justify-content: center;
 
       @include media($min-tablet) {
         z-index: 1;
@@ -81,24 +111,43 @@ export default {
         right: 0;
         bottom: 0;
         left: 0;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         box-sizing: border-box;
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    &-content {
+      font-size: $larger-font-size;
+
+      @include media($min-tablet) {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+
       }
     }
 
     &-image {
       padding-top: $base-spacing;
+      /* TODO: better way to prevent image distortion */
+      max-width: $image-width;
+      max-height: $image-width;
       @include media($min-tablet) {
       }
-
-      max-width: $image-width;
     }
 
     &-text {
       max-width: $text-width;
       text-align: center;
     }
+
+    &-title {
+      padding-left: $base-spacing;
+      font-size: $giant-font-size;
+    }
+
 
     @include background-color;
     &--brown {

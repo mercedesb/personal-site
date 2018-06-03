@@ -1,14 +1,11 @@
 $white: #FFFFFF;
 $brown: #AA916D;
-$blue: #2E4052;
+/*$blue: #2E4052;*/
+$purple: #564E58;
 $yellow: #D19D36;
-$gray: #6E6F79;
+$gray: #524948;
 $red: #904E55;
 
-/*$blue: #827D8D;
-$yellow: #B23E53;
-$gray: #827D8D;
-$red: #B23E53;*/
 
 $light-gray: lighten($gray, 30%);
 $black: #252627;
@@ -19,7 +16,7 @@ $black: #252627;
 //Create Array
 $colors-array:  (white $white $black,
                   brown $brown $white,
-                  blue $blue $white,
+                  purple $purple $white,
                   yellow $yellow $white,
                   gray $gray $white,
                   red $red $white

@@ -81,7 +81,7 @@ export default {
 
 .SplashHeader {
   font-size: 80x;
-  color: $blue;
+  color: $gray;
   align-self: flex-start;
   padding-left: $base-spacing;
   margin-top: $base-spacing;
