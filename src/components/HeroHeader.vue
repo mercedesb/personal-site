@@ -44,14 +44,18 @@ export default {
 
   $image-width: 450px;
   $text-width: 800px;
+  
+  $image-width-mobile: 250px;
 
   .Hero {
     box-shadow: $base-drop-shadow;
     position: relative;
     padding: $base-spacing;
-    min-height: $hero-height;
     overflow: hidden;
 
+    @include media($min-tablet) {
+      min-height: $hero-height;
+    }
     &-background {
       display: none;
 
@@ -119,15 +123,18 @@ export default {
     &-image {
       padding-top: $base-spacing;
       /* TODO: better way to prevent image distortion */
-      max-width: $image-width;
-      max-height: $image-width;
+      max-width: $image-width-mobile;
       @include media($min-tablet) {
+        max-width: $image-width;
+        max-height: $image-width;
       }
     }
 
     &-textContainer {
       * {
-        padding-left: $base-spacing;
+        @include media($min-tablet) {
+          padding-left: $base-spacing;
+        }
       }
     }
 
@@ -137,7 +144,11 @@ export default {
     }
 
     &-title {
-      font-size: $giant-font-size;
+      font-size: $largest-font-size;
+      
+       @include media($min-tablet) {
+        font-size: $giant-font-size;
+      }
     }
 
     @include background-color;
