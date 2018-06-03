@@ -68,11 +68,12 @@ export default {
     }
 
     &-date {
+      font-weight: $light-font-weight;
       flex: 1 1 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: $small-font-size;
+      font-size: $base-font-size;
       padding: $base-spacing 0;
 
       span {
@@ -87,7 +88,7 @@ export default {
     }
 
     &-publishDay {
-      font-size: $large-font-size;
+      font-size: $giant-font-size;
     }
 
     &-text {
