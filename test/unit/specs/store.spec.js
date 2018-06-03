@@ -1,5 +1,4 @@
-import { mutations } from '@/store'
-import { actions } from '@/store'
+import { mutations, actions } from '@/store'
 
 const mockGetEntries = jest.fn(() => Promise.resolve({
   items: [
@@ -8,7 +7,7 @@ const mockGetEntries = jest.fn(() => Promise.resolve({
         id: 'entry 1'
       },
       fields: {}
-    }, 
+    },
     {
       sys: {
         id: 'entry 2'
@@ -16,7 +15,7 @@ const mockGetEntries = jest.fn(() => Promise.resolve({
       fields: {}
     }
   ]
-  })
+})
 )
 
 jest.mock('contentful', () => ({
@@ -41,7 +40,7 @@ describe('mutations', () => {
     it('sets the blogPost state', () => {
       const { blogPost } = mutations
       const state = { blogPost: {} }
-      const expectedBlogPost  = { 'title': 'blog post'}
+      const expectedBlogPost = { 'title': 'blog post' }
 
       blogPost(state, expectedBlogPost)
 
@@ -53,7 +52,7 @@ describe('mutations', () => {
     it('sets the landingPage state', () => {
       const { landingPage } = mutations
       const state = { landingPage: [] }
-      const expectedLandingPage  = { 'title': 'landing page'}
+      const expectedLandingPage = { 'title': 'landing page' }
 
       landingPage(state, expectedLandingPage)
 
@@ -65,7 +64,7 @@ describe('mutations', () => {
     it('sets the homePage state', () => {
       const { homePage } = mutations
       const state = { homePage: [] }
-      const expectedHomePage  = { 'title': 'home page'}
+      const expectedHomePage = { 'title': 'home page' }
 
       homePage(state, expectedHomePage)
 
@@ -105,7 +104,7 @@ describe('mutations', () => {
       expect(state.entries.length).toEqual(2)
     })
   })
-  
+
   describe('clearBlogPosts', () => {
     it('sets the blogPosts state', () => {
       const { clearBlogPosts } = mutations
@@ -120,7 +119,7 @@ describe('mutations', () => {
   describe('clearBlogPost', () => {
     it('sets the blogPost state', () => {
       const { clearBlogPost } = mutations
-      const state = { blogPost: {' title': 'blog post' } }
+      const state = { blogPost: { ' title': 'blog post' } }
 
       clearBlogPost(state)
 
@@ -131,7 +130,7 @@ describe('mutations', () => {
   describe('clearLandingPage', () => {
     it('sets the landingPage state', () => {
       const { clearLandingPage } = mutations
-      const state = { landingPage: {' title': 'landing page' } }
+      const state = { landingPage: { ' title': 'landing page' } }
 
       clearLandingPage(state)
 
@@ -142,7 +141,7 @@ describe('mutations', () => {
   describe('clearHomePage', () => {
     it('sets the homePage state', () => {
       const { clearHomePage } = mutations
-      const state = { homePage: {' title': 'home page' } }
+      const state = { homePage: { ' title': 'home page' } }
 
       clearHomePage(state)
 
@@ -183,7 +182,7 @@ describe('mutations', () => {
     })
   })
 })
-  
+
 describe('actions', () => {
   let commit
   let dispatch
@@ -325,11 +324,11 @@ describe('actions', () => {
 
   describe('getNavLinks', () => {
     let state
-    
+
     describe('with homePage in state', () => {
       beforeEach(() => {
         state = {
-          homePage: { 
+          homePage: {
             children: [
               {
                 sys: {
@@ -393,7 +392,7 @@ describe('actions', () => {
       it('commits navLinks to state', () => {
         const { getNavLinks } = actions
 
-        getNavLinks({ commit, dispatch, state}, '')
+        getNavLinks({ commit, dispatch, state }, '')
           .then(result => {
             expect(commit).toHaveBeenCalledWith('navLinks', expect.anything())
           })
@@ -403,11 +402,11 @@ describe('actions', () => {
 
   describe('getBackgroundImages', () => {
     let state
-    
+
     describe('with homePage in state', () => {
       beforeEach(() => {
         state = {
-          homePage: { 
+          homePage: {
             backgroundImages: [
               {
                 sys: {
@@ -471,7 +470,7 @@ describe('actions', () => {
       it('commits backgroundImages to state', () => {
         const { getBackgroundImages } = actions
 
-        getBackgroundImages({ commit, dispatch, state}, '')
+        getBackgroundImages({ commit, dispatch, state }, '')
           .then(result => {
             expect(commit).toHaveBeenCalledWith('backgroundImages', expect.anything())
           })
@@ -499,4 +498,3 @@ describe('actions', () => {
     })
   })
 })
-

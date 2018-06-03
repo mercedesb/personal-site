@@ -38,7 +38,6 @@ describe('BlogList', () => {
     })
   })
 
-
   describe('Computed', () => {
     describe('posts', () => {
       beforeEach(() => {

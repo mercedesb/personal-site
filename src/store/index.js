@@ -129,8 +129,8 @@ export const actions = {
       })
       context.commit('navLinks', children)
       return new Promise((resolve) => {
-          resolve(children)
-        })
+        resolve(children)
+      })
     } else {
       return context.dispatch('getHomePage')
         .then((homePage) => {
