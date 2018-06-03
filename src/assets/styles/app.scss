@@ -46,7 +46,8 @@ li {
 
 .PageContent {
   max-width: $content-width;
-  width: 100%;
+  /*width: 100%;*/
+  margin: 0 $base-spacing;
 
   p img {
     display: block;

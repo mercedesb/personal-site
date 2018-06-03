@@ -2,7 +2,7 @@
 
 exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
 <header
-  class="PageHeader PageHeader--brown"
+  class="PageHeader PageHeader--brown PageHeader--defaultHeight"
 >
   <div
     class="PageHeader-background"
@@ -16,21 +16,44 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
   <div
     class="PageHeader-text"
   >
-    <h1
-      class="PageHeader-title"
-    >
-      title
-    </h1>
+    <div
+      class="PageHeader-decorativeHeader"
+    />
      
-    <p
-      class="PageHeader-description"
-    >
-      heres the preamble
-    </p>
+    <div
+      class="PageHeader-titleHeader"
+    />
   </div>
    
   <!---->
 </header>
 `;
 
-exports[`PageHeader Snapshots without a title matches snapshot 1`] = `<!---->`;
+exports[`PageHeader Snapshots without a title matches snapshot 1`] = `
+<header
+  class="PageHeader PageHeader--brown PageHeader--defaultHeight"
+>
+  <div
+    class="PageHeader-background"
+  >
+    <img
+      class="PageHeader-media"
+      src="http://image.com"
+    />
+  </div>
+   
+  <div
+    class="PageHeader-text"
+  >
+    <div
+      class="PageHeader-decorativeHeader"
+    />
+     
+    <div
+      class="PageHeader-titleHeader"
+    />
+  </div>
+   
+  <!---->
+</header>
+`;

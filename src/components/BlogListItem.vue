@@ -63,7 +63,7 @@ export default {
     &-container {
       display:flex;
       flex-wrap: wrap;
-      margin: $base-spacing $large-spacing;
+      margin: $base-spacing 0;
       border-radius: $base-radius;
     }
 

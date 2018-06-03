@@ -1,11 +1,15 @@
 <template>
-  <header v-if="title" :class="'PageHeader PageHeader--' + color">
-    <div class="PageHeader-background">
+  <header :class="`PageHeader PageHeader--${color} PageHeader--${height}`">
+    <div class="PageHeader-background" v-if="media">
       <img class='PageHeader-media' :src="media" />
     </div>
     <div class='PageHeader-text'>
-      <h1 class='PageHeader-title'>{{ title }}</h1>
-      <p class="PageHeader-description">{{ preamble }}</p>
+      <div class='PageHeader-decorativeHeader'>
+        <slot name="decorativeHeader"></slot>
+      </div>
+      <div class='PageHeader-titleHeader'>
+        <slot name="titleHeader"></slot>
+      </div>
     </div>
     <Navigation />
   </header>
@@ -20,9 +24,13 @@ export default {
   },
   props: {
     color: String,
-    title: String,
-    preamble: String,
-    media: String
+    media: String,
+    short: Boolean
+  },
+  computed: {
+    height () {
+      return this.short ? 'short' : 'defaultHeight'
+    }
   }
 }
 </script>
@@ -31,6 +39,8 @@ export default {
   @import '../assets/styles/variables.scss';
 
   $header-height: 450px;
+  $header-height-short: 275px;
+
   $media-width: 800px;
   $text-width: 500px;
 
@@ -49,6 +59,8 @@ export default {
       height: $header-height;
     }
 
+    @include background-color;
+   
     &-background {
       display: none;
       position: absolute;
@@ -85,28 +97,67 @@ export default {
       }
     }
 
-    &-title {
-      font-size: 90px;
+    &-decorativeHeader {
+      margin: 0 $base-spacing;
       text-align: center;
 
       @include media($min-tablet) {
-        font-size: 300px;
+        margin: 0;
         opacity: $light-opacity;
-        margin: -60px -25px -40px 0;
         text-align: right;
       }
-    }
 
-    &-description {
-      text-align: center;
-      font-size: $large-font-size;
+      * {
+        font-size: 80px;
 
-      @include media($min-tablet) {
-
-        font-size: $larger-font-size;
+        @include media($min-tablet) {
+          font-size: 300px;
+          margin: -60px -25px -40px 0;
+        }
       }
     }
 
-    @include background-color;
+    &-titleHeader {
+      margin: 0 $base-spacing;
+      text-align: center;
+
+      * {
+        font-family: $base-font-family;
+        font-weight: $base-font-weight;
+        font-size: $large-font-size;
+
+        @include media($min-tablet) {
+          font-size: $larger-font-size;
+        }
+      }
+    }
+
+    &--short {
+      @include media($min-tablet) {
+        height: $header-height-short;
+      }
+
+      .PageHeader-decorativeHeader {
+        * {
+          font-size: $giant-font-size;
+
+          @include media($min-tablet) {
+            font-size: 250px;
+          }
+        }
+      }
+
+      .PageHeader-titleHeader {
+        @include media($min-tablet) {
+          position: absolute;
+          top: $header-height / 4;
+          width:100%;
+
+          * {
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 </style>

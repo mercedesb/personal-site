@@ -35,19 +35,9 @@ describe('PageHeader', () => {
   })
 
   describe('Properties', () => {
-    it('has a title property', () => {
-      component = shallow()
-      expect(component.props().title).toEqual('title')
-    })
-
     it('has a color property', () => {
       component = shallow()
       expect(component.props().color).toEqual('brown')
-    })
-
-    it('has a preamble property', () => {
-      component = shallow()
-      expect(component.props().preamble).toEqual('heres the preamble')
     })
 
     it('has a media property', () => {

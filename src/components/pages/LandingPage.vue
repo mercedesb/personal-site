@@ -2,13 +2,18 @@
   <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage'>
     <PageHeader
       :color="page.color"
-      :title="page.title"
-      :preamble="page.preamble"
       :media="iconUrl"
-    />
-    <p class="PageContent" v-if="page.mainContent">
+    >
+      <template slot='decorativeHeader'>
+        <h1>{{ page.title }}</h1>
+      </template>
+      <template slot='titleHeader'>
+        <p>{{ page.preamble }}</p>
+      </template>
+    </PageHeader>
+    <div class="PageContent" v-if="page.mainContent">
       <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
-    </p>
+    </div>
     <ContactForm v-if="page.showContact" />
     <BlogList v-if="page.showBlogPosts" :color="page.color" />
     <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
@@ -82,20 +87,6 @@ export default {
 
 .LandingPage {
   @include inner-page-content;
-}
-
-.SplashHeader {
-  font-size: 80x;
-  color: $gray;
-  align-self: flex-start;
-  padding-left: $base-spacing;
-  margin-top: $base-spacing;
-
-  @include media($min-tablet) {
-    font-size: 150px;
-  }
-
-  @include color;
 }
 
 </style>
