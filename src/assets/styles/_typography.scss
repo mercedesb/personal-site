@@ -37,10 +37,17 @@ h3 {
 
 h4 {
   font-family: $base-font-family;
-  font-size: $large-font-size;
+  font-size: $larger-font-size;
+  font-weight: $heavy-font-weight;
 }
 
 h5 {
+  font-family: $base-font-family;
+  font-size: $large-font-size;
+  font-weight: $heavy-font-weight;
+}
+
+h6 {
   font-family: $base-font-family;
   font-size: $base-font-size;
   font-weight: $heavy-font-weight;
