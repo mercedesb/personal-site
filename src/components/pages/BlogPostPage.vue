@@ -1,19 +1,25 @@
 <template>
    <main class='BlogPost'>
     <header :class="'BlogPost-header BlogPost-header--' + color">
+      <h2 class='BlogPost-date'>{{ formattedPublishDate }}</h2>
       <h1 class='BlogPost-title'>{{page.title}}</h1>
-      <h5 class='BlogPost-date'>{{ formattedPublishDate }}</h5>
+      <Navigation />
     </header>
     <div v-if="page.mainContent" class='BlogPost-content'>
-      <p class="PageContent">
+      <div class="PageContent">
         <ParseMarkdown :source="page.mainContent" />
-      </p>
+        <br/>
+        <p class="BlogPost-publishDate">
+          <em>Published {{formattedPublishDate}}</em>
+        </p>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import PageHeader from '../PageHeader.vue'
+import Navigation from '../Navigation.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import CTALink from '../CTALink.vue'
 import objects from '../../mixins/objects'
@@ -22,7 +28,7 @@ const moment = require('moment')
 
 export default {
   components: {
-    PageHeader, ParseMarkdown, CTALink
+    PageHeader, Navigation, ParseMarkdown, CTALink
   },
   mixins: [
     objects
@@ -51,42 +57,69 @@ export default {
 <style lang="scss">
   @import '../../assets/styles/variables.scss';
 
-$header-height: 200px;
+$header-height: 250px;
 
 .BlogPost {
   @include inner-page-content;
 
   &-header {
-    align-self: flex-start;
-    padding-left: $base-spacing;
-    margin: 0 0 $base-spacing;
+      overflow: hidden;
+      box-shadow: $base-drop-shadow;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-bottom: $large-spacing;
+      @include background-color;
 
-    @include color;
-  }
 
-  &-title {
-    margin-bottom: 0;
-  }
+      @include media($min-tablet) {
+        height: $header-height;
+      }
+    }
+
+    &-text {
+      padding: 0 $base-spacing;
+      width: 100%;
+
+      @include media($min-tablet) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+      }
+    }
+
+    &-date {
+      font-size: 90px;
+      text-align: center;
+
+      @include media($min-tablet) {
+        font-size: 250px;
+        opacity: $light-opacity;
+        align-self: flex-end;
+        margin: -60px -25px -40px 0;
+        text-align: right;
+      }
+    }
+
+    &-title {
+      text-align: center;
+      font-size: $large-font-size;
+
+      @include media($min-tablet) {
+        font-size: $larger-font-size;
+        margin: 0;
+        position: absolute;
+        top: $header-height / 4;
+      }
+    }
 
   &-content {
     @include flex-container;
   }
 }
 
-.ContentHeader {
-  box-shadow: $base-drop-shadow;
-  max-height: $header-height;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-
-  &-text {
-    margin: $small-spacing $base-spacing;
-    overflow: hidden;
-    text-align:center;
-  }
-
-  @include background-color;
-}
 </style>

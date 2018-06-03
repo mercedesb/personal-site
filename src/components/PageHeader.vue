@@ -67,7 +67,7 @@ export default {
       position: relative;
       top: -$media-width/4;
       left: -$media-width/4;
-      opacity: .3;
+      opacity: $light-opacity;
 
       img {
       }
@@ -91,8 +91,8 @@ export default {
 
       @include media($min-tablet) {
         font-size: 300px;
-        opacity: .3;
-        margin: -75px -25px -40px 0;
+        opacity: $light-opacity;
+        margin: -60px -25px -40px 0;
         text-align: right;
       }
     }

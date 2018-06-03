@@ -16,7 +16,8 @@ describe('BlogPostPage', () => {
 
   const store = {
     state: {
-      blogPost: TestUtility.blogPosts[0]
+      blogPost: TestUtility.blogPosts[0],
+      navLinks: []
     }
   }
 
