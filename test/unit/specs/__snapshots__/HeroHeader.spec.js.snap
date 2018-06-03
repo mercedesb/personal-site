@@ -7,13 +7,25 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
   <div
     class="Hero-contentContainer"
   >
-    <div>
+    <div
+      class="Hero-content"
+    >
       <img
         class="Hero-image"
-        src="http://google.com"
+        src="../assets/images/MerBer-circle.png"
       />
        
-      <!---->
+      <div
+        class="Hero-textContainer"
+      >
+        <h1
+          class="Hero-title"
+        >
+          hero title
+        </h1>
+         
+        <!---->
+      </div>
     </div>
   </div>
    

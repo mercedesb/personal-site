@@ -6,6 +6,7 @@ describe('HeroHeader', () => {
 
   const initialProps = {
     title: 'hero title',
+    'preamble': 'hero preamble',
     color: 'brown',
     mainImage: 'http://google.com',
     backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']

@@ -12,7 +12,8 @@ describe('LandingPage', () => {
     state: {
       landingPage: {
         ...TestUtility.landingPages[initialProps.urlSegment]
-      }
+      },
+      navLinks: []
     },
     actions: {
       getLandingPage: jest.fn()

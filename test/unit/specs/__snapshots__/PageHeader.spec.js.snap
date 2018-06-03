@@ -5,17 +5,20 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
   class="PageHeader PageHeader--brown"
 >
   <div
-    class="PageHeader-media"
+    class="PageHeader-background"
   >
     <img
+      class="PageHeader-media"
       src="http://image.com"
     />
   </div>
    
   <div
-    class="PageHeader-text "
+    class="PageHeader-text"
   >
-    <h1>
+    <h1
+      class="PageHeader-title"
+    >
       title
     </h1>
      
@@ -25,6 +28,8 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
       heres the preamble
     </p>
   </div>
+   
+  <!---->
 </header>
 `;
 
