@@ -33,16 +33,4 @@ describe('PageHeader', () => {
       })
     })
   })
-
-  describe('Properties', () => {
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toEqual('brown')
-    })
-
-    it('has a media property', () => {
-      component = shallow()
-      expect(component.props().media).toEqual('http://image.com')
-    })
-  })
 })

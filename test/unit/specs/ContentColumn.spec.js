@@ -42,32 +42,6 @@ describe('ContentColumn', () => {
     })
   })
 
-  describe('Properties', () => {
-    beforeEach(() => {
-      component = shallow()
-    })
-
-    it('has a title property', () => {
-      expect(component.props().title).toBe('title')
-    })
-
-    it('has a preamble property', () => {
-      expect(component.props().preamble).toBe('test preamble')
-    })
-
-    it('has a color property', () => {
-      expect(component.props().color).toBe('blue')
-    })
-
-    it('has a icon property', () => {
-      expect(component.props().icon).toBeDefined()
-    })
-
-    it('has a urlSegment property', () => {
-      expect(component.props().urlSegment).toBe('testPath')
-    })
-  })
-
   describe('Computed', () => {
     describe('isExternal', () => {
       it('returns true if externalLink prop is defined', () => {

@@ -40,14 +40,4 @@ describe('MobileNavigation', () => {
       expect(component.element).toMatchSnapshot()
     })
   })
-
-  describe('Properties', () => {
-    beforeEach(() => {
-      component = shallow()
-    })
-
-    it('has a navLinks property', () => {
-      expect(component.props().navLinks).toBe(initialProps.navLinks)
-    })
-  })
 })

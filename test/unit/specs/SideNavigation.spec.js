@@ -40,18 +40,4 @@ describe('SideNavigation', () => {
       expect(component.element).toMatchSnapshot()
     })
   })
-
-  describe('Properties', () => {
-    beforeEach(() => {
-      component = shallow()
-    })
-
-    it('has a navLinks property', () => {
-      expect(component.props().navLinks).toBe(initialProps.navLinks)
-    })
-
-    it('has a backgroundImages property', () => {
-      expect(component.props().backgroundImages).toBe(initialProps.backgroundImages)
-    })
-  })
 })

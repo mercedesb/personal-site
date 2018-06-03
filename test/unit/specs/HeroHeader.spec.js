@@ -39,26 +39,4 @@ describe('HeroHeader', () => {
       })
     })
   })
-
-  describe('Properties', () => {
-    it('has a title property', () => {
-      component = shallow()
-      expect(component.props().title).toEqual('hero title')
-    })
-
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toEqual('brown')
-    })
-
-    it('has a mainImage property', () => {
-      component = shallow()
-      expect(component.props().mainImage).toEqual('http://google.com')
-    })
-
-    it('has a backgroundImages property', () => {
-      component = shallow()
-      expect(component.props().backgroundImages).toEqual(initialProps.backgroundImages)
-    })
-  })
 })

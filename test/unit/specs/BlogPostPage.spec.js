@@ -45,13 +45,6 @@ describe('BlogPostPage', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toBe('blue')
-    })
-  })
-
   describe('Computed', () => {
     describe('page', () => {
       beforeEach(() => {

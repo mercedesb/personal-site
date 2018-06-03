@@ -38,12 +38,6 @@ describe('BlogList', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toBe('gray')
-    })
-  })
 
   describe('Computed', () => {
     describe('posts', () => {

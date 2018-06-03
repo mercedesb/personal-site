@@ -35,13 +35,6 @@ describe('LandingPage', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a urlSegment property', () => {
-      component = shallow()
-      expect(component.props().urlSegment).toBe('about')
-    })
-  })
-
   describe('Computed', () => {
     describe('page', () => {
       beforeEach(() => {
