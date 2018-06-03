@@ -1,7 +1,32 @@
 import { mutations } from '@/store'
+import { actions } from '@/store'
 
-describe('Vuex store', () => {
-  describe('mutations.blogPosts', () => {
+const mockGetEntries = jest.fn(() => Promise.resolve({
+  items: [
+    {
+      sys: {
+        id: 'entry 1'
+      },
+      fields: {}
+    }, 
+    {
+      sys: {
+        id: 'entry 2'
+      },
+      fields: {}
+    }
+  ]
+  })
+)
+
+jest.mock('contentful', () => ({
+  createClient: jest.fn(() => ({
+    getEntries: mockGetEntries
+  }))
+}))
+
+describe('mutations', () => {
+  describe('blogPosts', () => {
     it('sets the blogPosts state', () => {
       const { blogPosts } = mutations
       const state = { blogPosts: [] }
@@ -12,7 +37,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.blogPost', () => {
+  describe('blogPost', () => {
     it('sets the blogPost state', () => {
       const { blogPost } = mutations
       const state = { blogPost: {} }
@@ -24,7 +49,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.landingPage', () => {
+  describe('landingPage', () => {
     it('sets the landingPage state', () => {
       const { landingPage } = mutations
       const state = { landingPage: [] }
@@ -36,7 +61,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.homePage', () => {
+  describe('homePage', () => {
     it('sets the homePage state', () => {
       const { homePage } = mutations
       const state = { homePage: [] }
@@ -48,7 +73,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.navLinks', () => {
+  describe('navLinks', () => {
     it('sets the navLinks state', () => {
       const { navLinks } = mutations
       const state = { navLinks: [] }
@@ -59,7 +84,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.backgroundImages', () => {
+  describe('backgroundImages', () => {
     it('sets the backgroundImages state', () => {
       const { backgroundImages } = mutations
       const state = { backgroundImages: [] }
@@ -70,7 +95,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.entries', () => {
+  describe('entries', () => {
     it('sets the entries state', () => {
       const { entries } = mutations
       const state = { entries: [] }
@@ -81,7 +106,7 @@ describe('Vuex store', () => {
     })
   })
   
-  describe('mutations.clearBlogPosts', () => {
+  describe('clearBlogPosts', () => {
     it('sets the blogPosts state', () => {
       const { clearBlogPosts } = mutations
       const state = { blogPosts: [{}, {}] }
@@ -92,7 +117,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.clearBlogPost', () => {
+  describe('clearBlogPost', () => {
     it('sets the blogPost state', () => {
       const { clearBlogPost } = mutations
       const state = { blogPost: {' title': 'blog post' } }
@@ -103,7 +128,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.clearLandingPage', () => {
+  describe('clearLandingPage', () => {
     it('sets the landingPage state', () => {
       const { clearLandingPage } = mutations
       const state = { landingPage: {' title': 'landing page' } }
@@ -114,7 +139,7 @@ describe('Vuex store', () => {
     })
   })
 
-  describe('mutations.clearHomePage', () => {
+  describe('clearHomePage', () => {
     it('sets the homePage state', () => {
       const { clearHomePage } = mutations
       const state = { homePage: {' title': 'home page' } }
@@ -124,9 +149,8 @@ describe('Vuex store', () => {
       expect(state.homePage).toEqual({})
     })
   })
-})
 
-describe('mutations.clearNavLinks', () => {
+  describe('clearNavLinks', () => {
     it('sets the navLinks state', () => {
       const { clearNavLinks } = mutations
       const state = { navLinks: [{}, {}] }
@@ -137,7 +161,7 @@ describe('mutations.clearNavLinks', () => {
     })
   })
 
-  describe('mutations.clearBackgroundImages', () => {
+  describe('clearBackgroundImages', () => {
     it('sets the backgroundImages state', () => {
       const { clearBackgroundImages } = mutations
       const state = { backgroundImages: [{}, {}] }
@@ -148,7 +172,7 @@ describe('mutations.clearNavLinks', () => {
     })
   })
 
-  describe('mutations.clearEntries', () => {
+  describe('clearEntries', () => {
     it('sets the entries state', () => {
       const { clearEntries } = mutations
       const state = { entries: [{}, {}] }
@@ -158,3 +182,321 @@ describe('mutations.clearNavLinks', () => {
       expect(state.entries.length).toEqual(0)
     })
   })
+})
+  
+describe('actions', () => {
+  let commit
+  let dispatch
+
+  beforeEach(() => {
+    commit = jest.fn()
+  })
+
+  describe('getBlogPosts', () => {
+    beforeEach(() => {
+      dispatch = mockGetEntries
+    })
+
+    it('returns an array of objects', () => {
+      const { getBlogPosts } = actions
+
+      getBlogPosts({ commit, dispatch })
+        .then(result => {
+          expect(result.length).toEqual(2)
+        })
+    })
+
+    it('commits blogPosts to state', () => {
+      const { getBlogPosts } = actions
+
+      getBlogPosts({ commit, dispatch })
+        .then(result => {
+          expect(commit).toHaveBeenCalledWith('blogPosts', expect.anything())
+        })
+    })
+  })
+
+  describe('getBlogPost', () => {
+    let state
+
+    describe('with blogPosts in state', () => {
+      beforeEach(() => {
+        state = {
+          blogPosts: [{ title: 'blog post 1', urlSegment: 'blog' }, { title: 'blog post 2' }]
+        }
+      })
+
+      it('returns an object', () => {
+        const { getBlogPost } = actions
+        getBlogPost({ commit, dispatch, state }, 'blog')
+          .then(result => {
+            expect(result).toBeDefined()
+            expect(result).not.toEqual({})
+          })
+      })
+
+      it('commits an entry to blogPost state', () => {
+        const { getBlogPost } = actions
+
+        getBlogPost({ commit, dispatch, state }, 'blog')
+          .then(result => {
+            expect(commit).toHaveBeenCalledWith('blogPost', expect.anything())
+          })
+      })
+    })
+
+    describe('without blogPosts in state', () => {
+      beforeEach(() => {
+        dispatch = mockGetEntries
+        state = {
+          blogPosts: []
+        }
+      })
+      it('returns an object', () => {
+        const { getBlogPost } = actions
+
+        getBlogPost({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(result).toBeDefined()
+            expect(result).not.toEqual({})
+          })
+      })
+
+      it('commits an entry to blogPost state', () => {
+        const { getBlogPost } = actions
+
+        getBlogPost({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(commit).toHaveBeenCalledWith('blogPost', expect.anything())
+          })
+      })
+    })
+  })
+
+  describe('getLandingPage', () => {
+    beforeEach(() => {
+      dispatch = mockGetEntries
+    })
+
+    it('returns an object', () => {
+      const { getLandingPage } = actions
+
+      getLandingPage({ commit, dispatch }, '')
+        .then(result => {
+          expect(result).toBeDefined()
+          expect(result).not.toEqual({})
+        })
+    })
+
+    it('commits an entry to landingPage state', () => {
+      const { getLandingPage } = actions
+
+      getLandingPage({ commit, dispatch }, '')
+        .then(result => {
+          expect(commit).toHaveBeenCalledWith('landingPage', expect.anything())
+        })
+    })
+  })
+
+  describe('getHomePage', () => {
+    beforeEach(() => {
+      dispatch = mockGetEntries
+    })
+
+    it('returns an object', () => {
+      const { getHomePage } = actions
+
+      getHomePage({ commit, dispatch }, '')
+        .then(result => {
+          expect(result).toBeDefined()
+          expect(result).not.toEqual({})
+        })
+    })
+
+    it('commits an entry to homePage state', () => {
+      const { getHomePage } = actions
+
+      getHomePage({ commit, dispatch }, '')
+        .then(result => {
+          expect(commit).toHaveBeenCalledWith('homePage', expect.anything())
+        })
+    })
+  })
+
+  describe('getNavLinks', () => {
+    let state
+    
+    describe('with homePage in state', () => {
+      beforeEach(() => {
+        state = {
+          homePage: { 
+            children: [
+              {
+                sys: {
+                  id: 'child 1'
+                },
+                fields: {}
+              },
+              {
+                sys: {
+                  id: 'child 2'
+                },
+                fields: {}
+              },
+              {
+                sys: {
+                  id: 'child 3'
+                },
+                fields: {}
+              }
+            ]
+          }
+        }
+      })
+
+      it('returns an array of objects', () => {
+        const { getNavLinks } = actions
+
+        getNavLinks({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(result.length).toEqual(3)
+          })
+      })
+
+      it('commits navLinks to state', () => {
+        const { getNavLinks } = actions
+
+        getNavLinks({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(commit).toHaveBeenCalledWith('navLinks', expect.anything())
+          })
+      })
+    })
+
+    describe('without homePage in state', () => {
+      beforeEach(() => {
+        dispatch = mockGetEntries
+        state = {
+          homePage: {}
+        }
+      })
+
+      it('returns an array of objects', () => {
+        const { getNavLinks } = actions
+
+        getNavLinks({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(result.length).toEqual(2)
+          })
+      })
+
+      it('commits navLinks to state', () => {
+        const { getNavLinks } = actions
+
+        getNavLinks({ commit, dispatch, state}, '')
+          .then(result => {
+            expect(commit).toHaveBeenCalledWith('navLinks', expect.anything())
+          })
+      })
+    })
+  })
+
+  describe('getBackgroundImages', () => {
+    let state
+    
+    describe('with homePage in state', () => {
+      beforeEach(() => {
+        state = {
+          homePage: { 
+            backgroundImages: [
+              {
+                sys: {
+                  id: 'img 1'
+                },
+                fields: {}
+              },
+              {
+                sys: {
+                  id: 'img 2'
+                },
+                fields: {}
+              },
+              {
+                sys: {
+                  id: 'img 3'
+                },
+                fields: {}
+              }
+            ]
+          }
+        }
+      })
+
+      it('returns an array of objects', () => {
+        const { getBackgroundImages } = actions
+
+        getBackgroundImages({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(result.length).toEqual(3)
+          })
+      })
+
+      it('commits backgroundImages to state', () => {
+        const { getBackgroundImages } = actions
+
+        getBackgroundImages({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(commit).toHaveBeenCalledWith('backgroundImages', expect.anything())
+          })
+      })
+    })
+
+    describe('without homePage in state', () => {
+      beforeEach(() => {
+        dispatch = mockGetEntries
+        state = {
+          homePage: {}
+        }
+      })
+
+      it('returns an array of objects', () => {
+        const { getBackgroundImages } = actions
+
+        getBackgroundImages({ commit, dispatch, state }, '')
+          .then(result => {
+            expect(result.length).toEqual(2)
+          })
+      })
+
+      it('commits backgroundImages to state', () => {
+        const { getBackgroundImages } = actions
+
+        getBackgroundImages({ commit, dispatch, state}, '')
+          .then(result => {
+            expect(commit).toHaveBeenCalledWith('backgroundImages', expect.anything())
+          })
+      })
+    })
+  })
+
+  describe('getEntries', () => {
+    it('returns an array of objects', () => {
+      const { getEntries } = actions
+
+      getEntries({ commit, dispatch }, '')
+        .then(result => {
+          expect(result.length).toEqual(2)
+        })
+    })
+
+    it('commits entries to state', () => {
+      const { getEntries } = actions
+
+      getEntries({ commit, dispatch }, '')
+        .then(result => {
+          expect(commit).toHaveBeenCalledWith('entries', expect.anything())
+        })
+    })
+  })
+})
+
