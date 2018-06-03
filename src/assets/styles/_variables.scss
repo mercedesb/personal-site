@@ -90,8 +90,7 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
 @mixin background-color {
   @each $type in $colors-array {
     &--#{nth($type, 1)} {
-      background-color: darken(nth($type, 2), 8%);
-      /*background-color: #{nth($type, 2)};*/
+      background-color: #{nth($type, 2)};
       color: #{nth($type, 3)};
     }
   }
@@ -108,9 +107,9 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
 @mixin hover-darken {
   @each $type in $colors-array {
     &--#{nth($type, 1)} {
+      background-color: darken(nth($type, 2), 7%);
       &:hover {
         background-color: #{nth($type, 2)};
-        /*background-color: darken(nth($type, 2), 7%);*/
       }
     }
   }

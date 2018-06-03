@@ -8,7 +8,7 @@
       <h1 class='PageHeader-title'>{{ title }}</h1>
       <p class="PageHeader-description">{{ preamble }}</p>
     </div>
-    <!-- <Navigation /> -->
+    <Navigation />
   </header>
 </template>
 
@@ -36,19 +36,30 @@ export default {
   $text-width: 500px;
 
   .PageHeader {
+    overflow: hidden;
     box-shadow: $base-drop-shadow;
-    height: $header-height;
     width: 100%;
     display: flex;
-    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    @include media($min-tablet) {
+      height: $header-height;
+    }
 
     &-background {
+      display: none; 
       position: absolute;
       top: 0;
       bottom: 0;
       right: 0;
       left: 0;
+
+      @include media($min-tablet) {
+        display: block;
+      }
     }
 
     &-media {
@@ -64,6 +75,7 @@ export default {
 
     &-text {
       padding: 0 $base-spacing;
+      width: 100%;
 
       @include media($min-tablet) {
         width: 100%;
@@ -74,15 +86,25 @@ export default {
     }
 
     &-title {
-      font-size: 300px;
-      opacity: .3;
-      margin: -175px -25px 0 0;
-      text-align: right;
+      font-size: 90px;
+      text-align: center;
+
+      @include media($min-tablet) {
+        font-size: 300px;
+        opacity: .3;
+        margin: -75px -25px -40px 0;
+        text-align: right;
+      }
     }
 
     &-description {
       text-align: center;
-      font-size: $larger-font-size;
+      font-size: $large-font-size;
+
+      @include media($min-tablet) {
+
+        font-size: $larger-font-size;
+      }
     }
 
     @include background-color;

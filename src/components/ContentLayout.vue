@@ -19,15 +19,6 @@ export default {
   @import '../assets/styles/variables.scss';
   
   .ContentLayout {
-    display: flex;
-    flex: 1;
-    height: 100vh;
-    overflow: hidden;
-
-    flex-direction: column;
-
-    @include media($min-desktop) {
-      flex-direction: row;
-    }
+    width: 100%;
   }
 </style>
