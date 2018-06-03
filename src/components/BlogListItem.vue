@@ -146,10 +146,6 @@ export default {
           background-color: $yellow;
           color: $white;
         }
-
-        &-preamble {
-          font-size: $base-font-size;
-        }
       }
     }
   }

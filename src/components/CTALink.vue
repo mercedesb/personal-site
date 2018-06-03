@@ -35,8 +35,11 @@ export default {
       display:flex;
       align-items: center;
       margin: $base-spacing;
-      font-weight: $base-font-weight;
       border-radius: $base-radius
+    }
+
+    &-title {
+      font-weight: $base-font-weight;
     }
 
     &-icon {

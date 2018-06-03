@@ -16,7 +16,7 @@
     </div>
     <ContactForm v-if="page.showContact" />
     <BlogList v-if="page.showBlogPosts" :color="page.color" />
-    <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
+    <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
         :key="ctaLink.id"
@@ -87,6 +87,10 @@ export default {
 
 .LandingPage {
   @include inner-page-content;
+
+  &-ctaContainer {
+    margin-top: $large-spacing;
+  }
 }
 
 </style>
