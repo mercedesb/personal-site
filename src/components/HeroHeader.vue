@@ -4,7 +4,6 @@
       <div class='Hero-content'>
         <img class="Hero-image" src='../assets/images/MerBer-circle.png' />
         <div class='Hero-textContainer'>
-          <!-- <img class="Hero-image" :src="mainImage" /> -->
           <h1 class='Hero-title'>{{title}}</h1>
           <ParseMarkdown :source="preamble" />
         </div>
@@ -12,23 +11,11 @@
     </div>
     <div class="Hero-background">
       <img
-        class="Hero-backgroundImage"
-        src='../assets/images/MacbookPro.svg'
-      />
-      <img
-        class="Hero-backgroundImage"
-        src='../assets/images/CrochetHook.svg'
-      />
-      <img
-        class="Hero-backgroundImage"
-        src='../assets/images/SpinningWheel.svg'
-      />
-      <!-- <img
         v-for="image in backgroundImages"
         :key="image.id"
         :src="image"
         class="Hero-backgroundImage"
-      /> -->
+      />
     </div>
   </header>
 </template>

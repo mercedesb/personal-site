@@ -1,56 +1,29 @@
 <template>
   <nav class="Navigation">
-    <ul class='Navigation-navLinks'>
+    <ul class='Navigation-navLinks' v-if="navLinks.length">
       <li class="Navigation-navLink">
         <smart-link to="/">
           <div class='Navigation-title'><span>Home</span></div>
           <img class='Navigation-icon' src='../assets/images/HomeIcon.svg' />
         </smart-link>
       </li>
-      <li class="Navigation-navLink">
-        <smart-link to="/about">
-          <div class='Navigation-title'><span>About</span></div>
-          <img class='Navigation-icon' src='../assets/images/AboutIcon.svg' />
-        </smart-link>
-      </li>
-      <li class="Navigation-navLink">
-        <smart-link to="/blog">
-          <div class='Navigation-title'><span>Blog</span></div>
-          <img class='Navigation-icon' src='../assets/images/BlogIcon.svg' />
-        </smart-link>
-      </li>
-      <li class="Navigation-navLink">
-        <smart-link to="/connect">
-          <div class='Navigation-title'><span>Connect</span></div>
-          <img class='Navigation-icon' src='../assets/images/ConnectIcon.svg' />
-        </smart-link>
-      </li>
-      <li class="Navigation-navLink">
-        <smart-link to="/shop">
-          <div class='Navigation-title'><span>Shop</span></div>
-          <img class='Navigation-icon' src='../assets/images/ShopIcon.svg' />
+      <li class="Navigation-navLink" v-for="navLink in navLinks" :key="navLink.title">
+        <smart-link
+          :to="navLink.parsedLink"
+          :isExternal="!!navLink.externalLink"
+          >
+          <div class='Navigation-title'><span>{{navLink.title}}</span></div>
+          <img class='Navigation-icon' :src="navLink.iconUrl" />
         </smart-link>
       </li>
     </ul>
-    <!-- <SideNavigation
-      :navLinks="navLinks"
-      :backgroundImages="backgroundImages"
-    />
-    <MobileNavigation
-      :navLinks="navLinks"
-    /> -->
   </nav>
 </template>
 
 <script>
-import SideNavigation from './SideNavigation.vue'
-import MobileNavigation from './MobileNavigation.vue'
 import images from '../mixins/images'
 
 export default {
-  components: {
-    SideNavigation, MobileNavigation
-  },
   mixins: [
     images
   ],
@@ -59,21 +32,14 @@ export default {
       return this.$store.state.navLinks.map((link) => {
         return {
           parsedLink: link.externalLink ? link.externalLink : `/${link.urlSegment}`,
+          iconUrl: this.getImageUrl(link.icon),
           ...link
         }
-      })
-    },
-    backgroundImages () {
-      const bgdImgs = this.$store.state.backgroundImages
-      if (!bgdImgs || !bgdImgs.length) return []
-      return this.$store.state.backgroundImages.map((bgdImage) => {
-        return this.getImageUrl(bgdImage)
       })
     }
   },
   created () {
     this.$store.dispatch('getNavLinks')
-    this.$store.dispatch('getBackgroundImages')
   }
 }
 </script>

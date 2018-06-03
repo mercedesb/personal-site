@@ -4,7 +4,7 @@
       <div class='CTA-icon'>
         <img :src="icon" />
       </div>
-      <h4 class='CTA-title'>{{ title }}</h4>
+      <h5 class='CTA-title'>{{ title }}</h5>
     </smart-link>
   </div>
 </template>

@@ -4,9 +4,9 @@
       :color="page.color"
       :title="page.title"
       :preamble="page.preamble"
-      :media="page.icon"
+      :media="iconUrl"
     />
-    <p class="PageContent">
+    <p class="PageContent" v-if="page.mainContent">
       <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
     </p>
     <ContactForm v-if="page.showContact" />

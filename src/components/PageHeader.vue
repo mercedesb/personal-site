@@ -1,10 +1,10 @@
 <template>
   <header v-if="title" :class="'PageHeader PageHeader--' + color">
     <div class="PageHeader-background">
-      <img class='PageHeader-media' src='../assets/images/AboutIcon.svg' />
+      <img class='PageHeader-media' :src="media" />
     </div>
     </div>
-    <div :class="`PageHeader-text ${media ? '' : 'PageHeader-text--center'}`">
+    <div class='PageHeader-text'>
       <h1 class='PageHeader-title'>{{ title }}</h1>
       <p class="PageHeader-description">{{ preamble }}</p>
     </div>
@@ -44,6 +44,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-bottom: $large-spacing;
 
     @include media($min-tablet) {
       height: $header-height;
