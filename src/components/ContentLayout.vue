@@ -1,6 +1,5 @@
 <template>
   <div class="ContentLayout">
-    <Navigation />
     <transition name="fade" mode="out-in">
       <router-view v-cloak :key="$route.fullPath" />
     </transition>

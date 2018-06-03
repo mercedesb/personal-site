@@ -1,6 +1,11 @@
 <template>
   <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage'>
-    <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
+    <PageHeader
+      :color="page.color"
+      :title="page.title"
+      :preamble="page.preamble"
+      :media="page.icon"
+    />
     <p class="PageContent">
       <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
     </p>
@@ -17,7 +22,7 @@
 </template>
 
 <script>
-import SideNavigation from '../SideNavigation.vue'
+import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
@@ -27,7 +32,7 @@ import objects from '../../mixins/objects'
 
 export default {
   components: {
-    SideNavigation,
+    PageHeader,
     CTALink,
     ContactForm,
     BlogList,
