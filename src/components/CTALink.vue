@@ -23,7 +23,7 @@ export default {
     external: Boolean
   },
   computed: {
-    modifierClass() {
+    modifierClass () {
       console.log(this.external)
       return this.external ? 'external' : 'default'
     }
@@ -51,7 +51,7 @@ export default {
     }
 
     &-icon {
-      
+
       margin-right: $small-spacing;
       padding: $small-spacing;
       max-width: 120px;

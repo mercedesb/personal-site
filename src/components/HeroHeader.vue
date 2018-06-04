@@ -2,7 +2,7 @@
   <header v-if="title" :class="'Hero Hero--' + color">
     <div class="Hero-contentContainer">
       <div class='Hero-content'>
-        <img class="Hero-image" src='../assets/images/MerBer-circle.png' />
+        <img class="Hero-image" :src="mainImage" />
         <div class='Hero-textContainer'>
           <h1 class='Hero-title'>{{title}}</h1>
           <ParseMarkdown :source="preamble" />

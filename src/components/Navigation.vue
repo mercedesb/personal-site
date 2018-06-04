@@ -4,7 +4,7 @@
       <li class="Navigation-navLink">
         <smart-link to="/">
           <div class='Navigation-title'><span>Home</span></div>
-          <img class='Navigation-icon' src='../assets/images/HomeIcon.svg' />
+          <img class='Navigation-icon' src='../assets/HomeIcon.svg' />
         </smart-link>
       </li>
       <li class="Navigation-navLink" v-for="navLink in navLinks" :key="navLink.title">
