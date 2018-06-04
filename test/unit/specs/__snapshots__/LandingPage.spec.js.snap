@@ -13,7 +13,7 @@ exports[`LandingPage Snapshots matches snapshot 1`] = `
   <!---->
    
   <div
-    class="FlexContainer PageContent PageContent--wide"
+    class="FlexContainer PageContent PageContent--wide LandingPage-ctaContainer"
   >
     <!---->
     <!---->

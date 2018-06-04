@@ -34,4 +34,18 @@ describe('CTALink', () => {
       })
     })
   })
+
+  describe('Computed', () => {
+    describe('modifierClass', () => {
+      it('returns default if not external', () => {
+        component = shallow()
+        expect(component.vm.modifierClass).toEqual('default')
+      })
+
+      it('returns external if external', () => {
+        component = shallow({external: true})
+        expect(component.vm.modifierClass).toEqual('external')
+      })
+    })
+  })
 })
