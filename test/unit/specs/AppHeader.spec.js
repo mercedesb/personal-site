@@ -42,13 +42,6 @@ describe('AppHeader', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a classModifier property', () => {
-      component = shallow()
-      expect(component.props().classModifier).toBe('modifier')
-    })
-  })
-
   describe('Computed', () => {
     describe('navLinks', () => {
       beforeEach(() => {

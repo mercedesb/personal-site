@@ -1,14 +1,11 @@
 $white: #FFFFFF;
 $brown: #AA916D;
-$blue: #2E4052;
+/*$blue: #2E4052;*/
+$purple: #564E58;
 $yellow: #D19D36;
-$gray: #6E6F79;
+$gray: #524948;
 $red: #904E55;
 
-/*$blue: #827D8D;
-$yellow: #B23E53;
-$gray: #827D8D;
-$red: #B23E53;*/
 
 $light-gray: lighten($gray, 30%);
 $black: #252627;
@@ -19,7 +16,7 @@ $black: #252627;
 //Create Array
 $colors-array:  (white $white $black,
                   brown $brown $white,
-                  blue $blue $white,
+                  purple $purple $white,
                   yellow $yellow $white,
                   gray $gray $white,
                   red $red $white
@@ -35,13 +32,14 @@ $base-font-family: $poppins, sans-serif;
 
 $small-font-size: 16px;
 $base-font-size: 20px;
-$large-font-size: 24px;
+$large-font-size: 28px;
 $larger-font-size: 36px;
 $largest-font-size: 48px;
 $giant-font-size: 64px;
 
 $base-font-weight: 400;
 $heavy-font-weight: 600;
+$light-font-weight: 200;
 
 $small-spacing: 10px;
 $base-spacing: 20px;
@@ -53,6 +51,8 @@ $content-width: 800px;
 $wide-content-width: 1000px;
 $button-width: 300px;
 $button-height: 50px;
+
+$light-opacity: .2;
 
 // Grid system
 //
@@ -93,8 +93,7 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
 @mixin background-color {
   @each $type in $colors-array {
     &--#{nth($type, 1)} {
-      background-color: darken(nth($type, 2), 8%);
-      /*background-color: #{nth($type, 2)};*/
+      background-color: #{nth($type, 2)};
       color: #{nth($type, 3)};
     }
   }
@@ -111,9 +110,9 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
 @mixin hover-darken {
   @each $type in $colors-array {
     &--#{nth($type, 1)} {
+      background-color: darken(nth($type, 2), 7%);
       &:hover {
         background-color: #{nth($type, 2)};
-        /*background-color: darken(nth($type, 2), 7%);*/
       }
     }
   }

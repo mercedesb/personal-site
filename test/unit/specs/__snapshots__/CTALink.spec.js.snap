@@ -2,7 +2,7 @@
 
 exports[`CTALink Snapshots with a color passed in matches snapshot 1`] = `
 <div
-  class="CTA CTA--gray"
+  class="CTA CTA--gray CTA--default"
 >
   <div
     class="CTA-link"
@@ -16,7 +16,7 @@ exports[`CTALink Snapshots with a color passed in matches snapshot 1`] = `
 
 exports[`CTALink Snapshots without a color passed in matches snapshot 1`] = `
 <div
-  class="CTA CTA--brown"
+  class="CTA CTA--brown CTA--default"
 >
   <div
     class="CTA-link"

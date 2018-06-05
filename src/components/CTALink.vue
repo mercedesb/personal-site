@@ -1,10 +1,10 @@
 <template>
-  <div :class="'CTA CTA--' + color">
+  <div :class="`CTA CTA--${color} CTA--${modifierClass}`">
     <smart-link class='CTA-link' :to="url" :isExternal="external">
       <div class='CTA-icon'>
         <img :src="icon" />
       </div>
-      <h4 class='CTA-title'>{{ title }}</h4>
+      <h6 class='CTA-title'>{{ title }}</h6>
     </smart-link>
   </div>
 </template>
@@ -21,12 +21,20 @@ export default {
       default: 'brown'
     },
     external: Boolean
+  },
+  computed: {
+    modifierClass () {
+      console.log(this.external)
+      return this.external ? 'external' : 'default'
+    }
   }
 }
 </script>
 
 <style lang="scss">
   @import '../assets/styles/variables.scss';
+
+  $icon-width: 75px;
 
   .CTA {
     flex: 1 1 50%;
@@ -35,32 +43,50 @@ export default {
       display:flex;
       align-items: center;
       margin: $base-spacing;
-      font-weight: $base-font-weight;
       border-radius: $base-radius
     }
 
+    &-title {
+      font-weight: $base-font-weight;
+    }
+
     &-icon {
-      background-color: $blue;
+
       margin-right: $small-spacing;
       padding: $small-spacing;
       max-width: 120px;
 
       img {
-        width: 100px;
+        width: $icon-width;
       }
     }
 
-    @each $type in $colors-array {
-      &--#{nth($type, 1)} {
+    &--external {
 
-        .CTA-icon {
-          background-color: #{nth($type, 2)};
-        }
+    }
 
-        a {
-          border: 1px solid #{nth($type, 2)};
+    &--default {
+      .CTA-icon {
+        background-color: $gray;
+      }
+
+      @each $type in $colors-array {
+        &.CTA--#{nth($type, 1)} {
+          .CTA-icon {
+            background-color: #{nth($type, 2)};
+          }
         }
       }
     }
   }
+
+  /* .CTA--color .CTA-link a */
+  @each $type in $colors-array {
+    .CTA--#{nth($type, 1)} {
+      .CTA-link a {
+        border: 1px solid #{nth($type, 2)};
+      }
+    }
+  }
+
 </style>

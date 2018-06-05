@@ -1,13 +1,24 @@
 <template>
    <main class='BlogPost'>
-    <header :class="'BlogPost-header BlogPost-header--' + color">
-      <h1 class='BlogPost-title'>{{page.title}}</h1>
-      <h5 class='BlogPost-date'>{{ formattedPublishDate }}</h5>
-    </header>
+    <PageHeader
+      :color="color"
+      :short="true"
+    >
+      <template slot='decorativeHeader'>
+        <h2>{{ formattedPublishDate }}</h2>
+      </template>
+      <template slot='titleHeader'>
+        <h1>{{page.title}}</h1>
+      </template>
+    </PageHeader>
     <div v-if="page.mainContent" class='BlogPost-content'>
-      <p class="PageContent">
+      <div class="PageContent">
         <ParseMarkdown :source="page.mainContent" />
-      </p>
+        <br/>
+        <p class="BlogPost-publishDate">
+          <em>Published {{formattedPublishDate}}</em>
+        </p>
+      </div>
     </div>
   </main>
 </template>
@@ -30,7 +41,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'gray'
+      default: 'purple'
     }
   },
   computed: {
@@ -51,42 +62,12 @@ export default {
 <style lang="scss">
   @import '../../assets/styles/variables.scss';
 
-$header-height: 200px;
-
 .BlogPost {
   @include inner-page-content;
-
-  &-header {
-    align-self: flex-start;
-    padding-left: $base-spacing;
-    margin: 0 0 $base-spacing;
-
-    @include color;
-  }
-
-  &-title {
-    margin-bottom: 0;
-  }
 
   &-content {
     @include flex-container;
   }
 }
 
-.ContentHeader {
-  box-shadow: $base-drop-shadow;
-  max-height: $header-height;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-
-  &-text {
-    margin: $small-spacing $base-spacing;
-    overflow: hidden;
-    text-align:center;
-  }
-
-  @include background-color;
-}
 </style>

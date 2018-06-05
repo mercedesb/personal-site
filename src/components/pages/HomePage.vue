@@ -1,7 +1,8 @@
 <template>
   <div :key="page.id" class="Home">
     <HeroHeader
-      :title="page.preamble"
+      :title="page.title"
+      :preamble="page.preamble"
       color='brown'
       :mainImage="mainImageUrl"
       :backgroundImages="backgroundImages"

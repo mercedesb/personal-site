@@ -31,28 +31,6 @@ describe('ParseMarkdown', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a source property', () => {
-      component = shallow()
-      expect(component.props().source).toEqual(initialProps.source)
-    })
-
-    it('has a collapsible property', () => {
-      component = shallow()
-      expect(component.props().collapsible).toEqual(true)
-    })
-
-    it('has a collapsibleTag property', () => {
-      component = shallow()
-      expect(component.props().collapsibleTag).toEqual('h3')
-    })
-
-    it('has a collapsedByDefault property', () => {
-      component = shallow()
-      expect(component.props().collapsedByDefault).toEqual(true)
-    })
-  })
-
   describe('Computed', () => {
     describe('querySelector', () => {
       it('returns Markdown and the collapsibleTag', () => {

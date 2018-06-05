@@ -12,7 +12,8 @@ describe('LandingPage', () => {
     state: {
       landingPage: {
         ...TestUtility.landingPages[initialProps.urlSegment]
-      }
+      },
+      navLinks: []
     },
     actions: {
       getLandingPage: jest.fn()
@@ -31,13 +32,6 @@ describe('LandingPage', () => {
     it('matches snapshot', () => {
       component = shallow()
       expect(component.element).toMatchSnapshot()
-    })
-  })
-
-  describe('Properties', () => {
-    it('has a urlSegment property', () => {
-      component = shallow()
-      expect(component.props().urlSegment).toBe('about')
     })
   })
 

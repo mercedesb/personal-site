@@ -35,30 +35,17 @@ describe('CTALink', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a title property', () => {
-      component = shallow()
-      expect(component.props().title).toBe('cta title')
-    })
+  describe('Computed', () => {
+    describe('modifierClass', () => {
+      it('returns default if not external', () => {
+        component = shallow()
+        expect(component.vm.modifierClass).toEqual('default')
+      })
 
-    it('has a icon property', () => {
-      component = shallow()
-      expect(component.props().icon).toBe('http://google.com')
-    })
-
-    it('has a url property', () => {
-      component = shallow()
-      expect(component.props().url).toBe('cta')
-    })
-
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toBe('gray')
-    })
-
-    it('has a external property', () => {
-      component = shallow()
-      expect(component.props().external).toBe(false)
+      it('returns external if external', () => {
+        component = shallow({external: true})
+        expect(component.vm.modifierClass).toEqual('external')
+      })
     })
   })
 })

@@ -16,7 +16,8 @@ describe('BlogPostPage', () => {
 
   const store = {
     state: {
-      blogPost: TestUtility.blogPosts[0]
+      blogPost: TestUtility.blogPosts[0],
+      navLinks: []
     }
   }
 
@@ -41,13 +42,6 @@ describe('BlogPostPage', () => {
         component = shallow({color: undefined})
         expect(component.element).toMatchSnapshot()
       })
-    })
-  })
-
-  describe('Properties', () => {
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toBe('blue')
     })
   })
 

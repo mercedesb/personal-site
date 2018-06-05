@@ -27,38 +27,6 @@ describe('BlogListItem', () => {
     })
   })
 
-  describe('Properties', () => {
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toBe('gray')
-    })
-
-    it('has a featured property', () => {
-      component = shallow()
-      expect(component.props().featured).toBe(false)
-    })
-
-    it('has a title property', () => {
-      component = shallow()
-      expect(component.props().title).toBe('blog title')
-    })
-
-    it('has a preamble property', () => {
-      component = shallow()
-      expect(component.props().preamble).toBe('blog preamble')
-    })
-
-    it('has a date property', () => {
-      component = shallow()
-      expect(component.props().date).toBeDefined()
-    })
-
-    it('has a urlSegment property', () => {
-      component = shallow()
-      expect(component.props().urlSegment).toBe('blog-post')
-    })
-  })
-
   describe('Computed', () => {
     describe('classes', () => {
       describe('as featured post', () => {

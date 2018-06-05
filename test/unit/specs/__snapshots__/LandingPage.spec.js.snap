@@ -4,24 +4,16 @@ exports[`LandingPage Snapshots matches snapshot 1`] = `
 <main
   class="LandingPage"
 >
-  <h1
-    class="SplashHeader SplashHeader--blue"
-  >
-    About
-  </h1>
+  <!---->
    
-  <p
-    class="PageContent"
-  >
-    <!---->
-  </p>
+  <!---->
    
   <!---->
    
   <!---->
    
   <div
-    class="FlexContainer PageContent PageContent--wide"
+    class="FlexContainer PageContent PageContent--wide LandingPage-ctaContainer"
   >
     <!---->
     <!---->

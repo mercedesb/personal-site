@@ -5,7 +5,5 @@ exports[`ContentLayout Snapshots matches snapshot 1`] = `
   class="ContentLayout"
 >
   <!---->
-   
-  <!---->
 </div>
 `;

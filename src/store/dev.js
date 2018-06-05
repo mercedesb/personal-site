@@ -3,143 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const landingPages = {
-  about: {
-    sys: {
-      id: 'about',
-    },
-    fields: {
-      title: 'About',
-      preamble: '',
-      icon: {
-        fields: {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        }
-      },
-      mainContent: 'about content here',
-      ctaLinks: [
-        {
-          sys: {
-            id: 'cta 1'
-          },
-          fields: {
-            title: 'Resume',
-            icon: {
-              fields: {
-                file: {
-                  url: 'http://placeholder.pics/svg/300'
-                }
-              }
-            },
-            internalLink: {
-              fields: {
-                urlSegment: 'resume'
-              }
-            },
-            externalLink: ''
-          }
-        },
-        {
-          sys: {
-            id: 'cta 2'
-          },
-          fields: {
-            title: 'External CTA',
-            icon: {
-              fields: {
-                file: {
-                  url: 'http://placeholder.pics/svg/300'
-                }
-              }
-            },
-            internalLink: {
-              fields: {
-                urlSegment: ''
-              }
-            },
-            externalLink: 'http://google.com'
-          }
-        }
-      ],
-      urlSegment: 'about',
-      externalLink: '',
-      color: 'blue',
-      showContact: false,
-      showBlogPosts: false
-    }
-  },
-  blog: {
-    sys: {
-      id: 'blog',
-    },
-    fields: {
-      title: 'Blog',
-      preamble: '',
-      icon: {
-        fields: {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        }
-      },
-      mainContent: 'connect content here',
-      ctaLinks: [],
-      urlSegment: 'blog',
-      externalLink: '',
-      color: 'gray',
-      showContact: false,
-      showBlogPosts: true
-    }
-  },
-  connect: {
-    sys: {
-      id: 'connect',
-    },
-    fields: {
-      title: 'Connect',
-      preamble: '',
-      icon: {
-        fields: {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        }
-      },
-      mainContent: 'connect content here',
-      ctaLinks: [],
-      urlSegment: 'connect',
-      externalLink: '',
-      color: 'red',
-      showContact: true,
-      showBlogPosts: false
-    }
-  },
-  shop: {
-    sys: {
-      id: 'shop',
-    },
-    fields: {
-      title: 'Shop',
-      preamble: '',
-      icon: {
-        fields: {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        }
-      },
-      mainContent: '',
-      ctaLinks: [],
-      urlSegment: '',
-      externalLink: 'https://etsy.com/shop/blinddogyarns',
-      color: 'yellow',
-      showContact: false,
-      showBlogPosts: false
-    }
-  }
-}
+const json = require('../../test/testData.json')
+const landingPages = json['landingPages']
 
 const DevStore = new Vuex.Store({
   state: {
@@ -251,8 +116,7 @@ const DevStore = new Vuex.Store({
           id: landingPages[urlSegment].sys.id,
           ...landingPages[urlSegment].fields
         }
-      }
-      else {
+      } else {
         lp = {
           title: 'Test',
           preamble: '',
@@ -277,43 +141,11 @@ const DevStore = new Vuex.Store({
     },
     getHomePage (context) {
       context.commit('clearHomePage')
-      const homePage = 
-      {
-        id: 'homepage',
-        preamble: 'here is the dev homepage preamble, it\'s a little long to be more realistic',
-        mainImage: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
+      const homePage = {
+        ...json['homePage'],
         children: Object.keys(landingPages).map((key) => {
           return landingPages[key]
-        }),
-        backgroundImages: [
-          {
-            fields: {
-              file: {
-                url: 'http://placeholder.pics/svg/300'
-              }
-            }
-          },
-          {
-            fields: {
-              file: {
-                url: 'http://placeholder.pics/svg/300'
-              }
-            }
-          },
-          {
-            fields: {
-              file: {
-                url: 'http://placeholder.pics/svg/300'
-              }
-            }
-          }
-        ]
+        })
       }
       context.commit('homePage', homePage)
     },
@@ -329,21 +161,7 @@ const DevStore = new Vuex.Store({
     getBackgroundImages (context) {
       context.commit('clearBackgroundImages')
       context.commit('backgroundImages', [
-        {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        },
-        {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        },
-        {
-          file: {
-            url: 'http://placeholder.pics/svg/300'
-          }
-        }
+        ...json['homePage']['backgroundImages']
       ])
     }
   }

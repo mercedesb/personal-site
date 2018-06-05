@@ -26,7 +26,7 @@ describe('MobileNavigation', () => {
       return TestUtility.landingPages[key]
     })
   }
-  
+
   const shallow = propsData => TestUtility.shallow(MobileNavigation, {
     propsData: {
       ...initialProps,
@@ -38,16 +38,6 @@ describe('MobileNavigation', () => {
     it('matches snapshot', () => {
       component = shallow()
       expect(component.element).toMatchSnapshot()
-    })
-  })
-
-  describe('Properties', () => {
-    beforeEach(() => {
-      component = shallow()
-    })
-
-    it('has a navLinks property', () => {
-      expect(component.props().navLinks).toBe(initialProps.navLinks)
     })
   })
 })

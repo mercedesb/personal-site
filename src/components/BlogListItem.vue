@@ -9,6 +9,7 @@
       <div class='BlogItem-text'>
       <h5 class='BlogItem-title'>{{ title }}</h5>
       <p class='BlogItem-preamble'>{{ preamble }}</p>
+      <p class='BlogItem-viewMore'>View more</p>
    </div>
     </div>
   </smart-link>
@@ -62,23 +63,17 @@ export default {
     &-container {
       display:flex;
       flex-wrap: wrap;
-      align-items: center;
-      margin: $base-spacing $large-spacing;
+      margin: $base-spacing 0;
       border-radius: $base-radius;
-
-      @include media($min-tablet) {
-        max-height:150px;
-        height:130px;
-      }
     }
 
     &-date {
+      font-weight: $light-font-weight;
       flex: 1 1 100%;
       display: flex;
       align-items: center;
-      align-self: flex-start;
       justify-content: center;
-      font-size: $small-font-size;
+      font-size: $base-font-size;
       padding: $base-spacing 0;
 
       span {
@@ -87,14 +82,13 @@ export default {
 
       @include media($min-tablet) {
         flex: 1 5;
-        height: 100%;
         padding: 0;
         flex-direction: column;
       }
     }
 
     &-publishDay {
-      font-size: $large-font-size;
+      font-size: $giant-font-size;
     }
 
     &-text {
@@ -110,7 +104,6 @@ export default {
     }
 
     &-title {
-      font-weight: $base-font-weight;
       margin: $base-spacing;
     }
 
@@ -118,11 +111,15 @@ export default {
       display: none;
       margin: 0 $base-spacing $base-spacing;
       font-weight: $base-font-weight;
-      font-size: $small-font-size;
 
       @include media($min-tablet) {
         display: block;
       }
+    }
+
+    &-viewMore {
+      font-size: $small-font-size;
+      margin: 0 $base-spacing $base-spacing;
     }
 
     @each $type in $colors-array {
@@ -143,23 +140,11 @@ export default {
       .BlogItem {
         &-container {
           border: 1px solid $yellow;
-          max-height: 250px;
-          height: 200px;
         }
 
         &-date {
           background-color: $yellow;
           color: $white;
-        }
-
-        &-title {
-          font-size: $large-font-size;
-          font-weight: 300;
-          font-style: italic;
-        }
-
-        &-preamble {
-          font-size: $base-font-size;
         }
       }
     }

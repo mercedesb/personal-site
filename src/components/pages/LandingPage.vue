@@ -1,12 +1,22 @@
 <template>
   <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage'>
-    <h1 :class="'SplashHeader SplashHeader--' + page.color">{{page.title}}</h1>
-    <p class="PageContent">
+    <PageHeader
+      :color="page.color"
+      :media="iconUrl"
+    >
+      <template slot='decorativeHeader'>
+        <h1>{{ page.title }}</h1>
+      </template>
+      <template slot='titleHeader'>
+        <p>{{ page.preamble }}</p>
+      </template>
+    </PageHeader>
+    <div class="PageContent" v-if="page.mainContent">
       <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
-    </p>
+    </div>
     <ContactForm v-if="page.showContact" />
     <BlogList v-if="page.showBlogPosts" :color="page.color" />
-    <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
+    <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
         :key="ctaLink.id"
@@ -17,7 +27,7 @@
 </template>
 
 <script>
-import SideNavigation from '../SideNavigation.vue'
+import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
@@ -27,7 +37,7 @@ import objects from '../../mixins/objects'
 
 export default {
   components: {
-    SideNavigation,
+    PageHeader,
     CTALink,
     ContactForm,
     BlogList,
@@ -77,20 +87,10 @@ export default {
 
 .LandingPage {
   @include inner-page-content;
-}
 
-.SplashHeader {
-  font-size: 80x;
-  color: $blue;
-  align-self: flex-start;
-  padding-left: $base-spacing;
-  margin-top: $base-spacing;
-
-  @include media($min-tablet) {
-    font-size: 150px;
+  &-ctaContainer {
+    margin-top: $large-spacing;
   }
-
-  @include color;
 }
 
 </style>

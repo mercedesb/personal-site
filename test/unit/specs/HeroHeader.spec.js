@@ -6,6 +6,7 @@ describe('HeroHeader', () => {
 
   const initialProps = {
     title: 'hero title',
+    'preamble': 'hero preamble',
     color: 'brown',
     mainImage: 'http://google.com',
     backgroundImages: ['http://image1.com', 'http://image2.com', 'http://image3.com']
@@ -36,28 +37,6 @@ describe('HeroHeader', () => {
         component = shallow({title: undefined})
         expect(component.element).toMatchSnapshot()
       })
-    })
-  })
-
-  describe('Properties', () => {
-    it('has a title property', () => {
-      component = shallow()
-      expect(component.props().title).toEqual('hero title')
-    })
-
-    it('has a color property', () => {
-      component = shallow()
-      expect(component.props().color).toEqual('brown')
-    })
-
-    it('has a mainImage property', () => {
-      component = shallow()
-      expect(component.props().mainImage).toEqual('http://google.com')
-    })
-
-    it('has a backgroundImages property', () => {
-      component = shallow()
-      expect(component.props().backgroundImages).toEqual(initialProps.backgroundImages)
     })
   })
 })

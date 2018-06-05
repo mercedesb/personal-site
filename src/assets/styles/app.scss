@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
-@import url('https://fonts.googleapis.com/css?family=Poppins:300i,400,400i,600,600i');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,400i,600');
 
 @import '../node_modules/normalize.css/normalize.css';
 @import './variables.scss';
@@ -46,7 +46,8 @@ li {
 
 .PageContent {
   max-width: $content-width;
-  width: 100%;
+  /*width: 100%;*/
+  margin: 0 $base-spacing;
 
   p img {
     display: block;

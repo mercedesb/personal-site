@@ -18,8 +18,7 @@ export default {
     currentComponent () {
       if (this.$route.path === '/') {
         return HomeLayout
-      }
-      else {
+      } else {
         return ContentLayout
       }
     }
