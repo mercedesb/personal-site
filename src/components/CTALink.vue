@@ -39,6 +39,10 @@ export default {
   .CTA {
     flex: 1 1 50%;
 
+    @include media($min-tablet) {
+      min-width: 500px;
+    }
+
     &-link a {
       display:flex;
       align-items: center;
