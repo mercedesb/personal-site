@@ -12,7 +12,7 @@
       </template>
     </PageHeader>
     <div class="PageContent" v-if="page.mainContent">
-      <ParseMarkdown :source="page.mainContent" :collapsible="true" :collapsibleTag="'h3'" :collapsedByDefault="true" />
+      <ParseMarkdown :source="page.mainContent" :collapsible="false" :collapsibleTag="'h3'" :collapsedByDefault="true" />
     </div>
     <ContactForm v-if="page.showContact" />
     <BlogList v-if="page.showBlogPosts" :color="page.color" />
