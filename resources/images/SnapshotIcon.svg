@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="152px" viewBox="0 0 152 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Snapshot</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Resource-Set" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Snapshot" transform="translate(1.000000, 1.000000)" stroke="#FFFFFF" stroke-width="2">
+            <circle id="Oval-2" cx="75" cy="75" r="75"></circle>
+            <circle id="Oval-2" cx="75" cy="75" r="69.8863636"></circle>
+            <path d="M52.4743334,8.83593168 C85.4076491,31.8165664 105.062757,53.9421055 111.439656,75.2125491" id="Path-2"></path>
+            <path d="M79.7094335,31.550598 C111.253922,52.5368415 130.214616,73.665185 136.591515,94.9356286" id="Path-2" transform="translate(108.150474, 63.243113) rotate(60.000000) translate(-108.150474, -63.243113) "></path>
+            <path d="M71.4870375,62.8550873 C103.53456,85.5246129 122.74677,107.494597 129.123669,128.765041" id="Path-2" transform="translate(100.305353, 95.810064) rotate(122.000000) translate(-100.305353, -95.810064) "></path>
+            <path d="M41.4478763,74.5070076 C73.7124969,97.2174188 93.0332568,119.207846 99.4101559,140.47829" id="Path-2" transform="translate(70.429016, 107.492649) rotate(180.000000) translate(-70.429016, -107.492649) "></path>
+            <path d="M15.1766199,50.9741695 C48.2970914,75.6281256 68.0457768,98.5903255 74.4226759,119.860769" id="Path-2" transform="translate(44.799648, 85.417469) rotate(240.000000) translate(-44.799648, -85.417469) "></path>
+            <path d="M20.3667276,19.0667232 C52.6738841,41.3290805 72.015912,63.095481 78.3928111,84.3659245" id="Path-2" transform="translate(49.379769, 51.716324) rotate(300.000000) translate(-49.379769, -51.716324) "></path>
+            <circle id="Oval-3" cx="75" cy="75" r="11.9318182"></circle>
+        </g>
+    </g>
+</svg>

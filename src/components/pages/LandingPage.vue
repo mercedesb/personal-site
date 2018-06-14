@@ -63,13 +63,22 @@ export default {
     },
     ctaLinks () {
       if (!this.page.ctaLinks) return []
+        let url
       return this.page.ctaLinks.map((cta) => {
+        if (cta.fields.externalLink) {
+          url = cta.fields.externalLink
+        } else if (cta.fields.internalLink) {
+          url = cta.fields.internalLink.fields.urlSegment
+        } else {
+          url = cta.fields.urlSegment
+        }
+        debugger
         return {
           id: cta.sys.id,
           color: this.page.color,
           title: cta.fields.title,
           icon: this.getImageUrl(cta.fields.icon),
-          url: cta.fields.externalLink || cta.fields.internalLink.fields.urlSegment,
+          url: url,
           external: !!cta.fields.externalLink
         }
       })
