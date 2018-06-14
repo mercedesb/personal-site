@@ -13,12 +13,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  margin: $large-spacing 0 $base-spacing;
+  margin: $larger-spacing 0 $base-spacing;
 
 }
 
 h4, h5, h6 {
-  margin: $base-spacing 0 $small-spacing;
+  margin: $large-spacing 0 $small-spacing;
 }
 
 h1 {
@@ -61,4 +61,11 @@ a {
 p {
   margin: 0 0 $base-spacing;
   line-height: 1.35em;
+}
+
+p > em {
+  display: inline-block;
+  font-weight: 200;
+  font-style: normal;
+  margin: $base-spacing 0;
 }
