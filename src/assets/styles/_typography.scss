@@ -17,8 +17,12 @@ h1, h2, h3 {
 
 }
 
-h4, h5, h6 {
+h4, h5 {
   margin: $large-spacing 0 $small-spacing;
+}
+
+h6 {
+  margin: $base-spacing 0 $small-spacing;
 }
 
 h1 {
