@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  margin: $larger-spacing 0 $base-spacing;
+  margin: $large-spacing 0 $small-spacing;
 
 }
 
@@ -59,7 +59,7 @@ a {
 }
 
 p {
-  margin: 0 0 $base-spacing;
+  margin: 0 0 30px;
   line-height: 1.35em;
 }
 
