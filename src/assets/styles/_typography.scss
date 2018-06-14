@@ -63,9 +63,20 @@ p {
   line-height: 1.35em;
 }
 
-p > em {
-  display: inline-block;
+em {
   font-weight: 200;
   font-style: normal;
-  margin: $base-spacing 0;
+}
+
+blockquote {
+  @include border-radius($base-radius);
+  border: 1px solid $gray;
+  padding: $base-spacing;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+
+  p {
+    margin: 0;
+  }
 }
