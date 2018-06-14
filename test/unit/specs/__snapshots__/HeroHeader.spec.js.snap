@@ -12,7 +12,7 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
     >
       <img
         class="Hero-image"
-        src="../assets/images/MerBer-circle.png"
+        src="http://google.com"
       />
        
       <div

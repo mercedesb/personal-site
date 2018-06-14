@@ -24,7 +24,6 @@ export default {
   },
   computed: {
     modifierClass () {
-      console.log(this.external)
       return this.external ? 'external' : 'default'
     }
   }
