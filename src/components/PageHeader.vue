@@ -108,7 +108,7 @@ export default {
       }
 
       * {
-        font-size: 80px;
+        font-size: 75px;
 
         @include media($min-tablet) {
           font-size: 300px;
