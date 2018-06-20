@@ -84,3 +84,10 @@ blockquote {
     margin: 0;
   }
 }
+
+img + em {
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+  font-size: $small-font-size;
+}
