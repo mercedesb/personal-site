@@ -36,6 +36,17 @@ describe('mutations', () => {
     })
   })
 
+  describe('maxBlogPostPages', () => {
+    it('sets the maxBlogPostPages state', () => {
+      const { maxBlogPostPages } = mutations
+      const state = { maxBlogPostPages: 0 }
+
+      maxBlogPostPages(state, 15)
+
+      expect(state.maxBlogPostPages).toEqual(15)
+    })
+  })
+
   describe('blogPost', () => {
     it('sets the blogPost state', () => {
       const { blogPost } = mutations
@@ -105,6 +116,17 @@ describe('mutations', () => {
     })
   })
 
+  describe('total', () => {
+    it('sets the total state', () => {
+      const { total } = mutations
+      const state = { total: 0 }
+
+      total(state, 15)
+
+      expect(state.total).toEqual(15)
+    })
+  })
+
   describe('clearBlogPosts', () => {
     it('sets the blogPosts state', () => {
       const { clearBlogPosts } = mutations
@@ -113,6 +135,17 @@ describe('mutations', () => {
       clearBlogPosts(state)
 
       expect(state.blogPosts.length).toEqual(0)
+    })
+  })
+
+  describe('clearMaxBlogPostPages', () => {
+    it('sets the blogPosts state', () => {
+      const { clearMaxBlogPostPages } = mutations
+      const state = { maxBlogPostPages: 15 }
+
+      clearMaxBlogPostPages(state)
+
+      expect(state.maxBlogPostPages).toEqual(0)
     })
   })
 
@@ -181,6 +214,17 @@ describe('mutations', () => {
       expect(state.entries.length).toEqual(0)
     })
   })
+
+  describe('clearTotal', () => {
+    it('sets the blogPosts state', () => {
+      const { clearTotal } = mutations
+      const state = { total: 15 }
+
+      clearTotal(state)
+
+      expect(state.total).toEqual(0)
+    })
+  })
 })
 
 describe('actions', () => {
@@ -199,7 +243,7 @@ describe('actions', () => {
     it('returns an array of objects', () => {
       const { getBlogPosts } = actions
 
-      getBlogPosts({ commit, dispatch })
+      getBlogPosts({ commit, dispatch }, {page: 1, pageSize: 10})
         .then(result => {
           expect(result.length).toEqual(2)
         })
@@ -208,9 +252,18 @@ describe('actions', () => {
     it('commits blogPosts to state', () => {
       const { getBlogPosts } = actions
 
-      getBlogPosts({ commit, dispatch })
+      getBlogPosts({ commit, dispatch }, { page: 1, pageSize: 10 })
         .then(result => {
           expect(commit).toHaveBeenCalledWith('blogPosts', expect.anything())
+        })
+    })
+
+    it('commits maxBlogPostPages to state', () => {
+      const { getBlogPosts } = actions
+
+      getBlogPosts({ commit, dispatch }, { page: 1, pageSize: 10 })
+        .then(result => {
+          expect(commit).toHaveBeenCalledWith('maxBlogPostPages', expect.anything())
         })
     })
   })

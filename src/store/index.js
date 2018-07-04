@@ -6,17 +6,22 @@ Vue.use(Vuex)
 const state = {
   errors: [],
   blogPosts: [],
+  maxBlogPostPages: 0,
   blogPost: {},
   landingPage: {},
   homePage: {},
   navLinks: [],
   backgroundImages: [],
-  entries: []
+  entries: [],
+  total: 0
 }
 
 export const mutations = {
   blogPosts (state, blogPosts) {
     state.blogPosts = blogPosts
+  },
+  maxBlogPostPages (state, maxBlogPostPages) {
+    state.maxBlogPostPages = maxBlogPostPages
   },
   blogPost (state, blogPost) {
     state.blogPost = blogPost
@@ -36,8 +41,14 @@ export const mutations = {
   entries (state, entries) {
     state.entries = entries
   },
+  total (state, total) {
+    state.total = total
+  },
   clearBlogPosts (state) {
     state.blogPosts = []
+  },
+  clearMaxBlogPostPages (state) {
+    state.maxBlogPostPages = 0
   },
   clearBlogPost (state) {
     state.blogPost = {}
@@ -56,18 +67,25 @@ export const mutations = {
   },
   clearEntries (state) {
     state.entries = []
+  },
+  clearTotal (state) {
+    state.total = 0
   }
 }
 
 export const actions = {
-  getBlogPosts (context) {
+  getBlogPosts (context, pageParams) {
+    const zeroIndexPageNum = pageParams.page - 1
     context.commit('clearBlogPosts')
     return context.dispatch('getEntries', {
       content_type: 'blogPost',
-      order: `-fields.publishDate`
+      order: `-fields.publishDate`,
+      skip: zeroIndexPageNum * pageParams.pageSize,
+      limit: pageParams.pageSize
     })
       .then((entries) => {
         context.commit('blogPosts', entries)
+        context.commit('maxBlogPostPages', Math.ceil(state.total / pageParams.pageSize))
         return entries
       })
   },
@@ -187,6 +205,7 @@ export const actions = {
             ...item.fields
           }
         })
+        context.commit('total', res.total)
         context.commit('entries', entries)
         return entries
       })

@@ -59,12 +59,23 @@ describe('BlogList', () => {
 
     describe('featuredPost', () => {
       it('has featuredPost populated', () => {
+        component = shallow()
         expect(component.vm.featuredPost).toBeDefined()
       })
 
-      it('returns the first post as featured', () => {
+      it('returns the first post of the first page as featured', () => {
+        component = shallow()
         const expected = {
           featured: true,
+          ...component.vm.posts[0]
+        }
+        expect(component.vm.featuredPost).toEqual(expected)
+      })
+
+      it('returns the first post of the second page as not featured', () => {
+        component = shallow({page: 2})
+        const expected = {
+          featured: false,
           ...component.vm.posts[0]
         }
         expect(component.vm.featuredPost).toEqual(expected)
@@ -72,6 +83,9 @@ describe('BlogList', () => {
     })
 
     describe('remainingPosts', () => {
+      beforeEach(() => {
+        component = shallow()
+      })
       it('has remainingPosts populated', () => {
         expect(component.vm.remainingPosts).toBeDefined()
       })
@@ -79,6 +93,16 @@ describe('BlogList', () => {
       it('returns the second through end post', () => {
         const expected = component.vm.posts.slice(1)
         expect(component.vm.remainingPosts).toEqual(expected)
+      })
+    })
+  })
+
+  describe('Methods', () => {
+    describe('getPage', () => {
+      it('dispatches getBlogPosts to the store', () => {
+        component = shallow()
+        component.vm.getPage(2)
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPosts', { page: 2, pageSize: expect.anything() })
       })
     })
   })
@@ -92,7 +116,7 @@ describe('BlogList', () => {
             ...initialProps
           }
         })
-        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPosts')
+        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPosts', { page: expect.anything(), pageSize: expect.anything() })
       })
     })
   })

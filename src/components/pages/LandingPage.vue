@@ -1,22 +1,22 @@
 <template>
-  <main :key="`${page.id}_mainContent`" v-if="page.title" class='LandingPage'>
+  <main :key="`${landingPage.id}_mainContent`" v-if="landingPage.title" class='LandingPage'>
     <PageHeader
-      :color="page.color"
+      :color="landingPage.color"
       :media="iconUrl"
     >
       <template slot='decorativeHeader'>
-        <h1>{{ page.title }}</h1>
+        <h1>{{ landingPage.title }}</h1>
       </template>
       <template slot='titleHeader'>
-        <p>{{ page.preamble }}</p>
+        <p>{{ landingPage.preamble }}</p>
       </template>
     </PageHeader>
-    <div class="PageContent" v-if="page.mainContent">
-      <ParseMarkdown :source="page.mainContent" :collapsible="false" :collapsibleTag="'h3'" :collapsedByDefault="true" />
+    <div class="PageContent" v-if="landingPage.mainContent">
+      <ParseMarkdown :source="landingPage.mainContent" :collapsible="false" :collapsibleTag="'h3'" :collapsedByDefault="true" />
     </div>
-    <ContactForm v-if="page.showContact" />
-    <BlogList v-if="page.showBlogPosts" :color="page.color" />
-    <div :key="`${page.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
+    <ContactForm v-if="landingPage.showContact" />
+    <BlogList v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
+    <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
         :key="ctaLink.id"
@@ -47,7 +47,11 @@ export default {
     images, objects
   ],
   props: {
-    urlSegment: String
+    urlSegment: String,
+    page: {
+      type: String,
+      default: '1'
+    }
   },
   data () {
     return {
@@ -55,18 +59,18 @@ export default {
     }
   },
   computed: {
-    page () {
+    landingPage () {
       return this.$store.state.landingPage
     },
     iconUrl () {
-      return this.getImageUrl(this.page.icon)
+      return this.getImageUrl(this.landingPage.icon)
     },
     ctaLinks () {
-      if (!this.page.ctaLinks) return []
+      if (!this.landingPage.ctaLinks) return []
 
       let url
 
-      return this.page.ctaLinks.map((cta) => {
+      return this.landingPage.ctaLinks.map((cta) => {
         if (cta.fields.externalLink) {
           url = cta.fields.externalLink
         } else if (cta.fields.internalLink) {
@@ -76,7 +80,7 @@ export default {
         }
         return {
           id: cta.sys.id,
-          color: this.page.color,
+          color: this.landingPage.color,
           title: cta.fields.title,
           icon: this.getImageUrl(cta.fields.icon),
           url: url,
