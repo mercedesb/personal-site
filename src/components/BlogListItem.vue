@@ -56,9 +56,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../assets/styles/variables.scss';
+
   .BlogItem {
+    a {
+      text-decoration: none
+    }
 
     &-container {
       display:flex;

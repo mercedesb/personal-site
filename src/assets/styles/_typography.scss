@@ -91,3 +91,10 @@ img + em {
   margin-top: 5px;
   font-size: $small-font-size;
 }
+
+pre {
+  background-color: darken($purple, 10%);
+  color: $white;
+  overflow: scroll;
+  padding: $base-spacing;
+}

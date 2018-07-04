@@ -46,7 +46,8 @@ export default {
       display:flex;
       align-items: center;
       margin: $base-spacing;
-      border-radius: $base-radius
+      border-radius: $base-radius;
+      text-decoration: none;
     }
 
     &-title {

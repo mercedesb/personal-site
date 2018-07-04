@@ -49,6 +49,10 @@ li {
   /*width: 100%;*/
   margin: 0 $base-spacing;
 
+  a {
+    text-decoration: underline;
+  }
+
   p img {
     display: block;
     margin: 0 auto;
