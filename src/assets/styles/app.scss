@@ -30,8 +30,12 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+ul, ol {
   padding: 0;
   margin: 0 0 $base-spacing;
+  line-height: 1.5em;
 }
 
 li {
