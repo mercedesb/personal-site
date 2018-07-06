@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
+before_deploy:
+- npm run build
+deploy:
+  provider: heroku
+  app: mercedesbernard
+  api_key:
+    secure: pHXhnBQ3DdGiSKxPfcPISa2rUv2jqTiZVGytEEQBDMgwgQewDxOzy1m2DqJw8D0f5WV5oLP1EU5SNTYXxXXbnxxoH9BbmWE2Qi/Fa9F+SxXVWr4UDn4aw+3AbecIv4/tbLrjebDKaR1ptPkDhCsJ8b6KhZiY6rXhmTR+s2EL9rK2tGenLEBqZhbWauQjTdqxlbWqPvTbaO/M/f06eWZWll4zdr6/vdR9ytYGoJpQ/pKJFUZTvS4NJzuX1QAgMKPAvEd8phksrgtGCwTWVsuTTvvIKG2E7bVnClTfOBsgU+a5969k4YutQG2yIu/QtDJSAb/MZ0OsV00BgRyxpa1XkSJ7AEAi4VK1zUw2bZiz7fag0ffsowCIogshZYmM596lZ3eMCPMuJ43FaV1kxSuEOsM6npYiPHh+zd2xeSVVFFbtV06KDiQod6JTtACxZd8l9blebuGYGGgaY7mqGERYe3Px9t9KPpSSGa4YvtR8qk0+ROdYJXmqZXqke2hFwUpFwXDftVKf6yZhyVjiWGXV8PhsO5DZJUT1+g/3xeQlB62l0XIhlvU+zQvPapHQmE9em85hKyeRakNxLR59Lz+Pr7BcHmq3FSFkvDC8I1ymANe5OPpYJnK1qfXExwpUZxFyHvaTZERZZqN0uB/7kO9LT4hejuCRqAJXvOdoPPngw/Y=
