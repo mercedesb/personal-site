@@ -46,6 +46,31 @@ export default {
   mixins: [
     images, objects
   ],
+  // metaInfo () {
+  //   return {
+  //     title: landingPage.title,
+  //     meta: [
+  //       { name: 'description', content: landingPage.preamble },
+  //       { name: 'og:title', content: landingPage.title },
+  //       // Twitter Card data 
+  //       { name: 'twitter:card', content: 'summary' },
+  //       { name: 'twitter:site', content: '@mercedescodes' },
+  //       { name: 'twitter:title', content: landingPage.title },
+  //       { name: 'twitter:description', content: landingPage.preamble },
+  //       { name: 'twitter:creator', content: '@mercedescodes'},
+  //       // Twitter Summary card images must be at least 120x120px 
+  //       // { name: 'twitter:image', content: 'http://www.example.com/image.jpg' },
+
+  //       // Open Graph data
+  //       { property: 'og:title', content: landingPage.title },
+  //       { property: 'og:type', content: 'article' },
+  //       // { property: 'og:url', content: $route }
+  //       // { property: 'og:image', content: 'http://example.com/image.jpg' }
+  //       { property: 'og:description', content: landingPage.preamble }, 
+  //       { property: 'og:site_name', content: 'Mercedes Bernard' }
+  //     ]
+  //   }
+  // },
   props: {
     urlSegment: String,
     page: {
