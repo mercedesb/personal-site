@@ -105,14 +105,12 @@ describe('LandingPage', () => {
 
   describe('Lifecycle', () => {
     describe('created', () => {
-      it('dispatches getLandingPage to the store', () => {
-        component = TestUtility.mount(LandingPage, {
-          store,
-          propsData: {
-            ...initialProps
-          }
-        })
+      it('dispatches the correct actions to the store', () => {
+        component = shallow()
+
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getLandingPage', initialProps.urlSegment)
+        // TODO: test getNavLinks and getBlogPosts
+        // expect(component.vm.$store.dispatch).toHaveBeenNthCalledWith(2, 'getNavLinks')
       })
     })
   })

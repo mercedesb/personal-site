@@ -75,6 +75,7 @@ describe('BlogPostPage', () => {
         })
         const expectedPath = TestUtility.mockRoute
         expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPost', expectedPath)
+        // TODO: test getNavLinks
       })
     })
   })
