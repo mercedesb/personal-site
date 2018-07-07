@@ -51,23 +51,23 @@ export default {
       title: this.landingPage.title,
       titleTemplate: '%s | Mercedes Bernard',
       meta: [
-        { name: 'description', content: this.landingPage.preamble },
-        { name: 'og:title', content: this.landingPage.title },
+        { name: 'description', vmid: 'description', content: this.landingPage.preamble },
+        { name: 'og:title', vmid: 'og:title', content: this.landingPage.title },
         // Twitter Card data
-        { name: 'twitter:card', content: 'summary' },
-        { name: 'twitter:site', content: '@mercedescodes' },
-        { name: 'twitter:title', content: this.landingPage.title },
-        { name: 'twitter:description', content: this.landingPage.preamble },
-        { name: 'twitter:creator', content: '@mercedescodes' },
+        { name: 'twitter:card', vmid: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', vmid: 'twitter:site', content: '@mercedescodes' },
+        { name: 'twitter:title', vmid: 'twitter:title', content: this.landingPage.title },
+        { name: 'twitter:description', vmid: 'twitter:description', content: this.landingPage.preamble },
+        { name: 'twitter:creator', vmid: 'twitter:creator', content: '@mercedescodes' },
         // Twitter Summary card images must be at least 120x120px
         // { name: 'twitter:image', content: 'http://www.example.com/image.jpg' },
         // Open Graph data
-        { property: 'og:title', content: this.landingPage.title },
-        { property: 'og:type', content: 'article' },
-        // { property: 'og:url', content: $route }
+        { property: 'og:title', vmid: 'og:title', content: this.landingPage.title },
+        { property: 'og:type', vmid: 'og:type', content: 'article' },
+        { property: 'og:url', vmid: 'og:url', content: `${location.origin}${this.$route.fullPath}` },
         // { property: 'og:image', content: 'http://example.com/image.jpg' }
-        { property: 'og:description', content: this.landingPage.preamble },
-        { property: 'og:site_name', content: 'Mercedes Bernard' }
+        { property: 'og:description', vmid: 'og:description', content: this.landingPage.preamble },
+        { property: 'og:site_name', vmid: 'og:site_name', content: 'Mercedes Bernard' }
       ]
     }
   },
