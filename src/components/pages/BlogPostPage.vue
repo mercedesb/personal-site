@@ -13,6 +13,7 @@
     </PageHeader>
     <div v-if="page.mainContent" class='BlogPost-content'>
       <div class="PageContent">
+        <p><ReadingTime :text="page.mainContent" /></p>
         <ParseMarkdown :source="page.mainContent" />
         <br/>
         <p class="BlogPost-publishDate">
@@ -27,13 +28,14 @@
 import PageHeader from '../PageHeader.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import CTALink from '../CTALink.vue'
+import ReadingTime from '../ReadingTime.vue'
 import objects from '../../mixins/objects'
 
 const moment = require('moment')
 
 export default {
   components: {
-    PageHeader, ParseMarkdown, CTALink
+    PageHeader, ParseMarkdown, CTALink, ReadingTime
   },
   mixins: [
     objects

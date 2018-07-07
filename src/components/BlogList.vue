@@ -52,6 +52,7 @@ export default {
           color: this.color,
           title: post.title,
           preamble: post.preamble,
+          mainContent: post.mainContent,
           urlSegment: post.urlSegment,
           date: new Date(post.publishDate)
         }

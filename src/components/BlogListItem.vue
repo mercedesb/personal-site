@@ -9,21 +9,29 @@
       <div class='BlogItem-text'>
       <h5 class='BlogItem-title'>{{ title }}</h5>
       <p class='BlogItem-preamble'>{{ preamble }}</p>
-      <p class='BlogItem-viewMore'>View more</p>
+      <p class='BlogItem-viewMore'>
+        View more | 
+      <ReadingTime :text="mainContent" />
+      </p>
    </div>
     </div>
   </smart-link>
 </template>
 
 <script>
+import ReadingTime from './ReadingTime.vue'
 const moment = require('moment')
 
 export default {
+ components: {
+    ReadingTime
+  },
   props: {
     color: String,
     featured: Boolean,
     title: String,
     preamble: String,
+    mainContent: String,
     date: Date,
     urlSegment: {
       type: String,
