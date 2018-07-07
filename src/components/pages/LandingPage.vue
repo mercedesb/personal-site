@@ -55,7 +55,8 @@ export default {
   },
   data () {
     return {
-      path: this.urlSegment
+      path: this.urlSegment,
+      intialPageSize: 10
     }
   },
   computed: {
@@ -95,9 +96,16 @@ export default {
         if (this.isEmpty(landingPage)) {
           this.$router.push({name: 'pageNotFound'})
         }
-        if (!landingPage.showBlogPosts) {
-          document.dispatchEvent(new Event('custom-render-trigger'))
-        }
+
+        this.$store.dispatch('getNavLinks')
+          .then((navLinks) => {
+            if (landingPage.showBlogPosts) {
+              this.$store.dispatch('getBlogPosts', { page: this.page, pageSize: this.intialPageSize })
+                .then((blogPosts) => {
+                  document.dispatchEvent(new Event('custom-render-trigger'))
+                })
+            }
+          })
       })
   }
 }

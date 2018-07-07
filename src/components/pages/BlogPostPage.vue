@@ -58,7 +58,11 @@ export default {
         if (this.isEmpty(page)) {
           this.$router.push({name: 'pageNotFound'})
         }
-        document.dispatchEvent(new Event('custom-render-trigger'))
+
+        this.$store.dispatch('getNavLinks')
+          .then((navLinks) => {
+            document.dispatchEvent(new Event('custom-render-trigger'))
+          })
       })
   }
 }
