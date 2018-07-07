@@ -158,4 +158,39 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-module.exports = webpackConfig
+module.exports = () => {
+  return new Promise((resolve, reject) => {
+    const client = require('contentful')
+      .createClient({
+        space: process.env.SPACE_ID,
+        accessToken: process.env.CDA_TOKEN
+      })
+    client.getEntries({
+      content_type: 'blogPost',
+    })
+      .then(response => {
+        const defaultRoutes = ['/', '/about', '/connect', '/blog']
+        const blogRoutes = response.items.map((item) => {
+          return `/blog/${item.fields.urlSegment}`
+        })
+
+        const allRoutes = defaultRoutes.concat(blogRoutes)
+
+        // Add PrerenderPlugin
+        webpackConfig.plugins.push(new PrerenderSpaPlugin({
+          // Absolute path to compiled SPA
+          staticDir: path.join(__dirname, '../dist'),
+          // List of routes to prerender
+          routes: allRoutes,
+          renderer: new Renderer({
+            // renderAfterDocumentEvent: 'custom-render-trigger',
+            renderAfterTime: 5000
+          })
+        }))
+        resolve(webpackConfig)
+      })
+      .catch(e => {
+        reject(e)
+      })
+  })
+}
