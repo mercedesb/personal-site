@@ -56,7 +56,7 @@ export default {
         // Open Graph data
         { property: 'og:title', vmid: 'og:title', content: this.page.title },
         { property: 'og:type', vmid: 'og:type', content: 'article' },
-        { property: 'og:url', vmid: 'og:url', content: `${location.origin}${this.$route.fullPath}` },
+        { property: 'og:url', vmid: 'og:url', content: `http://www.mercedesbernard.com${this.$route.fullPath}` },
         // { property: 'og:image', content: 'http://example.com/image.jpg' }
         { property: 'og:description', vmid: 'og:description', content: this.page.preamble },
         { property: 'og:site_name', vmid: 'og:site_name', content: 'Mercedes Bernard' }
