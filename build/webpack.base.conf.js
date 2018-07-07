@@ -3,6 +3,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
+const Renderer = PrerenderSpaPlugin.PuppeteerRenderer
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -31,6 +33,17 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  plugins: [
+    new PrerenderSpaPlugin({
+      // Absolute path to compiled SPA
+      staticDir: path.join(__dirname, '../dist'),
+      // List of routes to prerender
+      routes: [ '/', '/about', '/connect', '/blog'],
+      renderer: new Renderer({
+        renderAfterDocumentEvent: 'custom-render-trigger'
+      })
+    })
+  ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

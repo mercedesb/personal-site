@@ -91,7 +91,14 @@ export default {
   },
   created () {
     this.$store.dispatch('getLandingPage', this.path)
-      .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
+      .then((landingPage) => {
+        if (this.isEmpty(landingPage)) {
+          this.$router.push({name: 'pageNotFound'})
+        }
+        if (!landingPage.showBlogPosts) {
+          document.dispatchEvent(new Event('custom-render-trigger'))
+        }
+      })
   }
 }
 </script>

@@ -54,7 +54,12 @@ export default {
   },
   created () {
     this.$store.dispatch('getBlogPost', this.$route.params.urlSegment)
-      .then((page) => this.isEmpty(page) ? this.$router.push({name: 'pageNotFound'}) : '')
+      .then((page) => {
+        if (this.isEmpty(page)) {
+          this.$router.push({name: 'pageNotFound'})
+        }
+        document.dispatchEvent(new Event('custom-render-trigger'))
+      })
   }
 }
 </script>

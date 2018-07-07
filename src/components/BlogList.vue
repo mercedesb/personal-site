@@ -78,6 +78,9 @@ export default {
   },
   created () {
     this.$store.dispatch('getBlogPosts', { page: this.currentPageNumber, pageSize: this.pageSize })
+    .then((blogPosts) => {
+      document.dispatchEvent(new Event('custom-render-trigger'))
+    })
   }
 }
 </script>

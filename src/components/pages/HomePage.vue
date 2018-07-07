@@ -63,7 +63,12 @@ export default {
   },
   created () {
     this.$store.dispatch('getHomePage')
-    this.$store.dispatch('getBackgroundImages')
+      .then((homePage) => {
+        this.$store.dispatch('getBackgroundImages')
+          .then((bgdImages) => {
+            document.dispatchEvent(new Event('custom-render-trigger'))
+          })
+      })
   }
 }
 </script>
