@@ -64,15 +64,4 @@ describe('Navigation', () => {
       })
     })
   })
-
-  describe('Lifecycle', () => {
-    describe('created', () => {
-      it('dispatches getNavLinks to the store', () => {
-        component = TestUtility.mount(Navigation, {
-          store
-        })
-        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getNavLinks')
-      })
-    })
-  })
 })

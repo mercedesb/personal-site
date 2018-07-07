@@ -106,18 +106,4 @@ describe('BlogList', () => {
       })
     })
   })
-
-  describe('Lifecycle', () => {
-    describe('created', () => {
-      it('dispatches getBlogPosts to the store', () => {
-        component = TestUtility.mount(BlogList, {
-          store,
-          propsData: {
-            ...initialProps
-          }
-        })
-        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getBlogPosts', { page: expect.anything(), pageSize: expect.anything() })
-      })
-    })
-  })
 })
