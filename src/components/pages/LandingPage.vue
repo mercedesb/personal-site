@@ -46,6 +46,31 @@ export default {
   mixins: [
     images, objects
   ],
+  metaInfo () {
+    return {
+      title: this.landingPage.title,
+      titleTemplate: '%s | Mercedes Bernard',
+      meta: [
+        { name: 'description', content: this.landingPage.preamble },
+        { name: 'og:title', content: this.landingPage.title },
+        // Twitter Card data
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: '@mercedescodes' },
+        { name: 'twitter:title', content: this.landingPage.title },
+        { name: 'twitter:description', content: this.landingPage.preamble },
+        { name: 'twitter:creator', content: '@mercedescodes' },
+        // Twitter Summary card images must be at least 120x120px
+        // { name: 'twitter:image', content: 'http://www.example.com/image.jpg' },
+        // Open Graph data
+        { property: 'og:title', content: this.landingPage.title },
+        { property: 'og:type', content: 'article' },
+        // { property: 'og:url', content: $route }
+        // { property: 'og:image', content: 'http://example.com/image.jpg' }
+        { property: 'og:description', content: this.landingPage.preamble },
+        { property: 'og:site_name', content: 'Mercedes Bernard' }
+      ]
+    }
+  },
   props: {
     urlSegment: String,
     page: {
