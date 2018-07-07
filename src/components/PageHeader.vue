@@ -80,9 +80,6 @@ export default {
       top: -$media-width/4;
       left: -$media-width/4;
       opacity: $light-opacity;
-
-      img {
-      }
     }
 
     &-text {
