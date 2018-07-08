@@ -6,7 +6,7 @@ before_deploy:
 deploy:
   provider: heroku
   api_key: 926e4f5d-59f4-4ac0-b602-2ee7bcf2e1fc
-gs  app: mercedesbernard
+  app: mercedesbernard
   skip_cleanup: true
   on:
     repo: mercedesb/personal-site
