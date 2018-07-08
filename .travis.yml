@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - stable
-script:
-- npm test
-- npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: YxlgEKmIKrxKUBg1lidxY3QVHmAvObThlro849lFsqZmPrbKXPKBTHOOb7e7WAuqOTBL0+07t8jDdGxD+PsiYr57ngDuBcn/Uwzq+Phwb1NlaRj2U1zhZQbjqv7lhVk0oRRfsDmpbqtUdSouXHETCxVsBAGA2qdQ1x8qjQqt2IddbpzQLwSmxrF3uPk4kyeGauquZMk+cluYfdsibA3KRb5FQlw2jDui7T+bixyVQ7uBeVZJSkc6r/fwHb5hJyxEKfzGCD8PfVu5lqwfdbGD+QKlazfr+UsiYLT1d+ynBAdSYyLSG2lo9slWaGA8KgITQmYwmqTrtqA5hspCUnsyZv6wAl6Ap9Rrd0kV9E2GBhObmpEtNsQHGzBG/wYhPEAZqKxvqUysDIspq+twB3tKLH1kEgwO6ml5DjoIQjh6Cq/Mt3+2396pEeEGZYiPoslA2V4uvLWI+3SF705XVACiEGjw0Pq1umMUor/E+87vqmgz/dVv5VsL42kh3c0YLeaeKmZnbfdaR12mOae/JSHcFuaiZFpl19F8RBuojgWulYR9rOOsKPpKxTQesI2pfTGKrwcxFNYBxJfsCcK81OftifPUl5kYEezz48uVCUXdAX6iFgnGHqmVrxFefdMt0mX9rGkHw3wgOzc7X9ettr47eCcHixVdC8XV5hD2m1NKELs=
+  app: mercedesbernard
+  on:
+    repo: mercedesb/personal-site
