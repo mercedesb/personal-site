@@ -63,6 +63,7 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
           </div>
            
           <img
+            alt="Shop icon"
             class="Navigation-icon"
             src="http://placeholder.pics/svg/300"
           />

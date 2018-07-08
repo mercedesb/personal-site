@@ -33,14 +33,17 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
     class="Hero-background"
   >
     <img
+      alt="undefined background icon"
       class="Hero-backgroundImage"
       src="http://image1.com"
     />
     <img
+      alt="undefined background icon"
       class="Hero-backgroundImage"
       src="http://image2.com"
     />
     <img
+      alt="undefined background icon"
       class="Hero-backgroundImage"
       src="http://image3.com"
     />
