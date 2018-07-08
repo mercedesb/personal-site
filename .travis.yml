@@ -1,12 +1,12 @@
 language: node_js
 node_js:
 - stable
-before_deploy:
-- npm run build
-deploy:
-  provider: heroku
-  api_key: 926e4f5d-59f4-4ac0-b602-2ee7bcf2e1fc
-  app: mercedesbernard
-  skip_cleanup: true
-  on:
-    repo: mercedesb/personal-site
+# before_deploy:
+# - npm run build
+# deploy:
+#   provider: heroku
+#   api_key: 926e4f5d-59f4-4ac0-b602-2ee7bcf2e1fc
+#   app: mercedesbernard
+#   skip_cleanup: true
+#   on:
+#     repo: mercedesb/personal-site

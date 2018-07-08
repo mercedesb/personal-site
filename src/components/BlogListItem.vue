@@ -10,7 +10,7 @@
       <h5 class='BlogItem-title'>{{ title }}</h5>
       <p class='BlogItem-preamble'>{{ preamble }}</p>
       <p class='BlogItem-viewMore'>
-        View more | 
+        View more |
       <ReadingTime :text="mainContent" />
       </p>
    </div>
@@ -23,7 +23,7 @@ import ReadingTime from './ReadingTime.vue'
 const moment = require('moment')
 
 export default {
- components: {
+  components: {
     ReadingTime
   },
   props: {
