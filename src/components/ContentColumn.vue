@@ -2,7 +2,7 @@
   <div :class="'ContentColumn ContentColumn--' + color">
     <smart-link class='ContentColumn-link' :to="link" :isExternal="isExternal">
       <h2 class='ContentColumn-title'>{{ title }}</h2>
-      <img class='ContentColumn-icon' :src="iconUrl" />
+      <img class='ContentColumn-icon' :src="iconUrl" :alt="`${title} icon`" />
       <div class='ContentColumn-description'>
         <p>{{ preamble }}</p>
       </div>

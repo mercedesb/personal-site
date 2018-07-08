@@ -1,7 +1,7 @@
 <template>
   <header :class="`PageHeader PageHeader--${color} PageHeader--${height}`">
     <div class="PageHeader-background" v-if="media">
-      <img class='PageHeader-media' :src="media" />
+      <img class='PageHeader-media' :src="media" :alt="`Background icon`" />
     </div>
     <div class='PageHeader-text'>
       <div class='PageHeader-decorativeHeader'>

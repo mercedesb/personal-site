@@ -4,7 +4,7 @@
       <li class="Navigation-navLink">
         <smart-link to="/">
           <div class='Navigation-title'><span>Home</span></div>
-          <img class='Navigation-icon' src='../assets/HomeIcon.svg' />
+          <img class='Navigation-icon' src='../assets/HomeIcon.svg' alt='Home icon' />
         </smart-link>
       </li>
       <li class="Navigation-navLink" v-for="navLink in navLinks" :key="navLink.title">
@@ -13,7 +13,7 @@
           :isExternal="!!navLink.externalLink"
           >
           <div class='Navigation-title'><span>{{navLink.title}}</span></div>
-          <img class='Navigation-icon' :src="navLink.iconUrl" />
+          <img class='Navigation-icon' :src="navLink.iconUrl" :alt="`${navLink.title} icon`"/>
         </smart-link>
       </li>
     </ul>

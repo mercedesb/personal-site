@@ -14,6 +14,7 @@
         v-for="image in backgroundImages"
         :key="image.id"
         :src="image"
+        :alt="`${image.title} background icon`"
         class="Hero-backgroundImage"
       />
     </div>
