@@ -5,7 +5,9 @@ before_deploy:
 - npm run build
 deploy:
   provider: heroku
-  api_key: 926e4f5d-59f4-4ac0-b602-2ee7bcf2e1fc
+  api_key:
+  # api_key: 926e4f5d-59f4-4ac0-b602-2ee7bcf2e1fc
+    secure: "F86gAkKUTPSA9y/8fp/wX5wzUc+wqd3L/P0xmHhsj4ZOQujr/yItLsa8gAX60THuNAO4kOBolqvqdt4jZNds/LvvLEUMqG17oayFXKwRjP9FVylGvvGZUwuaTwR9uNv3TGiuoFXFmbQ5nf/2lG0jH14c8aLx24rYkZVNxg7OtxtcH3ntaOXkEpDn4zDm29l2VRzX/BhBWmjvsOZ906fBQRHFtEuiZXhIrf/2dG4vrqRl1EC0RtBCIBSsPxdm7BOFzrQilG9BEM0t8bBNwUsU2p3uQurkSjnk4MZPelvpU6tSJCBFKTgnPv/GOPSzbEauBg8nUv8s/cZzA2p5GqwEieyKNXaKQvsw5NU6d51b2WISCPFq3OcZUEbUGWje1bLFvF9vR5q2r/Q8d9D6TGne0rcsMUdvZfmtnKkQcij/ZraBbkO+SQO0yMcdY7gD3R1tPPl5jFDXx0WrponmrcTlXxmoNsWp6s+iM/8UuPDfPxoJA/42JX7mKVLH1Hwj9LaBuFpIBymhCa/nFZwDmaDXCfCtRkhD5A+LflJhe/3dyQpmGM2iYmkLjwYcPRHfqClYF1TzH37eHTSeO2XRTo8OUTJM0tDz9xT95A/YAK1XfAEpIWc5nWIUxNisEUi7IqeaDZFHGQKshxU5DN9mqWTVVCbdVaUaD6wKpuDb+6lfXfA="
   app: mercedesbernard
   skip_cleanup: true
   on:
