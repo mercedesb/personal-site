@@ -65,10 +65,6 @@ export default {
       }
     }
 
-    &--external {
-
-    }
-
     &--default {
       .CTA-icon {
         background-color: $gray;
