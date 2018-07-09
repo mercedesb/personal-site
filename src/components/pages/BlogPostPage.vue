@@ -18,6 +18,9 @@
         <br/>
         <p class="BlogPost-publishDate">
           <em>Published {{formattedPublishDate}}</em>
+          <!-- <a href="https://www.facebook.com/sharer.php?u={url}"><img src="" alt="Facebook share icon" /></a>
+          <a href="https://twitter.com/intent/tweet?url={url}&text={title}&via={user_id}&hashtags={hash_tags}"><img src="" alt="Twitter share icon" /></a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={text}&source={provider}"><img src="" alt="Linkedin share icon" /></a> -->
         </p>
       </div>
     </div>
@@ -30,6 +33,7 @@ import ParseMarkdown from '../ParseMarkdown.vue'
 import CTALink from '../CTALink.vue'
 import ReadingTime from '../ReadingTime.vue'
 import objects from '../../mixins/objects'
+import images from '../../mixins/images'
 
 const moment = require('moment')
 
@@ -38,7 +42,7 @@ export default {
     PageHeader, ParseMarkdown, CTALink, ReadingTime
   },
   mixins: [
-    objects
+    objects, images
   ],
   metaInfo () {
     return {
@@ -53,13 +57,12 @@ export default {
         { name: 'twitter:title', vmid: 'twitter:title', content: this.page.title },
         { name: 'twitter:description', vmid: 'twitter:description', content: this.page.preamble },
         { name: 'twitter:creator', vmid: 'twitter:creator', content: '@mercedescodes' },
-        // Twitter Summary card images must be at least 120x120px
-        // { name: 'twitter:image', content: 'http://www.example.com/image.jpg' },
+        { name: 'twitter:image', content: `${this.socialImage}?&w=800&h=320fit=fill` },
         // Open Graph data
         { property: 'og:title', vmid: 'og:title', content: this.page.title },
         { property: 'og:type', vmid: 'og:type', content: 'article' },
         { property: 'og:url', vmid: 'og:url', content: `http://www.mercedesbernard.com${this.$route.fullPath}/` },
-        // { property: 'og:image', content: 'http://example.com/image.jpg' }
+        { property: 'og:image', content: `${this.socialImage}?&w=800&h=320fit=fill` },
         { property: 'og:description', vmid: 'og:description', content: this.page.preamble },
         { property: 'og:site_name', vmid: 'og:site_name', content: 'Mercedes Bernard' }
       ]
@@ -77,6 +80,9 @@ export default {
     },
     formattedPublishDate () {
       return moment(this.page.publishDate).format('MMM DD YYYY')
+    },
+    socialImage () {
+      return this.getImageUrl(this.page.socialImage)
     }
   },
   created () {
