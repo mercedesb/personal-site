@@ -11,7 +11,7 @@ import HomeLayout from './components/HomeLayout.vue'
 import ContentLayout from './components/ContentLayout.vue'
 
 const defaultTitle = 'Mercedes Bernard | Software engineer by day, crafter by night'
-const defaultDesc = 'I create handmade products that suit your needs whether by keyboard, screen, hook, or wheel. Based in Chicago, IL.'
+const defaultDesc = 'Mercedes Bernard creates handmade products that suit your needs whether by keyboard, screen, hook, or wheel. Based in Chicago, IL.'
 
 export default {
   name: 'app',
