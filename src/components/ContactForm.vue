@@ -5,8 +5,8 @@
     </div>
     <form v-else class='Form' v-on:submit.prevent="onSubmit">
       <transition name="fade" mode="out-in">
-        <div class='Form-error'>
-          {{error}}
+        <div class='Form-error' v-if="error">
+          I'm sorry, I wasn't able to send your message at this time. Please try again later or connect with me on any of the social media platforms below.
         </div>
       </transition>
       <div class='Form-fieldset'>

@@ -14,7 +14,7 @@
     <div class="PageContent" v-if="landingPage.mainContent">
       <ParseMarkdown :source="landingPage.mainContent" :collapsible="false" :collapsibleTag="'h3'" :collapsedByDefault="true" />
     </div>
-    <ContactForm v-if="landingPage.showContact" />
+    <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogList v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
     <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink

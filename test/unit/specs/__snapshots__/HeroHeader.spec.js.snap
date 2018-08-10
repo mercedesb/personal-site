@@ -11,6 +11,7 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
       class="Hero-content"
     >
       <img
+        alt="hero title"
         class="Hero-image"
         src="http://google.com"
       />
