@@ -1,5 +1,5 @@
 <template>
-   <main class='BlogPost'>
+   <main>
     <PageHeader
       :color="color"
       :short="true"
@@ -11,7 +11,7 @@
         <h1>{{page.title}}</h1>
       </template>
     </PageHeader>
-    <div v-if="page.mainContent" class='BlogPost-content'>
+    <div v-if="page.mainContent">
       <div class="PageContent">
         <p><ReadingTime :text="page.mainContent" /></p>
         <ParseMarkdown :source="page.mainContent" />
@@ -102,14 +102,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../assets/styles/variables.scss';
-
-.BlogPost {
-  @include inner-page-content;
-
-  &-content {
-    @include flex-container;
-  }
-}
 
 </style>
