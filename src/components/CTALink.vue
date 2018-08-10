@@ -39,7 +39,7 @@ export default {
     flex: 1 1 50%;
 
     @include media($min-tablet) {
-      min-width: 500px;
+      min-width: 450px;
     }
 
     &-link a {

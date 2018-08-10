@@ -100,9 +100,9 @@ export default {
         if (cta.fields.externalLink) {
           url = cta.fields.externalLink
         } else if (cta.fields.internalLink) {
-          url = cta.fields.internalLink.fields.urlSegment
+          url = `/${cta.fields.internalLink.fields.urlSegment}`
         } else {
-          url = cta.fields.urlSegment
+          url = `/${cta.fields.urlSegment}`
         }
         return {
           id: cta.sys.id,
