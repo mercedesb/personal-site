@@ -1,5 +1,5 @@
 <template>
-   <main>
+   <main class='BlogPost'>
     <PageHeader
       :color="color"
       :short="true"
@@ -102,5 +102,14 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../../assets/styles/variables.scss';
+
+.BlogPost {
+  @include inner-page-content;
+
+  @include media($phone-large-width) {
+    display: block;
+  }
+}
 
 </style>
