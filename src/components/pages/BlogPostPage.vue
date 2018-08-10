@@ -107,7 +107,7 @@ export default {
 .BlogPost {
   @include inner-page-content;
 
-  @include media($phone-large-width) {
+  @include media($tablet-width) {
     display: block;
   }
 }
