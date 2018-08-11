@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BlogPostPage Snapshots with a color passed in matches snapshot 1`] = `
-<main>
+<main
+  class="BlogPost"
+>
   <!---->
    
   <!---->
@@ -9,7 +11,9 @@ exports[`BlogPostPage Snapshots with a color passed in matches snapshot 1`] = `
 `;
 
 exports[`BlogPostPage Snapshots without a color passed in matches snapshot 1`] = `
-<main>
+<main
+  class="BlogPost"
+>
   <!---->
    
   <!---->
