@@ -36,7 +36,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       // Absolute path to compiled SPA
       staticDir: path.join(__dirname, '../dist'),
       // List of routes to prerender
-      routes: ['/', '/about', '/connect', '/blog'],
+      routes: ['/', '/about', '/connect', '/blog', '/resume', '/speaking'],
       renderer: new Renderer({
         // renderAfterDocumentEvent: 'custom-render-trigger',
         renderAfterTime: 5000
