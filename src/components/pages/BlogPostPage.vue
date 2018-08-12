@@ -18,10 +18,12 @@
         <br/>
         <p class="BlogPost-publishDate">
           <em>Published {{formattedPublishDate}}</em>
-          <!-- <a href="https://www.facebook.com/sharer.php?u={url}"><img src="" alt="Facebook share icon" /></a>
-          <a href="https://twitter.com/intent/tweet?url={url}&text={title}&via={user_id}&hashtags={hash_tags}"><img src="" alt="Twitter share icon" /></a>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={text}&source={provider}"><img src="" alt="Linkedin share icon" /></a> -->
         </p>
+        <div class="BlogPost-socialShare">
+          <a :href="`https://twitter.com/intent/tweet?url=http://www.mercedesbernard.com${this.$route.fullPath}/&text=${page.title}&via=mercedescodes`"><img src="@/assets/Twitter-Social-Share.svg" alt="Twitter share icon" /></a>
+          <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=http://www.mercedesbernard.com${this.$route.fullPath}/&title=${page.title}&summary=${page.preamble}`"><img src="@/assets/Linkedin-Social-Share.svg" alt="Linkedin share icon" /></a>
+          <a :href="`https://www.facebook.com/sharer.php?u=http://www.mercedesbernard.com${this.$route.fullPath}/`"><img src="@/assets/Facebook-Social-Share.svg" alt="Facebook share icon" /></a>
+        </div>
       </div>
     </div>
   </main>
@@ -107,8 +109,16 @@ export default {
 .BlogPost {
   @include inner-page-content;
 
-  @include media($min-tablet) {
+  @include media($max-tablet) {
     display: block;
+  }
+
+  &-socialShare {
+    display: flex;
+    img {
+      width: 30px;
+      padding: 0 $small-spacing $base-spacing;
+    }
   }
 }
 
