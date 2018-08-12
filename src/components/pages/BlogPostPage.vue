@@ -107,7 +107,7 @@ export default {
 .BlogPost {
   @include inner-page-content;
 
-  @include media($tablet-width) {
+  @include media($min-tablet) {
     display: block;
   }
 }

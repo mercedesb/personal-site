@@ -21,6 +21,7 @@ export default new Router({
         ...route.query
       })
     },
+    { path: '404', alias: '*', name: 'pageNotFound', component: PageNotFound },
     { path: '/404', alias: '*', name: 'pageNotFound', component: PageNotFound }
   ]
 })
