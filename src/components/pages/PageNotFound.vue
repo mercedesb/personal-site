@@ -72,9 +72,18 @@ export default {
   }
 
   svg {
-    margin: $base-spacing;
-    padding: $base-spacing;
+    margin: $small-spacing;
+    padding: $small-spacing;
     overflow: visible;
+    width: 100%;
+    height: 100%;
+
+    @include media($min-tablet) {
+      margin: $base-spacing;
+      padding: $base-spacing;
+      width: auto;
+      height: auto;
+    }
   }
 
   #home, #about, #connect, #blog {
