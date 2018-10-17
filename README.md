@@ -1,4 +1,4 @@
-# personal-site
+# personal-site [![Build Status](https://travis-ci.com/mercedesb/personal-site.svg?branch=master)](https://travis-ci.com/mercedesb/personal-site)
 
 > A Vue.js project
 
