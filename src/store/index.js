@@ -81,7 +81,8 @@ export const actions = {
       content_type: 'blogPost',
       order: `-fields.publishDate`,
       skip: zeroIndexPageNum * pageParams.pageSize,
-      limit: pageParams.pageSize
+      limit: pageParams.pageSize,
+      'fields.publishDate[lte]': new Date()
     })
       .then((entries) => {
         context.commit('blogPosts', entries)
