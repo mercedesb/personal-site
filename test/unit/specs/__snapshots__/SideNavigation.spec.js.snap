@@ -10,52 +10,54 @@ exports[`SideNavigation Snapshots matches snapshot 1`] = `
     <li
       class="SideNav-navLink"
     >
-      <smart-link-stub
-        to="/"
-      >
-        
-        Home
-      
-      </smart-link-stub>
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
     </li>
      
     <li
       class="SideNav-navLink"
     >
-      <smart-link-stub>
-        
-        About
-      
-      </smart-link-stub>
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
     </li>
     <li
       class="SideNav-navLink"
     >
-      <smart-link-stub>
-        
-        Blog
-      
-      </smart-link-stub>
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
     </li>
     <li
       class="SideNav-navLink"
     >
-      <smart-link-stub>
-        
-        Connect
-      
-      </smart-link-stub>
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
     </li>
     <li
       class="SideNav-navLink"
     >
-      <smart-link-stub
-        isexternal="true"
-      >
-        
+      <div>
+        <!---->
+         
+        <a
+          target="_blank"
+        >
+          
         Shop
       
-      </smart-link-stub>
+        </a>
+      </div>
     </li>
   </ul>
    
