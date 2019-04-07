@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
   @import '../assets/styles/variables.scss';
 
-  $hero-height: 750px;
+  $hero-height: 700px;
 
   $image-width: 450px;
   $text-width: 800px;

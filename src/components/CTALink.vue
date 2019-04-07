@@ -4,7 +4,7 @@
       <div class='CTA-icon'>
         <img :src="icon" :alt="`${title} icon`" />
       </div>
-      <h6 class='CTA-title'>{{ title }}</h6>
+      <p class='CTA-title'>{{ title }}</p>
     </smart-link>
   </div>
 </template>
@@ -52,6 +52,7 @@ export default {
 
     &-title {
       font-weight: $base-font-weight;
+      margin: 0;
     }
 
     &-icon {

@@ -1,7 +1,7 @@
 <template>
   <div :class="'ContentColumn ContentColumn--' + color">
     <smart-link class='ContentColumn-link' :to="link" :isExternal="isExternal">
-      <h2 class='ContentColumn-title'>{{ title }}</h2>
+      <h2 class='ContentColumn-title'>{{ navTitle || title }}</h2>
       <img class='ContentColumn-icon' :src="iconUrl" :alt="`${title} icon`" />
       <div class='ContentColumn-description'>
         <p>{{ preamble }}</p>
@@ -21,6 +21,9 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    navTitle: {
+      type: String
     },
     color: {
       type: String,
@@ -101,6 +104,6 @@ export default {
     }
 
     @include background-color;
-    @include hover-darken;
+    @include hover-lighten;
   }
 </style>
