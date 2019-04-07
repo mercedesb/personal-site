@@ -4,13 +4,25 @@ exports[`CTALink Snapshots with a color passed in matches snapshot 1`] = `
 <div
   class="CTA CTA--gray CTA--default"
 >
-  <div
+  <smart-link-stub
     class="CTA-link"
+    to="cta"
   >
-    <!---->
+    <div
+      class="CTA-icon"
+    >
+      <img
+        alt="cta title icon"
+        src="http://google.com"
+      />
+    </div>
      
-    <!---->
-  </div>
+    <h6
+      class="CTA-title"
+    >
+      cta title
+    </h6>
+  </smart-link-stub>
 </div>
 `;
 
@@ -18,12 +30,24 @@ exports[`CTALink Snapshots without a color passed in matches snapshot 1`] = `
 <div
   class="CTA CTA--brown CTA--default"
 >
-  <div
+  <smart-link-stub
     class="CTA-link"
+    to="cta"
   >
-    <!---->
+    <div
+      class="CTA-icon"
+    >
+      <img
+        alt="cta title icon"
+        src="http://google.com"
+      />
+    </div>
      
-    <!---->
-  </div>
+    <h6
+      class="CTA-title"
+    >
+      cta title
+    </h6>
+  </smart-link-stub>
 </div>
 `;

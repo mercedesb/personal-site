@@ -1,5 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppHeader Snapshots with a classModifier passed in matches snapshot 1`] = `<!---->`;
+exports[`AppHeader Snapshots with a classModifier passed in matches snapshot 1`] = `
+<nav
+  class="MainNav"
+  name="fade"
+>
+  <div
+    class="FlexContainer FlexContainer--alignCenter FlexContainer--modifier"
+  >
+    <smart-link-stub
+      class="MainNav-home"
+      to="/"
+    >
+      <div
+        class="MainNav-logo"
+      >
+        <img
+          src="../assets/SiteLogo.svg"
+        />
+      </div>
+    </smart-link-stub>
+     
+    <div>
+      <div
+        class="MainNav-hamburger"
+      >
+        <img
+          alt="hamburger menu"
+          src="../assets/menu.svg"
+        />
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</nav>
+`;
 
-exports[`AppHeader Snapshots without a classModifier passed in matches snapshot 1`] = `<!---->`;
+exports[`AppHeader Snapshots without a classModifier passed in matches snapshot 1`] = `
+<nav
+  class="MainNav"
+  name="fade"
+>
+  <div
+    class="FlexContainer FlexContainer--alignCenter FlexContainer--undefined"
+  >
+    <smart-link-stub
+      class="MainNav-home"
+      to="/"
+    >
+      <div
+        class="MainNav-logo"
+      >
+        <img
+          src="../assets/SiteLogo.svg"
+        />
+      </div>
+    </smart-link-stub>
+     
+    <div>
+      <div
+        class="MainNav-hamburger"
+      >
+        <img
+          alt="hamburger menu"
+          src="../assets/menu.svg"
+        />
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</nav>
+`;

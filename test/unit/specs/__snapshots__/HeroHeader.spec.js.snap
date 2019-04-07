@@ -25,7 +25,9 @@ exports[`HeroHeader Snapshots with a title matches snapshot 1`] = `
           hero title
         </h1>
          
-        <!---->
+        <parsemarkdown-stub
+          source="hero preamble"
+        />
       </div>
     </div>
   </div>

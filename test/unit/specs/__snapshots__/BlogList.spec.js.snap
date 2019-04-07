@@ -2,7 +2,41 @@
 
 exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
 <div>
-  <!---->
+  <div
+    class="PageContent PageContent--wide"
+    mode="out-in"
+    name="fade"
+  >
+    <bloglistitem-stub
+      color="gray"
+      date="Wed Apr 25 2018 00:00:00 GMT-0500 (Central Daylight Time)"
+      featured="true"
+      id="blogPost1"
+      maincontent=""
+      preamble="blog post 1 preamble"
+      title="blog post 1 title"
+      urlsegment=""
+    />
+     
+    <bloglistitem-stub
+      color="gray"
+      date="Mon Apr 23 2018 00:00:00 GMT-0500 (Central Daylight Time)"
+      id="blogPost2"
+      maincontent=""
+      preamble="blog post 2 preamble"
+      title="blog post 2 title"
+      urlsegment=""
+    />
+    <bloglistitem-stub
+      color="gray"
+      date="Sun Apr 22 2018 00:00:00 GMT-0500 (Central Daylight Time)"
+      id="blogPost3"
+      maincontent=""
+      preamble="blog post 3 preamble"
+      title="blog post 3 title"
+      urlsegment=""
+    />
+  </div>
    
   <div
     class="Blog-pageNumberList"
@@ -12,7 +46,38 @@ exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
 
 exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
 <div>
-  <!---->
+  <div
+    class="PageContent PageContent--wide"
+    mode="out-in"
+    name="fade"
+  >
+    <bloglistitem-stub
+      date="Wed Apr 25 2018 00:00:00 GMT-0500 (Central Daylight Time)"
+      featured="true"
+      id="blogPost1"
+      maincontent=""
+      preamble="blog post 1 preamble"
+      title="blog post 1 title"
+      urlsegment=""
+    />
+     
+    <bloglistitem-stub
+      date="Mon Apr 23 2018 00:00:00 GMT-0500 (Central Daylight Time)"
+      id="blogPost2"
+      maincontent=""
+      preamble="blog post 2 preamble"
+      title="blog post 2 title"
+      urlsegment=""
+    />
+    <bloglistitem-stub
+      date="Sun Apr 22 2018 00:00:00 GMT-0500 (Central Daylight Time)"
+      id="blogPost3"
+      maincontent=""
+      preamble="blog post 3 preamble"
+      title="blog post 3 title"
+      urlsegment=""
+    />
+  </div>
    
   <div
     class="Blog-pageNumberList"

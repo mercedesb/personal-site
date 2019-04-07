@@ -4,6 +4,9 @@ exports[`App Snapshots matches snapshot 1`] = `
 <div
   id="app"
 >
-  <!---->
+  <anonymous-stub
+    mode="out-in"
+    name="fade"
+  />
 </div>
 `;

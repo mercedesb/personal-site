@@ -4,7 +4,22 @@ exports[`BlogPostPage Snapshots with a color passed in matches snapshot 1`] = `
 <main
   class="BlogPost"
 >
-  <!---->
+  <pageheader-stub
+    color="blue"
+    short="true"
+  >
+    <template>
+      <h2>
+        Apr 18 2018
+      </h2>
+    </template>
+     
+    <template>
+      <h1>
+        blog post 1 title
+      </h1>
+    </template>
+  </pageheader-stub>
    
   <!---->
 </main>
@@ -14,7 +29,22 @@ exports[`BlogPostPage Snapshots without a color passed in matches snapshot 1`] =
 <main
   class="BlogPost"
 >
-  <!---->
+  <pageheader-stub
+    color="purple"
+    short="true"
+  >
+    <template>
+      <h2>
+        Apr 18 2018
+      </h2>
+    </template>
+     
+    <template>
+      <h1>
+        blog post 1 title
+      </h1>
+    </template>
+  </pageheader-stub>
    
   <!---->
 </main>
