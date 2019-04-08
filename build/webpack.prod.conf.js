@@ -158,8 +158,8 @@ if (config.build.bundleAnalyzerReport) {
 module.exports = () => {
   return new Promise((resolve, reject) => {
     const client = require("contentful").createClient({
-      space: env.SPACE_ID,
-      accessToken: env.CDA_TOKEN
+      space: process.env.SPACE_ID,
+      accessToken: process.env.CDA_TOKEN
     });
     client
       .getEntries({
