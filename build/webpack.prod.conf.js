@@ -10,8 +10,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const PrerenderSpaPlugin = require("prerender-spa-plugin");
-const Renderer = PrerenderSpaPlugin.PuppeteerRenderer;
+// const PrerenderSpaPlugin = require("prerender-spa-plugin");
+// const Renderer = PrerenderSpaPlugin.PuppeteerRenderer;
 
 const env =
   process.env.NODE_ENV === "testing"
@@ -33,16 +33,16 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath("js/[id].[chunkhash].js")
   },
   plugins: [
-    new PrerenderSpaPlugin({
-      // Absolute path to compiled SPA
-      staticDir: path.join(__dirname, "../dist"),
-      // List of routes to prerender
-      routes: ["/", "/about", "/connect", "/blog", "/resume", "/speaking"],
-      renderer: new Renderer({
-        // renderAfterDocumentEvent: 'custom-render-trigger',
-        renderAfterTime: 5000
-      })
-    }),
+    // new PrerenderSpaPlugin({
+    //   // Absolute path to compiled SPA
+    //   staticDir: path.join(__dirname, "../dist"),
+    //   // List of routes to prerender
+    //   routes: ["/", "/about", "/connect", "/blog", "/resume", "/speaking"],
+    //   renderer: new Renderer({
+    //     // renderAfterDocumentEvent: 'custom-render-trigger',
+    //     renderAfterTime: 5000
+    //   })
+    // }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       "process.env": env
@@ -157,39 +157,40 @@ if (config.build.bundleAnalyzerReport) {
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
-    const client = require("contentful").createClient({
-      space: process.env.SPACE_ID,
-      accessToken: process.env.CDA_TOKEN
-    });
-    client
-      .getEntries({
-        content_type: "blogPost"
-      })
-      .then(response => {
-        const defaultRoutes = ["/", "/about", "/connect", "/blog"];
-        const blogRoutes = response.items.map(item => {
-          return `/blog/${item.fields.urlSegment}`;
-        });
+    resolve(webpackConfig);
+    // const client = require("contentful").createClient({
+    //   space: process.env.SPACE_ID,
+    //   accessToken: process.env.CDA_TOKEN
+    // });
+    // client
+    //   .getEntries({
+    //     content_type: "blogPost"
+    //   })
+    //   .then(response => {
+    //     const defaultRoutes = ["/", "/about", "/connect", "/blog"];
+    //     const blogRoutes = response.items.map(item => {
+    //       return `/blog/${item.fields.urlSegment}`;
+    //     });
 
-        const allRoutes = defaultRoutes.concat(blogRoutes);
+    //     const allRoutes = defaultRoutes.concat(blogRoutes);
 
-        // Add PrerenderPlugin
-        webpackConfig.plugins.push(
-          new PrerenderSpaPlugin({
-            // Absolute path to compiled SPA
-            staticDir: path.join(__dirname, "../dist"),
-            // List of routes to prerender
-            routes: allRoutes,
-            renderer: new Renderer({
-              // renderAfterDocumentEvent: 'custom-render-trigger',
-              renderAfterTime: 5000
-            })
-          })
-        );
-        resolve(webpackConfig);
-      })
-      .catch(e => {
-        reject(e);
-      });
+    //     // Add PrerenderPlugin
+    //     webpackConfig.plugins.push(
+    //       new PrerenderSpaPlugin({
+    //         // Absolute path to compiled SPA
+    //         staticDir: path.join(__dirname, "../dist"),
+    //         // List of routes to prerender
+    //         routes: allRoutes,
+    //         renderer: new Renderer({
+    //           // renderAfterDocumentEvent: 'custom-render-trigger',
+    //           renderAfterTime: 5000
+    //         })
+    //       })
+    //     );
+    //     resolve(webpackConfig);
+    //   })
+    //   .catch(e => {
+    //     reject(e);
+    //   });
   });
 };
