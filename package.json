@@ -5,6 +5,10 @@
   "author": "mercedesb <mercedesbernard@live.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "10.11.0",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "node server.js",
