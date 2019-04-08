@@ -4,22 +4,7 @@ exports[`LandingPage Snapshots matches snapshot 1`] = `
 <main
   class="LandingPage"
 >
-  <pageheader-stub
-    color="blue"
-    media="http://placeholder.pics/svg/300"
-  >
-    <template>
-      <h1>
-        About
-      </h1>
-    </template>
-     
-    <template>
-      <p>
-        
-      </p>
-    </template>
-  </pageheader-stub>
+  <!---->
    
   <!---->
    
@@ -28,21 +13,8 @@ exports[`LandingPage Snapshots matches snapshot 1`] = `
   <div
     class="FlexContainer PageContent PageContent--wide LandingPage-ctaContainer"
   >
-    <ctalink-stub
-      color="blue"
-      icon="http://placeholder.pics/svg/300"
-      id="cta 1"
-      title="Resume"
-      url="/resume"
-    />
-    <ctalink-stub
-      color="blue"
-      external="true"
-      icon="http://placeholder.pics/svg/300"
-      id="cta 2"
-      title="External CTA"
-      url="http://google.com"
-    />
+    <!---->
+    <!---->
   </div>
 </main>
 `;

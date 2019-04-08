@@ -10,109 +10,65 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/"
-      >
-        <div
-          class="Navigation-title"
-        >
-          <span>
-            Home
-          </span>
-        </div>
+      <div>
+        <!---->
          
-        <img
-          alt="Home icon"
-          class="Navigation-icon"
-          src="../assets/HomeIcon.svg"
-        />
-      </smart-link-stub>
+        <!---->
+      </div>
     </li>
      
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/about"
-      >
-        <div
-          class="Navigation-title"
-        >
-          <span>
-            About
-          </span>
-        </div>
+      <div>
+        <!---->
          
-        <img
-          alt="About icon"
-          class="Navigation-icon"
-          src="http://placeholder.pics/svg/300"
-        />
-      </smart-link-stub>
+        <!---->
+      </div>
     </li>
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/blog"
-      >
-        <div
-          class="Navigation-title"
-        >
-          <span>
-            Blog
-          </span>
-        </div>
+      <div>
+        <!---->
          
-        <img
-          alt="Blog icon"
-          class="Navigation-icon"
-          src="http://placeholder.pics/svg/300"
-        />
-      </smart-link-stub>
+        <!---->
+      </div>
     </li>
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/connect"
-      >
-        <div
-          class="Navigation-title"
-        >
-          <span>
-            Connect
-          </span>
-        </div>
+      <div>
+        <!---->
          
-        <img
-          alt="Connect icon"
-          class="Navigation-icon"
-          src="http://placeholder.pics/svg/300"
-        />
-      </smart-link-stub>
+        <!---->
+      </div>
     </li>
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        isexternal="true"
-        to="https://etsy.com/shop/blinddogyarns"
-      >
-        <div
-          class="Navigation-title"
-        >
-          <span>
-            Shop
-          </span>
-        </div>
+      <div>
+        <!---->
          
-        <img
-          alt="Shop icon"
-          class="Navigation-icon"
-          src="http://placeholder.pics/svg/300"
-        />
-      </smart-link-stub>
+        <a
+          href="https://etsy.com/shop/blinddogyarns"
+          target="_blank"
+        >
+          <div
+            class="Navigation-title"
+          >
+            <span>
+              Shop
+            </span>
+          </div>
+           
+          <img
+            alt="Shop icon"
+            class="Navigation-icon"
+            src="http://placeholder.pics/svg/300"
+          />
+        </a>
+      </div>
     </li>
   </ul>
 </nav>
