@@ -46,6 +46,7 @@ li {
 .FlexContainer {
   @include flex-container;
   flex-wrap: wrap;
+  list-style-type: none !important;
 }
 
 .PageContent {
