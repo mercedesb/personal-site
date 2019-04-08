@@ -5,10 +5,10 @@
       :short="true"
     >
       <template slot='decorativeHeader'>
-        <h2>{{ formattedPublishDate }}</h2>
+        <h1>{{ formattedPublishDate }}</h1>
       </template>
       <template slot='titleHeader'>
-        <h1>{{page.title}}</h1>
+        <h2>{{page.title}}</h2>
       </template>
     </PageHeader>
     <div v-if="page.mainContent">

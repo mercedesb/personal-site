@@ -90,6 +90,7 @@ export default {
       color: $white;
       margin: 0 $base-spacing;
       font-weight: $base-font-weight;
+      font-size: 24px;
     }
 
     @include media($min-tablet) {
