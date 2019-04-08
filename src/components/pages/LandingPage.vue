@@ -8,7 +8,7 @@
         <h1>{{ landingPage.title }}</h1>
       </template>
       <template slot='titleHeader'>
-        <h2>{{ landingPage.preamble }}</h2>
+        <p>{{ landingPage.preamble }}</p>
       </template>
     </PageHeader>
     <div class="PageContent" v-if="landingPage.mainContent">

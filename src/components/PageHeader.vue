@@ -122,7 +122,6 @@ export default {
         font-family: $base-font-family;
         font-weight: $base-font-weight;
         font-size: $large-font-size;
-        margin: 0 0 $base-spacing;
 
         @include media($min-tablet) {
           font-size: $larger-font-size;

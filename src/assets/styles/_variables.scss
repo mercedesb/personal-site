@@ -108,12 +108,12 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
   }
 }
 
-@mixin hover-lighten {
+@mixin hover-darken {
   @each $type in $colors-array {
     &--#{nth($type, 1)} {
-      background-color: #{nth($type, 2)};
+      background-color: darken(nth($type, 2), 7%);
       &:hover {
-        background-color: saturate(nth($type, 2), 7%);
+        background-color: #{nth($type, 2)};
       }
     }
   }

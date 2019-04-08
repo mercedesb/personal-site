@@ -52,7 +52,6 @@ export default {
         return {
           id: child.sys.id,
           title: child.fields.title,
-          navTitle: child.fields.navTitle,
           color: child.fields.color,
           preamble: child.fields.preamble,
           icon: child.fields.icon,
