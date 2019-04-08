@@ -5,10 +5,6 @@
   "author": "mercedesb <mercedesbernard@live.com>",
   "license": "MIT",
   "private": true,
-  "engines": {
-    "node": "10.11.0",
-    "npm": "6.4.1"
-  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "node server.js",
@@ -99,8 +95,8 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": "10.11.0",
+    "npm": "6.4.1"
   },
   "browserslist": [
     "> 1%",
