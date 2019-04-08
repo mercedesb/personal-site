@@ -4,13 +4,30 @@ exports[`ContentColumn Snapshots with a color passed in matches snapshot 1`] = `
 <div
   class="ContentColumn ContentColumn--blue"
 >
-  <div
+  <smart-link-stub
     class="ContentColumn-link"
+    to="testPath"
   >
-    <!---->
+    <h2
+      class="ContentColumn-title"
+    >
+      title
+    </h2>
      
-    <!---->
-  </div>
+    <img
+      alt="title icon"
+      class="ContentColumn-icon"
+      src="http://placeholder.pics/svg/300"
+    />
+     
+    <div
+      class="ContentColumn-description"
+    >
+      <p>
+        test preamble
+      </p>
+    </div>
+  </smart-link-stub>
 </div>
 `;
 
@@ -18,12 +35,29 @@ exports[`ContentColumn Snapshots without a color passed in matches snapshot 1`] 
 <div
   class="ContentColumn ContentColumn--brown"
 >
-  <div
+  <smart-link-stub
     class="ContentColumn-link"
+    to="testPath"
   >
-    <!---->
+    <h2
+      class="ContentColumn-title"
+    >
+      title
+    </h2>
      
-    <!---->
-  </div>
+    <img
+      alt="title icon"
+      class="ContentColumn-icon"
+      src="http://placeholder.pics/svg/300"
+    />
+     
+    <div
+      class="ContentColumn-description"
+    >
+      <p>
+        test preamble
+      </p>
+    </div>
+  </smart-link-stub>
 </div>
 `;

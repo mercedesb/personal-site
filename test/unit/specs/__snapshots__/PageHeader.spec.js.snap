@@ -3,6 +3,8 @@
 exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
 <header
   class="PageHeader PageHeader--brown PageHeader--defaultHeight"
+  preamble="heres the preamble"
+  title="title"
 >
   <div
     class="PageHeader-background"
@@ -26,13 +28,14 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
     />
   </div>
    
-  <!---->
+  <navigation-stub />
 </header>
 `;
 
 exports[`PageHeader Snapshots without a title matches snapshot 1`] = `
 <header
   class="PageHeader PageHeader--brown PageHeader--defaultHeight"
+  preamble="heres the preamble"
 >
   <div
     class="PageHeader-background"
@@ -56,6 +59,6 @@ exports[`PageHeader Snapshots without a title matches snapshot 1`] = `
     />
   </div>
    
-  <!---->
+  <navigation-stub />
 </header>
 `;

@@ -2,6 +2,7 @@
 
 exports[`MobileNavigation Snapshots matches snapshot 1`] = `
 <div
+  backgroundimages="[object Object],[object Object],[object Object]"
   class="MobileNav"
 >
   <div

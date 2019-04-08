@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeLayout Snapshots matches snapshot 1`] = `<!---->`;
+exports[`HomeLayout Snapshots matches snapshot 1`] = `
+<router-view-stub
+  color="brown"
+  media="http://image.com"
+  preamble="heres the preamble"
+  title="title"
+/>
+`;
