@@ -5,3 +5,8 @@ script:
 - npm test
 before_deploy:
 - npm run build
+deploy:	
+  provider: heroku	
+  app: $HEROKU_APP_NAME	
+  api_key: $HEROKU_AUTH_TOKEN	
+  skip_cleanup: true 
