@@ -7,7 +7,7 @@
         <span>{{ publishYear }}</span>
       </div>
       <div class='BlogItem-text'>
-      <h3 class='BlogItem-title h5'>{{ title }}</h3>
+      <h5 class='BlogItem-title'>{{ title }}</h5>
       <p class='BlogItem-preamble'>{{ preamble }}</p>
       <p class='BlogItem-viewMore'>
         View more |
