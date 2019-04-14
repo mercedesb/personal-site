@@ -14,14 +14,14 @@ export default new Router({
   routes: [
     { path: '/', component: HomePage },
     { path: '/blog/:urlSegment', name: 'blogPost', component: BlogPostPage, props: true },
-    { path: '/:urlSegment',
+    {
+      path: '/:urlSegment',
       component: LandingPage,
       props: (route) => ({
         ...route.params,
         ...route.query
       })
     },
-    { path: '404', alias: '*', name: 'pageNotFound', component: PageNotFound },
     { path: '/404', alias: '*', name: 'pageNotFound', component: PageNotFound }
   ]
 })
