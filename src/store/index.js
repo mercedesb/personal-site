@@ -8,6 +8,7 @@ const state = {
   blogPosts: [],
   maxBlogPostPages: 0,
   blogPost: {},
+  talks: [],
   landingPage: {},
   homePage: {},
   navLinks: [],
@@ -25,6 +26,9 @@ export const mutations = {
   },
   blogPost (state, blogPost) {
     state.blogPost = blogPost
+  },
+  talks (state, talks) {
+    state.talks = talks
   },
   landingPage (state, landingPage) {
     state.landingPage = landingPage
@@ -52,6 +56,9 @@ export const mutations = {
   },
   clearBlogPost (state) {
     state.blogPost = {}
+  },
+  clearTalks (state) {
+    state.talks = []
   },
   clearLandingPage (state) {
     state.landingPage = {}
@@ -113,6 +120,16 @@ export const actions = {
         })
     }
   },
+  getTalks (context, pageParams) {
+    context.commit('clearTalks')
+    return context.dispatch('getEntries', {
+      content_type: 'talkPage'
+    })
+      .then((entries) => {
+        context.commit('talks', entries)
+        return entries
+      })
+  },
   getLandingPage (context, urlSegment) {
     context.commit('clearLandingPage')
     return context.dispatch('getEntries', {
@@ -129,7 +146,7 @@ export const actions = {
   getHomePage (context) {
     context.commit('clearHomePage')
 
-    return context.dispatch('getEntries', {content_type: 'home'})
+    return context.dispatch('getEntries', { content_type: 'home' })
       .then((entries) => {
         const homePage = entries.length ? entries[0] : {}
         context.commit('homePage', homePage)
@@ -153,7 +170,7 @@ export const actions = {
     } else {
       return context.dispatch('getHomePage')
         .then((homePage) => {
-        // TODO: refactor this so we only do it once...
+          // TODO: refactor this so we only do it once...
           const children = homePage.children.map((item) => {
             return {
               id: item.sys.id,

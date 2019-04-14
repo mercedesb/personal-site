@@ -16,6 +16,11 @@
     </div>
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogList v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
+    <div v-if="landingPage.showTalks">
+      <ul v-if="talks.length">
+        <li v-for="talk in talks" v-bind="talk" :key="talk.id">{{talk.title}}</li>
+      </ul>
+    </div>
     <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
@@ -88,6 +93,9 @@ export default {
     landingPage () {
       return this.$store.state.landingPage
     },
+    talks () {
+      return this.$store.state.talks.map(talk => { return { id: talk.id, title: talk.title } })
+    },
     iconUrl () {
       return this.getImageUrl(this.landingPage.icon)
     },
@@ -129,6 +137,10 @@ export default {
                 .then((blogPosts) => {
                   document.dispatchEvent(new Event('custom-render-trigger'))
                 })
+            }
+
+            if (landingPage.showTalks) {
+              this.$store.dispatch('getTalks')
             }
           })
       })
