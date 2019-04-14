@@ -9,6 +9,7 @@ const state = {
   maxBlogPostPages: 0,
   blogPost: {},
   talks: [],
+  talk: {},
   landingPage: {},
   homePage: {},
   navLinks: [],
@@ -29,6 +30,9 @@ export const mutations = {
   },
   talks (state, talks) {
     state.talks = talks
+  },
+  talk (state, talk) {
+    state.talk = talk
   },
   landingPage (state, landingPage) {
     state.landingPage = landingPage
@@ -59,6 +63,9 @@ export const mutations = {
   },
   clearTalks (state) {
     state.talks = []
+  },
+  clearTalk (state) {
+    state.talk = {}
   },
   clearLandingPage (state) {
     state.landingPage = {}
@@ -129,6 +136,29 @@ export const actions = {
         context.commit('talks', entries)
         return entries
       })
+  },
+  getTalk (context, urlSegment) {
+    context.commit('clearTalk')
+    const { talks } = context.state
+    if (talks.length) {
+      const matching = talks.filter(talk => talk.urlSegment === urlSegment)
+      if (matching && matching.length) {
+        context.commit('talk', matching[0])
+        return new Promise((resolve) => {
+          resolve(matching[0])
+        })
+      }
+    } else {
+      return context.dispatch('getEntries', {
+        content_type: 'talkPage',
+        'fields.urlSegment': urlSegment
+      })
+        .then((entries) => {
+          const talk = entries.length ? entries[0] : {}
+          context.commit('talk', talk)
+          return talk
+        })
+    }
   },
   getLandingPage (context, urlSegment) {
     context.commit('clearLandingPage')
