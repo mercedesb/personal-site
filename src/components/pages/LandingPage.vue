@@ -16,11 +16,7 @@
     </div>
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogList v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
-    <div v-if="landingPage.showTalks">
-      <ul v-if="talks.length">
-        <li v-for="talk in talks" v-bind="talk" :key="talk.id">{{talk.title}}</li>
-      </ul>
-    </div>
+    <TalkList v-if="landingPage.showTalks" />
     <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
@@ -36,6 +32,7 @@ import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
+import TalkList from '../TalkList.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import images from '../../mixins/images'
 import objects from '../../mixins/objects'
@@ -46,6 +43,7 @@ export default {
     CTALink,
     ContactForm,
     BlogList,
+    TalkList,
     ParseMarkdown
   },
   mixins: [
@@ -92,9 +90,6 @@ export default {
   computed: {
     landingPage () {
       return this.$store.state.landingPage
-    },
-    talks () {
-      return this.$store.state.talks.map(talk => { return { id: talk.id, title: talk.title } })
     },
     iconUrl () {
       return this.getImageUrl(this.landingPage.icon)

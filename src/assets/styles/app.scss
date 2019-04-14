@@ -90,3 +90,22 @@ li {
 /* utilities */
 
 [v-cloak] {display: none}
+
+.draw {
+
+  &:hover {
+    path {
+      stroke-dasharray: 1100;
+      animation: draw 2s;
+    }
+  }
+  
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1100;
+    }
+    to {
+    stroke-dashoffset: 0;
+    }
+  }
+}

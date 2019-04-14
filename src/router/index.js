@@ -14,6 +14,7 @@ export default new Router({
   routes: [
     { path: '/', component: HomePage },
     { path: '/blog/:urlSegment', name: 'blogPost', component: BlogPostPage, props: true },
+    { path: '/speaking/:urlSegment', name: 'talkPage', component: TalkPage, props: true },
     {
       path: '/:urlSegment',
       component: LandingPage,
