@@ -63,7 +63,7 @@ export default {
   }
 
   &-icon {
-    width: 50%;
+    width: 30%;
     margin: $base-spacing 0 $small-spacing;
     svg g {
       stroke: $white;
