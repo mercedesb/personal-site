@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="fade" mode="out-in">
+    <transition name="fade" m tode="out-in">
       <div v-if="posts.length" class='PageContent PageContent--wide'>
         <BlogListItem v-if="featuredPost"
           v-bind="featuredPost"

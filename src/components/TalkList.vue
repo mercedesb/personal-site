@@ -1,8 +1,11 @@
 <template>
   <div v-if="talks.length" class="TalkList">
-    <smart-link :class="'TalkListItem draw TalkListItem--' + talk.color" v-for="talk in talks" v-bind="talk" :key="talk.id" :to="'speaking/' + talk.urlSegment">
-      <div v-html="talk.icon"></div>
+    <smart-link :class="'TalkListItem TalkListItem--' + talk.color + ' ' + talk.iconCssClass" v-for="talk in talks" v-bind="talk" :key="talk.id" :to="'speaking/' + talk.urlSegment">
+      <div class="TalkListItem-icon" v-html="talk.icon"></div>
       <h3 class="TalkListItem-title">{{talk.title}}</h3>
+      <div class="TalkListItem-moreInfo">
+        Resources
+      </div>
     </smart-link>
   </div>
 </template>
@@ -11,16 +14,19 @@
 export default {
   computed: {
     talks () {
-      return this.$store.state.talks.map(talk => {
-        return {
-          id: talk.id,
-          title: talk.title,
-          preamble: talk.preamble,
-          mainContent: talk.mainContent,
-          urlSegment: talk.urlSegment,
-          color: talk.color,
-          icon: talk.icon
-        }
+      let toSort = [...this.$store.state.talks]
+
+      // sort in reverse chronological order based on when talk was last given
+      return toSort.sort((first, second) => {
+        const firstGivenAt = first.givenAt || []
+        const firstMaxDate = Math.max(...firstGivenAt.map(ga => new Date(ga.fields.date)))
+
+        const secondGivenAt = second.givenAt || []
+        const secondMaxDate = Math.max(...secondGivenAt.map(ga => new Date(ga.fields.date)))
+
+        if (firstMaxDate < secondMaxDate) return 1
+        if (firstMaxDate > secondMaxDate) return -1
+        return 0
       })
     }
   }
@@ -38,10 +44,16 @@ export default {
 }
 
 .TalkListItem {
-  width: 400px;
-  height: 400px;
-  margin: $base-spacing;
-  padding: $base-spacing;
+  width: 100%;
+  margin: $base-spacing $small-spacing;
+
+  @include media($min-tablet) {
+    width: 45%;
+  }
+
+  @include media($min-desktop) {
+    width: 30%;
+  }
 
   > div, > a {
     display: flex;
@@ -50,18 +62,42 @@ export default {
     flex-direction: column;
   }
 
-  &:hover {
-    cursor: pointer;
+  &-icon {
+    width: 50%;
+    margin: $base-spacing 0 $small-spacing;
+    svg g {
+      stroke: $white;
+    }
   }
-
-  @include background-color;
-  @include hover-saturate;
 
   &-title {
     font-size: $large-font-size;
     text-align: center;
     color: $white;
+    margin: $small-spacing;
   }
+
+  &-moreInfo {
+    opacity: 0;
+    transition: opacity .5s;
+    font-weight: $heavy-font-weight;
+    text-decoration: underline;
+    color: $white;
+    margin: $small-spacing 0 $base-spacing;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .TalkListItem-moreInfo {
+      opacity: 1;
+      transition: opacity .5s;
+    }
+  }
+
+  @include background-color;
+  @include hover-saturate;
+
 }
 
 </style>

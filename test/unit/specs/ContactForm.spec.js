@@ -3,7 +3,7 @@ import { TestUtility } from './TestUtility'
 import axios from 'axios'
 
 jest.mock('axios', () => ({
-  post: jest.fn(() => Promise.resolve({ data: { success: true, error: ''} }))
+  post: jest.fn(() => Promise.resolve({ data: { success: true, error: '' } }))
 }))
 
 describe('ContactForm', () => {

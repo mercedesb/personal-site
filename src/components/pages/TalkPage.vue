@@ -3,17 +3,16 @@
     <PageHeader
       :color="page.color"
       :icon="page.icon"
-      :short="true"
     >
       <template slot='titleHeader'>
-        <h2>{{page.title}}</h2>
+        <h1>{{page.title}}</h1>
       </template>
     </PageHeader>
     <div v-if="page.mainContent">
       <div class="PageContent">
         <ParseMarkdown class="PageContent-mainContent" :source="page.mainContent" />
         <div v-for="event in page.givenAt" :key="event.id" class="EventDetails">
-          <h3 class="h4">{{event.title}}</h3>
+          <h2 class="h4">{{event.title}}</h2>
           <div class="EventDetails-links">
             <a class="EventDetails-linkItem" href="event.slidesLink" v-if="event.slidesLink">Slides</a>
             <a class="EventDetails-linkItem" href="event.videoLink" v-if="event.videoLink">Video</a>
@@ -32,7 +31,6 @@
 import PageHeader from '../PageHeader.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import objects from '../../mixins/objects'
-import images from '../../mixins/images'
 
 const moment = require('moment')
 
@@ -41,7 +39,7 @@ export default {
     PageHeader, ParseMarkdown
   },
   mixins: [
-    objects, images
+    objects
   ],
   metaInfo () {
     return {
@@ -76,7 +74,7 @@ export default {
           return {
             id: ga.sys.id,
             ...ga.fields,
-            date: moment(ga.date).format('MMMM DD, YYYY')
+            date: moment(ga.fields.date).format('MMMM DD, YYYY')
           }
         })
       }

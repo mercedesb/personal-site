@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../assets/styles/variables.scss';
 
   $header-height: 450px;
@@ -78,12 +78,16 @@ export default {
       }
     }
 
-    &-media, .PageHeader-background svg {
+    &-media {
       width: $media-width;
       position: relative;
       top: -$media-width/4;
       left: -$media-width/4;
       opacity: $light-opacity;
+
+      svg g {
+        stroke: $white;
+      }
     }
 
     &-text {

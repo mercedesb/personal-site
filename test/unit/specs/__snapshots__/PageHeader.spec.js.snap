@@ -14,6 +14,44 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
     />
   </div>
    
+  <!---->
+   
+  <div
+    class="PageHeader-text"
+  >
+    <div
+      class="PageHeader-decorativeHeader"
+    />
+     
+    <div
+      class="PageHeader-titleHeader"
+    />
+  </div>
+   
+  <!---->
+</header>
+`;
+
+exports[`PageHeader Snapshots with inline svg matches snapshot 1`] = `
+<header
+  class="PageHeader PageHeader--brown PageHeader--defaultHeight"
+>
+  <!---->
+   
+  <div
+    class="PageHeader-background"
+  >
+    <div
+      class="PageHeader-media"
+    >
+      <svg>
+        <g>
+          <path />
+        </g>
+      </svg>
+    </div>
+  </div>
+   
   <div
     class="PageHeader-text"
   >
@@ -43,6 +81,8 @@ exports[`PageHeader Snapshots without a title matches snapshot 1`] = `
       src="http://image.com"
     />
   </div>
+   
+  <!---->
    
   <div
     class="PageHeader-text"

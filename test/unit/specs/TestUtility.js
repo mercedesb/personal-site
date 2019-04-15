@@ -9,7 +9,8 @@ export const TestUtility = (function () {
       $route: {
         params: {
           urlSegment: 'somePath'
-        }
+        },
+        path: '/somePath'
       }
     }
   }
@@ -29,7 +30,7 @@ export const TestUtility = (function () {
 
     if (store) {
       localStore = new Vuex.Store(store)
-      localStore.dispatch = jest.fn(() => Promise.resolve({not: 'empty'}))
+      localStore.dispatch = jest.fn(() => Promise.resolve({ not: 'empty' }))
     }
 
     return {
@@ -196,6 +197,75 @@ export const TestUtility = (function () {
         urlSegment: '',
         tags: [],
         publishDate: '2018-04-22T00:00-05:00'
+      }
+    ],
+    talks: [
+      {
+        id: 'talk1',
+        title: 'talk 1 title',
+        preamble: 'talk 1 preamble',
+        mainContent: 'talk main content',
+        urlSegment: 'talk1',
+        color: 'gray',
+        icon: '<svg></svg>',
+        iconCssClass: 'Draw--300',
+        givenAt: [
+          {
+            sys: {
+              id: 'id'
+            },
+            fields: {
+              title: 'talk 1 given at',
+              slidesLink: 'http://google.com',
+              date: '2018-03-25T00:00-05:00'
+            }
+
+          }
+        ]
+      },
+      {
+        id: 'talk2',
+        title: 'talk 2 title',
+        preamble: 'talk 2 preamble',
+        mainContent: 'talk main content',
+        urlSegment: 'talk2',
+        color: 'gray',
+        icon: '<svg></svg>',
+        iconCssClass: 'Draw--300',
+        givenAt: [
+          {
+            sys: {
+              id: 'id'
+            },
+            fields: {
+              title: 'talk 2 given at',
+              slidesLink: 'http://google.com',
+              date: '2018-04-25T00:00-05:00'
+            }
+
+          }
+        ]
+      },
+      {
+        id: 'talk3',
+        title: 'talk 3 title',
+        preamble: 'talk 3 preamble',
+        mainContent: 'talk main content',
+        color: 'gray',
+        icon: '<svg></svg>',
+        iconCssClass: 'Draw--300',
+        givenAt: [
+          {
+            sys: {
+              id: 'id'
+            },
+            fields: {
+              title: 'talk 3 given at',
+              slidesLink: 'http://google.com',
+              date: '2018-02-25T00:00-05:00'
+            }
+          }
+        ]
       }
     ]
   }
