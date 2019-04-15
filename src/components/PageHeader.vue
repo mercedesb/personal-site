@@ -3,6 +3,9 @@
     <div class="PageHeader-background" v-if="media">
       <img class='PageHeader-media' :src="media" :alt="`Background icon`" />
     </div>
+    <div class="PageHeader-background" v-if="icon">
+      <div class='PageHeader-media' v-html="icon"></div>
+    </div>
     <div class='PageHeader-text'>
       <div class='PageHeader-decorativeHeader'>
         <slot name="decorativeHeader"></slot>
@@ -25,6 +28,7 @@ export default {
   props: {
     color: String,
     media: String,
+    icon: String,
     short: Boolean
   },
   computed: {
@@ -74,7 +78,7 @@ export default {
       }
     }
 
-    &-media {
+    &-media, .PageHeader-background svg {
       width: $media-width;
       position: relative;
       top: -$media-width/4;

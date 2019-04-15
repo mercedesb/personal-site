@@ -1,19 +1,27 @@
 <template>
    <main class='TalkPage'>
     <PageHeader
-      :color="color"
+      :color="page.color"
+      :icon="page.icon"
       :short="true"
     >
-      <template slot='decorativeHeader'>
-        <h1>{{ title }}</h1>
-      </template>
       <template slot='titleHeader'>
         <h2>{{page.title}}</h2>
       </template>
     </PageHeader>
     <div v-if="page.mainContent">
       <div class="PageContent">
-        <ParseMarkdown :source="page.mainContent" />
+        <ParseMarkdown class="PageContent-mainContent" :source="page.mainContent" />
+        <div v-for="event in page.givenAt" :key="event.id" class="EventDetails">
+          <h3 class="h4">{{event.title}}</h3>
+          <div class="EventDetails-links">
+            <a class="EventDetails-linkItem" href="event.slidesLink" v-if="event.slidesLink">Slides</a>
+            <a class="EventDetails-linkItem" href="event.videoLink" v-if="event.videoLink">Video</a>
+            <a class="EventDetails-linkItem" href="event.audioLink" v-if="event.audioLink">Audio</a>
+            <a class="EventDetails-linkItem" href="event.blogLink" v-if="event.blogLink">Blog</a>
+            <em>{{event.date}}</em>
+          </div>
+        </div>
         <br/>
       </div>
     </div>
@@ -26,7 +34,7 @@ import ParseMarkdown from '../ParseMarkdown.vue'
 import objects from '../../mixins/objects'
 import images from '../../mixins/images'
 
-// const moment = require('moment')
+const moment = require('moment')
 
 export default {
   components: {
@@ -59,15 +67,24 @@ export default {
       ]
     }
   },
-  props: {
-    color: {
-      type: String,
-      default: 'purple'
-    }
-  },
   computed: {
     page () {
-      return this.$store.state.talk
+      const talk = this.$store.state.talk
+      let givenAt = []
+      if (talk && talk.givenAt) {
+        givenAt = talk.givenAt.map(ga => {
+          return {
+            id: ga.sys.id,
+            ...ga.fields,
+            date: moment(ga.date).format('MMMM DD, YYYY')
+          }
+        })
+      }
+
+      return {
+        ...talk,
+        givenAt: givenAt
+      }
     }
   },
   created () {
@@ -94,6 +111,17 @@ export default {
 
   @include media($max-tablet) {
     display: block;
+  }
+
+  .EventDetails-links {
+    .EventDetails-linkItem {
+      padding-right: $small-spacing;
+      border-right: 2px solid $black;
+    }
+
+    .EventDetails-linkItem:last-of-type {
+      border-right: none;
+    }
   }
 }
 
