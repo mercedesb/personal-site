@@ -7,7 +7,7 @@ describe('PageHeader', () => {
   const initialProps = {
     color: 'brown',
     title: 'title',
-    preamble: 'heres the preamble',
+    preamble: 'heres the preamble'
   }
 
   const shallow = propsData => TestUtility.shallow(PageHeader, {
