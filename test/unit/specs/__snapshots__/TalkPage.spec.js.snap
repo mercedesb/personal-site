@@ -24,12 +24,7 @@ exports[`TalkPage Snapshots matches snapshot 1`] = `
         <div
           class="EventDetails-links"
         >
-          <a
-            class="EventDetails-linkItem"
-            href="event.slidesLink"
-          >
-            Slides
-          </a>
+          <!---->
            
           <!---->
            
