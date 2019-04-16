@@ -15,14 +15,14 @@ export const TestUtility = (function () {
     }
   }
 
-  function configure () {
+  function configure() {
     const localVue = createLocalVue()
     localVue.component('smart-link', SmartLink)
     localVue.use(Vuex)
     return localVue
   }
 
-  function getOptions (config = {}) {
+  function getOptions(config = {}) {
     const { store, ...localConfig } = config
     let localStore
 
@@ -227,7 +227,11 @@ export const TestUtility = (function () {
         mainContent: 'talk main content',
         urlSegment: 'talk1',
         color: 'gray',
-        icon: '<svg></svg>',
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         iconCssClass: 'Draw--300',
         givenAt: [
           {
@@ -250,7 +254,11 @@ export const TestUtility = (function () {
         mainContent: 'talk main content',
         urlSegment: 'talk2',
         color: 'gray',
-        icon: '<svg></svg>',
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         iconCssClass: 'Draw--300',
         givenAt: [
           {
@@ -272,7 +280,11 @@ export const TestUtility = (function () {
         preamble: 'talk 3 preamble',
         mainContent: 'talk main content',
         color: 'gray',
-        icon: '<svg></svg>',
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         iconCssClass: 'Draw--300',
         givenAt: [
           {

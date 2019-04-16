@@ -151,7 +151,8 @@ export const actions = {
     } else {
       return context.dispatch('getEntries', {
         content_type: 'talkPage',
-        'fields.urlSegment': urlSegment
+        'fields.urlSegment': urlSegment,
+        include: 2
       })
         .then((entries) => {
           const talk = entries.length ? entries[0] : {}

@@ -1,7 +1,7 @@
 <template>
   <div v-if="talks.length" class="TalkList">
     <smart-link :class="'TalkListItem TalkListItem--' + talk.color + ' ' + talk.iconCssClass" v-for="talk in talks" v-bind="talk" :key="talk.id" :to="'speaking/' + talk.urlSegment">
-      <div class="TalkListItem-icon" v-html="talk.icon"></div>
+      <div class="TalkListItem-icon" v-html="talk.iconSvg"></div>
       <h3 class="TalkListItem-title">{{talk.title}}</h3>
       <div class="TalkListItem-moreInfo">
         Resources
@@ -14,7 +14,12 @@
 export default {
   computed: {
     talks () {
-      let toSort = [...this.$store.state.talks]
+      let toSort = this.$store.state.talks.map(talk => {
+        return {
+          ...talk,
+          iconSvg: talk.iconSvg.fields.svg
+        }
+      })
 
       // sort in reverse chronological order based on when talk was last given
       return toSort.sort((first, second) => {

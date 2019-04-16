@@ -2,7 +2,7 @@
    <main class='TalkPage'>
     <PageHeader
       :color="page.color"
-      :icon="page.icon"
+      :icon="page.iconSvg"
     >
       <template slot='titleHeader'>
         <h1>{{page.title}}</h1>
@@ -14,9 +14,9 @@
         <div v-for="event in page.givenAt" :key="event.id" class="EventDetails">
           <h2 class="h4">{{event.title}}</h2>
           <div class="EventDetails-links">
-            <smart-link class="EventDetails-linkItem" :to="event.slidesLink" isExternal="true" v-if="event.slidesLink">Slides</smart-link>
-            <smart-link class="EventDetails-linkItem" :to="event.videoLink" isExternal="true" v-if="event.videoLink">Video</smart-link>
-            <smart-link class="EventDetails-linkItem" :to="event.audioLink" isExternal="true" v-if="event.audioLink">Audio</smart-link>
+            <smart-link class="EventDetails-linkItem" :to="event.slidesLink" :isExternal="true" v-if="event.slidesLink">Slides</smart-link>
+            <smart-link class="EventDetails-linkItem" :to="event.videoLink" :isExternal="true" v-if="event.videoLink">Video</smart-link>
+            <smart-link class="EventDetails-linkItem" :to="event.audioLink" :isExternal="true" v-if="event.audioLink">Audio</smart-link>
             <smart-link class="EventDetails-linkItem" :to="'/' + event.blogLink" v-if="event.blogLink">Blog</smart-link>
             <em>{{event.date}}</em>
           </div>
@@ -80,6 +80,7 @@ export default {
       }
       return {
         ...talk,
+        iconSvg: talk.iconSvg ? talk.iconSvg.fields.svg : null,
         givenAt: givenAt
       }
     }
