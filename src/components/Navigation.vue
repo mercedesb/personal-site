@@ -4,7 +4,7 @@
       <li class="Navigation-navLink">
         <smart-link to="/">
           <div class='Navigation-title'><span>Home</span></div>
-          <img class='Navigation-icon' src='../assets/HomeIcon.svg' alt='Home icon' />
+          <div class="Navigation-icon" v-html="homeLink.iconSvg"></div>
         </smart-link>
       </li>
       <li class="Navigation-navLink" v-for="navLink in navLinks" :key="navLink.title">
@@ -13,7 +13,7 @@
           :isExternal="!!navLink.externalLink"
           >
           <div class='Navigation-title'><span>{{navLink.title}}</span></div>
-          <img class='Navigation-icon' :src="navLink.iconUrl" :alt="`${navLink.title} icon`"/>
+          <div class="Navigation-icon" v-html="navLink.iconSvg"></div>
         </smart-link>
       </li>
     </ul>
@@ -29,13 +29,21 @@ export default {
   ],
   computed: {
     navLinks () {
-      return this.$store.state.navLinks.map((link) => {
+      return this.$store.state.navLinks.slice(1).map((link) => {
         return {
           parsedLink: link.externalLink ? link.externalLink : `/${link.urlSegment}`,
-          iconUrl: this.getImageUrl(link.icon),
-          ...link
+          ...link,
+          iconSvg: link.iconSvg.fields.svg
         }
       })
+    },
+    homeLink () {
+      const link = this.$store.state.navLinks[0]
+      return {
+        parsedLink: '/',
+        ...link,
+        iconSvg: link.icon.fields.svg
+      }
     }
   }
 }
@@ -46,7 +54,7 @@ export default {
 
 $transition-time: .3s;
 
-$icon-initial-width: 50px;
+$icon-initial-width: 60px;
 $icon-hover-width: 75px;
 
 .Navigation {
@@ -82,9 +90,9 @@ $icon-hover-width: 75px;
             }
 
             &-icon {
-              max-width: $icon-hover-width;
-              -webkit-transition: max-width $transition-time;
-              transition: max-width $transition-time;
+              width: $icon-hover-width;
+              -webkit-transition: width $transition-time;
+              transition: width $transition-time;
             }
           }
         }
@@ -104,9 +112,14 @@ $icon-hover-width: 75px;
 
   &-icon {
     margin: 0 $small-spacing;
-    max-width: $icon-initial-width;
-    -webkit-transition: max-width $transition-time;
-    transition: max-width $transition-time;
+    width: $icon-initial-width;
+    -webkit-transition: width $transition-time;
+    transition: width $transition-time;
+
+    svg g {
+      stroke: $white;
+      stroke-width: 2;
+    }
   }
 }
 </style>

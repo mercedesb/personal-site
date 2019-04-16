@@ -46,13 +46,13 @@ describe('LandingPage', () => {
       })
     })
 
-    describe('iconUrl', () => {
+    describe('iconSvg', () => {
       beforeEach(() => {
         component = shallow()
       })
 
-      it('has iconUrl populated', () => {
-        expect(component.vm.iconUrl).toBeDefined()
+      it('has iconSvg populated', () => {
+        expect(component.vm.iconSvg).toBeDefined()
       })
     })
 

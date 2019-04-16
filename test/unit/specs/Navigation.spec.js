@@ -4,10 +4,20 @@ import { TestUtility } from './TestUtility'
 describe('Navigation', () => {
   let component
 
+  const homePageNavLink = {
+    icon: {
+      fields: {
+        svg: '<svg></svg>'
+      }
+    }
+  }
+
+  const landingPageNavLinks = Object.keys(TestUtility.landingPages).map((key) => {
+    return TestUtility.landingPages[key]
+  })
+
   const state = {
-    navLinks: Object.keys(TestUtility.landingPages).map((key) => {
-      return TestUtility.landingPages[key]
-    })
+    navLinks: [homePageNavLink, ...landingPageNavLinks]
   }
 
   const actions = {

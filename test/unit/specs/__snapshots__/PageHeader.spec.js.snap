@@ -4,24 +4,12 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
 <header
   class="PageHeader PageHeader--brown PageHeader--defaultHeight"
 >
-  <div
-    class="PageHeader-background"
-  >
-    <img
-      alt="Background icon"
-      class="PageHeader-media"
-      src="http://image.com"
-    />
-  </div>
-   
   <!---->
    
   <div
     class="PageHeader-text"
   >
-    <div
-      class="PageHeader-decorativeHeader"
-    />
+    <!---->
      
     <div
       class="PageHeader-titleHeader"
@@ -36,8 +24,6 @@ exports[`PageHeader Snapshots with inline svg matches snapshot 1`] = `
 <header
   class="PageHeader PageHeader--brown PageHeader--defaultHeight"
 >
-  <!---->
-   
   <div
     class="PageHeader-background"
   >
@@ -55,9 +41,7 @@ exports[`PageHeader Snapshots with inline svg matches snapshot 1`] = `
   <div
     class="PageHeader-text"
   >
-    <div
-      class="PageHeader-decorativeHeader"
-    />
+    <!---->
      
     <div
       class="PageHeader-titleHeader"
@@ -72,24 +56,12 @@ exports[`PageHeader Snapshots without a title matches snapshot 1`] = `
 <header
   class="PageHeader PageHeader--brown PageHeader--defaultHeight"
 >
-  <div
-    class="PageHeader-background"
-  >
-    <img
-      alt="Background icon"
-      class="PageHeader-media"
-      src="http://image.com"
-    />
-  </div>
-   
   <!---->
    
   <div
     class="PageHeader-text"
   >
-    <div
-      class="PageHeader-decorativeHeader"
-    />
+    <!---->
      
     <div
       class="PageHeader-titleHeader"

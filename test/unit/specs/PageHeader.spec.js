@@ -7,8 +7,7 @@ describe('PageHeader', () => {
   const initialProps = {
     color: 'brown',
     title: 'title',
-    preamble: 'heres the preamble',
-    media: 'http://image.com'
+    preamble: 'heres the preamble'
   }
 
   const shallow = propsData => TestUtility.shallow(PageHeader, {
@@ -35,7 +34,7 @@ describe('PageHeader', () => {
 
     describe('with inline svg', () => {
       it('matches snapshot', () => {
-        component = shallow({ media: null, icon: '<svg><g><path /></g></svg>' })
+        component = shallow({ icon: '<svg><g><path /></g></svg>' })
         expect(component.element).toMatchSnapshot()
       })
     })

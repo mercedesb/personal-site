@@ -62,11 +62,11 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
             </span>
           </div>
            
-          <img
-            alt="Shop icon"
+          <div
             class="Navigation-icon"
-            src="http://placeholder.pics/svg/300"
-          />
+          >
+            <svg />
+          </div>
         </a>
       </div>
     </li>
