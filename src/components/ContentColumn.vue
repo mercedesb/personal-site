@@ -2,7 +2,7 @@
   <div :class="'ContentColumn ContentColumn--' + color">
     <smart-link class='ContentColumn-link' :to="link" :isExternal="isExternal">
       <h2 class='ContentColumn-title'>{{ navTitle || title }}</h2>
-      <img class='ContentColumn-icon' :src="iconUrl" :alt="`${title} icon`" />
+      <div class="ContentColumn-icon" v-html="iconSvg"></div>
       <div class='ContentColumn-description'>
         <p>{{ preamble }}</p>
       </div>
@@ -30,14 +30,11 @@ export default {
       default: 'brown'
     },
     preamble: String,
-    icon: Object,
+    iconSvg: String,
     externalLink: String,
     urlSegment: String
   },
   computed: {
-    iconUrl: function () {
-      return this.getImageUrl(this.icon)
-    },
     isExternal: function () {
       return !!this.externalLink
     },
@@ -52,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../assets/styles/variables.scss';
 
   $icon-width: 125px;
@@ -81,9 +78,13 @@ export default {
 
     &-icon {
       padding: 0 0 $base-spacing;
-      color: $white;
       width: $icon-width;
-      z-index: 1;
+      margin: 0 auto;
+
+      svg g {
+        stroke: $white;
+        stroke-width: 2;
+      }
     }
 
     &-description {

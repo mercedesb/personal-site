@@ -176,7 +176,7 @@ export const actions = {
   getHomePage (context) {
     context.commit('clearHomePage')
 
-    return context.dispatch('getEntries', { content_type: 'home' })
+    return context.dispatch('getEntries', { content_type: 'home', include: 2 })
       .then((entries) => {
         const homePage = entries.length ? entries[0] : {}
         context.commit('homePage', homePage)
@@ -193,9 +193,10 @@ export const actions = {
           ...item.fields
         }
       })
-      context.commit('navLinks', children)
+      const navLinks = [{ id: homePage.id, ...homePage }, ...children]
+      context.commit('navLinks', navLinks)
       return new Promise((resolve) => {
-        resolve(children)
+        resolve(navLinks)
       })
     } else {
       return context.dispatch('getHomePage')
@@ -207,8 +208,9 @@ export const actions = {
               ...item.fields
             }
           })
-          context.commit('navLinks', children)
-          return children
+          const navLinks = [{ id: homePage.id, ...homePage }, ...children]
+          context.commit('navLinks', navLinks)
+          return navLinks
         })
     }
   },

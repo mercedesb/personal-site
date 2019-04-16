@@ -64,6 +64,11 @@ export const TestUtility = (function () {
             }
           }
         },
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         mainContent: '',
         ctaLinks: [
           {
@@ -125,6 +130,11 @@ export const TestUtility = (function () {
             }
           }
         },
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         mainContent: '',
         ctaLinks: [],
         urlSegment: 'blog',
@@ -143,6 +153,11 @@ export const TestUtility = (function () {
             }
           }
         },
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         mainContent: '',
         ctaLinks: [],
         urlSegment: 'connect',
@@ -159,6 +174,11 @@ export const TestUtility = (function () {
             file: {
               url: 'http://placeholder.pics/svg/300'
             }
+          }
+        },
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
           }
         },
         mainContent: '',

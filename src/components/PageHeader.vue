@@ -1,13 +1,10 @@
 <template>
   <header :class="`PageHeader PageHeader--${color} PageHeader--${height}`">
-    <div class="PageHeader-background" v-if="media">
-      <img class='PageHeader-media' :src="media" :alt="`Background icon`" />
-    </div>
     <div class="PageHeader-background" v-if="icon">
       <div class='PageHeader-media' v-html="icon"></div>
     </div>
     <div class='PageHeader-text'>
-      <div class='PageHeader-decorativeHeader'>
+      <div class='PageHeader-decorativeHeader' v-if="hasDecorativeHeader">
         <slot name="decorativeHeader"></slot>
       </div>
       <div class='PageHeader-titleHeader'>
@@ -27,13 +24,15 @@ export default {
   },
   props: {
     color: String,
-    media: String,
     icon: String,
     short: Boolean
   },
   computed: {
     height () {
       return this.short ? 'short' : 'defaultHeight'
+    },
+    hasDecorativeHeader () {
+      return !!this.$slots['decorativeHeader']
     }
   }
 }
@@ -100,6 +99,12 @@ export default {
         flex-direction: column;
         padding: 0;
       }
+
+      & > .PageHeader-titleHeader:first-child {
+        @include media($min-tablet) {
+          margin-top: 200px;
+        }
+      }
     }
 
     &-decorativeHeader {
@@ -144,6 +149,12 @@ export default {
       }
 
       .PageHeader-decorativeHeader {
+        display: none;
+
+        @include media($min-desktop) {
+          display: block;
+        }
+
         * {
           font-size: $giant-font-size;
 
@@ -155,13 +166,18 @@ export default {
 
       .PageHeader-titleHeader {
         @include media($min-tablet) {
-          position: absolute;
-          top: $header-height / 4;
+          margin-top: $large-spacing;
           width:100%;
 
           * {
             margin: 0;
           }
+        }
+
+        @include media($min-desktop) {
+          margin-top: 0;
+          position: absolute;
+          top: $header-height / 4;
         }
       }
     }

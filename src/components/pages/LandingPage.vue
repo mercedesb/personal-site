@@ -2,7 +2,7 @@
   <main :key="`${landingPage.id}_mainContent`" v-if="landingPage.title" class='LandingPage'>
     <PageHeader
       :color="landingPage.color"
-      :media="iconUrl"
+      :icon="iconSvg"
     >
       <template slot='decorativeHeader'>
         <h1>{{ landingPage.title }}</h1>
@@ -91,8 +91,8 @@ export default {
     landingPage () {
       return this.$store.state.landingPage
     },
-    iconUrl () {
-      return this.getImageUrl(this.landingPage.icon)
+    iconSvg () {
+      return this.landingPage.iconSvg.fields.svg
     },
     ctaLinks () {
       if (!this.landingPage.ctaLinks) return []
