@@ -90,3 +90,7 @@ li {
 /* utilities */
 
 [v-cloak] {display: none}
+
+.Draw {
+  @include draw
+}

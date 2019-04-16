@@ -186,3 +186,29 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
   align-items: center;
   overflow: auto;
 }
+
+@mixin draw {
+  $i: 300;
+  @while $i <= 1100 {
+    
+    &--#{$i} {
+      &:hover {
+        path {
+          stroke-dasharray: $i;
+          animation: draw-#{$i} 1.5s;
+        }
+      }
+
+    @keyframes draw-#{$i} {
+      from {
+        stroke-dashoffset: $i;
+      }
+      to {
+      stroke-dashoffset: 0;
+      }
+    }
+
+      $i: $i + 20;
+    }
+  }
+}

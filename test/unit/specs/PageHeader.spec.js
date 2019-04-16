@@ -28,7 +28,14 @@ describe('PageHeader', () => {
 
     describe('without a title', () => {
       it('matches snapshot', () => {
-        component = shallow({title: undefined})
+        component = shallow({ title: undefined })
+        expect(component.element).toMatchSnapshot()
+      })
+    })
+
+    describe('with inline svg', () => {
+      it('matches snapshot', () => {
+        component = shallow({ media: null, icon: '<svg><g><path /></g></svg>' })
         expect(component.element).toMatchSnapshot()
       })
     })

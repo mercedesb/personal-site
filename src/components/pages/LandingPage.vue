@@ -16,6 +16,7 @@
     </div>
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogList v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
+    <TalkList v-if="landingPage.showTalks" />
     <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
@@ -31,6 +32,7 @@ import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
+import TalkList from '../TalkList.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import images from '../../mixins/images'
 import objects from '../../mixins/objects'
@@ -41,6 +43,7 @@ export default {
     CTALink,
     ContactForm,
     BlogList,
+    TalkList,
     ParseMarkdown
   },
   mixins: [
@@ -129,6 +132,10 @@ export default {
                 .then((blogPosts) => {
                   document.dispatchEvent(new Event('custom-render-trigger'))
                 })
+            }
+
+            if (landingPage.showTalks) {
+              this.$store.dispatch('getTalks')
             }
           })
       })

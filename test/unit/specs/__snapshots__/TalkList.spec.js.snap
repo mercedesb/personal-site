@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TalkList Snapshots matches snapshot 1`] = `
+<div
+  class="TalkList"
+>
+  <div
+    class="TalkListItem TalkListItem--gray Draw--300"
+    color="gray"
+    givenat="[object Object]"
+    icon=<svg></svg>
+    iconcssclass="Draw--300"
+    id="talk2"
+    maincontent="talk main content"
+    preamble="talk 2 preamble"
+    title="talk 2 title"
+    urlsegment="talk2"
+  >
+    <!---->
+     
+    <!---->
+  </div>
+  <div
+    class="TalkListItem TalkListItem--gray Draw--300"
+    color="gray"
+    givenat="[object Object]"
+    icon=<svg></svg>
+    iconcssclass="Draw--300"
+    id="talk1"
+    maincontent="talk main content"
+    preamble="talk 1 preamble"
+    title="talk 1 title"
+    urlsegment="talk1"
+  >
+    <!---->
+     
+    <!---->
+  </div>
+  <div
+    class="TalkListItem TalkListItem--gray Draw--300"
+    color="gray"
+    givenat="[object Object]"
+    icon=<svg></svg>
+    iconcssclass="Draw--300"
+    id="talk3"
+    maincontent="talk main content"
+    preamble="talk 3 preamble"
+    title="talk 3 title"
+  >
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;

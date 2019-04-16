@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TalkPage Snapshots matches snapshot 1`] = `
+<main
+  class="TalkPage"
+>
+  <!---->
+   
+  <div>
+    <div
+      class="PageContent"
+    >
+      <!---->
+       
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          talk 1 given at
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            Apr 18 2018
+          </em>
+        </div>
+      </div>
+       
+      <br />
+    </div>
+  </div>
+</main>
+`;
