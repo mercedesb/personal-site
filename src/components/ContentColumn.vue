@@ -81,10 +81,7 @@ export default {
       width: $icon-width;
       margin: 0 auto;
 
-      svg g {
-        stroke: $white;
-        stroke-width: 2;
-      }
+      @include light-svg;
     }
 
     &-description {

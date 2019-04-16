@@ -70,9 +70,9 @@ export default {
   &-icon {
     width: 30%;
     margin: $base-spacing 0 $small-spacing;
-    svg g {
-      stroke: $white;
-    }
+
+    @include light-svg;
+
   }
 
   &-title {

@@ -84,9 +84,7 @@ export default {
       left: -$media-width/4;
       opacity: $light-opacity;
 
-      svg g {
-        stroke: $white;
-      }
+      @include light-svg;
     }
 
     &-text {

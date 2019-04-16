@@ -212,3 +212,12 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
     }
   }
 }
+
+@mixin light-svg {
+  svg {
+    g, path {
+      stroke: $white;
+      stroke-width: 2;
+    }
+  }
+}

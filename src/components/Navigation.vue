@@ -116,10 +116,7 @@ $icon-hover-width: 75px;
     -webkit-transition: width $transition-time;
     transition: width $transition-time;
 
-    svg g {
-      stroke: $white;
-      stroke-width: 2;
-    }
+    @include light-svg;
   }
 }
 </style>
