@@ -1,9 +1,7 @@
 <template>
   <div :class="`CTA CTA--${color} CTA--${modifierClass}`">
     <smart-link class='CTA-link' :to="url" :isExternal="external">
-      <div class='CTA-icon'>
-        <img :src="icon" :alt="`${title} icon`" />
-      </div>
+      <div class='CTA-icon' v-html="iconSvg"></div>
       <p class='CTA-title'>{{ title }}</p>
     </smart-link>
   </div>
@@ -14,7 +12,7 @@
 export default {
   props: {
     title: String,
-    icon: String,
+    iconSvg: String,
     url: String,
     color: {
       type: String,
@@ -60,10 +58,9 @@ export default {
       margin-right: $small-spacing;
       padding: $small-spacing;
       max-width: 120px;
+      width: $icon-width;
 
-      img {
-        width: $icon-width;
-      }
+      @include light-svg;
     }
 
     &--default {

@@ -35,7 +35,7 @@ describe('TalkList', () => {
       })
 
       it('sorts the talks in desc order by the most recent talk given', () => {
-        expect(component.vm.talks).toEqual([TestUtility.talks[1], TestUtility.talks[0], TestUtility.talks[2]])
+        expect(component.vm.talks.map(t => t.id)).toEqual([TestUtility.talks[1].id, TestUtility.talks[0].id, TestUtility.talks[2].id])
       })
     })
   })

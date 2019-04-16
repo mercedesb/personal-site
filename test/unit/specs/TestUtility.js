@@ -57,13 +57,6 @@ export const TestUtility = (function () {
       about: {
         title: 'About',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -77,11 +70,9 @@ export const TestUtility = (function () {
             },
             fields: {
               title: 'Resume',
-              icon: {
+              iconSvg: {
                 fields: {
-                  file: {
-                    url: 'http://placeholder.pics/svg/300'
-                  }
+                  svg: '<svg></svg>'
                 }
               },
               internalLink: {
@@ -98,11 +89,9 @@ export const TestUtility = (function () {
             },
             fields: {
               title: 'External CTA',
-              icon: {
+              iconSvg: {
                 fields: {
-                  file: {
-                    url: 'http://placeholder.pics/svg/300'
-                  }
+                  svg: '<svg></svg>'
                 }
               },
               internalLink: {
@@ -123,13 +112,6 @@ export const TestUtility = (function () {
       blog: {
         title: 'Blog',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -146,13 +128,6 @@ export const TestUtility = (function () {
       connect: {
         title: 'Connect',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -169,13 +144,6 @@ export const TestUtility = (function () {
       shop: {
         title: 'Shop',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -227,7 +195,11 @@ export const TestUtility = (function () {
         mainContent: 'talk main content',
         urlSegment: 'talk1',
         color: 'gray',
-        icon: '<svg></svg>',
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         iconCssClass: 'Draw--300',
         givenAt: [
           {
@@ -250,7 +222,11 @@ export const TestUtility = (function () {
         mainContent: 'talk main content',
         urlSegment: 'talk2',
         color: 'gray',
-        icon: '<svg></svg>',
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         iconCssClass: 'Draw--300',
         givenAt: [
           {
@@ -272,7 +248,11 @@ export const TestUtility = (function () {
         preamble: 'talk 3 preamble',
         mainContent: 'talk main content',
         color: 'gray',
-        icon: '<svg></svg>',
+        iconSvg: {
+          fields: {
+            svg: '<svg></svg>'
+          }
+        },
         iconCssClass: 'Draw--300',
         givenAt: [
           {

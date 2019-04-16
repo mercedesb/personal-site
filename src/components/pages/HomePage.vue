@@ -55,7 +55,6 @@ export default {
           navTitle: child.fields.navTitle,
           color: child.fields.color,
           preamble: child.fields.preamble,
-          icon: child.fields.icon,
           iconSvg: child.fields.iconSvg.fields.svg,
           externalLink: child.fields.externalLink,
           urlSegment: child.fields.urlSegment
