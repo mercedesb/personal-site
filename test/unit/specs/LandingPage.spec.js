@@ -69,7 +69,7 @@ describe('LandingPage', () => {
             id: expect.any(String),
             color: expect.any(String),
             title: expect.any(String),
-            icon: expect.any(String),
+            iconSvg: expect.any(String),
             url: expect.any(String),
             external: expect.any(Boolean)
           }

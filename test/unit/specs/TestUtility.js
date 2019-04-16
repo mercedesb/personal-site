@@ -57,13 +57,6 @@ export const TestUtility = (function () {
       about: {
         title: 'About',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -77,11 +70,9 @@ export const TestUtility = (function () {
             },
             fields: {
               title: 'Resume',
-              icon: {
+              iconSvg: {
                 fields: {
-                  file: {
-                    url: 'http://placeholder.pics/svg/300'
-                  }
+                  svg: '<svg></svg>'
                 }
               },
               internalLink: {
@@ -98,11 +89,9 @@ export const TestUtility = (function () {
             },
             fields: {
               title: 'External CTA',
-              icon: {
+              iconSvg: {
                 fields: {
-                  file: {
-                    url: 'http://placeholder.pics/svg/300'
-                  }
+                  svg: '<svg></svg>'
                 }
               },
               internalLink: {
@@ -123,13 +112,6 @@ export const TestUtility = (function () {
       blog: {
         title: 'Blog',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -146,13 +128,6 @@ export const TestUtility = (function () {
       connect: {
         title: 'Connect',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'
@@ -169,13 +144,6 @@ export const TestUtility = (function () {
       shop: {
         title: 'Shop',
         preamble: '',
-        icon: {
-          fields: {
-            file: {
-              url: 'http://placeholder.pics/svg/300'
-            }
-          }
-        },
         iconSvg: {
           fields: {
             svg: '<svg></svg>'

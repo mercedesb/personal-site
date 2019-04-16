@@ -138,7 +138,7 @@ describe('HomePage', () => {
             title: expect.any(String),
             color: expect.any(String),
             preamble: expect.any(String),
-            icon: expect.any(Object),
+            iconSvg: expect.any(String),
             externalLink: expect.any(String),
             urlSegment: expect.any(String)
           }

@@ -1,7 +1,7 @@
 <template>
   <div :class="`CTA CTA--${color} CTA--${modifierClass}`">
     <smart-link class='CTA-link' :to="url" :isExternal="external">
-      <div class='CTA-icon' v-html="icon"></div>
+      <div class='CTA-icon' v-html="iconSvg"></div>
       <p class='CTA-title'>{{ title }}</p>
     </smart-link>
   </div>
@@ -12,7 +12,7 @@
 export default {
   props: {
     title: String,
-    icon: String,
+    iconSvg: String,
     url: String,
     color: {
       type: String,

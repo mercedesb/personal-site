@@ -6,7 +6,7 @@ describe('CTALink', () => {
 
   const initialProps = {
     title: 'cta title',
-    icon: 'http://google.com',
+    iconSvg: 'http://google.com',
     url: 'cta',
     color: 'gray',
     external: false
@@ -29,7 +29,7 @@ describe('CTALink', () => {
 
     describe('without a color passed in', () => {
       it('matches snapshot', () => {
-        component = shallow({color: undefined})
+        component = shallow({ color: undefined })
         expect(component.element).toMatchSnapshot()
       })
     })
@@ -43,7 +43,7 @@ describe('CTALink', () => {
       })
 
       it('returns external if external', () => {
-        component = shallow({external: true})
+        component = shallow({ external: true })
         expect(component.vm.modifierClass).toEqual('external')
       })
     })

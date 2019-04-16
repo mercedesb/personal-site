@@ -111,7 +111,7 @@ export default {
           id: cta.sys.id,
           color: this.landingPage.color,
           title: cta.fields.title,
-          icon: cta.fields.iconSvg ? cta.fields.iconSvg.fields.svg : null,
+          iconSvg: cta.fields.iconSvg ? cta.fields.iconSvg.fields.svg : null,
           url: url,
           external: !!cta.fields.externalLink
         }
