@@ -56,12 +56,10 @@ export default {
         { name: 'twitter:title', vmid: 'twitter:title', content: this.page.title },
         { name: 'twitter:description', vmid: 'twitter:description', content: this.page.preamble },
         { name: 'twitter:creator', vmid: 'twitter:creator', content: '@mercedescodes' },
-        { name: 'twitter:image', content: this.socialImage ? `${window.location.protocol}${this.socialImage}?w=800&fit=fill` : '' },
         // Open Graph data
         { property: 'og:title', vmid: 'og:title', content: this.page.title },
         { property: 'og:type', vmid: 'og:type', content: 'article' },
         { property: 'og:url', vmid: 'og:url', content: `http://www.mercedesbernard.com${this.$route.fullPath}/` },
-        { property: 'og:image', content: this.socialImage ? `${window.location.protocol}${this.socialImage}?w=800&fit=fill` : '' },
         { property: 'og:description', vmid: 'og:description', content: this.page.preamble },
         { property: 'og:site_name', vmid: 'og:site_name', content: 'Mercedes Bernard' }
       ]
