@@ -15,14 +15,14 @@ export const TestUtility = (function () {
     }
   }
 
-  function configure() {
+  function configure () {
     const localVue = createLocalVue()
     localVue.component('smart-link', SmartLink)
     localVue.use(Vuex)
     return localVue
   }
 
-  function getOptions(config = {}) {
+  function getOptions (config = {}) {
     const { store, ...localConfig } = config
     let localStore
 
