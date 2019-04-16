@@ -54,13 +54,13 @@ export default {
     padding: $base-spacing;
     overflow: hidden;
 
-    @include media($min-tablet) {
+    @include media($min-desktop) {
       min-height: $hero-height;
     }
     &-background {
       display: none;
 
-      @include media($min-tablet) {
+      @include media($min-desktop) {
         display: block;
       }
     }
@@ -68,7 +68,7 @@ export default {
     &-backgroundImage {
       opacity: .3;
 
-      @include media($min-tablet) {
+      @include media($min-desktop) {
         position: absolute;
 
         &:first-child {
@@ -96,7 +96,7 @@ export default {
       text-align: center;
       justify-content: center;
 
-      @include media($min-tablet) {
+      @include media($min-desktop) {
         z-index: 1;
         position: absolute;
         top: 0;
@@ -112,7 +112,7 @@ export default {
     &-content {
       font-size: $larger-font-size;
 
-      @include media($min-tablet) {
+      @include media($min-desktop) {
         display: flex;
         flex-direction: row;
         text-align: left;
@@ -125,7 +125,7 @@ export default {
       padding-top: $base-spacing;
       /* TODO: better way to prevent image distortion */
       max-width: $image-width-mobile;
-      @include media($min-tablet) {
+      @include media($min-desktop) {
         max-width: $image-width;
         max-height: $image-width;
       }
@@ -133,7 +133,7 @@ export default {
 
     &-textContainer {
       * {
-        @include media($min-tablet) {
+        @include media($min-desktop) {
           padding-left: $base-spacing;
         }
       }
@@ -147,7 +147,7 @@ export default {
     &-title {
       font-size: $largest-font-size;
 
-       @include media($min-tablet) {
+       @include media($min-desktop) {
         font-size: $giant-font-size;
       }
     }
