@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ContentLayout Snapshots matches snapshot 1`] = `
-<div
-  class="ContentLayout"
->
-  <!---->
-</div>
-`;

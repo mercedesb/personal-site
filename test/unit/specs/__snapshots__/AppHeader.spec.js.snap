@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AppHeader Snapshots with a classModifier passed in matches snapshot 1`] = `<!---->`;
-
-exports[`AppHeader Snapshots without a classModifier passed in matches snapshot 1`] = `<!---->`;
