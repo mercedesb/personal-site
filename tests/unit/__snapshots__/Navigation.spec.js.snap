@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Snapshots matches snapshot 1`] = `
+<nav
+  class="Navigation"
+>
+  <ul
+    class="Navigation-navLinks"
+  >
+    <li
+      class="Navigation-navLink"
+    >
+      <smart-link-stub
+        to="/"
+      >
+        <div
+          class="Navigation-title"
+        >
+          <span>
+            Home
+          </span>
+        </div>
+         
+        <div
+          class="Navigation-icon"
+        >
+          <svg />
+        </div>
+      </smart-link-stub>
+    </li>
+     
+    <li
+      class="Navigation-navLink"
+    >
+      <smart-link-stub
+        to="/about"
+      >
+        <div
+          class="Navigation-title"
+        >
+          <span>
+            About
+          </span>
+        </div>
+         
+        <div
+          class="Navigation-icon"
+        >
+          <svg />
+        </div>
+      </smart-link-stub>
+    </li>
+    <li
+      class="Navigation-navLink"
+    >
+      <smart-link-stub
+        to="/blog"
+      >
+        <div
+          class="Navigation-title"
+        >
+          <span>
+            Blog
+          </span>
+        </div>
+         
+        <div
+          class="Navigation-icon"
+        >
+          <svg />
+        </div>
+      </smart-link-stub>
+    </li>
+    <li
+      class="Navigation-navLink"
+    >
+      <smart-link-stub
+        to="/connect"
+      >
+        <div
+          class="Navigation-title"
+        >
+          <span>
+            Connect
+          </span>
+        </div>
+         
+        <div
+          class="Navigation-icon"
+        >
+          <svg />
+        </div>
+      </smart-link-stub>
+    </li>
+    <li
+      class="Navigation-navLink"
+    >
+      <smart-link-stub
+        isexternal="true"
+        to="https://etsy.com/shop/blinddogyarns"
+      >
+        <div
+          class="Navigation-title"
+        >
+          <span>
+            Shop
+          </span>
+        </div>
+         
+        <div
+          class="Navigation-icon"
+        >
+          <svg />
+        </div>
+      </smart-link-stub>
+    </li>
+  </ul>
+</nav>
+`;

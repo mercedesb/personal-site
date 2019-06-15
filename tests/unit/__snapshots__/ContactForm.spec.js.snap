@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactForm Snapshots matches snapshot 1`] = `
+<div
+  class="PageContent"
+>
+  <form
+    class="Form"
+  >
+    <!---->
+     
+    <div
+      class="Form-fieldset"
+    >
+      <label
+        class="Form-label"
+        for="from"
+      >
+        
+        Your Email Address
+      
+      </label>
+       
+      <input
+        class="Form-input"
+        name="from"
+        required="required"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="Form-fieldset"
+    >
+      <label
+        class="Form-label"
+        for="subject"
+      >
+        
+        Subject
+      
+      </label>
+       
+      <input
+        class="Form-input"
+        name="subject"
+        required="required"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="Form-fieldset"
+    >
+      <label
+        class="Form-label"
+        for="text"
+      >
+        
+        Message Text
+      
+      </label>
+       
+      <textarea
+        class="Form-textarea"
+        name="text"
+        required="required"
+      />
+    </div>
+     
+    <div
+      class="Form-fieldset"
+    >
+      <button
+        class="Button"
+        type="submit"
+      >
+        Send!
+      </button>
+    </div>
+  </form>
+</div>
+`;

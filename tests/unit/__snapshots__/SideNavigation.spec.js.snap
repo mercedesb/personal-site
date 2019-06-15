@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNavigation Snapshots matches snapshot 1`] = `
+<div
+  class="SideNav"
+>
+  <ul
+    class="SideNav-navLinks"
+  >
+    <li
+      class="SideNav-navLink"
+    >
+      <smart-link-stub
+        to="/"
+      >
+        
+        Home
+      
+      </smart-link-stub>
+    </li>
+     
+    <li
+      class="SideNav-navLink"
+    >
+      <smart-link-stub>
+        
+        About
+      
+      </smart-link-stub>
+    </li>
+    <li
+      class="SideNav-navLink"
+    >
+      <smart-link-stub>
+        
+        Blog
+      
+      </smart-link-stub>
+    </li>
+    <li
+      class="SideNav-navLink"
+    >
+      <smart-link-stub>
+        
+        Connect
+      
+      </smart-link-stub>
+    </li>
+    <li
+      class="SideNav-navLink"
+    >
+      <smart-link-stub
+        isexternal="true"
+      >
+        
+        Shop
+      
+      </smart-link-stub>
+    </li>
+  </ul>
+   
+  <div
+    class="SideNav-background"
+  >
+    <img
+      class="SideNav-backgroundImage"
+      src="[object Object]"
+    />
+    <img
+      class="SideNav-backgroundImage"
+      src="[object Object]"
+    />
+    <img
+      class="SideNav-backgroundImage"
+      src="[object Object]"
+    />
+  </div>
+</div>
+`;

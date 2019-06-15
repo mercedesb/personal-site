@@ -1,0 +1,172 @@
+{
+  "homePage": {
+    "id": "homepage",
+    "title": "Mercedes Bernard",
+    "preamble": "Software developer by day, crafter by night",
+    "mainImage": {
+      "fields": {
+        "file": {
+          "url": "../assets/images/MerBer-circle.png"
+        }
+      }
+    },
+    "backgroundImages": [{
+        "fields": {
+          "file": {
+            "url": "../assets/images/MacbookPro.svg"
+          }
+        }
+      },
+      {
+        "fields": {
+          "file": {
+            "url": "../assets/images/CrochetHook.svg"
+          }
+        }
+      },
+      {
+        "fields": {
+          "file": {
+            "url": "../assets/images/SpinningWheel.svg"
+          }
+        }
+      }
+    ]
+  },
+  "landingPages": {
+    "about": {
+      "sys": {
+        "id": "about"
+      },
+      "fields": {
+        "title": "About",
+        "preamble": "Learn a little about me, my background, and my approach as a software engineer.",
+        "icon": {
+          "fields": {
+            "file": {
+              "url": "../assets/images/AboutIcon.svg"
+            }
+          }
+        },
+        "mainContent": "about content here",
+        "ctaLinks": [{
+            "sys": {
+              "id": "cta 1"
+            },
+            "fields": {
+              "title": "Resume",
+              "icon": {
+                "fields": {
+                  "file": {
+                    "url": "http://placeholder.pics/svg/300"
+                  }
+                }
+              },
+              "internalLink": {
+                "fields": {
+                  "urlSegment": "resume"
+                }
+              },
+              "externalLink": ""
+            }
+          },
+          {
+            "sys": {
+              "id": "cta 2"
+            },
+            "fields": {
+              "title": "External CTA",
+              "icon": {
+                "fields": {
+                  "file": {
+                    "url": "http://placeholder.pics/svg/300"
+                  }
+                }
+              },
+              "internalLink": {
+                "fields": {
+                  "urlSegment": ""
+                }
+              },
+              "externalLink": "http://google.com"
+            }
+          }
+        ],
+        "urlSegment": "about",
+        "externalLink": "",
+        "color": "yellow",
+        "showContact": false,
+        "showBlogPosts": false
+      }
+    },
+    "blog": {
+      "sys": {
+        "id": "blog"
+      },
+      "fields": {
+        "title": "Blog",
+        "preamble": "Discover the intersection of code,  consulting life, fiber arts, and occassionally dogs.",
+        "icon": {
+          "fields": {
+            "file": {
+              "url": "../assets/images/BlogIcon.svg"
+            }
+          }
+        },
+        "mainContent": "connect content here",
+        "ctaLinks": [],
+        "urlSegment": "blog",
+        "externalLink": "",
+        "color": "purple",
+        "showContact": false,
+        "showBlogPosts": true
+      }
+    },
+    "connect": {
+      "sys": {
+        "id": "connect"
+      },
+      "fields": {
+        "title": "Connect",
+        "preamble": "Find me on the interwebs or shoot me an email.",
+        "icon": {
+          "fields": {
+            "file": {
+              "url": "../assets/images/ConnectIcon.svg"
+            }
+          }
+        },
+        "mainContent": "connect content here",
+        "ctaLinks": [],
+        "urlSegment": "connect",
+        "externalLink": "",
+        "color": "red",
+        "showContact": true,
+        "showBlogPosts": false
+      }
+    },
+    "shop": {
+      "sys": {
+        "id": "shop"
+      },
+      "fields": {
+        "title": "Shop",
+        "preamble": "Buy the perfect handmade gift for someone in your life. Scarves, Christmas stockings, baby blankets, stuffed animals, and custom orders.",
+        "icon": {
+          "fields": {
+            "file": {
+              "url": "../assets/images/ShopIcon.svg"
+            }
+          }
+        },
+        "mainContent": "",
+        "ctaLinks": [],
+        "urlSegment": "",
+        "externalLink": "https://etsy.com/shop/blinddogyarns",
+        "color": "gray",
+        "showContact": false,
+        "showBlogPosts": false
+      }
+    }
+  }
+}
