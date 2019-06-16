@@ -93,7 +93,7 @@ export default {
         }
 
         this.$store.dispatch('getNavLinks')
-          .then((navLinks) => {
+          .then(() => {
             document.dispatchEvent(new Event('custom-render-trigger'))
           })
       })

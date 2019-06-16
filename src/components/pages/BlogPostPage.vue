@@ -32,7 +32,6 @@
 <script>
 import PageHeader from '../PageHeader.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
-import CTALink from '../CTALink.vue'
 import ReadingTime from '../ReadingTime.vue'
 import objects from '../../mixins/objects'
 import images from '../../mixins/images'
@@ -41,7 +40,7 @@ const moment = require('moment')
 
 export default {
   components: {
-    PageHeader, ParseMarkdown, CTALink, ReadingTime
+    PageHeader, ParseMarkdown, ReadingTime
   },
   mixins: [
     objects, images
@@ -95,7 +94,7 @@ export default {
         }
 
         this.$store.dispatch('getNavLinks')
-          .then((navLinks) => {
+          .then(() => {
             document.dispatchEvent(new Event('custom-render-trigger'))
           })
       })

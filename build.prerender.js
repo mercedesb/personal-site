@@ -29,6 +29,7 @@ async function getSpeakingRoutes() {
     );
 }
 
+// eslint-disable-next-line no-unused-vars
 module.exports = (api, _options) => {
   api.registerCommand("build:prerender", async args => {
     const PrerenderSPAPlugin = require("prerender-spa-plugin");

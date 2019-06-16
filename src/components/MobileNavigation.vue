@@ -37,7 +37,8 @@ export default {
     }
   },
   watch: {
-    '$route' (to, from) {
+    // eslint-disable-next-line no-unused-vars
+    '$route' (_to, _from) {
       this.expanded = false
     }
   }

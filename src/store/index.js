@@ -134,7 +134,8 @@ export const actions = {
         });
     }
   },
-  getTalks(context, pageParams) {
+  // eslint-disable-next-line no-unused-vars
+  getTalks(context, _pageParams) {
     context.commit("clearTalks");
     return context
       .dispatch("getEntries", {
@@ -249,8 +250,6 @@ export const actions = {
     });
   },
   getEntries(context, query) {
-    console.log(`space: ${process.env.VUE_APP_SPACE_ID}`);
-    console.log(`cda: ${process.env.VUE_APP_CDA_TOKEN}`);
     const client = require("contentful").createClient({
       space: process.env.VUE_APP_SPACE_ID,
       accessToken: process.env.VUE_APP_CDA_TOKEN
