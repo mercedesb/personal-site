@@ -4,9 +4,8 @@ node_js:
 before_install:
   - npm i -g npm@6.4.1
 script:
+- npm lint
 - npm test
-before_deploy:
-- npm run build
 deploy:	
   provider: heroku	
   app: $HEROKU_APP_NAME	
