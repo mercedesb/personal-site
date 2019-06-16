@@ -40,6 +40,11 @@ module.exports = (api, _options) => {
     const speakingRoutes = await getSpeakingRoutes();
     const allRoutes = defaultRoutes.concat(blogRoutes).concat(speakingRoutes);
 
+    const puppeteerChromiumArgs =
+      process.env.NODE_ENV === "production"
+        ? ["--no-sandbox", "--disable-setuid-sandbox"]
+        : [];
+
     api.chainWebpack(config => {
       config.plugin("prerender").use(PrerenderSPAPlugin, [
         {
@@ -49,7 +54,8 @@ module.exports = (api, _options) => {
           routes: allRoutes,
           renderer: new PuppeteerRenderer({
             // renderAfterDocumentEvent: 'custom-render-trigger',
-            renderAfterTime: 5000
+            renderAfterTime: 5000,
+            args: puppeteerChromiumArgs
           })
         }
       ]);
