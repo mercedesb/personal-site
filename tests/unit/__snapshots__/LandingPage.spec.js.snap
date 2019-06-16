@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage Snapshots matches snapshot 1`] = `
+<main
+  class="LandingPage"
+>
+  <pageheader-stub
+    color="blue"
+    icon=<svg></svg>
+  >
+    <template>
+      <h1>
+        About
+      </h1>
+    </template>
+     
+    <template>
+      <h2>
+        
+      </h2>
+    </template>
+  </pageheader-stub>
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="FlexContainer PageContent PageContent--wide LandingPage-ctaContainer"
+  >
+    <ctalink-stub
+      color="blue"
+      iconsvg=<svg></svg>
+      id="cta 1"
+      title="Resume"
+      url="/resume"
+    />
+    <ctalink-stub
+      color="blue"
+      external="true"
+      iconsvg=<svg></svg>
+      id="cta 2"
+      title="External CTA"
+      url="http://google.com"
+    />
+  </div>
+</main>
+`;

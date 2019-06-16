@@ -30,7 +30,6 @@
 <script>
 import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
-import ContactForm from '../ContactForm.vue'
 import BlogList from '../BlogList.vue'
 import TalkList from '../TalkList.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
@@ -41,7 +40,6 @@ export default {
   components: {
     PageHeader,
     CTALink,
-    ContactForm,
     BlogList,
     TalkList,
     ParseMarkdown
@@ -126,10 +124,10 @@ export default {
         }
 
         this.$store.dispatch('getNavLinks')
-          .then((navLinks) => {
+          .then(() => {
             if (landingPage.showBlogPosts) {
               this.$store.dispatch('getBlogPosts', { page: this.page, pageSize: this.intialPageSize })
-                .then((blogPosts) => {
+                .then(() => {
                   document.dispatchEvent(new Event('custom-render-trigger'))
                 })
             }

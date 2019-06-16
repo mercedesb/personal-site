@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileNavigation Snapshots matches snapshot 1`] = `
+<div
+  backgroundimages="[object Object],[object Object],[object Object]"
+  class="MobileNav"
+>
+  <div
+    class="MobileNav-hamburger"
+  >
+    <img
+      alt="hamburger menu"
+      src="../assets/menu.svg"
+    />
+  </div>
+   
+  <!---->
+</div>
+`;

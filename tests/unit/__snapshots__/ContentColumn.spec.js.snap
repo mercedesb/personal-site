@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentColumn Snapshots with a color passed in matches snapshot 1`] = `
+<div
+  class="ContentColumn ContentColumn--blue"
+>
+  <smart-link-stub
+    class="ContentColumn-link"
+    to="testPath"
+  >
+    <h2
+      class="ContentColumn-title"
+    >
+      title
+    </h2>
+     
+    <div
+      class="ContentColumn-icon"
+    >
+      {
+  "fields": {
+    "file": {
+      "url": "http://placeholder.pics/svg/300"
+    }
+  }
+}
+    </div>
+     
+    <div
+      class="ContentColumn-description"
+    >
+      <p>
+        test preamble
+      </p>
+    </div>
+  </smart-link-stub>
+</div>
+`;
+
+exports[`ContentColumn Snapshots without a color passed in matches snapshot 1`] = `
+<div
+  class="ContentColumn ContentColumn--brown"
+>
+  <smart-link-stub
+    class="ContentColumn-link"
+    to="testPath"
+  >
+    <h2
+      class="ContentColumn-title"
+    >
+      title
+    </h2>
+     
+    <div
+      class="ContentColumn-icon"
+    >
+      {
+  "fields": {
+    "file": {
+      "url": "http://placeholder.pics/svg/300"
+    }
+  }
+}
+    </div>
+     
+    <div
+      class="ContentColumn-description"
+    >
+      <p>
+        test preamble
+      </p>
+    </div>
+  </smart-link-stub>
+</div>
+`;

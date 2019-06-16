@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      const promise = axios.post(process.env.MAILER_API, {
+      const promise = axios.post(process.env.VUE_APP_MAILER_API, {
         from: this.from,
         subject: this.subject,
         text: this.text
@@ -61,6 +61,7 @@ export default {
       })
         .catch(e => {
           if (process.env.NODE_ENV === 'development') {
+            // eslint-disable-next-line no-console
             console.log(e)
           }
           if (e.response && e.response.data) {

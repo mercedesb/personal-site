@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentLayout Snapshots matches snapshot 1`] = `
+<div
+  class="ContentLayout"
+  color="brown"
+  media="http://image.com"
+  preamble="heres the preamble"
+  title="title"
+>
+  <router-view-stub
+    mode="out-in"
+    name="fade"
+  />
+</div>
+`;

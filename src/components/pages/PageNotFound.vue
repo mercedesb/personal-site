@@ -24,11 +24,11 @@
                   <path d="M56.9347194,0 C69.5023127,0 199.18632,0 445.986742,0 L505.8125,32.8007812 L445.986742,68.2929687 C198.285119,68.2929687 68.6011114,68.2929687 56.9347194,68.2929687 C39.4351314,68.2929687 0,60.09375 0,34.1464844 C1.17675491e-14,8.19921875 38.0833294,0 56.9347194,0 Z" id="Path-2" stroke="#FFFFFF" stroke-width="2" fill-opacity="0" fill="#D8D8D8"></path>
               </g>
             </a>
-            <a xlink:href="/connect" id="connect">
+            <a xlink:href="/speaking" id="speaking">
               <g transform="translate(288.574236, 349.409297) rotate(-1.000000) translate(-288.574236, -349.409297) translate(105.574236, 314.909297)">
                   <path d="M41.0263796,0 C50.0824154,0 143.530937,0 321.371943,0 L366,34.1464844 L321.371943,68.2929687 C142.881543,68.2929687 49.4330221,68.2929687 41.0263796,68.2929687 C28.416416,68.2929687 0,60.09375 0,34.1464844 C8.47953485e-15,8.19921875 27.442326,0 41.0263796,0 Z" id="Path-2" stroke="#FFFFFF" stroke-width="2" transform="translate(183.000000, 34.146484) scale(-1, 1) translate(-183.000000, -34.146484) " fill-opacity="0" fill="#D8D8D8"></path>
-                  <text id="Connect" font-family="Poppins-Regular, Poppins" font-size="24" font-weight="normal" fill="#FFFFFF">
-                      <tspan x="132" y="41">Connect</tspan>
+                  <text id="Speaking" font-family="Poppins-Regular, Poppins" font-size="24" font-weight="normal" fill="#FFFFFF">
+                      <tspan x="132" y="41">Speaking</tspan>
                   </text>
               </g>
             </a>
@@ -86,7 +86,7 @@ export default {
     }
   }
 
-  #home, #about, #connect, #blog {
+  #home, #about, #speaking, #blog {
     display: block;
     cursor: pointer;
 
@@ -103,7 +103,7 @@ export default {
     }
   }
 
-  #connect:hover {
+  #speaking:hover {
     @include media($min-tablet) {
       transform: scale(1.05, 1) translate(0, -1px);
     }

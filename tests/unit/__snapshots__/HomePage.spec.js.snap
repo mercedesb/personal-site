@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Snapshots matches snapshot 1`] = `
+<div
+  class="Home"
+>
+  <heroheader-stub
+    backgroundimages=""
+    color="brown"
+    mainimage="http://placeholder.pics/svg/300"
+    preamble="here is the dev homepage preamble, it's a little long to be more realistic"
+  />
+   
+  <div
+    class="FlexContainer FlexContainer--column u-fillHeight"
+  >
+    <div
+      class="FlexContainer u-fillSpace"
+    >
+      <contentcolumn-stub
+        color="blue"
+        externallink=""
+        iconsvg=<svg></svg>
+        id="child 0"
+        preamble=""
+        title="About"
+        urlsegment="about"
+      />
+      <contentcolumn-stub
+        color="gray"
+        externallink=""
+        iconsvg=<svg></svg>
+        id="child 1"
+        preamble=""
+        title="Blog"
+        urlsegment="blog"
+      />
+      <contentcolumn-stub
+        color="red"
+        externallink=""
+        iconsvg=<svg></svg>
+        id="child 2"
+        preamble=""
+        title="Connect"
+        urlsegment="connect"
+      />
+      <contentcolumn-stub
+        color="yellow"
+        externallink="https://etsy.com/shop/blinddogyarns"
+        iconsvg=<svg></svg>
+        id="child 3"
+        preamble=""
+        title="Shop"
+        urlsegment=""
+      />
+    </div>
+  </div>
+</div>
+`;
