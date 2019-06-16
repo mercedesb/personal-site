@@ -5,12 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build:prerender",
+    "start": "node server.js",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
     "contentful": "^7.7.0",
     "core-js": "^2.6.5",
+    "express": "^4.17.1",
     "markdown-it": "^8.4.2",
     "markdown-it-attrs": "^2.4.1",
     "moment": "^2.24.0",
