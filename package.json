@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build:prerender",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit"
   },
@@ -15,6 +15,7 @@
     "markdown-it-attrs": "^2.4.1",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
+    "prerender-spa-plugin": "^3.4.0",
     "vue": "^2.6.10",
     "vue-meta": "^2.0.3",
     "vue-router": "^3.0.6",
@@ -57,5 +58,10 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "vuePlugins": {
+    "service": [
+      "build.prerender.js"
+    ]
+  }
 }
