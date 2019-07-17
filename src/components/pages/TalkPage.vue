@@ -113,9 +113,13 @@ export default {
 
   .EventDetails-links {
     .EventDetails-linkItem {
-      padding-right: $small-spacing;
+      padding: 0 $small-spacing;
       border-right: 2px solid $black;
       display: inline-block;
+    }
+
+    .EventDetails-linkItem:first-of-type {
+      padding-left: 0;
     }
 
     .EventDetails-linkItem:last-of-type {
