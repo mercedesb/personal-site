@@ -35,7 +35,14 @@ module.exports = (api, _options) => {
     const PrerenderSPAPlugin = require("prerender-spa-plugin");
     const PuppeteerRenderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
-    const defaultRoutes = ["/", "/about", "/speaking", "/blog", "/resume"];
+    const defaultRoutes = [
+      "/",
+      "/about",
+      "/speaking",
+      "/blog",
+      "/resume",
+      "/crafting"
+    ];
     const blogRoutes = await getBlogRoutes();
     const speakingRoutes = await getSpeakingRoutes();
     const allRoutes = defaultRoutes.concat(blogRoutes).concat(speakingRoutes);

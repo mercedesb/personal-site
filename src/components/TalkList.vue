@@ -1,6 +1,6 @@
 <template>
   <div v-if="talks.length" class="TalkList">
-    <smart-link :class="'TalkListItem TalkListItem--' + talk.color + ' ' + talk.iconCssClass" v-for="talk in talks" v-bind="talk" :key="talk.id" :to="'speaking/' + talk.urlSegment">
+    <smart-link :class="'TalkListItem TalkListItem--' + talk.color + ' ' + talk.iconCssClass" v-for="talk in talks" v-bind="talk" :key="talk.id" :to="'/speaking/' + talk.urlSegment">
       <div class="TalkListItem-icon" v-html="talk.iconSvg"></div>
       <h3 class="TalkListItem-title">{{talk.title}}</h3>
       <div class="TalkListItem-moreInfo">

@@ -14,7 +14,7 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     maincontent="talk main content"
     preamble="talk 2 preamble"
     title="talk 2 title"
-    to="speaking/talk2"
+    to="/speaking/talk2"
     urlsegment="talk2"
   >
     <div
@@ -47,7 +47,7 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     maincontent="talk main content"
     preamble="talk 1 preamble"
     title="talk 1 title"
-    to="speaking/talk1"
+    to="/speaking/talk1"
     urlsegment="talk1"
   >
     <div
@@ -80,7 +80,7 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     maincontent="talk main content"
     preamble="talk 3 preamble"
     title="talk 3 title"
-    to="speaking/undefined"
+    to="/speaking/undefined"
   >
     <div
       class="TalkListItem-icon"
