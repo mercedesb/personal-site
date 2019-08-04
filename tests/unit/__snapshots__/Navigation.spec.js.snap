@@ -35,13 +35,11 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       <smart-link-stub
         to="/about"
       >
-        <div
+        <span
           class="Navigation-title"
         >
-          <span>
-            About
-          </span>
-        </div>
+          About
+        </span>
          
         <div
           class="Navigation-icon"
@@ -56,13 +54,11 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       <smart-link-stub
         to="/blog"
       >
-        <div
+        <span
           class="Navigation-title"
         >
-          <span>
-            Blog
-          </span>
-        </div>
+          Blog
+        </span>
          
         <div
           class="Navigation-icon"
@@ -77,13 +73,11 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       <smart-link-stub
         to="/connect"
       >
-        <div
+        <span
           class="Navigation-title"
         >
-          <span>
-            Connect
-          </span>
-        </div>
+          Connect
+        </span>
          
         <div
           class="Navigation-icon"
@@ -99,13 +93,11 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
         isexternal="true"
         to="https://etsy.com/shop/blinddogyarns"
       >
-        <div
+        <span
           class="Navigation-title"
         >
-          <span>
-            Shop
-          </span>
-        </div>
+          Shop
+        </span>
          
         <div
           class="Navigation-icon"

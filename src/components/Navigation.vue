@@ -12,7 +12,7 @@
           :to="navLink.parsedLink"
           :isExternal="!!navLink.externalLink"
           >
-          <div class='Navigation-title'><span>{{navLink.title}}</span></div>
+          <span class='Navigation-title'>{{navLink.title}}</span>
           <div class="Navigation-icon" v-html="navLink.iconSvg"></div>
         </smart-link>
       </li>
