@@ -142,6 +142,8 @@ export default {
     }
 
     &--short {
+      padding-top: 1em;
+      
       @include media($min-tablet) {
         height: $header-height-short;
       }

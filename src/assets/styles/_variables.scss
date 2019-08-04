@@ -29,12 +29,12 @@ $libre-baskerville: "Libre Baskerville";
 $header-font-family: $libre-baskerville, serif;
 $base-font-family: $poppins, sans-serif;
 
-$small-font-size: 16px;
-$base-font-size: 18px;
-$large-font-size: 28px;
-$larger-font-size: 36px;
-$largest-font-size: 48px;
-$giant-font-size: 64px;
+$small-font-size: 0.89rem;
+$base-font-size: 1rem;
+$large-font-size: 1.56rem;
+$larger-font-size: 2rem;
+$largest-font-size: 2.67rem;
+$giant-font-size: 3.56rem;
 
 $base-font-weight: 400;
 $heavy-font-weight: 600;
@@ -184,12 +184,12 @@ $max-desktop-large: $max-feature ($desktop-large-width + 1);
   flex: 1;
   flex-direction: column;
   align-items: center;
-  overflow: auto;
+  // overflow: auto;
 }
 
 @mixin draw {
   $i: 300;
-  @while $i <= 1100 {
+  @while $i <= 1140 {
     &--#{$i} {
       &:hover {
         path {
