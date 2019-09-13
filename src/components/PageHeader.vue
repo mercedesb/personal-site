@@ -72,7 +72,7 @@ export default {
       right: 0;
       left: 0;
 
-      @include media($min-tablet) {
+      @include media($min-desktop) {
         display: block;
       }
     }
@@ -128,6 +128,7 @@ export default {
     &-titleHeader {
       margin: 0 $base-spacing;
       text-align: center;
+      margin-top: -$large-spacing;
 
       * {
         font-family: $base-font-family;
@@ -150,8 +151,9 @@ export default {
 
       .PageHeader-decorativeHeader {
         display: none;
+        white-space: nowrap;
 
-        @include media($min-desktop) {
+        @include media($min-tablet) {
           display: block;
         }
 
@@ -164,22 +166,21 @@ export default {
         }
       }
 
-      .PageHeader-titleHeader {
+      .PageHeader-titleHeader {   
+        margin-top: 0;
+
         @include media($min-tablet) {
-          margin-top: $large-spacing;
-          width:100%;
+          margin-top: $large-spacing * -2;
 
           * {
             margin: 0;
           }
         }
-
-        @include media($min-desktop) {
-          margin-top: 0;
-          position: absolute;
-          top: $header-height / 4;
-        }
       }
     }
+  }
+
+  .TalkPage .PageHeader-titleHeader {
+    margin-top: 20px;
   }
 </style>
