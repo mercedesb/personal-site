@@ -128,7 +128,10 @@ export default {
     &-titleHeader {
       margin: 0 $base-spacing;
       text-align: center;
-      margin-top: -$large-spacing;
+
+      @include media($min-tablet) {
+        margin-top: -$large-spacing;
+      }
 
       * {
         font-family: $base-font-family;
