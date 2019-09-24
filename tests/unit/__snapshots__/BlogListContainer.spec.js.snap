@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogListContainer Snapshots when its not the first page matches snapshot 1`] = `
+<div>
+  <bloglist-stub
+    color="gray"
+    posts="[object Object],[object Object],[object Object]"
+  />
+   
+  <div
+    class="Blog-pageNumberList"
+  />
+</div>
+`;
+
+exports[`BlogListContainer Snapshots when its the first page matches snapshot 1`] = `
+<div>
+  <bloglist-stub
+    color="gray"
+    isfirstpage="true"
+    posts="[object Object],[object Object],[object Object]"
+  />
+   
+  <div
+    class="Blog-pageNumberList"
+  />
+</div>
+`;
+
+exports[`BlogListContainer Snapshots with a color passed in matches snapshot 1`] = `
+<div>
+  <bloglist-stub
+    color="gray"
+    isfirstpage="true"
+    posts="[object Object],[object Object],[object Object]"
+  />
+   
+  <div
+    class="Blog-pageNumberList"
+  />
+</div>
+`;
+
+exports[`BlogListContainer Snapshots without a color passed in matches snapshot 1`] = `
+<div>
+  <bloglist-stub
+    isfirstpage="true"
+    posts="[object Object],[object Object],[object Object]"
+  />
+   
+  <div
+    class="Blog-pageNumberList"
+  />
+</div>
+`;

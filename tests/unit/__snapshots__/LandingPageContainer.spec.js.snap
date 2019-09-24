@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPageContainer Snapshots matches snapshot 1`] = `
+<landingpage-stub
+  ctalinks="[object Object],[object Object]"
+  iconsvg=<svg></svg>
+  landingpage="[object Object]"
+  pagenumber="1"
+/>
+`;

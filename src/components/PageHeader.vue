@@ -11,16 +11,16 @@
         <slot name="titleHeader"></slot>
       </div>
     </div>
-    <Navigation />
+    <NavigationContainer />
   </header>
 </template>
 
 <script>
-import Navigation from './Navigation.vue'
+import NavigationContainer from './NavigationContainer.vue'
 
 export default {
   components: {
-    Navigation
+    NavigationContainer
   },
   props: {
     color: String,

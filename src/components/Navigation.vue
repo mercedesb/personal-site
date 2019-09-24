@@ -21,30 +21,10 @@
 </template>
 
 <script>
-import images from '../mixins/images'
-
 export default {
-  mixins: [
-    images
-  ],
-  computed: {
-    navLinks () {
-      return this.$store.state.navLinks.slice(1).map((link) => {
-        return {
-          parsedLink: link.externalLink ? link.externalLink : `/${link.urlSegment}`,
-          ...link,
-          iconSvg: link.iconSvg.fields.svg
-        }
-      })
-    },
-    homeLink () {
-      const link = this.$store.state.navLinks[0]
-      return {
-        parsedLink: '/',
-        ...link,
-        iconSvg: link.icon.fields.svg
-      }
-    }
+  props: {
+    navLinks: Array,
+    homeLink: Object 
   }
 }
 </script>
