@@ -16,7 +16,7 @@
     </div>
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogListContainer v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(pageNumber)" />
-    <TalkList v-if="landingPage.showTalks" />
+    <TalkListContainer v-if="landingPage.showTalks" />
     <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
         v-for="ctaLink in ctaLinks"
@@ -31,7 +31,7 @@
 import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
 import BlogListContainer from '../BlogListContainer.vue'
-import TalkList from '../TalkList.vue'
+import TalkListContainer from '../TalkListContainer.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 
 export default {
@@ -39,7 +39,7 @@ export default {
     PageHeader,
     CTALink,
     BlogListContainer,
-    TalkList,
+    TalkListContainer,
     ParseMarkdown
   },
   props: {

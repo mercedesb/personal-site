@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TalkList Snapshots matches snapshot 1`] = `
+exports[`TalkList Snapshots with talks matches snapshot 1`] = `
 <div
   class="TalkList"
 >
@@ -9,40 +9,7 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     color="gray"
     givenat="[object Object]"
     iconcssclass="Draw--300"
-    iconsvg=<svg></svg>
-    id="talk2"
-    maincontent="talk main content"
-    preamble="talk 2 preamble"
-    title="talk 2 title"
-    to="/speaking/talk2"
-    urlsegment="talk2"
-  >
-    <div
-      class="TalkListItem-icon"
-    >
-      <svg />
-    </div>
-     
-    <h3
-      class="TalkListItem-title"
-    >
-      talk 2 title
-    </h3>
-     
-    <div
-      class="TalkListItem-moreInfo"
-    >
-      
-      Resources
-    
-    </div>
-  </smart-link-stub>
-  <smart-link-stub
-    class="TalkListItem TalkListItem--gray Draw--300"
-    color="gray"
-    givenat="[object Object]"
-    iconcssclass="Draw--300"
-    iconsvg=<svg></svg>
+    iconsvg="[object Object]"
     id="talk1"
     maincontent="talk main content"
     preamble="talk 1 preamble"
@@ -53,7 +20,13 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     <div
       class="TalkListItem-icon"
     >
+      {
+  "fields": {
+    "svg": "
       <svg />
+      "
+  }
+}
     </div>
      
     <h3
@@ -75,7 +48,46 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     color="gray"
     givenat="[object Object]"
     iconcssclass="Draw--300"
-    iconsvg=<svg></svg>
+    iconsvg="[object Object]"
+    id="talk2"
+    maincontent="talk main content"
+    preamble="talk 2 preamble"
+    title="talk 2 title"
+    to="/speaking/talk2"
+    urlsegment="talk2"
+  >
+    <div
+      class="TalkListItem-icon"
+    >
+      {
+  "fields": {
+    "svg": "
+      <svg />
+      "
+  }
+}
+    </div>
+     
+    <h3
+      class="TalkListItem-title"
+    >
+      talk 2 title
+    </h3>
+     
+    <div
+      class="TalkListItem-moreInfo"
+    >
+      
+      Resources
+    
+    </div>
+  </smart-link-stub>
+  <smart-link-stub
+    class="TalkListItem TalkListItem--gray Draw--300"
+    color="gray"
+    givenat="[object Object]"
+    iconcssclass="Draw--300"
+    iconsvg="[object Object]"
     id="talk3"
     maincontent="talk main content"
     preamble="talk 3 preamble"
@@ -85,7 +97,13 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
     <div
       class="TalkListItem-icon"
     >
+      {
+  "fields": {
+    "svg": "
       <svg />
+      "
+  }
+}
     </div>
      
     <h3
@@ -104,3 +122,5 @@ exports[`TalkList Snapshots matches snapshot 1`] = `
   </smart-link-stub>
 </div>
 `;
+
+exports[`TalkList Snapshots without talks matches snapshot 1`] = `<!---->`;
