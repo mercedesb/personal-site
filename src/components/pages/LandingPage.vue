@@ -15,7 +15,7 @@
       <ParseMarkdown :source="landingPage.mainContent" :collapsible="false" :collapsibleTag="'h3'" :collapsedByDefault="true" />
     </div>
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
-    <BlogList v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
+    <BlogListContainer v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(page)" />
     <TalkList v-if="landingPage.showTalks" />
     <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
       <CTALink
@@ -30,7 +30,7 @@
 <script>
 import PageHeader from '../PageHeader.vue'
 import CTALink from '../CTALink.vue'
-import BlogList from '../BlogList.vue'
+import BlogListContainer from '../BlogListContainer.vue'
 import TalkList from '../TalkList.vue'
 import ParseMarkdown from '../ParseMarkdown.vue'
 import images from '../../mixins/images'
@@ -40,7 +40,7 @@ export default {
   components: {
     PageHeader,
     CTALink,
-    BlogList,
+    BlogListContainer,
     TalkList,
     ParseMarkdown
   },
