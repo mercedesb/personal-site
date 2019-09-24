@@ -3,6 +3,7 @@
 exports[`TalkPage Snapshots matches snapshot 1`] = `
 <main
   class="TalkPage"
+  ctalinks=""
 >
   <pageheader-stub
     color="gray"
@@ -30,7 +31,7 @@ exports[`TalkPage Snapshots matches snapshot 1`] = `
         <h2
           class="h4"
         >
-          talk 1 given at
+          
         </h2>
          
         <div
@@ -45,7 +46,257 @@ exports[`TalkPage Snapshots matches snapshot 1`] = `
           <!---->
            
           <em>
-            Apr 18 2018
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
+          </em>
+        </div>
+      </div>
+      <div
+        class="EventDetails"
+      >
+        <h2
+          class="h4"
+        >
+          
+        </h2>
+         
+        <div
+          class="EventDetails-links"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <em>
+            
           </em>
         </div>
       </div>

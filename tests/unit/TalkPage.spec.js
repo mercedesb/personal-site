@@ -1,62 +1,30 @@
-import TalkPage from '@/components/pages/TalkPage.vue'
-import { TestUtility } from './TestUtility'
+import TalkPage from "@/components/pages/TalkPage.vue";
+import { TestUtility } from "./TestUtility";
 
-const mockFormat = jest.fn(() => 'Apr 18 2018')
+describe("TalkPage", () => {
+  let component;
 
-jest.mock('moment', () => () => ({
-  format: mockFormat
-}))
+  const initialProps = {
+    page: {
+      ...TestUtility.talks[0],
+      iconSvg: "<svg></svg>",
+      givenAt: "Apr 18 2018"
+    },
+    ctaLinks: []
+  };
 
-describe('TalkPage', () => {
-  let component
+  const shallow = propsData =>
+    TestUtility.shallow(TalkPage, {
+      propsData: {
+        ...initialProps,
+        ...propsData
+      }
+    });
 
-  const store = {
-    state: {
-      talk: TestUtility.talks[0],
-      navLinks: []
-    }
-  }
-
-  const shallow = propsData => TestUtility.shallow(TalkPage, {
-    store,
-    propsData: {
-      ...propsData
-    }
-  })
-
-  describe('Snapshots', () => {
-    it('matches snapshot', () => {
-      component = shallow()
-      expect(component.element).toMatchSnapshot()
-    })
-  })
-
-  describe('Computed', () => {
-    describe('page', () => {
-      beforeEach(() => {
-        component = shallow()
-      })
-
-      it('has page populated', () => {
-        expect(component.vm.page).toBeDefined()
-      })
-
-      it('formats the given at date', () => {
-        expect(typeof component.vm.page.givenAt[0].date).toBe('string')
-      })
-    })
-  })
-
-  describe('Lifecycle', () => {
-    describe('created', () => {
-      it('dispatches getTalk to the store', () => {
-        component = TestUtility.mount(TalkPage, {
-          store
-        })
-        const expectedPath = TestUtility.mockRoute
-        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getTalk', expectedPath)
-        // TODO: test getNavLinks
-      })
-    })
-  })
-})
+  describe("Snapshots", () => {
+    it("matches snapshot", () => {
+      component = shallow();
+      expect(component.element).toMatchSnapshot();
+    });
+  });
+});

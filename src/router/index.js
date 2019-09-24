@@ -3,7 +3,7 @@ import Router from "vue-router";
 
 import HomePage from "../components/pages/HomePage.vue";
 import BlogPostPageContainer from "../components/pages/BlogPostPageContainer.vue";
-import TalkPage from "../components/pages/TalkPage.vue";
+import TalkPageContainer from "../components/pages/TalkPageContainer.vue";
 import LandingPageContainer from "../components/pages/LandingPageContainer.vue";
 import PageNotFound from "../components/pages/PageNotFound.vue";
 
@@ -23,7 +23,7 @@ export default new Router({
     {
       path: "/speaking/:urlSegment",
       name: "talkPage",
-      component: TalkPage,
+      component: TalkPageContainer,
       props: true
     },
     {
