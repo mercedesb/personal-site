@@ -1,5 +1,5 @@
 <template>
-  <LandingPage :landingPage="landingPage" :iconSvg="iconSvg" :ctaLinks="ctaLinks" :pageNumber="page" />
+  <LandingPage :landingPage="landingPage" :iconSvg="iconSvg" :ctaLinks="ctaLinks" :pageNumber="parseInt(page)" />
 </template>
 
 <script>
@@ -57,7 +57,7 @@ export default {
       return this.$store.state.landingPage
     },
     iconSvg () {
-      return this.landingPage.iconSvg.fields.svg
+      return this.landingPage.iconSvg ? this.landingPage.iconSvg.fields.svg : ''
     },
     ctaLinks () {
       if (!this.landingPage.ctaLinks) return []

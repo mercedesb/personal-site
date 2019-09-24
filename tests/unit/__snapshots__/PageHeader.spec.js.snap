@@ -18,7 +18,7 @@ exports[`PageHeader Snapshots with a title matches snapshot 1`] = `
     />
   </div>
    
-  <navigation-stub />
+  <navigationcontainer-stub />
 </header>
 `;
 
@@ -52,7 +52,7 @@ exports[`PageHeader Snapshots with inline svg matches snapshot 1`] = `
     />
   </div>
    
-  <navigation-stub />
+  <navigationcontainer-stub />
 </header>
 `;
 
@@ -73,6 +73,6 @@ exports[`PageHeader Snapshots without a title matches snapshot 1`] = `
     />
   </div>
    
-  <navigation-stub />
+  <navigationcontainer-stub />
 </header>
 `;

@@ -23,18 +23,14 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
          
         <div
           class="Navigation-icon"
-        >
-          <svg />
-        </div>
+        />
       </smart-link-stub>
     </li>
      
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/about"
-      >
+      <smart-link-stub>
         <span
           class="Navigation-title"
         >
@@ -44,16 +40,20 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
         <div
           class="Navigation-icon"
         >
+          {
+  "fields": {
+    "svg": "
           <svg />
+          "
+  }
+}
         </div>
       </smart-link-stub>
     </li>
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/blog"
-      >
+      <smart-link-stub>
         <span
           class="Navigation-title"
         >
@@ -63,16 +63,20 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
         <div
           class="Navigation-icon"
         >
+          {
+  "fields": {
+    "svg": "
           <svg />
+          "
+  }
+}
         </div>
       </smart-link-stub>
     </li>
     <li
       class="Navigation-navLink"
     >
-      <smart-link-stub
-        to="/connect"
-      >
+      <smart-link-stub>
         <span
           class="Navigation-title"
         >
@@ -82,7 +86,13 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
         <div
           class="Navigation-icon"
         >
+          {
+  "fields": {
+    "svg": "
           <svg />
+          "
+  }
+}
         </div>
       </smart-link-stub>
     </li>
@@ -91,7 +101,6 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
     >
       <smart-link-stub
         isexternal="true"
-        to="https://etsy.com/shop/blinddogyarns"
       >
         <span
           class="Navigation-title"
@@ -102,7 +111,13 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
         <div
           class="Navigation-icon"
         >
+          {
+  "fields": {
+    "svg": "
           <svg />
+          "
+  }
+}
         </div>
       </smart-link-stub>
     </li>
