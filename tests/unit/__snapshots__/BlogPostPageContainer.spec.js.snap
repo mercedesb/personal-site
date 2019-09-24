@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogPostPageContainer Snapshots with a color passed in matches snapshot 1`] = `
+<blogpostpage-stub
+  color="blue"
+  formattedpublishdate="Apr 18 2018"
+  page="[object Object]"
+  socialimage=""
+/>
+`;
+
+exports[`BlogPostPageContainer Snapshots without a color passed in matches snapshot 1`] = `
+<blogpostpage-stub
+  color="purple"
+  formattedpublishdate="Apr 18 2018"
+  page="[object Object]"
+  socialimage=""
+/>
+`;
