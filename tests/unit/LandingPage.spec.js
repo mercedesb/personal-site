@@ -1,117 +1,64 @@
-import LandingPage from '@/components/pages/LandingPage.vue'
-import { TestUtility } from './TestUtility'
+import LandingPage from "@/components/pages/LandingPage.vue";
+import { TestUtility } from "./TestUtility";
 
-describe('LandingPage', () => {
-  let component
+describe("LandingPage", () => {
+  let component;
 
   const initialProps = {
-    urlSegment: 'about'
-  }
-
-  const store = {
-    state: {
-      landingPage: {
-        ...TestUtility.landingPages[initialProps.urlSegment]
-      },
-      navLinks: []
+    landingPage: {
+      ...TestUtility.landingPages["about"]
     },
-    actions: {
-      getLandingPage: jest.fn()
-    }
-  }
+    ctaLinks: []
+  };
 
-  const shallow = propsData => TestUtility.shallow(LandingPage, {
-    store,
-    propsData: {
-      ...initialProps,
-      ...propsData
-    }
-  })
+  const shallow = propsData =>
+    TestUtility.shallow(LandingPage, {
+      propsData: {
+        ...initialProps,
+        ...propsData
+      }
+    });
 
-  describe('Snapshots', () => {
-    it('matches snapshot', () => {
-      component = shallow()
-      expect(component.element).toMatchSnapshot()
-    })
-  })
+  describe("Snapshots", () => {
+    describe("without an iconSvg", () => {
+      it("matches snapshot", () => {
+        component = shallow({ iconSvg: "" });
+        expect(component.element).toMatchSnapshot();
+      });
+    });
 
-  describe('Computed', () => {
-    describe('page', () => {
-      beforeEach(() => {
-        component = shallow()
-      })
+    describe("with an iconSvg", () => {
+      it("matches snapshot", () => {
+        component = shallow({ iconSvg: "<svg></svg>" });
+        expect(component.element).toMatchSnapshot();
+      });
+    });
 
-      it('has page populated', () => {
-        expect(component.vm.page).toBeDefined()
-      })
-    })
+    describe("without ctaLinks", () => {
+      it("matches snapshot", () => {
+        component = shallow();
+        expect(component.element).toMatchSnapshot();
+      });
+    });
 
-    describe('iconSvg', () => {
-      beforeEach(() => {
-        component = shallow()
-      })
-
-      it('has iconSvg populated', () => {
-        expect(component.vm.iconSvg).toBeDefined()
-      })
-    })
-
-    describe('ctaLinks', () => {
-      describe('with ctaLinks in cms', () => {
-        it('has ctaLinks populated', () => {
-          component = shallow()
-          expect(component.vm.ctaLinks).toBeDefined()
-        })
-
-        it('creates objects of the desired shape', () => {
-          component = shallow()
-          const expectedShape = {
-            id: expect.any(String),
-            color: expect.any(String),
-            title: expect.any(String),
-            iconSvg: expect.any(String),
-            url: expect.any(String),
-            external: expect.any(Boolean)
+    describe("with ctaLinks", () => {
+      it("matches snapshot", () => {
+        const ctaLinks = [
+          {
+            title: "title",
+            iconSvg: "<svg></svg>",
+            url: "/url"
+          },
+          {
+            title: "title",
+            iconSvg: "<svg></svg>",
+            url: "/url",
+            color: "yellow"
           }
-
-          expect(component.vm.ctaLinks[0]).toMatchObject(expectedShape)
-        })
-      })
-
-      describe('without ctaLinks in cms', () => {
-        it('has ctaLinks populated', () => {
-          const localPage = {
-            ...store.state.landingPage,
-            ctaLinks: undefined
-          }
-          const localStore = {
-            state: {
-              landingPage: localPage
-            },
-            actions: store.actions
-          }
-          component = TestUtility.shallow(LandingPage, {
-            store: localStore,
-            propsData: {
-              ...initialProps
-            }
-          })
-
-          expect(component.vm.ctaLinks).toBeDefined()
-        })
-      })
-    })
-  })
-
-  describe('Lifecycle', () => {
-    describe('created', () => {
-      it('dispatches the correct actions to the store', () => {
-        component = shallow()
-
-        expect(component.vm.$store.dispatch).toHaveBeenCalledWith('getLandingPage', initialProps.urlSegment)
-        // TODO: test getNavLinks and getBlogPosts
-        // expect(component.vm.$store.dispatch).toHaveBeenNthCalledWith(2, 'getNavLinks')
-      })
-    })
-  })
-})
+        ];
+        component = shallow({ ctaLinks });
+        expect(component.element).toMatchSnapshot();
+      });
+    });
+  });
+});

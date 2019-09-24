@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LandingPage Snapshots matches snapshot 1`] = `
+exports[`LandingPage Snapshots with an iconSvg matches snapshot 1`] = `
 <main
   class="LandingPage"
 >
@@ -27,24 +27,112 @@ exports[`LandingPage Snapshots matches snapshot 1`] = `
    
   <!---->
    
+  <!---->
+</main>
+`;
+
+exports[`LandingPage Snapshots with ctaLinks matches snapshot 1`] = `
+<main
+  class="LandingPage"
+>
+  <pageheader-stub
+    color="blue"
+  >
+    <template>
+      <h1>
+        About
+      </h1>
+    </template>
+     
+    <template>
+      <h2>
+        
+      </h2>
+    </template>
+  </pageheader-stub>
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
   <div
     class="FlexContainer PageContent PageContent--wide LandingPage-ctaContainer"
   >
     <ctalink-stub
-      color="blue"
+      color="brown"
       iconsvg=<svg></svg>
-      id="cta 1"
-      title="Resume"
-      url="/resume"
+      title="title"
+      url="/url"
     />
     <ctalink-stub
-      color="blue"
-      external="true"
+      color="yellow"
       iconsvg=<svg></svg>
-      id="cta 2"
-      title="External CTA"
-      url="http://google.com"
+      title="title"
+      url="/url"
     />
   </div>
+</main>
+`;
+
+exports[`LandingPage Snapshots without an iconSvg matches snapshot 1`] = `
+<main
+  class="LandingPage"
+>
+  <pageheader-stub
+    color="blue"
+    icon=""
+  >
+    <template>
+      <h1>
+        About
+      </h1>
+    </template>
+     
+    <template>
+      <h2>
+        
+      </h2>
+    </template>
+  </pageheader-stub>
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</main>
+`;
+
+exports[`LandingPage Snapshots without ctaLinks matches snapshot 1`] = `
+<main
+  class="LandingPage"
+>
+  <pageheader-stub
+    color="blue"
+  >
+    <template>
+      <h1>
+        About
+      </h1>
+    </template>
+     
+    <template>
+      <h2>
+        
+      </h2>
+    </template>
+  </pageheader-stub>
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
 </main>
 `;

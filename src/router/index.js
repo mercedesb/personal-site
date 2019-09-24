@@ -4,7 +4,7 @@ import Router from "vue-router";
 import HomePage from "../components/pages/HomePage.vue";
 import BlogPostPageContainer from "../components/pages/BlogPostPageContainer.vue";
 import TalkPage from "../components/pages/TalkPage.vue";
-import LandingPage from "../components/pages/LandingPage.vue";
+import LandingPageContainer from "../components/pages/LandingPageContainer.vue";
 import PageNotFound from "../components/pages/PageNotFound.vue";
 
 Vue.use(Router);
@@ -28,7 +28,7 @@ export default new Router({
     },
     {
       path: "/:urlSegment",
-      component: LandingPage,
+      component: LandingPageContainer,
       props: route => ({
         ...route.params,
         ...route.query
