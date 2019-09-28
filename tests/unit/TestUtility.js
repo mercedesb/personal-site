@@ -164,7 +164,7 @@ export const TestUtility = (function() {
         title: "blog post 1 title",
         preamble: "blog post 1 preamble",
         mainContent: "",
-        urlSegment: "",
+        urlSegment: "/blogPost1",
         tags: [],
         publishDate: "2018-04-25T00:00-05:00"
       },
@@ -173,7 +173,7 @@ export const TestUtility = (function() {
         title: "blog post 2 title",
         preamble: "blog post 2 preamble",
         mainContent: "",
-        urlSegment: "",
+        urlSegment: "/blogPost2",
         tags: [],
         publishDate: "2018-04-23T00:00-05:00"
       },
@@ -182,7 +182,7 @@ export const TestUtility = (function() {
         title: "blog post 3 title",
         preamble: "blog post 3 preamble",
         mainContent: "",
-        urlSegment: "",
+        urlSegment: "/blogPost3",
         tags: [],
         publishDate: "2018-04-22T00:00-05:00"
       }

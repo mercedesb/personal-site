@@ -2,9 +2,9 @@
   <smart-link :class="classes" :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
     <div class='BlogItem-container'>
       <div class='BlogItem-date'>
-        <span>{{ publishMonth }}</span>
+        <span class='BlogItem-publishMonth'>{{ publishMonth }}</span>
         <span class='BlogItem-publishDay'>{{ publishDay }}</span>
-        <span>{{ publishYear }}</span>
+        <span class='BlogItem-publishYear'>{{ publishYear }}</span>
       </div>
       <div class='BlogItem-text'>
       <h3 class='BlogItem-title h5'>{{ title }}</h3>
@@ -31,7 +31,10 @@ export default {
     featured: Boolean,
     title: String,
     preamble: String,
-    mainContent: String,
+    mainContent: {
+      type: String,
+      required: true
+    },
     date: Date,
     urlSegment: {
       type: String,
@@ -67,6 +70,8 @@ export default {
 <style lang="scss">
   @import '../assets/styles/variables.scss';
 
+  $publish-font-size: 1.35rem;
+
   .BlogItem {
     a {
       text-decoration: none
@@ -101,6 +106,10 @@ export default {
 
     &-publishDay {
       font-size: $giant-font-size;
+    }
+
+    &-publishMonth, &-publishYear {
+      font-size: $publish-font-size;
     }
 
     &-text {
