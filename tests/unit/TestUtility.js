@@ -164,7 +164,7 @@ export const TestUtility = (function() {
         title: "blog post 1 title",
         preamble: "blog post 1 preamble",
         mainContent: "",
-        urlSegment: "",
+        urlSegment: "/blogPost1",
         tags: [],
         publishDate: "2018-04-25T00:00-05:00"
       },
@@ -173,7 +173,7 @@ export const TestUtility = (function() {
         title: "blog post 2 title",
         preamble: "blog post 2 preamble",
         mainContent: "",
-        urlSegment: "",
+        urlSegment: "/blogPost2",
         tags: [],
         publishDate: "2018-04-23T00:00-05:00"
       },
@@ -182,7 +182,7 @@ export const TestUtility = (function() {
         title: "blog post 3 title",
         preamble: "blog post 3 preamble",
         mainContent: "",
-        urlSegment: "",
+        urlSegment: "/blogPost3",
         tags: [],
         publishDate: "2018-04-22T00:00-05:00"
       }
@@ -190,11 +190,11 @@ export const TestUtility = (function() {
     talks: [
       {
         id: "talk1",
-        title: "talk 1 title",
+        title: "Fun, Friendly Computer Science",
         preamble: "talk 1 preamble",
         mainContent: "talk main content",
         urlSegment: "talk1",
-        color: "gray",
+        color: "yellow",
         iconSvg: {
           fields: {
             svg: "<svg></svg>"
@@ -216,7 +216,7 @@ export const TestUtility = (function() {
       },
       {
         id: "talk2",
-        title: "talk 2 title",
+        title: "Empowering Early Career Developers",
         preamble: "talk 2 preamble",
         mainContent: "talk main content",
         urlSegment: "talk2",
@@ -242,10 +242,10 @@ export const TestUtility = (function() {
       },
       {
         id: "talk3",
-        title: "talk 3 title",
+        title: "How to talk technical without talking technical",
         preamble: "talk 3 preamble",
         mainContent: "talk main content",
-        color: "gray",
+        color: "red",
         iconSvg: {
           fields: {
             svg: "<svg></svg>"

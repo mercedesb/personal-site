@@ -2,7 +2,7 @@
 
 exports[`HomePage Snapshots matches snapshot 1`] = `
 <div
-  class="Home"
+  class="FlexContainer FlexContainer--column"
 >
   <heroheader-stub
     backgroundimages=""
@@ -15,7 +15,7 @@ exports[`HomePage Snapshots matches snapshot 1`] = `
     class="FlexContainer FlexContainer--column u-fillHeight"
   >
     <div
-      class="FlexContainer u-fillSpace"
+      class="FlexContainer"
     >
       <contentcolumn-stub
         color="blue"

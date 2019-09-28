@@ -31,12 +31,9 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       class="Navigation-navLink"
     >
       <smart-link-stub>
-        <span
-          class="Navigation-title"
-        >
-          About
-        </span>
-         
+        
+        About
+        
         <div
           class="Navigation-icon"
         >
@@ -54,12 +51,9 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       class="Navigation-navLink"
     >
       <smart-link-stub>
-        <span
-          class="Navigation-title"
-        >
-          Blog
-        </span>
-         
+        
+        Blog
+        
         <div
           class="Navigation-icon"
         >
@@ -77,12 +71,9 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       class="Navigation-navLink"
     >
       <smart-link-stub>
-        <span
-          class="Navigation-title"
-        >
-          Connect
-        </span>
-         
+        
+        Connect
+        
         <div
           class="Navigation-icon"
         >
@@ -102,12 +93,9 @@ exports[`Navigation Snapshots matches snapshot 1`] = `
       <smart-link-stub
         isexternal="true"
       >
-        <span
-          class="Navigation-title"
-        >
-          Shop
-        </span>
-         
+        
+        Shop
+        
         <div
           class="Navigation-icon"
         >

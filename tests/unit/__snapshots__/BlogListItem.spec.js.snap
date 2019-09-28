@@ -11,7 +11,9 @@ exports[`BlogListItem Snapshots matches snapshot 1`] = `
     <div
       class="BlogItem-date"
     >
-      <span>
+      <span
+        class="BlogItem-publishMonth"
+      >
         Apr
       </span>
        
@@ -21,7 +23,9 @@ exports[`BlogListItem Snapshots matches snapshot 1`] = `
         25
       </span>
        
-      <span>
+      <span
+        class="BlogItem-publishYear"
+      >
         2018
       </span>
     </div>

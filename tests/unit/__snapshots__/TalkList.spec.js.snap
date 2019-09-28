@@ -5,34 +5,28 @@ exports[`TalkList Snapshots with talks matches snapshot 1`] = `
   class="TalkList"
 >
   <smart-link-stub
-    class="TalkListItem TalkListItem--gray Draw--300"
-    color="gray"
+    class="TalkListItem TalkListItem--yellow Draw--300"
+    color="yellow"
     givenat="[object Object]"
     iconcssclass="Draw--300"
-    iconsvg="[object Object]"
+    iconsvg=<svg></svg>
     id="talk1"
     maincontent="talk main content"
     preamble="talk 1 preamble"
-    title="talk 1 title"
+    title="Fun, Friendly Computer Science"
     to="/speaking/talk1"
     urlsegment="talk1"
   >
     <div
       class="TalkListItem-icon"
     >
-      {
-  "fields": {
-    "svg": "
       <svg />
-      "
-  }
-}
     </div>
      
     <h3
       class="TalkListItem-title"
     >
-      talk 1 title
+      Fun, Friendly Computer Science
     </h3>
      
     <div
@@ -48,30 +42,24 @@ exports[`TalkList Snapshots with talks matches snapshot 1`] = `
     color="gray"
     givenat="[object Object]"
     iconcssclass="Draw--300"
-    iconsvg="[object Object]"
+    iconsvg=<svg></svg>
     id="talk2"
     maincontent="talk main content"
     preamble="talk 2 preamble"
-    title="talk 2 title"
+    title="Empowering Early Career Developers"
     to="/speaking/talk2"
     urlsegment="talk2"
   >
     <div
       class="TalkListItem-icon"
     >
-      {
-  "fields": {
-    "svg": "
       <svg />
-      "
-  }
-}
     </div>
      
     <h3
       class="TalkListItem-title"
     >
-      talk 2 title
+      Empowering Early Career Developers
     </h3>
      
     <div
@@ -83,33 +71,27 @@ exports[`TalkList Snapshots with talks matches snapshot 1`] = `
     </div>
   </smart-link-stub>
   <smart-link-stub
-    class="TalkListItem TalkListItem--gray Draw--300"
-    color="gray"
+    class="TalkListItem TalkListItem--red Draw--300"
+    color="red"
     givenat="[object Object]"
     iconcssclass="Draw--300"
-    iconsvg="[object Object]"
+    iconsvg=<svg></svg>
     id="talk3"
     maincontent="talk main content"
     preamble="talk 3 preamble"
-    title="talk 3 title"
+    title="How to talk technical without talking technical"
     to="/speaking/undefined"
   >
     <div
       class="TalkListItem-icon"
     >
-      {
-  "fields": {
-    "svg": "
       <svg />
-      "
-  }
-}
     </div>
      
     <h3
       class="TalkListItem-title"
     >
-      talk 3 title
+      How to talk technical without talking technical
     </h3>
      
     <div

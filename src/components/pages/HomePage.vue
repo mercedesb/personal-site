@@ -1,5 +1,5 @@
 <template>
-  <div :key="page.id" class="Home">
+  <div :key="page.id" class="FlexContainer FlexContainer--column">
     <HeroHeader
       :title="page.title"
       :preamble="page.preamble"
@@ -9,7 +9,7 @@
       :key="`${page.id}_header`"
     />
     <div :key="`${page.id}_mainContent`" class='FlexContainer FlexContainer--column u-fillHeight'>
-      <div class='FlexContainer u-fillSpace' v-if="columns && columns.length">
+      <div class='FlexContainer' v-if="columns && columns.length">
         <ContentColumn
           v-for="column in columns"
           :key="column.id"
@@ -73,13 +73,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '../../assets/styles/variables.scss';
-
-  .Home {
-    flex: 1;
-    display: flex;
-    flex-flow: column;
-  }
-</style>
