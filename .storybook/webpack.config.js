@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require("webpack");
+const fs = require("fs");
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
@@ -13,6 +15,19 @@ module.exports = async ({ config, mode }) => {
     include: path.resolve(__dirname, "../")
   });
 
+  config.plugins.push(
+    new webpack.NormalModuleReplacementPlugin(/\.vue$/, resource => {
+      const resPath = resource.request;
+      const mockPath = resPath.slice(0, -3) + "mock.vue";
+      const absMockPath = path.resolve(resource.context, mockPath);
+      const absRootMockPath = path.resolve(__dirname, "./component-stub.vue");
+      if (fs.existsSync(absMockPath)) {
+        resource.request = mockPath;
+      } else if (resPath.endsWith("Container.vue")) {
+        resource.request = absRootMockPath;
+      }
+    })
+  );
   // Return the altered config
   return config;
 };
