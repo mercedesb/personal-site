@@ -1,5 +1,5 @@
 <template>
-  <div :key="page.id" class="Home">
+  <div :key="page.id" class="FlexContainer FlexContainer--column">
     <HeroHeader
       :title="page.title"
       :preamble="page.preamble"
@@ -73,13 +73,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '../../assets/styles/variables.scss';
-
-  .Home {
-    flex: 1;
-    display: flex;
-    flex-flow: column;
-  }
-</style>

@@ -2,7 +2,7 @@
 
 exports[`HomePage Snapshots matches snapshot 1`] = `
 <div
-  class="Home"
+  class="FlexContainer FlexContainer--column"
 >
   <heroheader-stub
     backgroundimages=""

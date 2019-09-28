@@ -52,6 +52,26 @@ export const withAllProps = () => {
   };
 };
 
+export const withMissingProps = () => {
+  return {
+    components: { ContentColumn },
+    data() {
+      return {
+        column: {
+          title: "Title",
+          color: "red",
+          urlSegment: "testPath"
+        }
+      };
+    },
+    template: `
+      <div class="FlexContainer">
+        <ContentColumn v-bind="column" :key="column.urlSegment" />
+      </div>
+    `
+  };
+};
+
 export const withTwoColumns = () => {
   return {
     components: { ContentColumn },

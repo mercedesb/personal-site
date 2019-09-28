@@ -91,16 +91,6 @@ export default {
 
 $icon-dimension: 24px;
 
-.PageContent {
-  ul {
-    list-style-type: disc;
-    margin-left: $base-spacing;
-  }
-  li {
-    display: list-item;
-  }
-}
-
 .Collapsible {
   cursor: pointer;
 

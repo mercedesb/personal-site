@@ -32,7 +32,10 @@ export default {
     preamble: String,
     iconSvg: String,
     externalLink: String,
-    urlSegment: String
+    urlSegment: {
+      type: String,
+      required: true
+    },
   },
   computed: {
     isExternal: function () {

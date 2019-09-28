@@ -17,7 +17,7 @@
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogListContainer v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(pageNumber)" />
     <TalkListContainer v-if="landingPage.showTalks" />
-    <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide LandingPage-ctaContainer'>
+    <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
       <CTALink
         v-for="ctaLink in ctaLinks"
         :key="ctaLink.id"

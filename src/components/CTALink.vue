@@ -32,6 +32,7 @@ export default {
   @import '../assets/styles/variables.scss';
 
   $icon-width: 75px;
+  $icon-spacing: 15px;
 
   .CTA {
     flex: 1 1 50%;
@@ -56,7 +57,7 @@ export default {
     &-icon {
 
       margin-right: $small-spacing;
-      padding: $small-spacing;
+      padding: $icon-spacing;
       max-width: 120px;
       width: $icon-width;
 

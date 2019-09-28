@@ -76,6 +76,23 @@ export const yellow = () => {
       };
     },
     template:
-      '<CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="yellow"/>'
+      '<CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="yellow" />'
+  };
+};
+
+export const withTwoLinks = () => {
+  return {
+    components: { CTALink },
+    data() {
+      return {
+        iconSvg: icon
+      };
+    },
+    template: `
+    <div class="FlexContainer">
+      <CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="red" />
+      <CTALink title="Second Title" :iconSvg="iconSvg" url="/blog" :external="false" color="red" />
+    </div>
+    `
   };
 };

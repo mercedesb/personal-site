@@ -19,8 +19,11 @@ export const featured = () => {
         }
       };
     },
-    template:
-      '<BlogListItem color="purple" :featured="true" v-bind="blogPost" :key="blogPost.id" />'
+    template: `
+      <div class='PageContent PageContent--wide'>
+        <BlogListItem color="purple" :featured="true" v-bind="blogPost" :key="blogPost.id" />
+      </div>
+    `
   };
 };
 
@@ -35,7 +38,10 @@ export const notFeatured = () => {
         }
       };
     },
-    template:
-      '<BlogListItem v-bind="blogPost" :key="blogPost.id" color="purple" :featured="false" />'
+    template: `
+      <div class='PageContent PageContent--wide'>
+        <BlogListItem color="purple" :featured="false" v-bind="blogPost" :key="blogPost.id" />
+      </div>
+    `
   };
 };
