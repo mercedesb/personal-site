@@ -190,16 +190,12 @@ export const TestUtility = (function() {
     talks: [
       {
         id: "talk1",
-        title: "talk 1 title",
+        title: "Fun, Friendly Computer Science",
         preamble: "talk 1 preamble",
         mainContent: "talk main content",
         urlSegment: "talk1",
-        color: "gray",
-        iconSvg: {
-          fields: {
-            svg: "<svg></svg>"
-          }
-        },
+        color: "yellow",
+        iconSvg: "<svg></svg>",
         iconCssClass: "Draw--300",
         givenAt: [
           {
@@ -216,16 +212,12 @@ export const TestUtility = (function() {
       },
       {
         id: "talk2",
-        title: "talk 2 title",
+        title: "Empowering Early Career Developers",
         preamble: "talk 2 preamble",
         mainContent: "talk main content",
         urlSegment: "talk2",
         color: "gray",
-        iconSvg: {
-          fields: {
-            svg: "<svg></svg>"
-          }
-        },
+        iconSvg: "<svg></svg>",
         iconCssClass: "Draw--300",
         givenAt: [
           {
@@ -242,15 +234,11 @@ export const TestUtility = (function() {
       },
       {
         id: "talk3",
-        title: "talk 3 title",
+        title: "How to talk technical without talking technical",
         preamble: "talk 3 preamble",
         mainContent: "talk main content",
-        color: "gray",
-        iconSvg: {
-          fields: {
-            svg: "<svg></svg>"
-          }
-        },
+        color: "red",
+        iconSvg: "<svg></svg>",
         iconCssClass: "Draw--300",
         givenAt: [
           {

@@ -1,8 +1,11 @@
-import PageHeader from "../../src/components/PageHeader.vue";
+import StoryRouter from "storybook-vue-router";
+import { TestUtility } from "../unit/TestUtility";
+import TalkList from "../../src/components/TalkList.vue";
 
 export default {
-  title: "PageHeader",
-  component: PageHeader
+  title: "TalkList",
+  component: TalkList,
+  decorators: [StoryRouter()]
 };
 
 const iconSvg = `
@@ -27,154 +30,25 @@ const iconSvg = `
 </svg>
 `;
 
-export const titleOnly = () => {
+const talks = TestUtility.talks.map(t => {
   return {
-    components: { PageHeader },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple">
-        <template slot='titleHeader'>
-          <h1>Title</h1>
-        </template>
-      </PageHeader>
-    </div>
-      `
+    ...t,
+    iconSvg: iconSvg
   };
-};
+});
 
-export const titleOnlyShort = () => {
+export const defaultPresentation = () => {
   return {
-    components: { PageHeader },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple" :short="true">
-        <template slot='titleHeader'>
-          <h1>Title</h1>
-        </template>
-      </PageHeader>
-    </div>
-      `
-  };
-};
-
-export const titleAndDecorativeHeader = () => {
-  return {
-    components: { PageHeader },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple">
-        <template slot='decorativeHeader'>
-          <h1>Title</h1>
-        </template>
-        <template slot='titleHeader'>
-          <h2>Longer, more descriptive title</h2>
-        </template>
-      </PageHeader>
-     </div>
-      `
-  };
-};
-
-export const titleAndDecorativeHeaderShort = () => {
-  return {
-    components: { PageHeader },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple" :short="true">
-        <template slot='decorativeHeader'>
-          <h1>Title</h1>
-        </template>
-        <template slot='titleHeader'>
-          <h2>Longer, more descriptive title</h2>
-        </template>
-      </PageHeader>
-     </div>
-      `
-  };
-};
-
-export const titleAndIcon = () => {
-  return {
-    components: { PageHeader },
+    components: { TalkList },
     data() {
       return {
-        icon: iconSvg
+        talks: talks
       };
     },
     template: `
     <div style="width: 100%;">
-      <PageHeader color="purple" :icon="icon">
-        <template slot='titleHeader'>
-          <h1>Longer, more descriptive title</h1>
-        </template>
-      </PageHeader>
-     </div>
-      `
-  };
-};
-
-export const titleAndIconShort = () => {
-  return {
-    components: { PageHeader },
-    data() {
-      return {
-        icon: iconSvg
-      };
-    },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple" :icon="icon" :short="true">
-        <template slot='titleHeader'>
-          <h1>Longer, more descriptive title</h1>
-        </template>
-      </PageHeader>
-     </div>
-      `
-  };
-};
-
-export const titleDecorativeHeaderAndIcon = () => {
-  return {
-    components: { PageHeader },
-    data() {
-      return {
-        icon: iconSvg
-      };
-    },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple" :icon="icon">
-        <template slot='decorativeHeader'>
-          <h1>Title</h1>
-        </template>
-        <template slot='titleHeader'>
-          <h2>Longer, more descriptive title</h2>
-        </template>
-      </PageHeader>
-     </div>
-      `
-  };
-};
-
-export const titleDecorativeHeaderAndIconShort = () => {
-  return {
-    components: { PageHeader },
-    data() {
-      return {
-        icon: iconSvg
-      };
-    },
-    template: `
-    <div style="width: 100%;">
-      <PageHeader color="purple" :icon="icon" :short="true">
-        <template slot='decorativeHeader'>
-          <h1>Title</h1>
-        </template>
-        <template slot='titleHeader'>
-          <h2>Longer, more descriptive title</h2>
-        </template>
-      </PageHeader>
-     </div>
+      <TalkList :talks="talks">
+      </div>
       `
   };
 };
