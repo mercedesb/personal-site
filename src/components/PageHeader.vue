@@ -88,7 +88,7 @@ export default {
     }
 
     &-text {
-      padding: 0 $base-spacing;
+      padding: $base-spacing;
       width: 100%;
 
       @include media($min-tablet) {
@@ -97,22 +97,18 @@ export default {
         flex-direction: column;
         padding: 0;
       }
-
-      & > .PageHeader-titleHeader:first-child {
-        @include media($min-tablet) {
-          margin-top: 200px;
-        }
-      }
     }
 
     &-decorativeHeader {
       margin: 0 $base-spacing;
       text-align: center;
+      display: none;
 
       @include media($min-tablet) {
         margin: 0;
         opacity: $light-opacity;
         text-align: right;
+        display: block;
       }
 
       * {
@@ -130,7 +126,7 @@ export default {
       text-align: center;
 
       @include media($min-tablet) {
-        margin-top: -$large-spacing;
+        margin-top: 200px;
       }
 
       * {
@@ -145,20 +141,19 @@ export default {
       }
     }
 
+    &-decorativeHeader + &-titleHeader {
+      @include media($min-tablet) {
+        margin-top: -$large-spacing;
+      }
+    }
+
     &--short {
-      padding-top: 1em;
-      
       @include media($min-tablet) {
         height: $header-height-short;
       }
 
       .PageHeader-decorativeHeader {
-        display: none;
         white-space: nowrap;
-
-        @include media($min-tablet) {
-          display: block;
-        }
 
         * {
           font-size: $giant-font-size;
@@ -170,20 +165,20 @@ export default {
       }
 
       .PageHeader-titleHeader {   
-        margin-top: 0;
-
         @include media($min-tablet) {
-          margin-top: $large-spacing * -2;
+          margin-top: 125px;
 
           * {
             margin: 0;
           }
         }
       }
-    }
-  }
 
-  .TalkPage .PageHeader-titleHeader {
-    margin-top: 20px;
+      .PageHeader-decorativeHeader + .PageHeader-titleHeader {
+        @include media($min-tablet) {
+          margin-top: -$large-spacing;
+        }
+      }
+    }
   }
 </style>

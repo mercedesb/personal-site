@@ -1,10 +1,8 @@
-import StoryRouter from "storybook-vue-router";
 import PageHeader from "../../src/components/PageHeader.vue";
 
 export default {
   title: "PageHeader",
-  component: PageHeader,
-  decorators: [StoryRouter()]
+  component: PageHeader
 };
 
 const iconSvg =
