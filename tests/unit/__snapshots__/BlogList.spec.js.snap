@@ -7,6 +7,7 @@ exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
   name="fade"
 >
   <bloglistitem-stub
+    color="gray"
     featured="true"
     id="blogPost1"
     maincontent=""
@@ -14,26 +15,28 @@ exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
     publishdate="2018-04-25T00:00-05:00"
     tags=""
     title="blog post 1 title"
-    urlsegment=""
+    urlsegment="/blogPost1"
   />
    
   <bloglistitem-stub
+    color="gray"
     id="blogPost2"
     maincontent=""
     preamble="blog post 2 preamble"
     publishdate="2018-04-23T00:00-05:00"
     tags=""
     title="blog post 2 title"
-    urlsegment=""
+    urlsegment="/blogPost2"
   />
   <bloglistitem-stub
+    color="gray"
     id="blogPost3"
     maincontent=""
     preamble="blog post 3 preamble"
     publishdate="2018-04-22T00:00-05:00"
     tags=""
     title="blog post 3 title"
-    urlsegment=""
+    urlsegment="/blogPost3"
   />
 </div>
 `;
@@ -52,7 +55,7 @@ exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
     publishdate="2018-04-25T00:00-05:00"
     tags=""
     title="blog post 1 title"
-    urlsegment=""
+    urlsegment="/blogPost1"
   />
    
   <bloglistitem-stub
@@ -62,7 +65,7 @@ exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
     publishdate="2018-04-23T00:00-05:00"
     tags=""
     title="blog post 2 title"
-    urlsegment=""
+    urlsegment="/blogPost2"
   />
   <bloglistitem-stub
     id="blogPost3"
@@ -71,7 +74,7 @@ exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
     publishdate="2018-04-22T00:00-05:00"
     tags=""
     title="blog post 3 title"
-    urlsegment=""
+    urlsegment="/blogPost3"
   />
 </div>
 `;

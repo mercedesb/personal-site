@@ -4,10 +4,12 @@
       <BlogListItem v-if="featuredPost"
         v-bind="featuredPost"
         :key="featuredPost.id"
+        :color="color"
       ></BlogListItem>
       <BlogListItem v-for="blogPost in remainingPosts"
         v-bind="blogPost"
         :key="blogPost.id"
+        :color="color"
       ></BlogListItem>
     </div>
   </transition>
