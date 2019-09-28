@@ -12,7 +12,7 @@
           :to="navLink.parsedLink"
           :isExternal="!!navLink.externalLink"
           >
-          <span class='Navigation-title'>{{navLink.title}}</span>
+          {{navLink.title}}
           <div class="Navigation-icon" v-html="navLink.iconSvg"></div>
         </smart-link>
       </li>
@@ -63,12 +63,10 @@ $icon-hover-width: 75px;
 
         &:hover {
           cursor: pointer;
-
+          color: $white;
+            line-height: initial; 
+            font-size: initial;
           .Navigation {
-            &-title {
-              display: block;
-            }
-
             &-icon {
               width: $icon-hover-width;
               -webkit-transition: width $transition-time;
@@ -84,17 +82,19 @@ $icon-hover-width: 75px;
     }
   }
 
-  &-title {
-    display: none;
+  a {
     padding-bottom: $small-spacing;
-    color: $white;
-  }
+    line-height: 0; 
+    font-size: 0;
+    color: transparent; 
+ }
 
   &-icon {
     margin: 0 $small-spacing;
     width: $icon-initial-width;
     -webkit-transition: width $transition-time;
     transition: width $transition-time;
+    line-height: 0; 
 
     @include light-svg;
   }
