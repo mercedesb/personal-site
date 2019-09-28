@@ -195,7 +195,11 @@ export const TestUtility = (function() {
         mainContent: "talk main content",
         urlSegment: "talk1",
         color: "yellow",
-        iconSvg: "<svg></svg>",
+        iconSvg: {
+          fields: {
+            svg: "<svg></svg>"
+          }
+        },
         iconCssClass: "Draw--300",
         givenAt: [
           {
@@ -217,7 +221,11 @@ export const TestUtility = (function() {
         mainContent: "talk main content",
         urlSegment: "talk2",
         color: "gray",
-        iconSvg: "<svg></svg>",
+        iconSvg: {
+          fields: {
+            svg: "<svg></svg>"
+          }
+        },
         iconCssClass: "Draw--300",
         givenAt: [
           {
@@ -238,7 +246,11 @@ export const TestUtility = (function() {
         preamble: "talk 3 preamble",
         mainContent: "talk main content",
         color: "red",
-        iconSvg: "<svg></svg>",
+        iconSvg: {
+          fields: {
+            svg: "<svg></svg>"
+          }
+        },
         iconCssClass: "Draw--300",
         givenAt: [
           {

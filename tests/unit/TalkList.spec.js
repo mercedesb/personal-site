@@ -5,7 +5,12 @@ describe("TalkList", () => {
   let component;
 
   const initialProps = {
-    talks: TestUtility.talks
+    talks: TestUtility.talks.map(t => {
+      return {
+        ...t,
+        iconSvg: t.iconSvg.fields.svg
+      };
+    })
   };
 
   const shallow = propsData =>

@@ -6,12 +6,12 @@ exports[`TalkPage Snapshots matches snapshot 1`] = `
   ctalinks=""
 >
   <pageheader-stub
-    color="gray"
+    color="yellow"
     icon=<svg></svg>
   >
     <template>
       <h1>
-        talk 1 title
+        Fun, Friendly Computer Science
       </h1>
     </template>
   </pageheader-stub>
