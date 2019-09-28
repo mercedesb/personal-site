@@ -15,6 +15,6 @@ new Vue({
   // eslint-disable-line no-new
   router,
   store: store,
-  el: "#root",
+  el: "#app",
   render: h => h(App)
 });

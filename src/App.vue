@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="app">
     <transition name="fade" mode="out-in">
       <component v-bind:is="currentComponent"></component>
     </transition>

@@ -28,20 +28,7 @@ export const withIcon = () => {
   };
 };
 
-export const red = () => {
-  return {
-    components: { CTALink },
-    data() {
-      return {
-        iconSvg: icon
-      };
-    },
-    template:
-      '<CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="red"/>'
-  };
-};
-
-export const purple = () => {
+export const withColorPassedIn = () => {
   return {
     components: { CTALink },
     data() {
@@ -51,32 +38,6 @@ export const purple = () => {
     },
     template:
       '<CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="purple"/>'
-  };
-};
-
-export const gray = () => {
-  return {
-    components: { CTALink },
-    data() {
-      return {
-        iconSvg: icon
-      };
-    },
-    template:
-      '<CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="gray"/>'
-  };
-};
-
-export const yellow = () => {
-  return {
-    components: { CTALink },
-    data() {
-      return {
-        iconSvg: icon
-      };
-    },
-    template:
-      '<CTALink title="Title" :iconSvg="iconSvg" url="/blog" :external="false" color="yellow" />'
   };
 };
 

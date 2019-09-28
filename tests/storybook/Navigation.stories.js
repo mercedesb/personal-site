@@ -66,7 +66,7 @@ export const withAllProps = () => {
       };
     },
     template: `
-      <header style="background-color: #524948; display: flex;">    
+      <header style="background-color: #524948; display: flex;  height: 120px;">    
         <Navigation :navLinks="navLinks" :homeLink="homeLink" />
       </header>
     `
@@ -110,7 +110,7 @@ export const withMissingIcon = () => {
       };
     },
     template: `
-      <header style="background-color: #524948; display: flex;">    
+      <header style="background-color: #524948; display: flex; height: 120px;">    
         <Navigation :navLinks="navLinks" :homeLink="homeLink" />
       </header>
     `
