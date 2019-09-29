@@ -5,7 +5,7 @@ export default {
   component: HeroHeader
 };
 
-export const withAllProps = () => {
+export const defaultPresentation = () => {
   return {
     components: { HeroHeader },
     data() {

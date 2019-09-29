@@ -42,6 +42,17 @@ describe("BlogList", () => {
       it("matches snapshot", () => {
         component = shallow({
           posts: [],
+          isFirstPage: true,
+          loading: true
+        });
+        expect(component.element).toMatchSnapshot();
+      });
+    });
+
+    describe("when loading", () => {
+      it("matches snapshot", () => {
+        component = shallow({
+          posts: [],
           isFirstPage: true
         });
         expect(component.element).toMatchSnapshot();

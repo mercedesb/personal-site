@@ -1,82 +1,163 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BlogList Snapshots when loading matches snapshot 1`] = `
+<div
+  aria-live="polite"
+  class="PageContent PageContent--fullWidth"
+>
+  <!---->
+   
+  <!---->
+</div>
+`;
+
 exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
 <div
-  class="PageContent PageContent--wide"
-  mode="out-in"
-  name="fade"
+  aria-live="polite"
+  class="PageContent PageContent--fullWidth"
 >
-  <bloglistitem-stub
-    color="gray"
-    featured="true"
-    id="blogPost1"
-    maincontent=""
-    preamble="blog post 1 preamble"
-    publishdate="2018-04-25T00:00-05:00"
-    tags=""
-    title="blog post 1 title"
-    urlsegment="/blogPost1"
-  />
+  <!---->
    
-  <bloglistitem-stub
-    color="gray"
-    id="blogPost2"
-    maincontent=""
-    preamble="blog post 2 preamble"
-    publishdate="2018-04-23T00:00-05:00"
-    tags=""
-    title="blog post 2 title"
-    urlsegment="/blogPost2"
-  />
-  <bloglistitem-stub
-    color="gray"
-    id="blogPost3"
-    maincontent=""
-    preamble="blog post 3 preamble"
-    publishdate="2018-04-22T00:00-05:00"
-    tags=""
-    title="blog post 3 title"
-    urlsegment="/blogPost3"
-  />
+  <div>
+    <bloglistitem-stub
+      color="gray"
+      featured="true"
+      id="blogPost1"
+      maincontent=""
+      preamble="blog post 1 preamble"
+      publishdate="2018-04-25T00:00-05:00"
+      tags="Test"
+      title="blog post 1 title"
+      urlsegment="/blogPost1"
+    />
+     
+    <bloglistitem-stub
+      color="gray"
+      id="blogPost2"
+      maincontent=""
+      preamble="blog post 2 preamble"
+      publishdate="2018-04-23T00:00-05:00"
+      tags=""
+      title="blog post 2 title"
+      urlsegment="/blogPost2"
+    />
+    <bloglistitem-stub
+      color="gray"
+      id="blogPost3"
+      maincontent=""
+      preamble="blog post 3 preamble"
+      publishdate="2018-04-22T00:00-05:00"
+      tags=""
+      title="blog post 3 title"
+      urlsegment="/blogPost3"
+    />
+  </div>
 </div>
 `;
 
 exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
 <div
-  class="PageContent PageContent--wide"
-  mode="out-in"
-  name="fade"
+  aria-live="polite"
+  class="PageContent PageContent--fullWidth"
 >
-  <bloglistitem-stub
-    featured="true"
-    id="blogPost1"
-    maincontent=""
-    preamble="blog post 1 preamble"
-    publishdate="2018-04-25T00:00-05:00"
-    tags=""
-    title="blog post 1 title"
-    urlsegment="/blogPost1"
-  />
+  <!---->
    
-  <bloglistitem-stub
-    id="blogPost2"
-    maincontent=""
-    preamble="blog post 2 preamble"
-    publishdate="2018-04-23T00:00-05:00"
-    tags=""
-    title="blog post 2 title"
-    urlsegment="/blogPost2"
-  />
-  <bloglistitem-stub
-    id="blogPost3"
-    maincontent=""
-    preamble="blog post 3 preamble"
-    publishdate="2018-04-22T00:00-05:00"
-    tags=""
-    title="blog post 3 title"
-    urlsegment="/blogPost3"
-  />
+  <div>
+    <bloglistitem-stub
+      color="loading-gray"
+      featured="true"
+      id="blogPost1"
+      maincontent=""
+      preamble="blog post 1 preamble"
+      publishdate="2018-04-25T00:00-05:00"
+      tags="Test"
+      title="blog post 1 title"
+      urlsegment="/blogPost1"
+    />
+     
+    <bloglistitem-stub
+      color="loading-gray"
+      id="blogPost2"
+      maincontent=""
+      preamble="blog post 2 preamble"
+      publishdate="2018-04-23T00:00-05:00"
+      tags=""
+      title="blog post 2 title"
+      urlsegment="/blogPost2"
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      id="blogPost3"
+      maincontent=""
+      preamble="blog post 3 preamble"
+      publishdate="2018-04-22T00:00-05:00"
+      tags=""
+      title="blog post 3 title"
+      urlsegment="/blogPost3"
+    />
+  </div>
 </div>
 `;
 
-exports[`BlogList Snapshots without posts matches snapshot 1`] = `<!---->`;
+exports[`BlogList Snapshots without posts matches snapshot 1`] = `
+<div
+  aria-busy="true"
+  aria-live="polite"
+  class="PageContent PageContent--fullWidth"
+>
+  <div>
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+  </div>
+   
+  <!---->
+</div>
+`;

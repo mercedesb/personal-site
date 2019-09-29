@@ -3,6 +3,7 @@
     <PageHeader
       :color="page.color"
       :icon="page.iconSvg"
+      :short="true"
     >
       <template slot='titleHeader'>
         <h1>{{page.title}}</h1>

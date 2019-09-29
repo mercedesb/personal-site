@@ -4,6 +4,8 @@
 @import "../node_modules/normalize.css/normalize.css";
 @import "./variables.scss";
 @import "./typography.scss";
+@import "./checkboxes.scss";
+@import "./radiobuttons.scss";
 @import "./transitions.scss";
 
 html,
@@ -50,12 +52,10 @@ li {
 
 .FlexContainer {
   @include flex-container;
-  flex-wrap: wrap;
   list-style-type: none !important;
 }
 
 .PageContent {
-  width: 100%;
   max-width: $content-width;
   padding: 0 $base-spacing;
 
@@ -77,14 +77,18 @@ li {
     display: list-item;
   }
 
-  &--wide {
-    max-width: $wide-content-width;
-  }
-
   &-header {
     margin: $large-spacing 0;
     display: flex;
     align-items: center;
+  }
+
+  &--wide {
+    max-width: $wide-content-width;
+  }
+
+  &--fullWidth {
+    width: 100%;
   }
 }
 

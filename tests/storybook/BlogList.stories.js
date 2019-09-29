@@ -31,3 +31,11 @@ export const onNotFirstPage = () => {
     template: '<BlogList :posts="posts" color="purple" :isFirstPage="false" />'
   };
 };
+
+export const loading = () => {
+  return {
+    components: { BlogList },
+    template:
+      '<BlogList :posts="posts" color="purple" :isFirstPage="false" :loading="true" />'
+  };
+};

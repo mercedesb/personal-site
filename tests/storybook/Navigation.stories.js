@@ -29,7 +29,7 @@ const iconSvg = `
 </svg>
 `;
 
-export const withAllProps = () => {
+export const defaultPresentation = () => {
   return {
     components: { Navigation },
     data() {
@@ -66,7 +66,8 @@ export const withAllProps = () => {
       };
     },
     template: `
-      <header style="background-color: #524948; display: flex;  height: 120px;">    
+      <header class="PageHeader PageHeader--gray">    
+        <div><h1>Ta Da</h1></div>
         <Navigation :navLinks="navLinks" :homeLink="homeLink" />
       </header>
     `
@@ -110,7 +111,8 @@ export const withMissingIcon = () => {
       };
     },
     template: `
-      <header style="background-color: #524948; display: flex; height: 120px;">    
+      <header class="PageHeader PageHeader--gray">    
+        <div><h1>Ta Da</h1></div>
         <Navigation :navLinks="navLinks" :homeLink="homeLink" />
       </header>
     `

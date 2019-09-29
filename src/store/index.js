@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const state = {
   errors: [],
   blogPosts: [],
+  blogCategories: [],
   maxBlogPostPages: 0,
   blogPost: {},
   talks: [],
@@ -21,6 +22,9 @@ const state = {
 export const mutations = {
   blogPosts(state, blogPosts) {
     state.blogPosts = blogPosts;
+  },
+  blogCategories(state, blogCategories) {
+    state.blogCategories = blogCategories;
   },
   maxBlogPostPages(state, maxBlogPostPages) {
     state.maxBlogPostPages = maxBlogPostPages;
@@ -54,6 +58,9 @@ export const mutations = {
   },
   clearBlogPosts(state) {
     state.blogPosts = [];
+  },
+  clearBlogCategories(state) {
+    state.blogCategories = [];
   },
   clearMaxBlogPostPages(state) {
     state.maxBlogPostPages = 0;
@@ -97,6 +104,7 @@ export const actions = {
         order: `-fields.publishDate`,
         skip: zeroIndexPageNum * pageParams.pageSize,
         limit: pageParams.pageSize,
+        "fields.tags[in]": pageParams.filter,
         "fields.publishDate[lte]": new Date()
       })
       .then(entries => {
@@ -106,6 +114,25 @@ export const actions = {
           Math.ceil(state.total / pageParams.pageSize)
         );
         return entries;
+      });
+  },
+  getBlogCategories(context) {
+    context.commit("clearBlogCategories");
+    return context
+      .dispatch("getEntries", {
+        content_type: "blogPost",
+        "fields.publishDate[lte]": new Date(),
+        select: "fields.tags"
+      })
+      .then(entries => {
+        const categories = entries.reduce((categories, entry) => {
+          if (entry.tags && entry.tags.length > 0) {
+            categories = categories.concat(entry.tags);
+          }
+          return categories;
+        }, []);
+        context.commit("blogCategories", [...new Set(categories)]);
+        return categories;
       });
   },
   getBlogPost(context, urlSegment) {

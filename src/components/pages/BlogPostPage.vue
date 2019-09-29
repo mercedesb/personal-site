@@ -5,7 +5,7 @@
       :short="true"
     >
       <template slot='decorativeHeader'>
-        <h1>{{ formattedPublishDate }}</h1>
+        <h1 role="presentation">{{ formattedPublishDate }}</h1>
       </template>
       <template slot='titleHeader'>
         <h2>{{page.title}}</h2>

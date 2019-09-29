@@ -93,13 +93,18 @@ export default {
         this.$store.dispatch('getNavLinks')
           .then(() => {
             if (landingPage.showBlogPosts) {
+              const blogCategoriesAlreadyFetched = this.$store.state.blogCategories && this.$store.state.blogCategories.length
+              if (!blogCategoriesAlreadyFetched){
+                this.$store.dispatch('getBlogCategories')
+              }
               this.$store.dispatch('getBlogPosts', { page: this.page, pageSize: this.intialPageSize })
                 .then(() => {
                   document.dispatchEvent(new Event('custom-render-trigger'))
                 })
             }
 
-            if (landingPage.showTalks) {
+            const talksAlreadyFetched = this.$store.state.talks && this.$store.state.talks.length
+            if (!talksAlreadyFetched && landingPage.showTalks) {
               this.$store.dispatch('getTalks')
             }
           })

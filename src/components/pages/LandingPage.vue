@@ -5,10 +5,10 @@
       :icon="iconSvg"
     >
       <template slot='decorativeHeader'>
-        <h1>{{ landingPage.title }}</h1>
+        <h1 role="presentation">{{ decorativeHeader }}</h1>
       </template>
       <template slot='titleHeader'>
-        <h2>{{ landingPage.preamble }}</h2>
+        <h2>{{ titleHeader }}</h2>
       </template>
     </PageHeader>
     <div class="PageContent" v-if="landingPage.mainContent">
@@ -17,7 +17,7 @@
     <!-- <ContactForm v-if="landingPage.showContact" /> -->
     <BlogListContainer v-if="landingPage.showBlogPosts" :color="landingPage.color" :page="parseInt(pageNumber)" />
     <TalkListContainer v-if="landingPage.showTalks" />
-    <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer PageContent PageContent--wide'>
+    <div :key="`${landingPage.id}_ctaLinks`" v-if="ctaLinks.length" class='FlexContainer FlexContainer--wrap PageContent PageContent--wide'>
       <CTALink
         v-for="ctaLink in ctaLinks"
         :key="ctaLink.id"
@@ -47,6 +47,22 @@ export default {
     iconSvg: String,
     ctaLinks: Array,
     pageNumber: Number
+  },
+  computed: {
+    decorativeHeader() {
+      if (this.landingPage.title && !this.landingPage.preamble) {
+        return ''
+      } else {
+        return this.landingPage.title
+      }
+    }, 
+    titleHeader() {
+      if (this.landingPage.title && !this.landingPage.preamble) {
+        return this.landingPage.title
+      } else {
+        return this.landingPage.preamble
+      }
+    }
   }
 }
 </script>

@@ -38,7 +38,12 @@ $icon-initial-width: 60px;
 $icon-hover-width: 75px;
 
 .Navigation {
-  display: flex;
+  display: none;
+  justify-content: center;
+
+  @include media($min-desktop) {
+    display: flex;
+  }
 
   &-navLinks {
     margin-bottom: 0;

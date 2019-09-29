@@ -11,7 +11,7 @@
         <slot name="titleHeader"></slot>
       </div>
     </div>
-    <NavigationContainer />
+    <NavigationContainer :color="color"/>
   </header>
 </template>
 
@@ -40,9 +40,6 @@ export default {
 
 <style lang="scss">
   @import '../assets/styles/variables.scss';
-
-  $header-height: 450px;
-  $header-height-short: 325px;
 
   $media-width: 800px;
   $text-width: 500px;

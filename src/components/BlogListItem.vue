@@ -1,5 +1,5 @@
 <template>
-  <smart-link :class="classes" :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
+  <smart-link :class="classes" :to="routerToObject" :aria-hidden="loading">
     <div class='BlogItem-container'>
       <div class='BlogItem-date'>
         <span class='BlogItem-publishMonth'>{{ publishMonth }}</span>
@@ -7,11 +7,11 @@
         <span class='BlogItem-publishYear'>{{ publishYear }}</span>
       </div>
       <div class='BlogItem-text'>
-      <h3 class='BlogItem-title h5'>{{ title }}</h3>
-      <p class='BlogItem-preamble'>{{ preamble }}</p>
+      <h3 class='BlogItem-title h5' :aria-hidden="loading">{{ title }}</h3>
+      <p class='BlogItem-preamble' :aria-hidden="loading">{{ preamble }}</p>
       <p class='BlogItem-viewMore'>
-        View more |
-      <ReadingTime :text="mainContent" />
+        <span v-if="!loading">View more |</span>
+        <ReadingTime v-if="!loading" :text="mainContent"/>
       </p>
    </div>
     </div>
@@ -27,18 +27,22 @@ export default {
     ReadingTime
   },
   props: {
-    color: String,
+    loading: Boolean,
+    color: {
+      type: String,
+      default: "loading-gray"
+    },
     featured: Boolean,
     title: String,
     preamble: String,
     mainContent: {
       type: String,
-      required: true
+      // required: true,
+      default: ''
     },
     date: Date,
     urlSegment: {
-      type: String,
-      required: true
+      type: String
     }
   },
   computed: {
@@ -46,13 +50,20 @@ export default {
       return moment(this.date)
     },
     publishMonth () {
-      return this.momentDate.format('MMM')
+      return this.loading ? '' : this.momentDate.format('MMM')
     },
     publishDay () {
-      return this.momentDate.format('DD')
+      return this.loading ? '' : this.momentDate.format('DD')
     },
     publishYear () {
-      return this.momentDate.format('YYYY')
+      return this.loading ? '' : this.momentDate.format('YYYY')
+    },
+    routerToObject () {
+      if (this.urlSegment) {
+        return { name: 'blogPost', params: { urlSegment: this.urlSegment, color: this.color } }
+      } else {
+        return null
+      }
     },
     classes () {
       let classStr = 'BlogItem'
@@ -61,6 +72,11 @@ export default {
       } else {
         classStr += ` BlogItem--${this.color}`
       }
+
+      if (this.loading) {
+        classStr += ' BlogItem--loading'
+      }
+
       return classStr
     }
   }
@@ -71,6 +87,7 @@ export default {
   @import '../assets/styles/variables.scss';
 
   $publish-font-size: 1.35rem;
+  $loading-height: 165px;
 
   .BlogItem {
     a {
@@ -82,6 +99,18 @@ export default {
       flex-wrap: wrap;
       margin: $base-spacing 0;
       border-radius: $base-radius;
+    }
+
+    &:first-child {
+      .BlogItem-container {
+        margin-top: 0;
+      }
+    }
+
+    &:last-child {
+      .BlogItem-container {
+        margin-bottom: 0;
+      }
     }
 
     &-date {
@@ -154,6 +183,17 @@ export default {
           background-color: #{nth($type, 2)};
           color: #{nth($type, 3)};
         }
+      }
+    }
+
+    &--loading {
+      .BlogItem-container {
+        height: $loading-height;
+      }
+
+      .BlogItem-title, .BlogItem-preamble, .BlogItem-viewMore {
+        background-color: $loading-gray;
+        padding: .75rem;
       }
     }
 

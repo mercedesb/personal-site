@@ -1,11 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BlogListContainer Snapshots when its not the first page matches snapshot 1`] = `
-<div>
-  <bloglist-stub
-    color="gray"
-    posts="[object Object],[object Object],[object Object]"
-  />
+<div
+  class="PageContent PageContent--wide PageContent--fullWidth"
+>
+  <div
+    class="FlexContainer PageContent PageContent--wide"
+  >
+    <bloglist-stub
+      color="gray"
+      posts="[object Object],[object Object],[object Object]"
+    />
+     
+    <div>
+      <blogcategories-stub
+        categories="[object Object],[object Object],[object Object],[object Object]"
+        checkedcategories=""
+        color="purple"
+      />
+    </div>
+  </div>
    
   <div
     class="Blog-pageNumberList"
@@ -14,12 +28,26 @@ exports[`BlogListContainer Snapshots when its not the first page matches snapsho
 `;
 
 exports[`BlogListContainer Snapshots when its the first page matches snapshot 1`] = `
-<div>
-  <bloglist-stub
-    color="gray"
-    isfirstpage="true"
-    posts="[object Object],[object Object],[object Object]"
-  />
+<div
+  class="PageContent PageContent--wide PageContent--fullWidth"
+>
+  <div
+    class="FlexContainer PageContent PageContent--wide"
+  >
+    <bloglist-stub
+      color="gray"
+      isfirstpage="true"
+      posts="[object Object],[object Object],[object Object]"
+    />
+     
+    <div>
+      <blogcategories-stub
+        categories="[object Object],[object Object],[object Object],[object Object]"
+        checkedcategories=""
+        color="purple"
+      />
+    </div>
+  </div>
    
   <div
     class="Blog-pageNumberList"
@@ -28,12 +56,26 @@ exports[`BlogListContainer Snapshots when its the first page matches snapshot 1`
 `;
 
 exports[`BlogListContainer Snapshots with a color passed in matches snapshot 1`] = `
-<div>
-  <bloglist-stub
-    color="gray"
-    isfirstpage="true"
-    posts="[object Object],[object Object],[object Object]"
-  />
+<div
+  class="PageContent PageContent--wide PageContent--fullWidth"
+>
+  <div
+    class="FlexContainer PageContent PageContent--wide"
+  >
+    <bloglist-stub
+      color="gray"
+      isfirstpage="true"
+      posts="[object Object],[object Object],[object Object]"
+    />
+     
+    <div>
+      <blogcategories-stub
+        categories="[object Object],[object Object],[object Object],[object Object]"
+        checkedcategories=""
+        color="purple"
+      />
+    </div>
+  </div>
    
   <div
     class="Blog-pageNumberList"
@@ -42,11 +84,25 @@ exports[`BlogListContainer Snapshots with a color passed in matches snapshot 1`]
 `;
 
 exports[`BlogListContainer Snapshots without a color passed in matches snapshot 1`] = `
-<div>
-  <bloglist-stub
-    isfirstpage="true"
-    posts="[object Object],[object Object],[object Object]"
-  />
+<div
+  class="PageContent PageContent--wide PageContent--fullWidth"
+>
+  <div
+    class="FlexContainer PageContent PageContent--wide"
+  >
+    <bloglist-stub
+      isfirstpage="true"
+      posts="[object Object],[object Object],[object Object]"
+    />
+     
+    <div>
+      <blogcategories-stub
+        categories="[object Object],[object Object],[object Object],[object Object]"
+        checkedcategories=""
+        color="purple"
+      />
+    </div>
+  </div>
    
   <div
     class="Blog-pageNumberList"

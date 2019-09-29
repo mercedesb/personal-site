@@ -45,3 +45,14 @@ export const notFeatured = () => {
     `
   };
 };
+
+export const loading = () => {
+  return {
+    components: { BlogListItem },
+    template: `
+      <div class='PageContent PageContent--wide'>
+        <BlogListItem :loading="true" />
+      </div>
+    `
+  };
+};
