@@ -112,6 +112,7 @@ export default {
 
   &-navLinks {
     display: flex;
+    flex-wrap: wrap;
     flex: 1;
     justify-content: center;
     align-items: center;
