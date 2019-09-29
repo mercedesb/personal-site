@@ -1,5 +1,5 @@
 <template>
-  <smart-link :class="classes" :to="{ name: 'blogPost', params: { urlSegment: urlSegment, color: color } }">
+  <smart-link :class="classes" :to="routerToObject" :aria-hidden="loading">
     <div class='BlogItem-container'>
       <div class='BlogItem-date'>
         <span class='BlogItem-publishMonth'>{{ publishMonth }}</span>
@@ -7,11 +7,11 @@
         <span class='BlogItem-publishYear'>{{ publishYear }}</span>
       </div>
       <div class='BlogItem-text'>
-      <h3 class='BlogItem-title h5'>{{ title }}</h3>
-      <p class='BlogItem-preamble'>{{ preamble }}</p>
+      <h3 class='BlogItem-title h5' :aria-hidden="loading">{{ title }}</h3>
+      <p class='BlogItem-preamble' :aria-hidden="loading">{{ preamble }}</p>
       <p class='BlogItem-viewMore'>
         <span v-if="!loading">View more |</span>
-      <ReadingTime v-if="!loading" :text="mainContent"/>
+        <ReadingTime v-if="!loading" :text="mainContent"/>
       </p>
    </div>
     </div>
@@ -42,9 +42,7 @@ export default {
     },
     date: Date,
     urlSegment: {
-      type: String,
-      // required: true,
-      default: '/'
+      type: String
     }
   },
   computed: {
@@ -59,6 +57,13 @@ export default {
     },
     publishYear () {
       return this.loading ? '' : this.momentDate.format('YYYY')
+    },
+    routerToObject () {
+      if (this.urlSegment) {
+        return { name: 'blogPost', params: { urlSegment: this.urlSegment, color: this.color } }
+      } else {
+        return null
+      }
     },
     classes () {
       let classStr = 'BlogItem'

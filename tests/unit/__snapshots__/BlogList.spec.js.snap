@@ -2,6 +2,7 @@
 
 exports[`BlogList Snapshots when loading matches snapshot 1`] = `
 <div
+  aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
   <!---->
@@ -12,6 +13,7 @@ exports[`BlogList Snapshots when loading matches snapshot 1`] = `
 
 exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
 <div
+  aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
   <!---->
@@ -55,6 +57,7 @@ exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
 
 exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
 <div
+  aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
   <!---->
@@ -98,6 +101,8 @@ exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
 
 exports[`BlogList Snapshots without posts matches snapshot 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
   <div>
@@ -105,61 +110,51 @@ exports[`BlogList Snapshots without posts matches snapshot 1`] = `
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
     <bloglistitem-stub
       color="loading-gray"
       loading="true"
       maincontent=""
-      urlsegment="/"
     />
   </div>
    

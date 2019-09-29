@@ -9,14 +9,16 @@ exports[`LandingPage Snapshots with an iconSvg matches snapshot 1`] = `
     icon=<svg></svg>
   >
     <template>
-      <h1>
-        About
+      <h1
+        role="presentation"
+      >
+        
       </h1>
     </template>
      
     <template>
       <h2>
-        
+        About
       </h2>
     </template>
   </pageheader-stub>
@@ -39,14 +41,16 @@ exports[`LandingPage Snapshots with ctaLinks matches snapshot 1`] = `
     color="blue"
   >
     <template>
-      <h1>
-        About
+      <h1
+        role="presentation"
+      >
+        
       </h1>
     </template>
      
     <template>
       <h2>
-        
+        About
       </h2>
     </template>
   </pageheader-stub>
@@ -85,14 +89,16 @@ exports[`LandingPage Snapshots without an iconSvg matches snapshot 1`] = `
     icon=""
   >
     <template>
-      <h1>
-        About
+      <h1
+        role="presentation"
+      >
+        
       </h1>
     </template>
      
     <template>
       <h2>
-        
+        About
       </h2>
     </template>
   </pageheader-stub>
@@ -115,14 +121,16 @@ exports[`LandingPage Snapshots without ctaLinks matches snapshot 1`] = `
     color="blue"
   >
     <template>
-      <h1>
-        About
+      <h1
+        role="presentation"
+      >
+        
       </h1>
     </template>
      
     <template>
       <h2>
-        
+        About
       </h2>
     </template>
   </pageheader-stub>

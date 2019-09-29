@@ -5,10 +5,10 @@
       :icon="iconSvg"
     >
       <template slot='decorativeHeader'>
-        <h1>{{ landingPage.title }}</h1>
+        <h1 role="presentation">{{ decorativeHeader }}</h1>
       </template>
       <template slot='titleHeader'>
-        <h2>{{ landingPage.preamble }}</h2>
+        <h2>{{ titleHeader }}</h2>
       </template>
     </PageHeader>
     <div class="PageContent" v-if="landingPage.mainContent">
@@ -47,6 +47,22 @@ export default {
     iconSvg: String,
     ctaLinks: Array,
     pageNumber: Number
+  },
+  computed: {
+    decorativeHeader() {
+      if (this.landingPage.title && !this.landingPage.preamble) {
+        return ''
+      } else {
+        return this.landingPage.title
+      }
+    }, 
+    titleHeader() {
+      if (this.landingPage.title && !this.landingPage.preamble) {
+        return this.landingPage.title
+      } else {
+        return this.landingPage.preamble
+      }
+    }
   }
 }
 </script>

@@ -2,6 +2,7 @@
 
 exports[`BlogListItem Snapshots when loading matches snapshot 1`] = `
 <smart-link-stub
+  aria-hidden="true"
   class="BlogItem BlogItem--gray BlogItem--loading"
   to="[object Object]"
 >
@@ -34,12 +35,14 @@ exports[`BlogListItem Snapshots when loading matches snapshot 1`] = `
       class="BlogItem-text"
     >
       <h3
+        aria-hidden="true"
         class="BlogItem-title h5"
       >
         blog title
       </h3>
        
       <p
+        aria-hidden="true"
         class="BlogItem-preamble"
       >
         blog preamble

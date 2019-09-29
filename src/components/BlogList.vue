@@ -1,5 +1,5 @@
 <template>
-  <div class='PageContent PageContent--fullWidth'>
+  <div class='PageContent PageContent--fullWidth' :aria-busy="loading" aria-live="polite">
     <div v-if="loading">
       <BlogListItem v-for="n in 10" :loading="true" :key="n"></BlogListItem>
     </div>

@@ -1,9 +1,12 @@
 <template>
   <div>
-    <router-link :to="to" v-if="!isExternal" :class="{'router-link-exact-active': subIsActive(to)}">
+    <span v-if="!linkExists">
+      <slot></slot>
+    </span>
+    <router-link :to="to" v-if="!isExternal && linkExists" :class="{'router-link-exact-active': subIsActive(to)}">
       <slot></slot>
     </router-link>
-    <a :href="to" target='_blank' v-if="isExternal">
+    <a :href="to" target='_blank' v-if="isExternal && linkExists">
       <slot></slot>
     </a>
   </div>
@@ -14,6 +17,11 @@ export default {
   props: {
     to: [String, Object],
     isExternal: Boolean
+  },
+  computed: {
+    linkExists() {
+      return !!this.to
+    }
   },
   methods: {
     subIsActive (path) {
