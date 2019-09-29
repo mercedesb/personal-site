@@ -10,7 +10,10 @@ export const TestUtility = (function() {
         params: {
           urlSegment: "somePath"
         },
-        path: "/somePath"
+        path: "/somePath",
+        query: {
+          filter: ""
+        }
       }
     }
   };
@@ -165,7 +168,7 @@ export const TestUtility = (function() {
         preamble: "blog post 1 preamble",
         mainContent: "",
         urlSegment: "/blogPost1",
-        tags: [],
+        tags: ["Test"],
         publishDate: "2018-04-25T00:00-05:00"
       },
       {

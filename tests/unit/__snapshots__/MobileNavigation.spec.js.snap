@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MobileNavigation Snapshots matches snapshot 1`] = `
+exports[`MobileNavigation Snapshots when expanded matches snapshot 1`] = `
 <div
-  backgroundimages="[object Object],[object Object],[object Object]"
   class="MobileNav"
 >
   <div
@@ -14,6 +13,105 @@ exports[`MobileNavigation Snapshots matches snapshot 1`] = `
     />
   </div>
    
-  <!---->
+  <div
+    class="MobileNav-navLinksContainer MobileNav-navLinksContainer--gray MobileNav-navLinksContainer--expanded"
+  >
+    <ul
+      class="MobileNav-navLinks"
+    >
+      <li
+        class="MobileNav-navLink"
+      >
+        <smart-link-stub
+          to="/"
+        >
+          
+          Home
+        
+        </smart-link-stub>
+      </li>
+       
+      <li
+        class="MobileNav-navLink"
+      >
+        <smart-link-stub>
+          
+          About
+        
+        </smart-link-stub>
+      </li>
+      <li
+        class="MobileNav-navLink"
+      >
+        <smart-link-stub>
+          
+          Blog
+        
+        </smart-link-stub>
+      </li>
+      <li
+        class="MobileNav-navLink"
+      >
+        <smart-link-stub>
+          
+          Connect
+        
+        </smart-link-stub>
+      </li>
+      <li
+        class="MobileNav-navLink"
+      >
+        <smart-link-stub
+          isexternal="true"
+        >
+          
+          Shop
+        
+        </smart-link-stub>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`MobileNavigation Snapshots with color passed in matches snapshot 1`] = `
+<div
+  class="MobileNav"
+>
+  <div
+    class="MobileNav-hamburger"
+  >
+    <img
+      alt="hamburger menu"
+      src="../assets/menu.svg"
+    />
+  </div>
+   
+  <div
+    class="MobileNav-navLinksContainer MobileNav-navLinksContainer--purple MobileNav-navLinksContainer--collapsed"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`MobileNavigation Snapshots without color passed in matches snapshot 1`] = `
+<div
+  class="MobileNav"
+>
+  <div
+    class="MobileNav-hamburger"
+  >
+    <img
+      alt="hamburger menu"
+      src="../assets/menu.svg"
+    />
+  </div>
+   
+  <div
+    class="MobileNav-navLinksContainer MobileNav-navLinksContainer--gray MobileNav-navLinksContainer--collapsed"
+  >
+    <!---->
+  </div>
 </div>
 `;

@@ -1,6 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BlogListItem Snapshots matches snapshot 1`] = `
+exports[`BlogListItem Snapshots when loading matches snapshot 1`] = `
+<smart-link-stub
+  class="BlogItem BlogItem--gray BlogItem--loading"
+  to="[object Object]"
+>
+  <div
+    class="BlogItem-container"
+  >
+    <div
+      class="BlogItem-date"
+    >
+      <span
+        class="BlogItem-publishMonth"
+      >
+        
+      </span>
+       
+      <span
+        class="BlogItem-publishDay"
+      >
+        
+      </span>
+       
+      <span
+        class="BlogItem-publishYear"
+      >
+        
+      </span>
+    </div>
+     
+    <div
+      class="BlogItem-text"
+    >
+      <h3
+        class="BlogItem-title h5"
+      >
+        blog title
+      </h3>
+       
+      <p
+        class="BlogItem-preamble"
+      >
+        blog preamble
+      </p>
+       
+      <p
+        class="BlogItem-viewMore"
+      >
+        <!---->
+         
+        <!---->
+      </p>
+    </div>
+  </div>
+</smart-link-stub>
+`;
+
+exports[`BlogListItem Snapshots with data matches snapshot 1`] = `
 <smart-link-stub
   class="BlogItem BlogItem--gray"
   to="[object Object]"
@@ -48,10 +105,12 @@ exports[`BlogListItem Snapshots matches snapshot 1`] = `
       <p
         class="BlogItem-viewMore"
       >
-        
-      View more |
-    
+        <span>
+          View more |
+        </span>
+         
         <readingtime-stub
+          text=""
           wordsperminute="250"
         />
       </p>

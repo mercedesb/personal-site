@@ -56,7 +56,6 @@ li {
 }
 
 .PageContent {
-  width: 100%;
   max-width: $content-width;
   padding: 0 $base-spacing;
 
@@ -78,14 +77,18 @@ li {
     display: list-item;
   }
 
-  &--wide {
-    max-width: $wide-content-width;
-  }
-
   &-header {
     margin: $large-spacing 0;
     display: flex;
     align-items: center;
+  }
+
+  &--wide {
+    max-width: $wide-content-width;
+  }
+
+  &--fullWidth {
+    width: 100%;
   }
 }
 

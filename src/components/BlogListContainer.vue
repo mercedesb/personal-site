@@ -1,5 +1,5 @@
 <template>
-  <div class="PageContent PageContent--wide">
+  <div class="PageContent PageContent--wide PageContent--fullWidth">
     <div class="FlexContainer PageContent PageContent--wide">
       <BlogList :posts="posts" :color="color" :isFirstPage="this.currentPageNumber === 1" :loading="loading" />
       <div>
@@ -80,9 +80,11 @@ export default {
           collection = collection.concat(this.filterByCategories)
         }
         else if (this.$route.query.filter) {
-          collection = collection.concat(this.$route.query.filter.split(','))
+          const queryCategories = this.$route.query.filter.split(',').map(c => c.toLowerCase())
+          const withIncorrectCasingHandled = this.allCategories.map(c => c.name).filter(name => queryCategories.includes(name.toLowerCase()))
+          collection = collection.concat(withIncorrectCasingHandled)
         } 
-        return collection
+        return [...new Set(collection)]
       },
       set: function (newCategories) {
         this.filterByCategories = newCategories 

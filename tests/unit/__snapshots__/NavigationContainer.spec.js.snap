@@ -1,8 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavigationContainer Snapshots matches snapshot 1`] = `
-<navigation-stub
-  homelink="[object Object]"
-  navlinks="[object Object],[object Object],[object Object],[object Object]"
-/>
+<div
+  class="NavigationContainer"
+>
+  <navigation-stub
+    homelink="[object Object]"
+    navlinks="[object Object],[object Object],[object Object],[object Object]"
+  />
+   
+  <mobilenavigation-stub
+    color="gray"
+    navlinks="[object Object],[object Object],[object Object],[object Object]"
+  />
+</div>
 `;

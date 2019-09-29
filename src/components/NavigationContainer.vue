@@ -1,18 +1,25 @@
 <template>
-  <Navigation :navLinks="navLinks" :homeLink="homeLink" />
+  <div class="NavigationContainer">
+    <Navigation :navLinks="navLinks" :homeLink="homeLink" />
+    <MobileNavigation :navLinks="navLinks" :color="color" />
+  </div>
 </template>
 
 <script>
 import Navigation from './Navigation.vue'
+import MobileNavigation from './MobileNavigation.vue'
 import images from '../mixins/images'
 
 export default {
   components: {
-    Navigation
+    Navigation, MobileNavigation
   },
   mixins: [
     images
   ],
+  props: {
+    color: String
+  },
   computed: {
     navLinks () {
       return this.$store.state.navLinks.slice(1).map((link) => {
@@ -41,3 +48,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .NavigationContainer {
+    width: 100%;
+  }
+</style>

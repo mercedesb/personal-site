@@ -1,6 +1,6 @@
 <template>
-  <div class='PageContent'>
-    <div v-if="loading" >
+  <div class='PageContent PageContent--fullWidth'>
+    <div v-if="loading">
       <BlogListItem v-for="n in 10" :loading="true" :key="n"></BlogListItem>
     </div>
     <div v-if="readyToDisplay">

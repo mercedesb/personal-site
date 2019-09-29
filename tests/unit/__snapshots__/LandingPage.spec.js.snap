@@ -58,7 +58,7 @@ exports[`LandingPage Snapshots with ctaLinks matches snapshot 1`] = `
   <!---->
    
   <div
-    class="FlexContainer PageContent PageContent--wide"
+    class="FlexContainer FlexContainer--wrap PageContent PageContent--wide"
   >
     <ctalink-stub
       color="brown"

@@ -37,13 +37,13 @@ export default {
     preamble: String,
     mainContent: {
       type: String,
-      required: true,
+      // required: true,
       default: ''
     },
     date: Date,
     urlSegment: {
       type: String,
-      required: true,
+      // required: true,
       default: '/'
     }
   },
