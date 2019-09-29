@@ -93,6 +93,7 @@ export default {
         this.$store.dispatch('getNavLinks')
           .then(() => {
             if (landingPage.showBlogPosts) {
+              this.$store.dispatch('getBlogCategories')
               this.$store.dispatch('getBlogPosts', { page: this.page, pageSize: this.intialPageSize })
                 .then(() => {
                   document.dispatchEvent(new Event('custom-render-trigger'))

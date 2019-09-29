@@ -1,6 +1,9 @@
 <template>
-  <transition name="fade" mode="out-in">
-    <div v-if="posts.length" class='PageContent PageContent--wide'>
+  <div class='PageContent'>
+    <div v-if="loading" >
+      <BlogListItem v-for="n in 10" :loading="true" :key="n"></BlogListItem>
+    </div>
+    <div v-if="readyToDisplay">
       <BlogListItem v-if="featuredPost"
         v-bind="featuredPost"
         :key="featuredPost.id"
@@ -12,7 +15,7 @@
         :color="color"
       ></BlogListItem>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -25,9 +28,13 @@ export default {
   props: {
     color: String,
     posts: Array,
-    isFirstPage: Boolean
+    isFirstPage: Boolean,
+    loading: Boolean
   },
   computed: {
+    readyToDisplay() {
+      return !this.loading && this.posts && this.posts.length
+    },
     featuredPost () {
       return {
         featured: this.isFirstPage,

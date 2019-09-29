@@ -4,6 +4,8 @@
 @import "../node_modules/normalize.css/normalize.css";
 @import "./variables.scss";
 @import "./typography.scss";
+@import "./checkboxes.scss";
+@import "./radiobuttons.scss";
 @import "./transitions.scss";
 
 html,
@@ -50,7 +52,6 @@ li {
 
 .FlexContainer {
   @include flex-container;
-  flex-wrap: wrap;
   list-style-type: none !important;
 }
 

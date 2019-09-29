@@ -8,6 +8,7 @@ $gray: #524948;
 $red: #904e55;
 
 $light-gray: lighten($gray, 30%);
+$loading-gray: #dddddd;
 $black: #252627;
 $green: #aaa16d;
 
@@ -18,7 +19,8 @@ $colors-array: (
   "purple" $purple $white,
   "yellow" $yellow $white,
   "gray" $gray $white,
-  "red" $red $white
+  "red" $red $white,
+  "loading-gray" $loading-gray $black
 );
 
 $base-drop-shadow: 0 2px 10px 0 $black;
@@ -48,7 +50,7 @@ $larger-spacing: 60px;
 $base-radius: 2px;
 
 $content-width: 800px;
-$wide-content-width: 1000px;
+$wide-content-width: 1200px;
 $button-width: 300px;
 $button-height: 50px;
 
