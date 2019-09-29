@@ -29,26 +29,7 @@ const iconSvg = `
 </svg>
 `;
 
-export const withOutFlexContainer = () => {
-  return {
-    components: { ContentColumn },
-    data() {
-      return {
-        column: {
-          title: "Title",
-          color: "red",
-          preamble: "Test preamble",
-          iconSvg: iconSvg,
-          externalLink: "",
-          urlSegment: "testPath"
-        }
-      };
-    },
-    template: '<ContentColumn v-bind="column" :key="column.urlSegment" />'
-  };
-};
-
-export const withAllProps = () => {
+export const defaultPresentation = () => {
   return {
     components: { ContentColumn },
     data() {

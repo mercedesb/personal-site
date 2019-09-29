@@ -29,7 +29,7 @@ const iconSvg = `
 </svg>
 `;
 
-export const withAllProps = () => {
+export const defaultPresentation = () => {
   return {
     components: { Navigation },
     data() {
