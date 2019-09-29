@@ -36,7 +36,12 @@ export default {
 <style lang="scss">
 @import '../assets/styles/variables.scss';
   .BlogCategories {
+    display: none;
     border: 1px solid;
+
+    @include media($min-tablet) {
+      display: block;
+    }
 
     &-title {
       text-align: center;
