@@ -10,7 +10,7 @@
       <h3 class='BlogItem-title h5' :aria-hidden="loading">{{ title }}</h3>
       <p class='BlogItem-preamble' :aria-hidden="loading">{{ preamble }}</p>
       <p class='BlogItem-viewMore'>
-        <span v-if="!loading">View more |</span>
+        <span v-if="!loading">View more | </span>
         <ReadingTime v-if="!loading" :text="mainContent"/>
       </p>
    </div>

@@ -109,7 +109,7 @@ exports[`BlogListItem Snapshots with data matches snapshot 1`] = `
         class="BlogItem-viewMore"
       >
         <span>
-          View more |
+          View more | 
         </span>
          
         <readingtime-stub
