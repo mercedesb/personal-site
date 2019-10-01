@@ -120,6 +120,7 @@ export default {
       else return 0
     },
     checkedCategoryChange(newCats) {
+      window.dataLayer.push('categoryChange', newCats) // Google Analytics
       this.checkedCategoryNames = newCats
       this.getPage(1)
     }
