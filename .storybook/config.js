@@ -2,10 +2,11 @@
 import "!style-loader!css-loader!sass-loader!./scss-loader.scss";
 
 // Import Storybook
-import { configure, addDecorator } from "@storybook/vue";
+import { configure, addDecorator, addParameters } from "@storybook/vue";
 
 // Import storybook addons
 import { withA11y } from "@storybook/addon-a11y";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 // Import Vue
 import Vue from "vue";
@@ -27,4 +28,12 @@ Vue.use(Router);
 Vue.component("smart-link", SmartLink);
 
 configure(require.context("../tests", true, /\.stories\.js$/), module);
+
+// Configure a11y addon
 addDecorator(withA11y);
+
+addParameters({
+  viewport: {
+    viewports: INITIAL_VIEWPORTS
+  }
+});
