@@ -212,6 +212,12 @@ export const TestUtility = (function() {
             fields: {
               title: "talk 1 given at",
               slidesLink: "http://google.com",
+              links: [
+                {
+                  name: "Blog",
+                  href: "/blog/post"
+                }
+              ],
               date: "2018-03-25T00:00-05:00"
             }
           }
@@ -238,6 +244,16 @@ export const TestUtility = (function() {
             fields: {
               title: "talk 2 given at",
               slidesLink: "http://google.com",
+              links: [
+                {
+                  name: "Blog",
+                  href: "/blog/post"
+                },
+                {
+                  name: "Video",
+                  href: "http://video.com"
+                }
+              ],
               date: "2018-04-25T00:00-05:00"
             }
           }

@@ -44,11 +44,19 @@ export default {
       let givenAt = []
       if (talk && talk.givenAt) {
         givenAt = talk.givenAt.map(ga => {
+          const givenAtLinks = ga.fields.links || []
+          const links = givenAtLinks.map(link => {
+            return {
+              ...link,
+              isExternal: /^http|^www/.test(link.href)
+            }
+          })
           return {
             id: ga.sys.id,
             ...ga.fields,
             date: moment(ga.fields.date).format('MMMM DD, YYYY'),
-            slidesLink: this.getImageUrl(ga.fields.slidesLink)
+            slidesLink: this.getImageUrl(ga.fields.slidesLink),
+            links: links
           }
         })
       }

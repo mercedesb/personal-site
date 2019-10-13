@@ -16,9 +16,7 @@
           <h2 class="h4">{{event.title}}</h2>
           <div class="EventDetails-links">
             <smart-link class="EventDetails-linkItem" :to="event.slidesLink" :isExternal="true" v-if="event.slidesLink">Slides</smart-link>
-            <smart-link class="EventDetails-linkItem" :to="event.videoLink" :isExternal="true" v-if="event.videoLink">Video</smart-link>
-            <smart-link class="EventDetails-linkItem" :to="event.audioLink" :isExternal="true" v-if="event.audioLink">Audio</smart-link>
-            <smart-link class="EventDetails-linkItem" :to="'/' + event.blogLink" v-if="event.blogLink">Blog</smart-link>
+            <smart-link class="EventDetails-linkItem" v-for="link in event.links" :key="link.href" :to="link.href" :isExternal="link.isExternal">{{link.name}}</smart-link>
             <em>{{event.date}}</em>
           </div>
         </div>
