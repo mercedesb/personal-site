@@ -98,14 +98,29 @@ export const actions = {
   getBlogPosts(context, pageParams) {
     const zeroIndexPageNum = pageParams.page - 1;
     context.commit("clearBlogPosts");
+
+    let baseBlogPostQuery = {
+      content_type: "blogPost",
+      order: `-fields.publishDate`,
+      skip: zeroIndexPageNum * pageParams.pageSize,
+      "fields.publishDate[lte]": new Date()
+    };
+
+    let tagsQuery = {};
+    if (pageParams.filter) {
+      tagsQuery = {
+        "fields.tags": pageParams.filter
+      };
+    } else {
+      tagsQuery = {
+        limit: pageParams.pageSize
+      };
+    }
+
     return context
       .dispatch("getEntries", {
-        content_type: "blogPost",
-        order: `-fields.publishDate`,
-        skip: zeroIndexPageNum * pageParams.pageSize,
-        limit: pageParams.pageSize,
-        "fields.tags[in]": pageParams.filter,
-        "fields.publishDate[lte]": new Date()
+        ...baseBlogPostQuery,
+        ...tagsQuery
       })
       .then(entries => {
         context.commit("blogPosts", entries);

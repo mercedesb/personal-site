@@ -23,7 +23,9 @@ exports[`BlogListContainer Snapshots when its not the first page matches snapsho
    
   <div
     class="Blog-pageNumberList"
-  />
+  >
+    <div />
+  </div>
 </div>
 `;
 
@@ -51,7 +53,9 @@ exports[`BlogListContainer Snapshots when its the first page matches snapshot 1`
    
   <div
     class="Blog-pageNumberList"
-  />
+  >
+    <div />
+  </div>
 </div>
 `;
 
@@ -79,7 +83,9 @@ exports[`BlogListContainer Snapshots with a color passed in matches snapshot 1`]
    
   <div
     class="Blog-pageNumberList"
-  />
+  >
+    <div />
+  </div>
 </div>
 `;
 
@@ -106,6 +112,8 @@ exports[`BlogListContainer Snapshots without a color passed in matches snapshot 
    
   <div
     class="Blog-pageNumberList"
-  />
+  >
+    <div />
+  </div>
 </div>
 `;

@@ -7,13 +7,15 @@
       </div>
     </div>
     <div class='Blog-pageNumberList'>
-      <span v-for="n in maxPageNumber"
-        :key="n"
-        :class="`Blog-pageNumber ${n == currentPageNumber ? 'Blog-pageNumber--current' : ''}`"
-        v-on:click="getPage(n)"
-      >
-        {{n}}
-      </span>
+      <div v-if="checkedCategoryNames.length === 0">
+        <span v-for="n in maxPageNumber"
+          :key="n"
+          :class="`Blog-pageNumber ${n == currentPageNumber ? 'Blog-pageNumber--current' : ''}`"
+          v-on:click="getPage(n)"
+        >
+          {{n}}
+        </span>
+      </div>
     </div>
   </div>
 </template>
