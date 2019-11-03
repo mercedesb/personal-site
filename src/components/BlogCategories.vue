@@ -2,9 +2,13 @@
   <aside :class="`BlogCategories BlogCategories--${color}`" v-if="categories.length" >
     <h3 class="BlogCategories-title">Categories</h3>
     <ul class="CategoryList">
-      <li class="Category" v-for="category in categories" v-bind="category" :key="category.name">
-        <input type="checkbox" :id="category.name" :value="category.name" v-model="checkedCategoryNames" @change="checkboxChange" />
-        <label :for="category.name"><span class="Checkbox"></span>{{category.name}}</label>
+      <li :class="`Category ${!activeCategory ? 'Category--active' : ''}`"><a href="/blog">All posts</a>
+      <li 
+        v-for="category in categories" v-bind="category" 
+        :key="category.name"
+        :class="`Category ${category.name === activeCategory ? 'Category--active' : ''}`"
+      >
+        <a :href="`/blog?filter=${encodeURIComponent(category.name)}`">{{category.name}}</a>
       </li>
     </ul>
   </aside>
@@ -14,20 +18,10 @@
 export default {
   props: {
     categories: Array,
-    checkedCategories: Array,
+    activeCategory: String,
     color: {
       type: String,
       default: 'purple'
-    }
-  },
-  data() {
-    return {
-      checkedCategoryNames: this.checkedCategories
-    }
-  },
-  methods: {
-    checkboxChange() {
-      this.$emit('categoryChange', this.checkedCategoryNames);
     }
   }
 }
@@ -65,12 +59,21 @@ export default {
   }
 
   .CategoryList {
-    margin-left: 0 !important;
+    margin: 0 $base-spacing;
   }
 
   .Category {
     display: block !important;
     list-style: none;
-    margin-left: 0;
+
+    a {
+      font-weight: $base-font-weight;
+    }
+
+    &--active {
+      a {
+        font-weight: $heavy-font-weight;
+      }
+    }
   }
 </style>

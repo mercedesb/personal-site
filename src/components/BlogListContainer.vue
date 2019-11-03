@@ -1,13 +1,16 @@
 <template>
   <div class="PageContent PageContent--wide PageContent--fullWidth">
+      <h3 class="Blog-activeCategory" v-if="activeCategory">
+        Posts about {{this.activeCategory}}
+      </h3>
     <div class="FlexContainer PageContent PageContent--wide">
       <BlogList :posts="posts" :color="color" :isFirstPage="this.currentPageNumber === 1" :loading="loading" />
       <div>
-        <BlogCategories :categories="allCategories" :checkedCategories="checkedCategoryNames" @categoryChange="checkedCategoryChange" />
+        <BlogCategories :categories="allCategories" :activeCategory="activeCategory" />
       </div>
     </div>
     <div class='Blog-pageNumberList'>
-      <div v-if="checkedCategoryNames.length === 0">
+      <div v-if="!activeCategory">
         <span v-for="n in maxPageNumber"
           :key="n"
           :class="`Blog-pageNumber ${n == currentPageNumber ? 'Blog-pageNumber--current' : ''}`"
@@ -44,7 +47,7 @@ export default {
     }
   },
   computed: {
-    allPosts () {
+    posts () {
       return this.$store.state.blogPosts.map((post) => {
         return {
           id: post.id,
@@ -58,60 +61,29 @@ export default {
         }
       })
     },
-    posts () {
-      if (this.checkedCategoryNames && this.checkedCategoryNames.length > 0) {
-        return this.allPosts.filter(post => {
-          if (post.tags) {
-            return this.checkedCategoryNames.some(category => post.tags.includes(category))
-          }
-        })
-      } else {
-        return this.allPosts
-      }
-    },
     maxPageNumber () {
-      return this.checkedCategoryNames && this.checkedCategoryNames.length > 0 ?  Math.ceil(this.posts.length / this.pageSize) : this.$store.state.maxBlogPostPages
+      return this.activeCategory ?  Math.ceil(this.posts.length / this.pageSize) : this.$store.state.maxBlogPostPages
     },
     allCategories () {
       return this.$store.state.blogCategories.map(c => { return { name: c } } ).sort(this.sortCategoryNames);
     },
-    checkedCategoryNames: {
-      get: function () {
-        let collection = []
-        if (this.filterByCategories && this.filterByCategories.length > 0) {
-          collection = collection.concat(this.filterByCategories)
-        }
-        else if (this.$route.query.filter) {
-          const queryCategories = this.$route.query.filter.split(',').map(c => c.toLowerCase())
-          const withIncorrectCasingHandled = this.allCategories.map(c => c.name).filter(name => queryCategories.includes(name.toLowerCase()))
-          collection = collection.concat(withIncorrectCasingHandled)
-        } 
-        return [...new Set(collection)]
-      },
-      set: function (newCategories) {
-        this.filterByCategories = newCategories 
-      }
-    } 
+    activeCategory () {
+      const queryCategory = this.$route.query.filter ? this.$route.query.filter.toLowerCase() : ""
+      const withIncorrectCasingHandled = this.allCategories.map(c => c.name).find(name => queryCategory === name.toLowerCase())
+      return withIncorrectCasingHandled
+    }
   },
   methods: {
     getPage (pageNumber) {
       this.loading = true;
       let query = { page: pageNumber, pageSize: this.pageSize }
-      if (this.checkedCategoryNames && this.checkedCategoryNames.length) {
-        query.filter = this.checkedCategoryNames.join(',')
+      if (this.activeCategory) {
+        query.filter = this.activeCategory
       }
       this.$store.dispatch('getBlogPosts', query).then(() => {
         this.loading = false;
       });
       this.currentPageNumber = pageNumber
-    },
-    incrementOrCreateNewTag (name, tags) {
-      const existingTag = tags.find(t => t.name === name)
-      if (existingTag) {
-        existingTag.count += 1
-      } else {
-        tags.push({ name: name, count: 1})
-      }
     },
     sortCategoryNames (tagA, tagB) {
       let aIsLessThanB = tagA.name.toLowerCase() < tagB.name.toLowerCase();
@@ -120,11 +92,6 @@ export default {
       if (aIsGreaterThanB) return 1
       if (aIsLessThanB) return -1
       else return 0
-    },
-    checkedCategoryChange(newCats) {
-      window.dataLayer.push('categoryChange', newCats) // Google Analytics
-      this.checkedCategoryNames = newCats
-      this.getPage(1)
     }
   }
 }
@@ -134,6 +101,12 @@ export default {
 @import '../assets/styles/variables.scss';
 
 .Blog {
+  &-activeCategory {
+    margin: 0 $large-spacing $large-spacing;
+    font-size: 1rem;
+    font-weight: $heavy-font-weight;
+  }
+
   &-pageNumberList {
     text-align: center;
     padding: $large-spacing 0;

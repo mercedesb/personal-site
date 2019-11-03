@@ -4,6 +4,8 @@ exports[`BlogListContainer Snapshots when its not the first page matches snapsho
 <div
   class="PageContent PageContent--wide PageContent--fullWidth"
 >
+  <!---->
+   
   <div
     class="FlexContainer PageContent PageContent--wide"
   >
@@ -15,7 +17,6 @@ exports[`BlogListContainer Snapshots when its not the first page matches snapsho
     <div>
       <blogcategories-stub
         categories="[object Object],[object Object],[object Object],[object Object]"
-        checkedcategories=""
         color="purple"
       />
     </div>
@@ -33,6 +34,8 @@ exports[`BlogListContainer Snapshots when its the first page matches snapshot 1`
 <div
   class="PageContent PageContent--wide PageContent--fullWidth"
 >
+  <!---->
+   
   <div
     class="FlexContainer PageContent PageContent--wide"
   >
@@ -45,7 +48,6 @@ exports[`BlogListContainer Snapshots when its the first page matches snapshot 1`
     <div>
       <blogcategories-stub
         categories="[object Object],[object Object],[object Object],[object Object]"
-        checkedcategories=""
         color="purple"
       />
     </div>
@@ -63,6 +65,8 @@ exports[`BlogListContainer Snapshots with a color passed in matches snapshot 1`]
 <div
   class="PageContent PageContent--wide PageContent--fullWidth"
 >
+  <!---->
+   
   <div
     class="FlexContainer PageContent PageContent--wide"
   >
@@ -75,7 +79,6 @@ exports[`BlogListContainer Snapshots with a color passed in matches snapshot 1`]
     <div>
       <blogcategories-stub
         categories="[object Object],[object Object],[object Object],[object Object]"
-        checkedcategories=""
         color="purple"
       />
     </div>
@@ -93,6 +96,8 @@ exports[`BlogListContainer Snapshots without a color passed in matches snapshot 
 <div
   class="PageContent PageContent--wide PageContent--fullWidth"
 >
+  <!---->
+   
   <div
     class="FlexContainer PageContent PageContent--wide"
   >
@@ -104,7 +109,6 @@ exports[`BlogListContainer Snapshots without a color passed in matches snapshot 
     <div>
       <blogcategories-stub
         categories="[object Object],[object Object],[object Object],[object Object]"
-        checkedcategories=""
         color="purple"
       />
     </div>

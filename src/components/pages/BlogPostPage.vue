@@ -24,6 +24,15 @@
           <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=http://www.mercedesbernard.com${this.$route.fullPath}/&title=${page.title}&summary=${page.preamble}`"><img src="@/assets/Linkedin-Social-Share.svg" alt="Linkedin share icon" /></a>
           <a :href="`https://www.facebook.com/sharer.php?u=http://www.mercedesbernard.com${this.$route.fullPath}/`"><img src="@/assets/Facebook-Social-Share.svg" alt="Facebook share icon" /></a>
         </div>
+        <p class="BlogPost-tagList">
+          Find related posts: 
+          <span v-for="tag in page.tags"
+            class="BlogPost-tag"
+            :key="tag"
+          >
+            <a :href="`/blog?filter=${tag}`">{{tag}}</a> 
+          </span>
+        </p>
       </div>
     </div>
   </main>
@@ -65,6 +74,18 @@ export default {
     img {
       width: 30px;
       padding: 0 $small-spacing $base-spacing;
+    }
+  }
+
+  &-tagList {
+    padding: $base-spacing;
+      border-radius: $base-radius;
+          border: 1px solid $purple;
+  }
+
+  &-tag {
+    &:not(:last-child)::after {
+      content: ", ";
     }
   }
 }

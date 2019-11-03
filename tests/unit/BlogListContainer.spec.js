@@ -56,38 +56,21 @@ describe("BlogListContainer", () => {
   });
 
   describe("Computed", () => {
-    describe("allPosts", () => {
+    describe("posts", () => {
       beforeEach(() => {
         component = shallow();
       });
 
       it("has posts populated", () => {
-        expect(component.vm.allPosts).toBeDefined();
+        expect(component.vm.posts).toBeDefined();
       });
 
       it("creates a color prop on the posts", () => {
-        expect(component.vm.allPosts[0].color).toEqual(initialProps.color);
+        expect(component.vm.posts[0].color).toEqual(initialProps.color);
       });
 
       it("creates a date prop on the posts", () => {
-        expect(component.vm.allPosts[0].date).toBeDefined();
-      });
-    });
-
-    describe("posts", () => {
-      describe("when there are checkedCategoryNames", () => {
-        component = shallow();
-        component.vm.filterByCategories = ["Test", "for"];
-        expect(component.vm.posts.length).toEqual(1);
-        expect(component.vm.posts[0].id).toEqual(TestUtility.blogPosts[0].id);
-      });
-
-      describe("when there aren't checkedCategoryNames", () => {
-        it("returns all posts", () => {
-          component = shallow();
-          expect(component.vm.posts).toEqual(component.vm.allPosts);
-          expect(component.vm.posts).toEqual(component.vm.allPosts);
-        });
+        expect(component.vm.posts[0].date).toBeDefined();
       });
     });
 
@@ -111,116 +94,6 @@ describe("BlogListContainer", () => {
         expect(component.vm.allCategories[3].name).toEqual("Test");
       });
     });
-
-    describe("checkedCategoryNames", () => {
-      describe("when there aren't categories in the query string", () => {
-        beforeEach(() => {
-          component = shallow();
-        });
-        describe("when there aren't categories in local state", () => {
-          it("returns an empty array", () => {
-            expect(component.vm.checkedCategoryNames).toEqual([]);
-          });
-        });
-
-        describe("when there are categories in local data", () => {
-          beforeEach(() => {
-            component.vm.filterByCategories = ["Test"];
-          });
-
-          it("returns an array with the categories from data", () => {
-            expect(component.vm.checkedCategoryNames).toEqual(["Test"]);
-          });
-        });
-      });
-
-      describe("when there are categories in the query string", () => {
-        beforeEach(() => {
-          const localRouteConfiguration = {
-            mocks: {
-              $route: {
-                params: {
-                  urlSegment: "somePath"
-                },
-                path: "/somePath",
-                query: {
-                  filter: "for,Categories"
-                }
-              }
-            }
-          };
-          component = shallow({}, localRouteConfiguration);
-        });
-
-        describe("when there aren't categories in local state", () => {
-          it("returns an array with categories from query string", () => {
-            expect(component.vm.checkedCategoryNames.sort()).toEqual([
-              "Categories",
-              "for"
-            ]);
-          });
-        });
-
-        describe("when there are categories in local data", () => {
-          beforeEach(() => {
-            component.vm.filterByCategories = ["Test"];
-          });
-
-          it("returns only the categories from data", () => {
-            expect(component.vm.checkedCategoryNames).toEqual(["Test"]);
-          });
-        });
-
-        describe("when the query string params are cased differently", () => {
-          beforeEach(() => {
-            const localRouteConfiguration = {
-              mocks: {
-                $route: {
-                  params: {
-                    urlSegment: "somePath"
-                  },
-                  path: "/somePath",
-                  query: {
-                    filter: "For,categories"
-                  }
-                }
-              }
-            };
-            component = shallow({}, localRouteConfiguration);
-          });
-
-          it("returns the categories with corrected casing", () => {
-            expect(component.vm.checkedCategoryNames.sort()).toEqual([
-              "Categories",
-              "for"
-            ]);
-          });
-        });
-
-        describe("when there are duplicate categories", () => {
-          beforeEach(() => {
-            const localRouteConfiguration = {
-              mocks: {
-                $route: {
-                  params: {
-                    urlSegment: "somePath"
-                  },
-                  path: "/somePath",
-                  query: {
-                    filter: "for,for"
-                  }
-                }
-              }
-            };
-            component = shallow({}, localRouteConfiguration);
-          });
-
-          it("returns the unique categories", () => {
-            expect(component.vm.checkedCategoryNames).toEqual(["for"]);
-          });
-        });
-      });
-    });
   });
 
   describe("Methods", () => {
@@ -237,11 +110,27 @@ describe("BlogListContainer", () => {
 
     describe("sortCategoryNames", () => {
       it("sorts category object alphabetically by name, case insensitive", () => {
-        let categories = [{ name: 'test' }, { name: 'The' }, { name: 'alpha' }, { name: 'Sorting' }, { name: 'By' }, { name: 'Name' }];
-        let expected = [{ name: 'alpha'}, { name: 'By' }, { name: 'Name' }, { name: 'Sorting' }, { name: 'test' }, { name: 'The' }];
+        let categories = [
+          { name: "test" },
+          { name: "The" },
+          { name: "alpha" },
+          { name: "Sorting" },
+          { name: "By" },
+          { name: "Name" }
+        ];
+        let expected = [
+          { name: "alpha" },
+          { name: "By" },
+          { name: "Name" },
+          { name: "Sorting" },
+          { name: "test" },
+          { name: "The" }
+        ];
         component = shallow();
-        expect(categories.sort(component.vm.sortCategoryNames)).toEqual(expected)
-      })
-    })
+        expect(categories.sort(component.vm.sortCategoryNames)).toEqual(
+          expected
+        );
+      });
+    });
   });
 });

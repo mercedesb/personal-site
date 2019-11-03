@@ -93,11 +93,15 @@ export default {
         this.$store.dispatch('getNavLinks')
           .then(() => {
             if (landingPage.showBlogPosts) {
-              const blogCategoriesAlreadyFetched = this.$store.state.blogCategories && this.$store.state.blogCategories.length
+              const blogCategoriesAlreadyFetched = this.$store.state.blogCategories && this.$store.state.blogCategories.length > 0
               if (!blogCategoriesAlreadyFetched){
                 this.$store.dispatch('getBlogCategories')
               }
-              this.$store.dispatch('getBlogPosts', { page: this.page, pageSize: this.intialPageSize })
+              let blogQuery = { page: this.page, pageSize: this.intialPageSize }
+              if (this.$route.query.filter) {
+                blogQuery.filter = this.$route.query.filter
+              }
+              this.$store.dispatch('getBlogPosts', blogQuery)
                 .then(() => {
                   document.dispatchEvent(new Event('custom-render-trigger'))
                 })
