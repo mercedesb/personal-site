@@ -5,6 +5,59 @@ exports[`BlogList Snapshots when loading matches snapshot 1`] = `
   aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
+  <div>
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+    <bloglistitem-stub
+      color="loading-gray"
+      loading="true"
+      maincontent=""
+    />
+  </div>
+   
   <!---->
    
   <!---->
@@ -16,6 +69,8 @@ exports[`BlogList Snapshots with a color passed in matches snapshot 1`] = `
   aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
+  <!---->
+   
   <!---->
    
   <div>
@@ -60,6 +115,8 @@ exports[`BlogList Snapshots without a color passed in matches snapshot 1`] = `
   aria-live="polite"
   class="PageContent PageContent--fullWidth"
 >
+  <!---->
+   
   <!---->
    
   <div>
@@ -157,6 +214,8 @@ exports[`BlogList Snapshots without posts matches snapshot 1`] = `
       maincontent=""
     />
   </div>
+   
+  <!---->
    
   <!---->
 </div>

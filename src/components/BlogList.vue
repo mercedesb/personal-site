@@ -1,9 +1,12 @@
 <template>
   <div class='PageContent PageContent--fullWidth' :aria-busy="loading" aria-live="polite">
-    <div v-if="loading">
+    <div v-if="!readyToDisplay">
       <BlogListItem v-for="n in 10" :loading="true" :key="n"></BlogListItem>
     </div>
-    <div v-if="readyToDisplay">
+    <div v-if="readyToDisplay && posts.length === 0">
+      <h3>Oops, there are no posts <span v-if="this.$route.query.filter">matching "{{this.$route.query.filter}}"</span></h3>
+    </div>
+    <div v-if="readyToDisplay && posts.length > 0">
       <BlogListItem v-if="featuredPost"
         v-bind="featuredPost"
         :key="featuredPost.id"
