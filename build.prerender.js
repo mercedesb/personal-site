@@ -49,7 +49,8 @@ module.exports = (api, _options) => {
     const speakingRoutes = await getSpeakingRoutes();
     const allRoutes = defaultRoutes.concat(blogRoutes).concat(speakingRoutes);
 
-    console.log(`prerendering ${allRoutes.length} routes`); // eslint-disable-line
+    console.log(`routes (${allRoutes.length}): ${allRoutes}`); // eslint-disable-line
+    console.log(`env: ${process.env.NODE_ENV}`); // eslint-disable-line
 
     const puppeteerChromiumArgs =
       process.env.NODE_ENV === "production"
@@ -64,7 +65,6 @@ module.exports = (api, _options) => {
           // Required - Routes to render.
           routes: allRoutes,
           renderer: new PuppeteerRenderer({
-            // renderAfterDocumentEvent: 'custom-render-trigger',
             renderAfterTime: 5000,
             args: puppeteerChromiumArgs
           })

@@ -7,6 +7,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
+    "prebuild": "node ./errormsg.js",
     "build": "vue-cli-service build:prerender",
     "start": "node server.js",
     "lint": "vue-cli-service lint",
