@@ -65,7 +65,7 @@ module.exports = (api, _options) => {
           // Required - Routes to render.
           routes: allRoutes,
           renderer: new PuppeteerRenderer({
-            renderAfterTime: 5000,
+            renderAfterTime: 1000,
             args: puppeteerChromiumArgs
           })
         }
