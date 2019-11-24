@@ -8,7 +8,6 @@ function getClient() {
 }
 
 async function getBlogRoutes() {
-  console.log("getting blog routes"); // eslint-disable-line
   const client = getClient();
 
   return client
@@ -21,7 +20,6 @@ async function getBlogRoutes() {
 }
 
 async function getSpeakingRoutes() {
-  console.log("getting speaking routes"); // eslint-disable-line
   const client = getClient();
 
   return client
@@ -49,8 +47,7 @@ module.exports = (api, _options) => {
     const speakingRoutes = await getSpeakingRoutes();
     const allRoutes = defaultRoutes.concat(blogRoutes).concat(speakingRoutes);
 
-    console.log(`routes (${allRoutes.length}): ${allRoutes}`); // eslint-disable-line
-    console.log(`env: ${process.env.NODE_ENV}`); // eslint-disable-line
+    console.log(`prerendering ${allRoutes.length} routes`); // eslint-disable-line
 
     const puppeteerChromiumArgs =
       process.env.NODE_ENV === "production"
@@ -66,7 +63,10 @@ module.exports = (api, _options) => {
           routes: allRoutes,
           renderer: new PuppeteerRenderer({
             renderAfterTime: 1000,
-            args: puppeteerChromiumArgs
+            args: puppeteerChromiumArgs,
+            navigationOptions: {
+              timeout: 100000 // setting to 100 seconds, default is 30
+            }
           })
         }
       ]);
