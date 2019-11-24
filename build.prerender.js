@@ -8,7 +8,7 @@ function getClient() {
 }
 
 async function getBlogRoutes() {
-  console.log("getting blog routes");
+  console.log("getting blog routes"); // eslint-disable-line
   const client = getClient();
 
   return client
@@ -21,7 +21,7 @@ async function getBlogRoutes() {
 }
 
 async function getSpeakingRoutes() {
-  console.log("getting speaking routes");
+  console.log("getting speaking routes"); // eslint-disable-line
   const client = getClient();
 
   return client
@@ -48,7 +48,8 @@ module.exports = (api, _options) => {
     const blogRoutes = await getBlogRoutes();
     const speakingRoutes = await getSpeakingRoutes();
     const allRoutes = defaultRoutes.concat(blogRoutes).concat(speakingRoutes);
-    console.log(`prerendering ${allRoutes.length} routes`);
+
+    console.log(`prerendering ${allRoutes.length} routes`); // eslint-disable-line
 
     const puppeteerChromiumArgs =
       process.env.NODE_ENV === "production"
