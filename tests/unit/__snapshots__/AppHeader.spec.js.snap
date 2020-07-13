@@ -3,7 +3,6 @@
 exports[`AppHeader Snapshots with a classModifier passed in matches snapshot 1`] = `
 <nav
   class="MainNav"
-  name="fade"
 >
   <div
     class="FlexContainer FlexContainer--alignCenter FlexContainer--modifier"
@@ -40,7 +39,6 @@ exports[`AppHeader Snapshots with a classModifier passed in matches snapshot 1`]
 exports[`AppHeader Snapshots without a classModifier passed in matches snapshot 1`] = `
 <nav
   class="MainNav"
-  name="fade"
 >
   <div
     class="FlexContainer FlexContainer--alignCenter FlexContainer--undefined"

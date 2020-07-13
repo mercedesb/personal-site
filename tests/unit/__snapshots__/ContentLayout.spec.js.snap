@@ -8,9 +8,6 @@ exports[`ContentLayout Snapshots matches snapshot 1`] = `
   preamble="heres the preamble"
   title="title"
 >
-  <router-view-stub
-    mode="out-in"
-    name="fade"
-  />
+  <router-view-stub />
 </div>
 `;
