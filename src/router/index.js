@@ -11,29 +11,40 @@ Vue.use(Router);
 
 export default new Router({
   mode: "history",
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: (to, from, savedPosition) => {
+    if (savedPosition) {
+      return savedPosition;
+    } else if (to.hash) {
+      return {
+        selector: to.hash,
+        // , offset: { x: 0, y: 10 }
+      };
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
   routes: [
     { path: "/", component: HomePage },
     {
       path: "/blog/:urlSegment",
       name: "blogPost",
       component: BlogPostPageContainer,
-      props: true
+      props: true,
     },
     {
       path: "/speaking/:urlSegment",
       name: "talkPage",
       component: TalkPageContainer,
-      props: true
+      props: true,
     },
     {
       path: "/:urlSegment",
       component: LandingPageContainer,
-      props: route => ({
+      props: (route) => ({
         ...route.params,
-        ...route.query
-      })
+        ...route.query,
+      }),
     },
-    { path: "/404", alias: "*", name: "pageNotFound", component: PageNotFound }
-  ]
+    { path: "/404", alias: "*", name: "pageNotFound", component: PageNotFound },
+  ],
 });
