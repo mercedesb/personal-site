@@ -1,93 +1,101 @@
 <template>
-  <div class='Markdown' v-html="html">
-  </div>
+  <div class="Markdown" v-html="html"></div>
 </template>
 
 <script>
-var md = require('markdown-it')()
-var markdownItAttrs = require('markdown-it-attrs')
-md.use(markdownItAttrs)
+import markdownItAnchor from "markdown-it-anchor";
+
+var md = require("markdown-it")();
+
+md.use(require("markdown-it-attrs"));
+md.use(markdownItAnchor);
 
 export default {
   props: {
     source: {
       type: String,
-      required: true
+      required: true,
     },
     collapsible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     collapsibleTag: String,
     collapsedByDefault: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data () {
+  data() {
     return {
-      parentSelector: 'Collapsible',
-      childSelector: 'CollapsibleChild',
-      modifierCollapsed: '--collapsed',
-      modifierExpanded: '--expanded'
-    }
+      parentSelector: "Collapsible",
+      childSelector: "CollapsibleChild",
+      modifierCollapsed: "--collapsed",
+      modifierExpanded: "--expanded",
+    };
   },
   computed: {
-    querySelector: function () {
-      return `.Markdown ${this.collapsibleTag}`
+    querySelector: function() {
+      return `.Markdown ${this.collapsibleTag}`;
     },
-    html: function () {
+    html: function() {
       if (this.source) {
-        const html = md.render(this.source)
-        return html
+        const html = md.render(this.source);
+        return html;
       }
-      return ''
-    }
+      return "";
+    },
   },
-  mounted () {
+  mounted() {
     if (this.collapsible) {
-      const collapsible = this.$el.querySelectorAll(this.querySelector)
+      const collapsible = this.$el.querySelectorAll(this.querySelector);
 
       collapsible.forEach((c) => {
-        c.addEventListener('click', this.handleCollapsible)
+        c.addEventListener("click", this.handleCollapsible);
 
         if (this.collapsedByDefault) {
-          this.handleCollapsible({ target: c }, this.modifierCollapsed)
+          this.handleCollapsible({ target: c }, this.modifierCollapsed);
         } else {
-          this.handleCollapsible({ target: c }, this.modifierExpanded)
+          this.handleCollapsible({ target: c }, this.modifierExpanded);
         }
-      })
+      });
     }
   },
   methods: {
-    handleCollapsible (event, modifier) {
-      let el = event.target
+    handleCollapsible(event, modifier) {
+      let el = event.target;
 
-      this.toggleClass(el, this.parentSelector, modifier)
+      this.toggleClass(el, this.parentSelector, modifier);
 
-      let sibling = el.nextElementSibling
+      let sibling = el.nextElementSibling;
       while (sibling) {
         if (sibling.matches(this.querySelector)) {
-          break
+          break;
         }
-        this.toggleClass(sibling, this.childSelector, modifier)
-        sibling = sibling.nextElementSibling
+        this.toggleClass(sibling, this.childSelector, modifier);
+        sibling = sibling.nextElementSibling;
       }
     },
-    toggleClass (el, selector, modifier) {
+    toggleClass(el, selector, modifier) {
       if (!!selector && !!modifier) {
-        el.className = `${el.className} ${selector} ${selector}${modifier}`
+        el.className = `${el.className} ${selector} ${selector}${modifier}`;
       } else if (el.className.indexOf(this.modifierCollapsed) !== -1) {
-        el.className = el.className.replace(this.modifierCollapsed, this.modifierExpanded)
+        el.className = el.className.replace(
+          this.modifierCollapsed,
+          this.modifierExpanded
+        );
       } else if (el.className.indexOf(this.modifierExpanded) !== -1) {
-        el.className = el.className.replace(this.modifierExpanded, this.modifierCollapsed)
+        el.className = el.className.replace(
+          this.modifierExpanded,
+          this.modifierCollapsed
+        );
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss">
-  @import '../assets/styles/variables.scss';
+@import "../assets/styles/variables.scss";
 
 $icon-dimension: 24px;
 
